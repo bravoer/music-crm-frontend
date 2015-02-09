@@ -1,1 +1,35 @@
 @import 'materialize';
+
+.btn {
+    @extend .green;
+}
+
+header {
+
+    .top-nav {
+	padding: 20px 20px 0 0;
+    }
+
+    .side-nav {
+	padding-top: 20px;
+	
+	li, li a {
+	    &:hover, &.active { 
+		@extend .green;
+		@extend .white-text;
+	    }
+	}
+    }
+
+}
+
+header, main, footer {
+    padding-left: $sidenav-width + 20px; 
+}
+
+@media #{$small-and-down} {
+  header, main, footer {
+    padding-left: 20px; 
+  }
+}
+
