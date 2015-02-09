@@ -5,5 +5,6 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
-
+  @resource 'scores', ->
+    
 `export default Router`
