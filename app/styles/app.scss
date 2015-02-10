@@ -2,6 +2,11 @@
 
 .btn {
     @extend .green;
+    @extend .white-text;
+
+    &:hover, &.active { 
+	@extend .white-text;
+    }    
 }
 
 header {
@@ -21,6 +26,18 @@ header {
 	}
     }
 
+}
+
+main {
+    .card {
+	.card-title {
+	    @extend .black-text;
+	}
+
+	.btn {
+	    margin-bottom: 0;
+	}
+    }
 }
 
 header, main, footer {

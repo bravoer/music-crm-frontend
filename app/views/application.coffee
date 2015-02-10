@@ -2,7 +2,8 @@
 
 ApplicationView = Ember.View.extend
   didInsertElement: ->
-    $(".button-collapse").sideNav()
+    $('.button-collapse').sideNav()
     $('.collapsible').collapsible()
-
+    $('select').material_select()
+    
 `export default ApplicationView`
