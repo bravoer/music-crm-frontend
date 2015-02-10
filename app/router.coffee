@@ -5,6 +5,6 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
-  @resource 'scores', ->
+  @resource 'music-scores', ->
     
 `export default Router`
