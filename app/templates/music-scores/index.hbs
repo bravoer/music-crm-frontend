@@ -3,11 +3,7 @@
 <div class="row">
   <div class="col s12 m6 l3">
     <label>Instrument</label>
-    <select>
-      <option value="1">Cornet</option>
-      <option value="2">Euphonium</option>
-      <option value="3">Bas Bb</option>
-    </select>
+    {{view "select" content=instruments optionValuePath="content.value" optionLabelPath="content.label" value=instrument }}      
   </div>
 </div>
 
