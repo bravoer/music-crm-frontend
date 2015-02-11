@@ -5,10 +5,10 @@ MusicScoresIndexController = Ember.ArrayController.extend
   sortProperties: ['title']
   instruments: InstrumentOptions.get('instruments')
   instrument: 'euphonium'
-  activeScores: Ember.computed 'instrument', 'model', ->
-    activeScores = @get('model').filterBy 'status', 'active'
-    activeScores.map (score) =>
+  scoresWithFilteredParts: Ember.computed 'instrument', 'model', ->
+    @get('model').map (score) =>
       parts = score.get('musicParts').filterBy 'instrument', @get 'instrument'
       score.set('filteredMusicParts', parts)
+    .sortBy 'title'
   
 `export default MusicScoresIndexController`
