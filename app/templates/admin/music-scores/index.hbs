@@ -16,14 +16,14 @@
       </thead>
       <tbody>
 	{{#each score in controller}}
-	  <tr>
+	  <tr {{action 'selectScore' score}} class="modal-trigger" href="#music-score-modal">
 	    <td>{{score.title}}</td>
 	    <td>{{score.componist}}</td>
 	    <td>{{score.arranger}}</td>
 	    <td>{{score.genre}}</td>
 	    <td>{{score.duration}}</td>
 	    <td>{{score.musicParts.length}}</td>
-	    <td class="no-padding">
+	    <td class="icons">
 	      <i class="small mdi-editor-mode-edit"></i>
 	      <i class="small mdi-action-delete"></i>
 	    </td>
@@ -31,6 +31,7 @@
 	{{/each}}
       </tbody>
     </table>
+    {{music-score-modal score=selectedScore}}
   </div>
 </div>
 
