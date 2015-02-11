@@ -18,8 +18,42 @@
 
 }
 
+blockquote {
+    border-left-color: color("green", "lighten-3");
+}
+
+.modal-close,
 [data-ember-action] {
   cursor: pointer;
+}
+
+.modal {
+
+    .modal-top-buttons {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	right: 5px;
+    }
+
+    .modal-footer {
+	position: relative;
+	border-top: 1px solid rgba(160,160,160,.2);
+	padding-top: 20px;
+    }
+
+    .modal-audit {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	left: 0;
+	bottom: 0;
+
+	p {
+	    margin: 0;
+	}
+    }
 }
 
 header {
@@ -52,9 +86,14 @@ main {
 	}
     }
 
-    td.no-padding {
+    td.icons {
 	padding-top: 0;
 	padding-bottom: 0;
+
+	a {
+	    color: $off-black;
+	    padding: 0 5px;
+	}
     }
 
     p.note {

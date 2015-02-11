@@ -1,0 +1,42 @@
+<div id="music-score-modal" class="modal modal-fixed-footer">
+  <div class="modal-top-buttons"><i class="small mdi-navigation-close modal-close"></i></div>
+  <div class="modal-content">
+    <h4>{{score.title}}</h4>
+    <h5>{{score.componist}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</h5>
+    <blockquote>{{score.description}}</blockquote>
+    {{music-score-details-note score=score}}
+    <div class="divider"></div>
+    <table class="striped centered">
+      <thead>
+        <tr>
+	  <th>Instrument</th>
+	  <th>Stem</th>
+	  <th>Toonaard</th>
+	  <th>Sleutel</th>
+	  <th></th>
+        </tr>
+      </thead>
+      <tbody>
+	{{#each part in score.musicParts}}
+	  <tr>
+	    <td>{{part.instrument}}</td>
+	    <td>{{part.instrumentPart}}</td>
+	    <td>{{part.key}}</td>
+	    <td>{{part.clef}}</td>
+	    <td class="icons">
+	      <a {{bind-attr href=part.file}} title="Download"><i class="small mdi-file-file-download"></i></a>
+	      <a {{action "deletePart" part}} title="Verwijder"><i class="small mdi-action-delete"></i></a>
+	    </td>
+	  </tr>
+	{{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer right-align">
+    <a class="waves-effect waves-light btn modal-action modal-close">Bewerk</a>
+    <div class="modal-audit">{{audit-note auditable=score}}</div>
+  </div>
+
+</div>
+
+{{yield}}
