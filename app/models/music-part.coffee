@@ -9,6 +9,8 @@ MusicPart = DS.Model.extend
   key: DS.attr 'string'
   clef: DS.attr 'string'
   file: DS.attr 'string'
+  created: DS.attr 'date'
+  modified: DS.attr 'date'
 
   # Relationships
   musicScore: DS.belongsTo('musicScore')

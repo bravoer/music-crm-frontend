@@ -13,6 +13,8 @@ MusicScore = DS.Model.extend
   publisher: DS.attr 'string'
   publicationDate: DS.attr 'date'
   status: DS.attr 'string'
+  created: DS.attr 'date'
+  modified: DS.attr 'date'
 
   # Relationships
   musicParts: DS.hasMany('musicPart', {async: true})
