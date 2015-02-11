@@ -56,6 +56,15 @@ main {
 	padding-top: 0;
 	padding-bottom: 0;
     }
+
+    p.note {
+	@extend .grey-text;
+
+	.note-item {
+	    padding: 0 8px;
+	}
+    }
+
 }
 
 header, main, footer {
