@@ -1,2 +1,37 @@
-Partituren beheren
+<h1>Partituren</h1>
+
+<div class="row">
+  <div class="col s12">
+    <table class="striped">
+      <thead>
+        <tr>
+	  <th>Titel</th>
+	  <th>Componist</th>
+	  <th>Arrangeur</th>
+	  <th>Genre</th>
+	  <th>Duur</th>
+	  <th># Partituren</th>
+	  <th></th>
+        </tr>
+      </thead>
+      <tbody>
+	{{#each score in controller}}
+	  <tr>
+	    <td>{{score.title}}</td>
+	    <td>{{score.componist}}</td>
+	    <td>{{score.arranger}}</td>
+	    <td>{{score.genre}}</td>
+	    <td>{{score.duration}}</td>
+	    <td>{{score.musicParts.length}}</td>
+	    <td class="no-padding">
+	      <i class="small mdi-editor-mode-edit"></i>
+	      <i class="small mdi-action-delete"></i>
+	    </td>
+	  </tr>
+	{{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 {{outlet}}

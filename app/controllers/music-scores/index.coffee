@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
 `import InstrumentOptions from 'client/config/instrument-options'`
 
-MusicScoresIndexController = Ember.Controller.extend
+MusicScoresIndexController = Ember.ArrayController.extend
+  sortProperties: ['title']
   instruments: InstrumentOptions.get('instruments')
   instrument: 'euphonium'
   activeScores: Ember.computed 'instrument', 'model', ->

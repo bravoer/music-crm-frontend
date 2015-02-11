@@ -1,6 +1,7 @@
 @import 'materialize';
 
 .btn {
+
     @extend .green;
     @extend .white-text;
 
@@ -45,6 +46,11 @@ main {
 	.btn {
 	    margin-bottom: 0;
 	}
+    }
+
+    td.no-padding {
+	padding-top: 0;
+	padding-bottom: 0;
     }
 }
 
