@@ -15,10 +15,17 @@
           <span class="card-title">{{score.title}}</span>
 	  <p>{{score.componist}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</p>
 	  <div class="card-action right-align">
-            <a class="btn" href="#">Solo</a>
-            <a class="btn" href="#">Repiano</a>
-            <a class="btn" href='#'>1e</a>
-            <a class="btn" href='#'>2e</a>
+	    {{#each part in score.musicParts}}
+              <a class="btn" href="#">
+		{{#if part.instrumentPart}}
+		  {{part.instrumentPart}}
+		{{else}}
+		  Download
+		{{/if}}
+	      </a>
+	    {{else}}
+	      <a class="btn disabled">Niet beschikbaar</a>
+	    {{/each}}
           </div>
 	</div>
       </div>
