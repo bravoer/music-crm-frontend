@@ -36,7 +36,18 @@
       </ul>
     </li>
     <li>{{#link-to 'musicScores.index'}}Partituren{{/link-to}}</li>
-    <li><a href="#!">Admin</a></li>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+	<li>
+          <div class="collapsible-header">Admin <i class="mdi-navigation-arrow-drop-down right"></i></div>
+          <div class="collapsible-body">
+            <ul>
+              <li>{{#link-to 'admin.musicScores.index'}}Partituren{{/link-to}}</li>
+            </ul>
+          </div>
+	</li>
+      </ul>
+    </li>
   </ul>
 </header>
 <main>

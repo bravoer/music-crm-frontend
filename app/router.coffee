@@ -6,5 +6,7 @@ Router = Ember.Router.extend
 
 Router.map ->
   @resource 'musicScores', ->
-    
+  @route 'admin', ->
+    @resource 'admin.musicScores', { path: '/musicScores' }, ->
+         
 `export default Router`
