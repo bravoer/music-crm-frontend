@@ -18,7 +18,7 @@
 	{{#each score in controller}}
 	  <tr {{action 'selectScore' score}}>
 	    <td class="modal-trigger" href="#music-score-modal">{{score.title}}</td>
-	    <td class="modal-trigger" href="#music-score-modal">{{score.componist}}</td>
+	    <td class="modal-trigger" href="#music-score-modal">{{score.composer}}</td>
 	    <td class="modal-trigger" href="#music-score-modal">{{score.arranger}}</td>
 	    <td class="modal-trigger" href="#music-score-modal">{{t-label value=score.genre}}</td>
 	    <td class="modal-trigger" href="#music-score-modal">{{fmt-duration millis=score.duration}}</td>

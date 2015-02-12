@@ -6,7 +6,7 @@ MusicScore = DS.Model.extend
   type: DS.attr 'string'
   title: DS.attr 'string'
   description: DS.attr 'string'
-  componist: DS.attr 'string'
+  composer: DS.attr 'string'
   arranger: DS.attr 'string'
   duration: DS.attr 'string'
   genre: DS.attr 'string'
