@@ -26,4 +26,5 @@ EnLocale =
   'G-clef': 'Sol-sleutel'
   'F-clef': 'Fa-sleutel'
   'C-clef': 'Ut-sleutel'
+  
 `export default EnLocale`

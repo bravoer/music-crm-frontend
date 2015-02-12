@@ -13,7 +13,8 @@
       <div class="card grey lighten-4">
 	<div class="card-content">
           <span class="card-title">{{score.title}}</span>
-	  <p>{{score.componist}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</p>
+	  <div class="card-subtitle">{{score.componist}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
+	  {{music-score-details-note score=score}}
 	  <div class="card-action right-align">
 	    {{#each part in score.filteredMusicParts}}
               <a class="btn" {{bind-attr href=part.file}} target="_blank">

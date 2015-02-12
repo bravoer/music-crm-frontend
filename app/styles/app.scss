@@ -81,6 +81,13 @@ main {
 	    @extend .black-text;
 	}
 
+	.card-subtitle {
+	    @extend .black-text;
+	    font-size: 18px;
+	    font-weight: 300;
+	    margin-bottom: 8px;
+	}
+
 	.btn {
 	    margin-bottom: 0;
 	}
@@ -101,6 +108,10 @@ main {
 
 	.note-item {
 	    padding: 0 8px;
+	}
+
+	.note-item:first-child {
+	    padding-left: 0;
 	}
     }
 
