@@ -33,7 +33,7 @@
     </table>
   </div>
   <div class="modal-footer right-align">
-    <a class="waves-effect waves-light btn modal-action modal-close">Bewerk</a>
+    {{#link-to 'admin.musicScores.edit' score class="waves-effect waves-light btn modal-action modal-close"}}Bewerk{{/link-to}}
     <div class="modal-audit">{{audit-note auditable=score}}</div>
   </div>
 
