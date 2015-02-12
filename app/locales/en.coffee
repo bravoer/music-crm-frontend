@@ -7,7 +7,7 @@ EnLocale =
   # instruments
   soprano: 'Soprano'
   cornet: 'Cornet'
-  flugel: 'Flugel'
+  flugelhorn: 'Flugel'
   althorn: 'Alto'
   bariton: 'Bariton'
   euphonium: 'Euphonium'

@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col s12 m6 l3">
     <label>Instrument</label>
-    {{view "select" content=instruments optionValuePath="content.value" optionLabelPath="content.label" value=instrument }}      
+    {{t-select options=instruments value=instrument required=true}}
   </div>
 </div>
 

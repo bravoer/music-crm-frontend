@@ -1,21 +1,20 @@
 `import Ember from 'ember'`
 
+instruments = [
+  'soprano'
+  'cornet'
+  'flugelhorn'
+  'althorn'
+  'bariton'
+  'euphonium'
+  'trombone'
+  'bass_bb'
+  'bass_eb'
+  'percussion'
+]
+
 Options = Ember.Object.create
-  instruments: [
-    { label: 'Soprano', value: 'soprano' }
-    { label: 'Cornet', value: 'cornet' }
-    { label: 'Flugel', value: 'flugelhorn' }
-    { label: 'Alto', value: 'althorn' }
-    { label: 'Bariton', value: 'bariton' }
-    { label: 'Euphonium', value: 'euphonium' }
-    { label: 'Trombone', value: 'trombone' }
-    { label: 'Bas Bb', value: 'bass_bb' }
-    { label: 'Bas Eb', value: 'bass_eb' }
-    { label: 'Slagwerk', value: 'percussion' }
-  ]
-  instrumentsOptional: ->
-    [{ label: '', value: '' }].concat @get('instruments')
-  all: ->
-    @get('instruments').concat [{ label: 'Dirigent', value: 'conductor' }]
+  instruments: instruments
+  all: instruments.concat ['conductor']
 
 `export default Options`
