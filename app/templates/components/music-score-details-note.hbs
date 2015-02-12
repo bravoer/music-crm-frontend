@@ -1,5 +1,5 @@
 <p class="note">
-  <span class="note-item">Duur: {{#if score.duration}}{{score.duration}}{{else}}-{{/if}}</span> |
+  <span class="note-item">Duur: {{#if score.duration}}{{fmt-duration millis=score.duration}}{{else}}-{{/if}}</span> |
   <span class="note-item">Genre: {{#if score.genre}}{{t-label value=score.genre}}{{else}}-{{/if}}</span> |
   <span class="note-item">Uitgeverij: {{#if score.publisher}}{{score.publisher}}{{else}}-{{/if}}</span>
 </p>
