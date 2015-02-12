@@ -26,6 +26,7 @@
     "ember-cli-app-version": "0.3.1",
     "ember-cli-coffeescript": "0.8.1",
     "ember-cli-content-security-policy": "0.3.0",
+    "ember-cli-dates": "1.1.0",
     "ember-cli-dependency-checker": "0.0.7",
     "ember-cli-htmlbars": "^0.6.0",
     "ember-cli-i18n": "0.0.5",
