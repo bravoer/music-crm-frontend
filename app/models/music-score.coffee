@@ -11,7 +11,6 @@ MusicScore = DS.Model.extend
   duration: DS.attr 'string'
   genre: DS.attr 'string'
   publisher: DS.attr 'string'
-  publicationDate: DS.attr 'date'
   status: DS.attr 'string'
   created: DS.attr 'date'
   modified: DS.attr 'date'
