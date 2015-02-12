@@ -18,7 +18,7 @@
 	    {{#each part in score.filteredMusicParts}}
               <a class="btn" {{bind-attr href=part.file}} target="_blank">
 		{{#if part.instrumentPart}}
-		  {{part.instrumentPart}}
+		  {{t-label value=part.instrumentPart}}
 		{{else}}
 		  Download
 		{{/if}}

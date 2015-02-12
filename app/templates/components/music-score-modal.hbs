@@ -19,12 +19,12 @@
       <tbody>
 	{{#each part in score.musicParts}}
 	  <tr>
-	    <td>{{part.instrument}}</td>
-	    <td>{{part.instrumentPart}}</td>
+	    <td>{{t-label value=part.instrument}}</td>
+	    <td>{{t-label value=part.instrumentPart}}</td>
 	    <td>{{part.key}}</td>
-	    <td>{{part.clef}}</td>
+	    <td>{{t-label value=part.clef}}</td>
 	    <td class="icons">
-	      <a {{bind-attr href=part.file}} title="Download"><i class="small mdi-file-file-download"></i></a>
+	      <a {{bind-attr href=part.file}} target="_blank" title="Download"><i class="small mdi-file-file-download"></i></a>
 	      <a {{action "deletePart" part}} title="Verwijder"><i class="small mdi-action-delete"></i></a>
 	    </td>
 	  </tr>
