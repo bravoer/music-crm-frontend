@@ -22,6 +22,7 @@ EnLocale =
   '2nd': '2e'
   '3th': '3e'
   repiano: 'Repiano'
+  bas: 'Bas'
   # clefs
   'G-clef': 'Sol-sleutel'
   'F-clef': 'Fa-sleutel'
