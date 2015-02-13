@@ -14,4 +14,11 @@ MusicPartFormModalComponent = Ember.Component.extend
   keys: KeyOptions.get('options')
   key: 'Bb'
 
+  didInsertElement: ->
+    $('.file-field').each ->
+      path_input = $(@).find('input.file-path')
+      $(@).find('input[type="file"]').change ->
+        path_input.val($(@).val())
+        path_input.trigger('change')
+
 `export default MusicPartFormModalComponent`
