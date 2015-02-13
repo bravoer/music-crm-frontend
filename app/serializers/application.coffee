@@ -1,3 +1,9 @@
-`import JsonApiSerializer from 'ember-json-api/json-api-serializer'`
+`import DS from 'ember-data'`
 
-`export default JsonApiSerializer`
+ApplicationSerializer = DS.RESTSerializer;
+
+`export default ApplicationSerializer`
+
+#`import JsonApiSerializer from 'ember-json-api/json-api-serializer'`
+
+#`export default JsonApiSerializer`
