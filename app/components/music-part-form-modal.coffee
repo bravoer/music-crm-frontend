@@ -21,4 +21,8 @@ MusicPartFormModalComponent = Ember.Component.extend
         path_input.val($(@).val())
         path_input.trigger('change')
 
+  actions:
+    save: ->
+      @sendAction('action', @getProperties('instrument', 'instrumentPart', 'clef', 'key'))
+      
 `export default MusicPartFormModalComponent`

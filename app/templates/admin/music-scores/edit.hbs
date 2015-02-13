@@ -34,3 +34,39 @@
     </div>
   </form>
 </div>
+
+<h2 class="green-text">Partituren </h2>
+<span><a class="btn-floating waves-effect waves-light modal-trigger" href="#music-part-form-modal"><i class="mdi-content-add"></i></a></span>
+<div class="row">
+  <table class="striped centered">
+    <thead>
+      <tr>
+	<th>Instrument</th>
+	<th>Stem</th>
+	<th>Toonaard</th>
+	<th>Sleutel</th>
+	<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each part in musicParts}}
+	<tr>
+	  <td>{{t-label value=part.instrument}}</td>
+	  <td>{{t-label value=part.instrumentPart}}</td>
+	  <td>{{part.key}}</td>
+	  <td>{{t-label value=part.clef}}</td>
+	  <td class="icons">
+	    <a {{bind-attr href=part.file}} target="_blank" title="Download"><i class="small mdi-file-file-download"></i></a>
+	    <a {{action "deletePart" part}} title="Verwijder"><i class="small mdi-action-delete"></i></a>
+	  </td>
+	</tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{music-part-form-modal action="saveMusicPart"}}
+</div>
+
+<div class="row">
+  <a class="btn waves-effect waves-light" {{action 'save'}}>Opslaan</a>
+  {{#link-to 'admin.musicScores.index' class="btn waves-effect waves-light"}}Terug{{/link-to}}
+</div>

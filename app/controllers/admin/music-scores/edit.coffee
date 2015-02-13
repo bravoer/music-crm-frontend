@@ -13,5 +13,14 @@ AdminMusicScoresEditController = Ember.ObjectController.extend
         console.log error
         musicScore.rollback()
         toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
+    saveMusicPart: (musicPart) ->
+      part = @store.createRecord('musicPart', musicPart) 
+      @store.find('musicScore', @get('model.id')).then (score) =>
+        part.set 'musicScore', score
+        part.save().then ->
+          toast('Success!', 5000)
+        , ->  
+          toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
+
 
 `export default AdminMusicScoresEditController`
