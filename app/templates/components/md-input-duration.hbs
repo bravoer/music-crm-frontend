@@ -1,0 +1,11 @@
+<div class="row">
+  <label class="active">Duur</label>
+  <div class="input-field col s6">
+    {{input type="number" value=minutes}}
+    <label {{bind-attr class=":pull-right minutes:active"}} >Minuten</label>
+  </div>
+  <div class="input-field col s6">
+    {{input type="number" value=seconds}}
+    <label {{bind-attr class=":pull-right seconds:active"}} >Seconden</label>
+  </div>
+</div>
