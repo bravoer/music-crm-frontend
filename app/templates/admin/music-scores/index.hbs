@@ -1,8 +1,8 @@
-<h1>Partituren</h1>
+<h1 class="green-text">Partituren</h1>
 
 <div class="row">
   <div class="col s12">
-    <table class="striped">
+    <table class="striped hoverable">
       <thead>
         <tr>
 	  <th>Titel</th>
@@ -25,7 +25,7 @@
 	    <td class="modal-trigger" href="#music-score-modal">{{score.musicParts.length}}</td>
 	    <td class="icons">
 	      {{#link-to 'admin.musicScores.edit' score}}<i class="small mdi-editor-mode-edit"></i>{{/link-to}}
-	      <i class="small mdi-action-delete"></i>
+	      <a {{action 'delete'}}><i class="small mdi-action-delete"></i></a>
 	    </td>
 	  </tr>
 	{{/each}}
