@@ -18,6 +18,11 @@ blockquote {
 }
 
 
+.btn-floating {
+    background-color: $primary-color;
+}
+
+
 .warn {
     @extend .red.darken-1;
 }
@@ -43,16 +48,16 @@ blockquote {
 	right: 5px;
     }
 
-    .modal-footer {
+    .modal-non-fixed-footer {
 	position: relative;
 	border-top: 1px solid color("grey", "lighten-2");
-	padding-top: 20px;
+	padding: 20px 20px 0 20px;
     }
 
     .modal-audit {
 	position: absolute;
 	padding: 0;
-	margin: 0;
+	margin: 20px;
 	left: 0;
 	bottom: 0;
 
@@ -152,6 +157,14 @@ p.note {
 }
 
 
+.file-field {
+    
+    input.file-path {
+	margin-left: 150px;
+    }
+}
+
+
 header {
 
     .top-nav {
@@ -159,26 +172,29 @@ header {
     }
 
     .side-nav {
-	padding-top: 20px;
+    	padding-top: 20px;
 	
-	li, li a {
-	    &:hover, &.active { 
-		@extend .grey.lighten-2;
-	    }
-	}
+    	li, li a {
+    	    &:hover, &.active {
+    		@extend .grey.lighten-2;
+    	    }
+    	}
     }
 
 }
 
+nav {
+    height: 0;
+}
 
 header, main, footer {
-    padding-left: $sidenav-width + 20px; 
+    padding-left: 240px; 
 }
 
 
 @media #{$small-and-down} {
   header, main, footer {
-    padding-left: 20px; 
+    padding-left: 0; 
   }
 }
 

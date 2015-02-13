@@ -1,4 +1,4 @@
-<h1>Partituur bewerken</h1>
+<h2 class="green-text">Gegevens</h2>
 
 <div class="row">
   <form class="col s12">
@@ -25,18 +25,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s12 m10">
 	{{#md-input-textarea for="description" value=description}}Description{{/md-input-textarea}}
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12 m2">
-	{{#md-input-duration for="duration" millis=duration}}Duur{{/md-input-duration}}
-      </div>
-    </div>
-    <div class="">
-      <a class="btn waves-effect waves-light" {{action 'save'}}>Opslaan</a>
-      {{#link-to 'admin.musicScores.index' class="btn waves-effect waves-light"}}Terug{{/link-to}}
+	<div class="input-field col s12 m2">
+	  {{#md-input-duration for="duration" millis=duration}}Duur{{/md-input-duration}}
+	</div>
     </div>
   </form>
 </div>
