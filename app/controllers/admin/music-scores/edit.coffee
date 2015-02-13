@@ -21,6 +21,8 @@ AdminMusicScoresEditController = Ember.ObjectController.extend
           toast('Success!', 5000)
         , ->  
           toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
-
+    deleteMusicPart: (musicPart) ->
+      @store.find('musicPart', musicPart.get('id')).then (part) ->
+        part.destroyRecord()
 
 `export default AdminMusicScoresEditController`
