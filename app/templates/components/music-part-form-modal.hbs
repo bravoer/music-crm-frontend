@@ -1,0 +1,28 @@
+<div id="music-part-form-modal" class="modal modal-fixed-footer">
+  <div class="modal-top-buttons"><i class="small mdi-navigation-close modal-close"></i></div>
+  <div class="modal-content">
+    <div class="row">
+      <form class="col s12">
+	<div class="row">
+	  <div class="col s12 m2">
+	    {{#t-select options=instruments value=instrument required=true}}Instrument{{/t-select}}
+	  </div>
+	  <div class="col s12 m2">
+	    {{#t-select options=instrumentParts value=instrumentPart blankLabel="n.v.t."}}Stem{{/t-select}}
+	  </div>
+	  <div class="col s12 m2">
+	    <label>Key</label>
+	    {{view "select" content=keys value=key }}      
+	  </div>
+	  <div class="col s12 m2">
+	    {{#t-select options=clefs value=clef required=true}}Sleutel{{/t-select}}
+	  </div>
+	</div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer right-align">
+    <a class="waves-effect waves-light btn modal-action modal-close" {{action 'save'}}>Opslaan</a>
+  </div>
+</div>
+
