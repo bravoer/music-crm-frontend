@@ -63,10 +63,10 @@
       {{/each}}
     </tbody>
   </table>
-  {{music-part-form-modal action="saveMusicPart"}}
+  {{music-part-form-modal action="addMusicPart"}}
 </div>
 
 <div class="row">
   <a class="btn waves-effect waves-light" {{action 'save'}}>Opslaan</a>
-  {{#link-to 'admin.musicScores.index' class="btn waves-effect waves-light"}}Terug{{/link-to}}
+  <a class="btn waves-effect waves-light" {{action 'cancel'}}>Terug</a>
 </div>
