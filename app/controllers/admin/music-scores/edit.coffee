@@ -4,9 +4,6 @@
 
 AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
   genres: GenreOptions.get('genres')
-
-  addedParts: []
-  deletedParts: []
   
   rollback: (score) ->
     # Rollback the score and new/edited parts
@@ -37,8 +34,6 @@ AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
           musicParts.save().then =>
             @get('deletedParts').forEach (part) =>
               @deleteDocument(part.get('file'))
-            @set 'deletedParts', []
-            @set 'addedParts', []
             @transitionToRoute 'admin.musicScores.index'
           , (error) ->
             boundRollback()
