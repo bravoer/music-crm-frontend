@@ -3,8 +3,9 @@
 `import InstrumentPartOptions from 'client/config/instrument-part-options'`
 `import KeyOptions from 'client/config/key-options'`
 `import ClefOptions from 'client/config/clef-options'`
+`import FileManager from 'client/mixins/file-manager'`
 
-MusicPartFormModalComponent = Ember.Component.extend
+MusicPartFormModalComponent = Ember.Component.extend FileManager,
   init: ->
     @_super()
     @resetDefaults()
@@ -37,26 +38,9 @@ MusicPartFormModalComponent = Ember.Component.extend
         
     Ember.$('.file-field input[type="file"]').change (event) -> handleFileChange(event)
 
-  uploadFile: ->
-    formData = new FormData()
-    formData.append 'file', @get('uploadedFile')
-
-    file = null
-    request = Ember.$.ajax
-      url: "/bravoer/documents"
-      type: "POST"
-      data: formData
-      processData: false # tell jQuery not to process the data
-      contentType: false # tell jQuery not to set contentType      
-
-    request.then (data) ->
-      data.document.href
-    , (error, status, request) ->
-      null 
-
   actions:
     save: ->
-      @uploadFile().then (file) =>
+      @createDocument(@get('uploadedFile')).then (file) =>
         @set 'file', file
         @sendAction('action', @getProperties('instrument', 'instrumentPart', 'clef', 'key', 'file'))
         @resetDefaults()
