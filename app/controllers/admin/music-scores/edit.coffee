@@ -7,27 +7,35 @@ AdminMusicScoresEditController = Ember.ObjectController.extend
   addedParts: []
   deletedParts: []
   
-  rollback: (score, addedParts, deletedParts) ->
-    partsToRestore = deletedParts
-    score.get('musicParts').then (musicParts) ->
-      musicParts.forEach (part) -> part.rollback()
+  rollback: (score) ->
+    # Rollback the score and new/edited parts
+    score = @get('model')
+    score.get('musicParts').then (parts) ->
+      parts.forEach (part) -> part.rollback() if part
     score.rollback()
-    addedParts.forEach (part) ->
-      partsToRestore.removeObject part # newly added parts should not be restored
+
+    # Delete uploaded files of new parts
+    @get('addedParts').forEach (part) =>
+      @get('deletedParts').removeObject part # parts that have been added and removed in the same cycle should not be restored
       url = part.get('file')
       id = url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf("."))
       Ember.$.ajax
         url: "/bravoer/documents/#{id}"
         type: "DELETE"
-    partsToRestore.forEach (part) -> part.rollback()
+
+    # Restore deleted parts
+    @get('deletedParts').forEach (part) -> part.rollback()
+    @set 'deletedParts', []
+    @set 'addedParts', []
+
     
   actions:
     cancel: ->
-      @rollback(@get('model'), @get('addedParts'), @get('deletedParts'))
-      @set 'deletedParts', []
-      @set 'addedParts', []
+      boundRollback = Ember.run.bind(@, @rollback)
+      boundRollback()
       @transitionToRoute 'admin.musicScores.index'
     save: ->
+      boundRollback = Ember.run.bind(@, @rollback)
       @get('model').save().then (score) =>
         score.get('musicParts').then (musicParts) =>
           musicParts.save().then =>
@@ -41,14 +49,10 @@ AdminMusicScoresEditController = Ember.ObjectController.extend
             @set 'addedParts', []
             @transitionToRoute 'admin.musicScores.index'
           , (error) ->
-            @rollback(score, @get('addedParts'), @get('deletedParts'))
-            @set 'deletedParts', []
-            @set 'addedParts', []
+            boundRollback()
             toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
       , (error) ->
-        @rollback(@get('model'), @get('addedParts'), @get('deletedParts'))
-        @set 'deletedParts', []
-        @set 'addedParts', []
+        boundRollback()
         toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
     addMusicPart: (musicPart) ->
       if musicPart.file
