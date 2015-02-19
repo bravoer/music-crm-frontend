@@ -5,14 +5,21 @@
 `import ClefOptions from 'client/config/clef-options'`
 
 MusicPartFormModalComponent = Ember.Component.extend
+  init: ->
+    @_super()
+    @resetDefaults()
+
+  resetDefaults: ->
+    @set 'instrument', 'cornet'
+    @set 'instrumentPart', '1st'
+    @set 'clef', 'G-clef'
+    @set 'key', 'Bb'
+    @set 'file', null
+
   instruments: InstrumentOptions.get('all')
-  instrument: 'cornet'
   instrumentParts: InstrumentPartOptions.get('options')
-  instrumentPart: '1st'
   clefs: ClefOptions.get('options')
-  clef: 'G-clef'
   keys: KeyOptions.get('options')
-  key: 'Bb'
 
   handleFileChange: (event) ->
     file = event.target.files[0] ? null
@@ -52,5 +59,6 @@ MusicPartFormModalComponent = Ember.Component.extend
       @uploadFile().then (file) =>
         @set 'file', file
         @sendAction('action', @getProperties('instrument', 'instrumentPart', 'clef', 'key', 'file'))
-      
+        @resetDefaults()
+          
 `export default MusicPartFormModalComponent`
