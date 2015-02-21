@@ -40,9 +40,14 @@ MusicPartFormModalComponent = Ember.Component.extend FileManager,
 
   actions:
     save: ->
-      @createDocument(@get('uploadedFile')).then (file) =>
-        @set 'file', file
-        @sendAction('action', @getProperties('instrument', 'instrumentPart', 'clef', 'key', 'file'))
-        @resetDefaults()
-          
+      if @get('uploadedFile')
+        @createDocument(@get('uploadedFile')).then (file) =>
+          @set 'file', file
+          @sendAction('action', @getProperties('instrument', 'instrumentPart', 'clef', 'key', 'file'))
+          @resetDefaults()
+        , (error) ->
+        toast('Partituur opladen is mislukt', 5000, 'warn')
+      else
+        toast('Geen bestand geselecteerd', 5000, 'warn')
+        
 `export default MusicPartFormModalComponent`

@@ -38,31 +38,35 @@
 <h2 class="green-text">Partituren </h2>
 <span><a class="btn-floating waves-effect waves-light modal-trigger" href="#music-part-form-modal"><i class="mdi-content-add"></i></a></span>
 <div class="row">
-  <table class="striped centered">
-    <thead>
-      <tr>
-	<th>Instrument</th>
-	<th>Stem</th>
-	<th>Toonaard</th>
-	<th>Sleutel</th>
-	<th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each part in musicParts}}
+  {{#if musicParts}}
+    <table class="striped centered">
+      <thead>
 	<tr>
-	  <td>{{t-label value=part.instrument}}</td>
-	  <td>{{t-label value=part.instrumentPart}}</td>
-	  <td>{{part.key}}</td>
-	  <td>{{t-label value=part.clef}}</td>
-	  <td class="icons">
-	    <a {{bind-attr href=part.file}} target="_blank" title="Download"><i class="small mdi-file-file-download"></i></a>
-	    <a {{action "deleteMusicPart" part}} title="Verwijder"><i class="small mdi-action-delete"></i></a>
-	  </td>
+	  <th>Instrument</th>
+	  <th>Stem</th>
+	  <th>Toonaard</th>
+	  <th>Sleutel</th>
+	  <th></th>
 	</tr>
-      {{/each}}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+	{{#each part in musicParts}}
+	  <tr>
+	    <td>{{t-label value=part.instrument}}</td>
+	    <td>{{t-label value=part.instrumentPart}}</td>
+	    <td>{{part.key}}</td>
+	    <td>{{t-label value=part.clef}}</td>
+	    <td class="icons">
+	      <a {{bind-attr href=part.file}} target="_blank" title="Download"><i class="small mdi-file-file-download"></i></a>
+	      <a {{action "deleteMusicPart" part}} title="Verwijder"><i class="small mdi-action-delete"></i></a>
+	    </td>
+	  </tr>
+	{{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <div><p>Nog geen partituren opgeladen</p></div>
+  {{/if}}
   {{music-part-form-modal action="addMusicPart"}}
 </div>
 

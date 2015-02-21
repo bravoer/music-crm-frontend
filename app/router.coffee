@@ -8,6 +8,7 @@ Router.map ->
   @resource 'musicScores', ->
   @route 'admin', ->
     @resource 'admin.musicScores', { path: '/musicScores' }, ->
+      @route 'add'
       @route 'edit', path: '/:id/edit'
 
 `export default Router`

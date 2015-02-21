@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
 
-AdminMusicScoresIndexView = Ember.View.extend
+AdminMusicScoresEditView = Ember.View.extend
   didInsertElement: ->
     $('select').material_select()
     $('.modal-trigger').leanModal()        
     
-`export default AdminMusicScoresIndexView`
+`export default AdminMusicScoresEditView`
