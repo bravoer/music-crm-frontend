@@ -38,7 +38,6 @@
 <h2 class="green-text">Partituren </h2>
 <span><a class="btn-floating waves-effect waves-light modal-trigger" href="#music-part-form-modal"><i class="mdi-content-add"></i></a></span>
 <div class="row">
-  {{#if musicParts}}
     <table class="striped centered">
       <thead>
 	<tr>
@@ -61,12 +60,11 @@
 	      <a {{action "deleteMusicPart" part}} title="Verwijder"><i class="small mdi-action-delete"></i></a>
 	    </td>
 	  </tr>
+	{{else}}
+	  <tr class="no-rows"><td colspan="5">Nog geen partituren opgeladen</td></tr>
 	{{/each}}
       </tbody>
     </table>
-  {{else}}
-    <div><p>Nog geen partituren opgeladen</p></div>
-  {{/if}}
   {{music-part-form-modal action="addMusicPart"}}
 </div>
 

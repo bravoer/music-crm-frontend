@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-	{{#each score in controller}}
+	{{#each score in activeScores}}
 	  <tr {{action 'selectScore' score}}>
 	    <td><form><p {{action 'toggleStatus' score}}>{{input type='checkbox' checked=score.isArchived}}<label/></p></form></td>
 	    <td class="modal-trigger" href="#music-score-modal">{{score.title}}</td>
@@ -30,11 +30,53 @@
 	      <a {{action 'delete'}}><i class="small mdi-action-delete"></i></a>
 	    </td>
 	  </tr>
+	{{else}}
+	  <tr class="no-rows"><td colspan="8">Geen partituren</td></tr>
 	{{/each}}
       </tbody>
     </table>
-    {{music-score-modal score=selectedScore}}
   </div>
 </div>
+
+<h2 class="green-text">Archief</h2>
+<div class="row">
+  <div class="col s12">
+    <table class="striped hoverable">
+      <thead>
+        <tr>
+	  <th>In archief</th>
+	  <th>Titel</th>
+	  <th>Componist</th>
+	  <th>Arrangeur</th>
+	  <th>Genre</th>
+	  <th>Duur</th>
+	  <th># Partituren</th>
+	  <th></th>
+        </tr>
+      </thead>
+      <tbody>
+	{{#each score in archivedScores}}
+	  <tr {{action 'selectScore' score}}>
+	    <td><form><p {{action 'toggleStatus' score}}>{{input type='checkbox' checked=score.isArchived}}<label/></p></form></td>
+	    <td class="modal-trigger" href="#music-score-modal">{{score.title}}</td>
+	    <td class="modal-trigger" href="#music-score-modal">{{score.composer}}</td>
+	    <td class="modal-trigger" href="#music-score-modal">{{score.arranger}}</td>
+	    <td class="modal-trigger" href="#music-score-modal">{{t-label value=score.genre}}</td>
+	    <td class="modal-trigger" href="#music-score-modal">{{fmt-duration millis=score.duration}}</td>
+	    <td class="modal-trigger" href="#music-score-modal">{{score.musicParts.length}}</td>
+	    <td class="icons">
+	      {{#link-to 'admin.musicScores.edit' score}}<i class="small mdi-editor-mode-edit"></i>{{/link-to}}
+	      <a {{action 'delete'}}><i class="small mdi-action-delete"></i></a>
+	    </td>
+	  </tr>
+	{{else}}
+	  <tr class="no-rows"><td colspan="8">Geen partituren</td></tr>
+	{{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{music-score-modal score=selectedScore}}
 
 {{outlet}}

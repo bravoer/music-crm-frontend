@@ -107,6 +107,18 @@ table {
 	tbody tr:hover {
 	    @extend .orange.lighten-4;
 	}
+
+	tbody tr.no-rows {
+	    @extend .white;
+
+	    td {
+		text-align: center;
+	    }
+	    &:hover {
+		@extend .white;
+	    }
+	}
+
     }
 
     td.icons {
