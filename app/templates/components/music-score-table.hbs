@@ -25,7 +25,7 @@
 	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.musicParts.length}}</td>
 	    <td class="icons">
 	      {{#link-to 'admin.musicScores.edit' score}}<i class="small mdi-editor-mode-edit"></i>{{/link-to}}
-	      <a {{action 'delete'}}><i class="small mdi-action-delete"></i></a>
+	      <a {{action 'delete' score}}><i class="small mdi-action-delete"></i></a>
 	    </td>
 	  </tr>
 	{{else}}

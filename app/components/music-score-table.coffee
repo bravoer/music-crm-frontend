@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import FileManager from 'client/mixins/file-manager'`
 
-MusicScoreTableComponent = Ember.Component.extend
+MusicScoreTableComponent = Ember.Component.extend FileManager,
   didInsertElement: ->
     $('.modal-trigger').leanModal()
 
@@ -16,5 +17,13 @@ MusicScoreTableComponent = Ember.Component.extend
       else
         score.set('status', 'active')
       score.save()
-
+    delete: (score) ->
+      score.get('musicParts').then (parts) =>
+        Ember.RSVP.Promise.all( parts.map (part) =>
+          if part
+            @deleteDocument(part.get('file'))
+            part.destroyRecord()
+        ).then ->
+          score.destroyRecord()
+          
 `export default MusicScoreTableComponent`
