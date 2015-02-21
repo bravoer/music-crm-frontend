@@ -1,4 +1,4 @@
-<div id="music-score-modal" class="modal">
+<div class="modal music-score-modal">
   <div class="modal-top-buttons"><i class="small mdi-navigation-close modal-close"></i></div>
   <div class="modal-content">
     <h4>{{score.title}}</h4>
@@ -25,7 +25,6 @@
 	    <td>{{t-label value=part.clef}}</td>
 	    <td class="icons">
 	      <a {{bind-attr href=part.file}} target="_blank" title="Download"><i class="small mdi-file-file-download"></i></a>
-	      <a {{action "deletePart" part}} title="Verwijder"><i class="small mdi-action-delete"></i></a>
 	    </td>
 	  </tr>
 	{{/each}}

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col s12">
+    <table class="striped hoverable">
+      <thead>
+        <tr>
+	  <th>In archief</th>
+	  <th>Titel</th>
+	  <th>Componist</th>
+	  <th>Arrangeur</th>
+	  <th>Genre</th>
+	  <th>Duur</th>
+	  <th># Partituren</th>
+	  <th></th>
+        </tr>
+      </thead>
+      <tbody>
+	{{#each score in scores}}
+	  <tr {{action 'selectScore' score}}>
+	    <td><form><p>{{input type='checkbox' checked=score.isArchived}}<label {{action 'toggleStatus' score}}/></p></form></td>
+	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.title}}</td>
+	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.composer}}</td>
+	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.arranger}}</td>
+	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{t-label value=score.genre}}</td>
+	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{fmt-duration millis=score.duration}}</td>
+	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.musicParts.length}}</td>
+	    <td class="icons">
+	      {{#link-to 'admin.musicScores.edit' score}}<i class="small mdi-editor-mode-edit"></i>{{/link-to}}
+	      <a {{action 'delete'}}><i class="small mdi-action-delete"></i></a>
+	    </td>
+	  </tr>
+	{{else}}
+	  <tr class="no-rows"><td colspan="8">Geen partituren</td></tr>
+	{{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{music-score-modal score=selectedScore}}
+
+{{yield}}
