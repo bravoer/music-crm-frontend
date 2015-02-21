@@ -5,6 +5,7 @@
     <table class="striped hoverable">
       <thead>
         <tr>
+	  <th>In archief</th>
 	  <th>Titel</th>
 	  <th>Componist</th>
 	  <th>Arrangeur</th>
@@ -17,6 +18,7 @@
       <tbody>
 	{{#each score in controller}}
 	  <tr {{action 'selectScore' score}}>
+	    <td><form><p {{action 'toggleStatus' score}}>{{input type='checkbox' checked=score.isArchived}}<label/></p></form></td>
 	    <td class="modal-trigger" href="#music-score-modal">{{score.title}}</td>
 	    <td class="modal-trigger" href="#music-score-modal">{{score.composer}}</td>
 	    <td class="modal-trigger" href="#music-score-modal">{{score.arranger}}</td>
