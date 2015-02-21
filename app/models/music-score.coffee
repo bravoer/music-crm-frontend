@@ -19,9 +19,13 @@ MusicScore = DS.Model.extend
   musicParts: DS.hasMany('musicPart', {async: true})
 
   # Properties
-  isActive: Ember.computed 'status', ->
+  isActive: Ember.computed 'status', (key, value, prevValue) ->
+    if arguments.length > 1
+      if value and value != prevValue then @set('status', 'active') else @set('status', 'archived')
     @get('status') == 'active'
-  isArchived: Ember.computed 'status', ->
+  isArchived: Ember.computed 'status', (key, value, prevValue) ->
+    if arguments.length > 1
+      if value and value != prevValue then @set('status', 'active') else @set('status', 'archived')
     @get('status') == 'archived'
 
 MusicScore.reopenClass
@@ -51,7 +55,7 @@ MusicScore.reopenClass
       "duration": null,
       "genre": null,
       "publisher": "IMP",
-      "status": "active",
+      "status": "archived",
       "musicParts": ["5"]
     }
   ]
