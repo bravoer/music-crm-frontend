@@ -46,7 +46,8 @@ MusicPartFormModalComponent = Ember.Component.extend FileManager,
           @sendAction('action', @getProperties('instrument', 'instrumentPart', 'clef', 'key', 'file'))
           @resetDefaults()
         , (error) ->
-        toast('Partituur opladen is mislukt', 5000, 'warn')
+          toast('Partituur opladen is mislukt', 5000, 'warn')
+        
       else
         toast('Geen bestand geselecteerd', 5000, 'warn')
         
