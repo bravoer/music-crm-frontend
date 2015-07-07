@@ -5,6 +5,8 @@ $error-color: #e53935; /* red darken-1 */
 $input-focus-color: $primary-color;
 $link-color: $off-black;
 
+@import 'components/color';
+@import 'components/variables';
 @import 'materialize';
 
 .modal-close,
