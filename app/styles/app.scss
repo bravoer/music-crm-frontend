@@ -8,6 +8,7 @@ $link-color: $off-black;
 @import 'components/color';
 @import 'components/variables';
 @import 'materialize';
+@import 'ember-cli-materialize';
 
 .modal-close,
 [data-ember-action] {

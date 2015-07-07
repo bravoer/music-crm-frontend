@@ -1,0 +1,86 @@
+{
+  "musicScores": [
+    {
+      "id": "1",
+      "href": "http://data.bravoer.be/musicScores/1",
+      "title": "Ad Optimum",
+      "description": "Peter Graham's Ad Optimum – To the Highest, written for the Star Lake Music Camp in 1999, is the composer's response to the memory of witnessing James Williams conducting Eric Leidzen's None Other Name at Star Lake in 1985. A setting of three hymn tunes, Laudes Domini, The Name of Jesus and Richmond, it provides a rousing finale to an interesting piece that is characteristic of this composer's style.",
+      "composer": "Peter Graham",
+      "arranger": "Luc Vertommen",
+      "duration": "125000",
+      "genre": "classic",
+      "publisher": "Band Press",
+      "status": "active",
+      "created": "2001-10-26T21:32:52+02:00",
+      "modified": "2015-02-12T07:32:52+02:00",
+      "links": {
+        "musicParts": ["1", "2", "3", "4"]
+      }
+    },
+    {
+      "id": "2",
+      "href": "http://data.bravoer.be/musicScores/2",
+      "title": "Malaguena",
+      "description": "A 'Malaguena' is a woman living in the Spanish port city of Malaga, on the southern coast of Spain, in the province of Andalucia. Lecuona's Malaguena was originally the sixth movement of his 'Suite Andalucia' and has been performed in many versions by artists such as Connie Francis, Stan Kenton's Orchestra and Bill Haley and the Comets as well as featuring as part of the Broadway musical entitled 'Blast!'. ",
+      "composer": "Ernesto Lecuona",
+      "arranger": null,
+      "duration": null,
+      "genre": null,
+      "publisher": "IMP",
+      "status": "active",
+      "links": {
+        "musicParts": ["5"]
+      }
+    }
+  ],
+  "linked": {
+    "musicParts": [
+      {
+        "id": "1",
+        "instrument": "cornet",
+        "instrumentPart": "solo",
+        "key": "Bb",
+        "clef": "G-clef",
+        "file": "http://metzlerbrass.com/resources/solo+cornet+catalog+image.jpg",
+	"created": "2004-10-26T21:32:52+02:00",
+        "musicScore": "1"
+      },
+      {
+        "id": "2",
+        "instrument": "cornet",
+        "instrumentPart": "1st",
+        "key": "Bb",
+        "clef": "G-clef",
+        "file": "http://www.trevorjonesltd.co.uk/images/YamahaXenoBbCornetYCR-8335.jpg",
+        "musicScore": "1"
+      },
+      {
+        "id": "3",
+        "instrument": "cornet",
+        "instrumentPart": "repiano",
+        "key": "Bb",
+        "clef": "G-clef",
+        "file": "http://thumbs1.ebaystatic.com/d/l225/pict/221546042880_1.jpg",
+        "musicScore": "1"
+      },
+      {
+        "id": "4",
+        "instrument": "euphonium",
+        "instrumentPart": null,
+        "key": "Bb",
+        "clef": "F-clef",
+        "file": "http://s434355904.initial-website.co.uk/s/cc_images/teaserbox_38723786.jpg?t=1416594732",
+        "musicScore": "1"
+      },
+      {
+        "id": "5",
+        "instrument": "cornet",
+        "instrumentPart": "repiano",
+        "key": "Bb",
+        "clef": "G-clef",
+        "file": "http://thumbs1.ebaystatic.com/d/l225/pict/221546042880_1.jpg",
+        "musicScore": "2"
+      }
+    ]
+  }
+}
