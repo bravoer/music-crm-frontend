@@ -8,7 +8,7 @@ var app = new EmberApp({
   }
 });
 
-//app.import(app.bowerDirectory + '/moment/locale/nl.js');
+app.import(app.bowerDirectory + '/moment/locale/nl.js');
 
 // Use `app.import` to add additional libraries to the generated
 // output files.

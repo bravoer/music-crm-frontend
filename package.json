@@ -40,6 +40,7 @@
     "ember-json-api": "^0.5.0",
     "ember-key-responder": "0.2.1",
     "ember-modal-dialog": "0.7.5",
+    "ember-moment": "1.2.1",
     "ember-new-computed": "1.0.2",
     "ember-radio-button": "1.0.4",
     "express": "^4.8.5",
