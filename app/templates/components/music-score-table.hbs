@@ -17,12 +17,12 @@
 	{{#each score in scores}}
 	  <tr {{action 'selectScore' score}}>
 	    <td><form><p>{{input type='checkbox' checked=score.isArchived}}<label {{action 'toggleStatus' score}}/></p></form></td>
-	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.title}}</td>
-	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.composer}}</td>
-	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.arranger}}</td>
-	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{t-label value=score.genre}}</td>
-	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{fmt-duration millis=score.duration}}</td>
-	    <td class="modal-trigger" {{bind-attr href=musicScoreModalId}}>{{score.musicParts.length}}</td>
+	    <td class="modal-trigger" href={{musicScoreModalId}}>{{score.title}}</td>
+	    <td class="modal-trigger" href={{musicScoreModalId}}>{{score.composer}}</td>
+	    <td class="modal-trigger" href={{musicScoreModalId}}>{{score.arranger}}</td>
+	    <td class="modal-trigger" href={{musicScoreModalId}}>{{t-label value=score.genre}}</td>
+	    <td class="modal-trigger" href={{musicScoreModalId}}>{{fmt-duration millis=score.duration}}</td>
+	    <td class="modal-trigger" href={{musicScoreModalId}}>{{score.musicParts.length}}</td>
 	    <td class="icons">
 	      {{#link-to 'admin.musicScores.edit' score}}<i class="small mdi-editor-mode-edit"></i>{{/link-to}}
 	      <a {{action 'delete' score}}><i class="small mdi-action-delete"></i></a>
