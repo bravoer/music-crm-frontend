@@ -2,7 +2,6 @@
 
 MusicScoresIndexRoute = Ember.Route.extend
   model: ->
-#    @store.find 'music-score', { status: 'active' }
-     @store.find 'music-score'
+     @store.find 'scores'
 
 `export default MusicScoresIndexRoute`

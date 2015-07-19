@@ -5,9 +5,9 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
-  @resource 'musicScores', ->
+  @resource 'scores', ->
   @route 'admin', ->
-    @resource 'admin.musicScores', { path: '/musicScores' }, ->
+    @resource 'admin.scores', { path: '/scores' }, ->
       @route 'add'
       @route 'edit', path: '/:id/edit'
 

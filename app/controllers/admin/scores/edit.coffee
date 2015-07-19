@@ -8,7 +8,7 @@ AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
   rollback: (score) ->
     # Rollback the score and new/edited parts
     score = @get('model')
-    score.get('musicParts').then (parts) ->
+    score.get('parts').then (parts) ->
       parts.forEach (part) -> part.rollback() if part
     score.rollback()
 
@@ -26,15 +26,15 @@ AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
     cancel: ->
       boundRollback = Ember.run.bind(@, @rollback)
       boundRollback()
-      @transitionToRoute 'admin.musicScores.index'
+      @transitionToRoute 'admin.scores.index'
     save: ->
       boundRollback = Ember.run.bind(@, @rollback)
       @get('model').save().then (score) =>
-        score.get('musicParts').then (musicParts) =>
-          musicParts.save().then =>
+        score.get('parts').then (parts) =>
+          parts.save().then =>
             @get('deletedParts').forEach (part) =>
               @deleteDocument(part.get('file'))
-            @transitionToRoute 'admin.musicScores.index'
+            @transitionToRoute 'admin.scores.index'
           , (error) ->
             boundRollback()
             toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
@@ -44,7 +44,7 @@ AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
     addMusicPart: (musicPart) ->
       if musicPart.file
         part = @store.createRecord('musicPart', musicPart)
-        part.set 'musicScore', @get('model')
+        part.set 'score', @get('model')
         @get('addedParts').pushObject(part)
       else
         toast('Partituur opladen is mislukt', 5000, 'warn')

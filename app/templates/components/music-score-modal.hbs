@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-	{{#each score.musicParts as |part|}}
+	{{#each score.parts as |part|}}
 	  <tr>
 	    <td>{{t-label value=part.instrument}}</td>
 	    <td>{{t-label value=part.instrumentPart}}</td>
@@ -32,7 +32,7 @@
     </table>
   </div>
   <div class="modal-non-fixed-footer right-align">
-    {{#link-to 'admin.musicScores.edit' score class="waves-effect waves-light btn modal-action modal-close"}}Bewerk{{/link-to}}
+    {{#link-to 'admin.scores.edit' score class="waves-effect waves-light btn modal-action modal-close"}}Bewerk{{/link-to}}
     <div class="modal-audit">{{audit-note auditable=score}}</div>
   </div>
 

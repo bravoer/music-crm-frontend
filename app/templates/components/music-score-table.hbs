@@ -22,9 +22,9 @@
 	    <td class="modal-trigger" href={{musicScoreModalId}}>{{score.arranger}}</td>
 	    <td class="modal-trigger" href={{musicScoreModalId}}>{{t-label value=score.genre}}</td>
 	    <td class="modal-trigger" href={{musicScoreModalId}}>{{fmt-duration millis=score.duration}}</td>
-	    <td class="modal-trigger" href={{musicScoreModalId}}>{{score.musicParts.length}}</td>
+	    <td class="modal-trigger" href={{musicScoreModalId}}>{{score.parts.length}}</td>
 	    <td class="icons">
-	      {{#link-to 'admin.musicScores.edit' score}}<i class="small mdi-editor-mode-edit"></i>{{/link-to}}
+	      {{#link-to 'admin.scores.edit' score}}<i class="small mdi-editor-mode-edit"></i>{{/link-to}}
 	      <a {{action 'delete' score}}><i class="small mdi-action-delete"></i></a>
 	    </td>
 	  </tr>
