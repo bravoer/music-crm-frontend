@@ -7,7 +7,7 @@
 </div>
 
 <div class="row">
-  {{#each score in scoresWithFilteredParts}}
+  {{#each scoresWithFilteredParts as |score|}}
     <div class="col s12 m6">
       <div class="card grey lighten-4">
 	<div class="card-content">
@@ -15,7 +15,7 @@
 	  <div class="card-subtitle">{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
 	  {{music-score-details-note score=score}}
 	  <div class="card-action right-align">
-	    {{#each part in score.filteredMusicParts}}
+	    {{#each score.filteredMusicParts as |part|}}
               <a class="btn" href={{part.file}} target="_blank">
 		{{#if part.instrumentPart}}
 		  {{t-label value=part.instrumentPart}}

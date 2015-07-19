@@ -49,7 +49,7 @@
 	</tr>
       </thead>
       <tbody>
-	{{#each part in musicParts}}
+	{{#each musicParts as |part|}}
 	  <tr>
 	    <td>{{t-label value=part.instrument}}</td>
 	    <td>{{t-label value=part.instrumentPart}}</td>
