@@ -1,0 +1,24 @@
+{{#md-table content=scores class="striped" as |row|}}
+  {{#md-table-col class="center" row=row key="isArchived" header="In archief"}}
+    {{md-check checked=row.isArchived action='toggleStatus'}}
+  {{/md-table-col}}
+  {{#md-table-col row=row key="title" header="Titel"}}
+    {{row.title}}
+  {{/md-table-col}}
+  {{#md-table-col row=row key="composer" header="Componist"}}
+    {{row.composer}}
+  {{/md-table-col}}
+  {{#md-table-col row=row key="arranger" header="Arrangeur"}}
+    {{row.arranger}}
+  {{/md-table-col}}
+  {{#md-table-col row=row key="genre" header="Genre"}}
+    {{t-label value=row.genre}}
+  {{/md-table-col}}
+  {{#md-table-col row=row key="duration" header="Duur"}}
+    {{fmt-duration millis=row.duration}}
+  {{/md-table-col}}
+  {{#md-table-col row=row key="parts.length" header="# Partituren"}}
+    {{row.parts.length}}
+  {{/md-table-col}}
+  <td><i class="mdi-navigation-more-vert tiny"></i></td>
+{{/md-table}}

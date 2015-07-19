@@ -21,11 +21,6 @@ blockquote {
 }
 
 
-.btn-floating {
-    background-color: $primary-color;
-}
-
-
 .warn {
     @extend .red.darken-1;
 }
@@ -102,44 +97,6 @@ form {
 	margin-bottom: 0;
     }
 }
-
-
-table {
-
-    &.hoverable {
-	tbody tr:hover {
-	    @extend .orange.lighten-4;
-	}
-
-	tbody tr.no-rows {
-	    @extend .white;
-
-	    td {
-		text-align: center;
-	    }
-	    &:hover {
-		@extend .white;
-	    }
-	}
-
-    }
-
-    td.icons {
-	padding-top: 0;
-	padding-bottom: 0;
-
-	a {
-	    color: $off-black;
-	    padding: 0 5px;
-
-	    &:hover {
-		color: $primary-color;
-	    }
-	}
-    }
-
-}
-
 
 p.note {
     @extend .grey-text;

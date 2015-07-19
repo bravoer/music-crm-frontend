@@ -1,11 +1,11 @@
-<h1 class="green-text">Partituren</h1>
+<h1 class="">Muziekstukken</h1>
 
-<span>{{#link-to 'admin.scores.add' class="btn-floating waves-effect waves-light"}}<i class="mdi-content-add"></i>{{/link-to}}</span>
+{{#link-to 'admin.scores.add' class="waves-effect waves-light btn"}}<i class="mdi-content-add left"></i> Nieuw{{/link-to}}
 
-{{music-score-table scores=activeScores}}
+{{scores-table scores=activeScores}}
 
-<h2 class="green-text">Archief</h2>
+<h2 class="">Archief</h2>
 
-{{music-score-table scores=archivedScores}}
+{{scores-table scores=archivedScores}}
 
 {{outlet}}
