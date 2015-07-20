@@ -1,4 +1,4 @@
-<h2 class="green-text">Gegevens</h2>
+<h2>Gegevens</h2>
 
 <div class="row">
   <form class="col s12">
@@ -29,13 +29,13 @@
 	{{md-textarea value=model.description label="Beschrijving"}}
       </div>
 	<div class="input-field col s12 m2">
-	  {{#md-input-duration for="duration" millis=duration}}Duur{{/md-input-duration}}
+	  {{#md-input-duration for="duration" millis=model.duration}}Duur{{/md-input-duration}}
 	</div>
     </div>
   </form>
 </div>
 
-<h2 class="green-text">Partituren </h2>
+<h2>Partituren </h2>
 <span><a class="btn-floating waves-effect waves-light modal-trigger" href="#music-part-form-modal"><i class="mdi-content-add"></i></a></span>
 <div class="row">
     <table class="striped centered">
@@ -49,7 +49,7 @@
 	</tr>
       </thead>
       <tbody>
-	{{#each parts as |part|}}
+	{{#each model.scoreParts as |part|}}
 	  <tr>
 	    <td>{{t-label value=part.instrument}}</td>
 	    <td>{{t-label value=part.instrumentPart}}</td>
