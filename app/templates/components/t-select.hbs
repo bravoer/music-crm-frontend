@@ -1,2 +1,5 @@
-<label>{{yield}}</label>
-{{view "select" content=content optionValuePath="content.value" optionLabelPath="content.label" value=value }}      
+{{md-select content=content
+  value=value
+  label=label
+  optionLabelPath="content.label"
+  optionValuePath="content.value"}}

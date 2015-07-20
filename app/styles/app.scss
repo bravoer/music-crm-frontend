@@ -35,13 +35,6 @@ blockquote {
     }
 }
 
-form {
-    p {
-	margin-top: 0;
-	margin-left: 5px;
-    }
-}
-
 
 .modal {
 
@@ -108,21 +101,6 @@ p.note {
     .note-item:first-child {
 	padding-left: 0;
     }
-}
-
-
-.switch {
-
-    label {
-	input[type=checkbox]:first-child:checked + .lever {
-	    @extend .orange.lighten-3;
-
-	    &:after {
-		@extend .orange.darken-2;
-	    }
-	}
-    }
-
 }
 
 

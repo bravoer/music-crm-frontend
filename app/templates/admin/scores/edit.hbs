@@ -4,29 +4,29 @@
   <form class="col s12">
     <div class="row">
       <div class="input-field col s12 m8">
-	{{#md-input-text for="title" value=title}}Titel{{/md-input-text}}
+	{{md-input value=model.title label="Titel"}}
       </div>
       <div class="col s12 m2">
-	{{#t-select options=genres value=genre}}Genre{{/t-select}}
+	{{t-select options=genres value=model.genre label="Genre"}}
       </div>
       <div class="input-field col s12 m2">
-	{{md-switch off="Gearchiveerd" on="In gebruik" value=isActive}}
+	{{md-check name="In archief" checked=model.isArchived}}
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m4">
-	{{#md-input-text for="composer" value=composer}}Componist{{/md-input-text}}
+	{{md-input value=model.composer label="Componist"}}
       </div>
       <div class="input-field col s12 m4">
-	{{#md-input-text for="arranger" value=arranger}}Arrangeur{{/md-input-text}}
+        {{md-input value=model.arranger label="Arrangeur"}}
       </div>
       <div class="input-field col s12 m4">
-	{{#md-input-text for="publisher" value=publisher}}Uitgeverij{{/md-input-text}}
+        {{md-input value=model.publisher label="Publisher"}}
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m10">
-	{{#md-input-textarea for="description" value=description}}Beschrijving{{/md-input-textarea}}
+	{{md-textarea value=model.description label="Beschrijving"}}
       </div>
 	<div class="input-field col s12 m2">
 	  {{#md-input-duration for="duration" millis=duration}}Duur{{/md-input-duration}}
