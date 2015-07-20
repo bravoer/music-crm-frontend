@@ -17,4 +17,13 @@ Score = Resource.extend
 
   parts: hasMany('score-parts')
 
+  isActive: Ember.computed 'status', (key, value, prevValue) ->
+    if arguments.length > 1
+      if value and value != prevValue then @set('status', 'active') else @set('status', 'archived')
+    @get('status') == 'active'
+  isArchived: Ember.computed 'status', (key, value, prevValue) ->
+    if arguments.length > 1
+      if value and value != prevValue then @set('status', 'active') else @set('status', 'archived')
+    @get('status') == 'archived'
+
 `export default Score`

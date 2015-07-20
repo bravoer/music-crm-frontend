@@ -7,5 +7,5 @@ AdminMusicScoresEditRoute = Ember.Route.extend
     @_super(controller, model)
     controller.set 'addedParts', []
     controller.set 'deletedParts', []
-
+      
 `export default AdminMusicScoresEditRoute`

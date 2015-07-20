@@ -2,7 +2,7 @@
 `import GenreOptions from 'client/config/genre-options'`
 `import FileManager from 'client/mixins/file-manager'`
 
-AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
+AdminScoresEditController = Ember.Controller.extend FileManager,
   genres: GenreOptions.get('genres')
   
   rollback: (score) ->
@@ -24,23 +24,12 @@ AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
     
   actions:
     cancel: ->
-      boundRollback = Ember.run.bind(@, @rollback)
-      boundRollback()
+      @send('resetModel')
       @transitionToRoute 'admin.scores.index'
     save: ->
-      boundRollback = Ember.run.bind(@, @rollback)
-      @get('model').save().then (score) =>
-        score.get('parts').then (parts) =>
-          parts.save().then =>
-            @get('deletedParts').forEach (part) =>
-              @deleteDocument(part.get('file'))
-            @transitionToRoute 'admin.scores.index'
-          , (error) ->
-            boundRollback()
-            toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
-      , (error) ->
-        boundRollback()
-        toast('Oeps... er is iets foutgelopen bij het opslaan!', 5000, 'warn')
+      @store.createResource('scores', @get('model')).then () =>
+        @send('resetModel')
+        @transitionToRoute 'admin.scores.index'
     addMusicPart: (musicPart) ->
       if musicPart.file
         part = @store.createRecord('musicPart', musicPart)
@@ -53,4 +42,4 @@ AdminMusicScoresEditController = Ember.ObjectController.extend FileManager,
         @get('deletedParts').pushObject(part)
         part.deleteRecord()
 
-`export default AdminMusicScoresEditController`
+`export default AdminScoresEditController`
