@@ -1,6 +1,6 @@
 `import { test, moduleForModel } from 'ember-qunit'`
 
-moduleForModel 'score-part', {
+moduleForModel 'part', {
   # Specify the other units that are required for this test.
 
 }

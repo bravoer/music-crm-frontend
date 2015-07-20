@@ -2,9 +2,9 @@
 `import Resource from 'ember-jsonapi-resources/models/resource'`
 `import { attr, hasOne, hasMany } from 'ember-jsonapi-resources/models/resource'`
 
-ScorePart = Resource.extend
-  type: 'score-parts'
-  service: Ember.inject.service('score-parts')
+Part = Resource.extend
+  type: 'parts'
+  service: Ember.inject.service('parts')
 
   instrument: attr()
   instrumentPart: attr()
@@ -14,4 +14,4 @@ ScorePart = Resource.extend
 
   score: hasOne('score')
 
-`export default ScorePart`
+`export default Part`

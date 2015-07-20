@@ -1,9 +1,9 @@
 import ApplicationAdapter from 'ember-jsonapi-resources/adapters/application';
 
 export default ApplicationAdapter.extend({
-  type: 'score-part',
+  type: 'part',
 
-  url: /*config.APP.API_PATH + */ '/score-parts',
+  url: /*config.APP.API_PATH + */ '/parts',
 
   /*fetchUrl: function(url) {
     const proxy = config.APP.API_HOST_PROXY;

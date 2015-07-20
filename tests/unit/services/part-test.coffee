@@ -1,6 +1,6 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor 'service:score-part', {
+moduleFor 'service:part', {
   # Specify the other units that are required for this test.
   # needs: ['service:foo']
 }

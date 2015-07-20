@@ -1,8 +1,8 @@
 `import { test, moduleForModel } from 'ember-qunit'`
 
-moduleForModel 'serializer:score-part',
+moduleForModel 'serializer:part',
   # Specify the other units that are required for this test.
-  needs: ['serializer:score-part']
+  needs: ['serializer:part']
 
 # Replace this with your real tests.
 test 'it serializes records', (assert) ->

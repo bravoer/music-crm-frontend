@@ -1,4 +1,4 @@
-import Adapter from '../adapters/score-part';
+import Adapter from '../adapters/part';
 import ServiceCache from 'ember-jsonapi-resources/mixins/service-cache';
 
 Adapter.reopenClass({ isServiceFactory: true });

@@ -1,11 +1,11 @@
 `import Ember from 'ember'`
-`import { initialize } from '../../../initializers/score-part'`
+`import { initialize } from '../../../initializers/part'`
 `import { module, test } from 'qunit'`
 
 container = null
 application = null
 
-module 'ScorePartInitializer',
+module 'PartInitializer',
   beforeEach: ->
     Ember.run ->
       application = Ember.Application.create()

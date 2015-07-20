@@ -1,6 +1,6 @@
 `import { moduleFor, test } from 'ember-qunit'`
 
-moduleFor 'adapter:score-part', 'ScorePartAdapter', {
+moduleFor 'adapter:part', 'PartAdapter', {
   # Specify the other units that are required for this test.
   # needs: ['serializer:foo']
 }
