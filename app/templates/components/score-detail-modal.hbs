@@ -4,7 +4,7 @@
       <h4>{{score.title}}</h4>
       <h5>{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</h5>
       <blockquote>{{#if score.description}}{{score.description}}{{else}}Geen beschrijving{{/if}}</blockquote>
-      {{music-score-details-note score=score}}
+      {{score-detail-note score=score}}
     </div>
     <div class="modal-footer">
       <a {{action 'close'}} class="modal-action modal-close waves-effect btn-flat">Annuleer</a>
