@@ -1,39 +1,4 @@
-<h2>Gegevens</h2>
-
-<div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s12 m8">
-	{{md-input value=model.title label="Titel"}}
-      </div>
-      <div class="col s12 m2">
-	{{t-select options=genres value=model.genre label="Genre"}}
-      </div>
-      <div class="input-field col s12 m2">
-	{{md-check name="In archief" checked=model.isArchived}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12 m4">
-	{{md-input value=model.composer label="Componist"}}
-      </div>
-      <div class="input-field col s12 m4">
-        {{md-input value=model.arranger label="Arrangeur"}}
-      </div>
-      <div class="input-field col s12 m4">
-        {{md-input value=model.publisher label="Publisher"}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12 m10">
-	{{md-textarea value=model.description label="Beschrijving"}}
-      </div>
-	<div class="input-field col s12 m2">
-	  {{#md-input-duration for="duration" millis=model.duration}}Duur{{/md-input-duration}}
-	</div>
-    </div>
-  </form>
-</div>
+{{edit-score score=model save="save" cancel="cancel"}}
 
 <h2>Partituren </h2>
 <span><a class="btn-floating waves-effect waves-light modal-trigger" href="#music-part-form-modal"><i class="mdi-content-add"></i></a></span>
@@ -70,7 +35,3 @@
   {{music-part-form-modal action="addMusicPart"}}
 </div>
 
-<div class="row">
-  <a class="btn waves-effect waves-light" {{action 'save'}}>Opslaan</a>
-  <a class="btn waves-effect waves-light" {{action 'cancel'}}>Annuleer</a>
-</div>

@@ -15,7 +15,7 @@ Score = Resource.extend
   publisher: attr()
   status: attr()
 
-  parts: hasMany('score-parts')
+  parts: hasMany('parts')
 
   isActive: Ember.computed 'status', (key, value, prevValue) ->
     if arguments.length > 1
