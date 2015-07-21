@@ -1,5 +1,8 @@
 `import Ember from 'ember'`
 
+###
+# Component to render millis as 'hh:mm:ss'
+###
 FmtDurationComponent = Ember.Component.extend
   tagName: 'span'
   seconds: Ember.computed 'millis', ->

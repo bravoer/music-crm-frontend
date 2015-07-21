@@ -1,5 +1,8 @@
 `import Ember from 'ember'`
 
+###
+# Component to render the translation of a value
+###
 TLabelComponent = Ember.Component.extend
   tagName: 'span'
   label: Ember.computed 'value', ->
