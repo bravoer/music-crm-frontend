@@ -35,7 +35,18 @@
   </form>
 </div>
 
+{{#unless scoreBuffer.isNew}}
+  <h4>Bestanden</h4>
+  <ul>
+    {{#each scoreBuffer.parts as |part|}}
+      <li>{{part.file}}</li>
+    {{/each}}
+  </ul>
+  {{#file-picker fileLoaded='addPart' preview=false}}
+    Sleep een bestand of klik om een bestand op te laden.
+  {{/file-picker}}
+{{/unless}}
 <div class="row">
-  <a class="btn waves-effect waves-light" {{action 'save'}}>Opslaan</a>
-  <a class="btn waves-effect waves-light" {{action 'cancel'}}>Annuleer</a>
+  {{#md-btn action='save'}}Opslaan{{/md-btn}}
+  {{#md-btn action='cancel'}}Annuleer{{/md-btn}}
 </div>
