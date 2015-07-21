@@ -1,3 +1,6 @@
+{{#unless scores}}
+  <p>Geen muziekstukken</p>
+{{/unless}}
 {{#md-table content=scores class="striped" as |row|}}
   {{#md-table-col class="center" row=row key="isArchived" header="In archief"}}
     {{md-check checked=row.isArchived action='toggleStatus'}}
@@ -20,5 +23,6 @@
   {{#md-table-col row=row key="parts.length" header="# Partituren"}}
     {{row.parts.length}}
   {{/md-table-col}}
-  <td><i class="mdi-navigation-more-vert tiny"></i></td>
+  <td>{{#link-to 'admin.scores.edit' row}}<i class="material-icons">edit mode</i>{{/link-to}}</td>
+  <td><i class="material-icons" {{action 'delete' row}}>delete</i></td>
 {{/md-table}}

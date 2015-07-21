@@ -2,10 +2,10 @@
 
 {{#link-to 'admin.scores.add' class="waves-effect waves-light btn"}}<i class="mdi-content-add left"></i> Nieuw{{/link-to}}
 
-{{scores-table scores=activeScores}}
+{{scores-table scores=activeScores delete='deleteScore'}}
 
 <h2 class="">Archief</h2>
 
-{{scores-table scores=archivedScores}}
+{{scores-table scores=archivedScores delete='deleteScore'}}
 
 {{outlet}}
