@@ -1,8 +1,7 @@
 $off-black: #444;
-$primary-color: #ff9800; /* orange base */
-$secondary-color: #4caf50; /* green base */
+$primary-color:  #4caf50; /* green base */
+$secondary-color: #ff9800; /* orange base */
 $error-color: #e53935; /* red darken-1 */
-$input-focus-color: $primary-color;
 $link-color: $off-black;
 
 @import 'components/color';
@@ -72,6 +71,17 @@ blockquote {
     }
 }
 
+.file-field {
+    
+    input.file-path {
+	margin-left: 150px;
+    }
+}
+
+
+
+/** Note of iems. E.g. " foo | bar | baz " */
+
 p.note {
     @extend .grey-text;
 
@@ -84,46 +94,7 @@ p.note {
     }
 }
 
-
-.dropdown-content {
-
-    li { 
-	& > a, & > span {
-	    color: $off-black;
-	}
-    }
-}
-
-
-.file-field {
-    
-    input.file-path {
-	margin-left: 150px;
-    }
-}
-
-
-header {
-
-    .top-nav {
-	padding: 20px 20px 0 0;
-    }
-
-    .side-nav {
-    	padding-top: 20px;
-	
-    	li, li a {
-    	    &:hover, &.active {
-    		@extend .grey.lighten-2;
-    	    }
-    	}
-    }
-
-}
-
-nav {
-    height: 0;
-}
+/** Fixed SideNav  -- http://materializecss.com/side-nav.html */
 
 header, main, footer {
     padding-left: 240px; 
