@@ -1,11 +1,17 @@
 `import Ember from 'ember'`
 
-AdminMusicScoresEditRoute = Ember.Route.extend
+AdminScoresEditRoute = Ember.Route.extend
   model: (params) ->
-    @store.find 'music-score', params.id
-  setupController: (controller, model) ->
-    @_super(controller, model)
-    controller.set 'addedParts', []
-    controller.set 'deletedParts', []
-      
-`export default AdminMusicScoresEditRoute`
+    @store.find 'scores', params.id
+
+  actions:
+    cancel: ->
+      @transitionTo 'admin.scores.index'
+    save: ->
+      if @get('model.changedAttributes')
+        @store.updateResource('scores', @get('model')).then () =>
+          @transitionTo 'admin.scores.index'
+      else
+        @transitionTo 'admin.scores.index'
+          
+`export default AdminScoresEditRoute`
