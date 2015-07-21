@@ -1,6 +1,6 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 
-moduleForComponent 'music-score-details-note', 'MusicScoreDetailsNoteComponent', {
+moduleForComponent 'score-detail-note', 'ScoreDetailNoteComponent', {
   # specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
 }
