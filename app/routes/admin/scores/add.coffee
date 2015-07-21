@@ -5,18 +5,19 @@ AdminScoresAddRoute = Ember.Route.extend
     @container.lookup('model:scores').create
       isNew: true
       attributes: { status: 'active' }
+      
+  _resetModel: ->
+    score = @container.lookup('model:scores').create
+      isNew: true
+      attributes: { status: 'active' }
+    @get('controller').set('model', score)
 
   actions:
-    _resetModel: ->
-      score = @container.lookup('model:scores').create
-        isNew: true
-        attributes: { status: 'active' }
-      @get('controller').set('model', score)
     cancel: ->
       @_resetModel()
       @transitionTo 'admin.scores.index'
     save: ->
-      @store.createResource('scores', @get('model')).then () =>
+      @store.createResource('scores', @get('controller.model')).then () =>
         @_resetModel()
         @transitionTo 'admin.scores.index'
 

@@ -8,10 +8,6 @@ AdminScoresEditRoute = Ember.Route.extend
     cancel: ->
       @transitionTo 'admin.scores.index'
     save: ->
-      if @get('model.changedAttributes')
-        @store.updateResource('scores', @get('model')).then () =>
-          @transitionTo 'admin.scores.index'
-      else
-        @transitionTo 'admin.scores.index'
+      @transitionTo 'admin.scores.index'
           
 `export default AdminScoresEditRoute`
