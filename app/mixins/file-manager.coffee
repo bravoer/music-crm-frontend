@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 FileManagerMixin = Ember.Mixin.create
-  createDocument: (file) ->
+  createFile: (file) ->
     formData = new FormData()
     formData.append 'file', file
 
@@ -13,12 +13,12 @@ FileManagerMixin = Ember.Mixin.create
       contentType: false # tell jQuery not to set contentType      
 
     request.then (data) ->
-      data.file.href
+      data.data.links.self
     , (error, status, request) ->
       null
     
-  deleteDocument: (url) ->
-    id = url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf("."))
+  deleteFile: (url) ->
+    id = url.substring(url.lastIndexOf("/") + 1)
     Ember.$.ajax
       url: "/files/#{id}"
       type: "DELETE"

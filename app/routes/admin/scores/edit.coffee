@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import FileManager from 'client/mixins/file-manager'`
 
-AdminScoresEditRoute = Ember.Route.extend
+AdminScoresEditRoute = Ember.Route.extend FileManager, 
   model: (params) ->
     @store.find 'scores', params.id
 
@@ -11,12 +12,13 @@ AdminScoresEditRoute = Ember.Route.extend
       @transitionTo 'admin.scores.index'
     addPart: (file) ->
       console.log "Add part: " + file.name
-      part = @container.lookup('model:parts').create
-        attributes: { file: file.name }
-      @store.createResource('parts', part).then (resource) =>
-        score = @get('controller.model')
-        resource.addRelationship('score', score.id)       
-        @store.patchRelationship('parts', resource, 'score').then () =>
-          @get('controller.model.parts').addObject(resource)
+      @createFile(file).then (url) =>
+        part = @container.lookup('model:parts').create
+          attributes: { file: url }
+        @store.createResource('parts', part).then (resource) =>
+          score = @get('controller.model')
+          resource.addRelationship('score', score.id)       
+          @store.patchRelationship('parts', resource, 'score').then () =>
+            @get('controller.model.parts').addObject(resource)
 
 `export default AdminScoresEditRoute`
