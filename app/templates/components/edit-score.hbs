@@ -35,18 +35,22 @@
   </form>
 </div>
 
-{{#unless scoreBuffer.isNew}}
-  <h4>Bestanden</h4>
-  <ul>
-    {{#each scoreBuffer.parts as |part|}}
-      <li>{{part.file}}</li>
-    {{/each}}
-  </ul>
-  {{#file-picker fileLoaded='addPart' preview=false}}
-    Sleep een bestand of klik om een bestand op te laden.
-  {{/file-picker}}
-{{/unless}}
 <div class="row">
   {{#md-btn action='save'}}Opslaan{{/md-btn}}
   {{#md-btn action='cancel'}}Annuleer{{/md-btn}}
 </div>
+
+{{#unless scoreBuffer.isNew}}
+  <h3>Partituren</h3>
+    {{#each scoreBuffer.parts as |part|}}
+      <a href="{{part.file}}/download" target="_blank" title="Download">
+	<div class="attachment grey lighten-3 grey-text valign-wrapper center-align">
+	  <i class="material-icons small right delete" {{action 'deletePart' part}}>clear</i>
+	  <i class="material-icons large valign">attach_file</i>
+	</div>
+      </a>
+    {{/each}}
+  {{#file-picker fileLoaded='addPart' preview=false}}
+    Sleep een bestand of klik om een bestand op te laden.
+  {{/file-picker}}
+{{/unless}}

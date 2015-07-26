@@ -17,5 +17,7 @@ EditScoreComponent = Ember.Component.extend
       @sendAction('cancel')
     addPart: (file) ->
       @sendAction('addPart', file)
+    deletePart: (part) ->
+      @sendAction('deletePart', part)
       
 `export default EditScoreComponent`
