@@ -22,6 +22,7 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
             @get('controller.model.parts').addObject(resource)
     deletePart: (part) ->
       console.log "Remove part: " + part.id
+      @deleteFile(part.get('file'))
       part.removeRelationship('score', @get('controller.model.id'))
       @store.patchRelationship('parts', part, 'score').then () =>
         @get('controller.model.parts').removeObject(part)
