@@ -78,6 +78,31 @@ blockquote {
     }
 }
 
+/** Attachment list */
+.attachment {
+    padding: 20px;
+    display: inline-block;
+
+    .delete {
+	position: relative;
+	top: -15px; /* 5px less than .attachment padding */
+	right: -15px; /* 5px less than .attachment padding */
+    }
+}
+
+/** File picker */
+.file-picker {
+    min-height: 150px;
+    border: 2px dashed color("grey", "base");
+    padding: 50px !important;
+    margin: 5px 0;
+    cursor: pointer;
+
+    .message {
+	font-weight: 400;
+	margin: 20px 0; 
+    }
+}
 
 
 /** Note of iems. E.g. " foo | bar | baz " */
