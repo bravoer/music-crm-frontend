@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
-MusicScoresIndexRoute = Ember.Route.extend
+ScoresIndexRoute = Ember.Route.extend
   model: ->
      @store.find 'scores'
 
-`export default MusicScoresIndexRoute`
+`export default ScoresIndexRoute`

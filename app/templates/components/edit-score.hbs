@@ -42,6 +42,12 @@
 
 {{#unless scoreBuffer.isNew}}
   <h3>Partituren</h3>
+  <div class="row">
+    {{#file-picker fileLoaded='addPart' preview=false class="col s12 m6 grey lighten-3 grey-text"}}
+      <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
+    {{/file-picker}}
+  </div>
+  <div class="row">
     {{#each scoreBuffer.parts as |part|}}
       <a href="{{part.file}}/download" target="_blank" title="Download">
 	<div class="attachment grey lighten-3 grey-text valign-wrapper center-align">
@@ -50,7 +56,5 @@
 	</div>
       </a>
     {{/each}}
-  {{#file-picker fileLoaded='addPart' preview=false class="col s12 m6 grey lighten-3 grey-text"}}
-    <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
-  {{/file-picker}}
+  </div>
 {{/unless}}
