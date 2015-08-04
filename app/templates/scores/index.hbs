@@ -12,9 +12,9 @@
 	  {{score-detail-note score=score}}
 	  {{#if score.parts}}
 	    {{#md-collection content=score.parts as |part|}}
-	      <div class='collection-item'>
-		{{part.file}}
-	      </div>
+	      <a href={{part.file}} target="_blank" class='collection-item'>
+		{{part.name}}
+	      </a>
 	    {{/md-collection}}
 	  {{else}}
 	    <a class="btn disabled">Geen partituren beschikbaar</a>

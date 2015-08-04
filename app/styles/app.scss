@@ -83,10 +83,14 @@ blockquote {
     padding: 20px;
     display: inline-block;
 
-    .delete {
+    .icons {
 	position: relative;
 	top: -15px; /* 5px less than .attachment padding */
 	right: -15px; /* 5px less than .attachment padding */
+
+	.right {
+	    margin-left: 0; /* overwrite margin of .right class */
+	}
     }
 }
 
@@ -105,7 +109,7 @@ blockquote {
 }
 
 
-/** Note of iems. E.g. " foo | bar | baz " */
+/** Note of items. E.g. " foo | bar | baz " */
 
 p.note {
     @extend .grey-text;

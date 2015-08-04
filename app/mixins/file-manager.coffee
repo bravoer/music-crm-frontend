@@ -13,7 +13,7 @@ FileManagerMixin = Ember.Mixin.create
       contentType: false # tell jQuery not to set contentType      
 
     request.then (data) ->
-      data.data.links.self
+      data
     , (error, status, request) ->
       null
     

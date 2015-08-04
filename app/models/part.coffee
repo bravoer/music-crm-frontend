@@ -6,6 +6,7 @@ Part = Resource.extend
   type: 'parts'
   service: Ember.inject.service('parts')
 
+  name: attr()
   instrument: attr()
   instrumentPart: attr()
   key: attr()

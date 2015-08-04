@@ -11,17 +11,15 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
     save: ->
       @transitionTo 'admin.scores.index'
     addPart: (file) ->
-      console.log "Add part: " + file.name
-      @createFile(file).then (url) =>
+      @createFile(file).then (response) =>
         part = @container.lookup('model:parts').create
-          attributes: { file: url }
+          attributes: { file: response.links.self, name: file.name }
         @store.createResource('parts', part).then (resource) =>
           score = @get('controller.model')
           resource.addRelationship('score', score.id)       
           @store.patchRelationship('parts', resource, 'score').then () =>
             @get('controller.model.parts').addObject(resource)
     deletePart: (part) ->
-      console.log "Remove part: " + part.id
       @deleteFile(part.get('file'))
       part.removeRelationship('score', @get('controller.model.id'))
       @store.patchRelationship('parts', part, 'score').then () =>
