@@ -1,4 +1,4 @@
-import ApplicationAdapter from 'ember-jsonapi-resources/adapters/application';
+import ApplicationAdapter from './base';
 
 export default ApplicationAdapter.extend({
   type: 'part',

@@ -8,8 +8,6 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
   actions:
     cancel: ->
       @transitionTo 'admin.scores.index'
-    save: ->
-      @transitionTo 'admin.scores.index'
     addPart: (file) ->
       @createFile(file).then (response) =>
         part = @container.lookup('model:parts').create

@@ -5,16 +5,7 @@
 EditScoreComponent = Ember.Component.extend
   genres: GenreOptions.get('genres')
 
-  scoreBuffer: Ember.computed 'score', -> 
-    BufferedProxy.create { content: @get('score') }
-
   actions:
-    save: ->
-      @get('scoreBuffer').applyChanges()
-      @sendAction('save')
-    cancel: ->
-      @get('scoreBuffer').discardChanges()
-      @sendAction('cancel')
     addPart: (file) ->
       @sendAction('addPart', file)
     deletePart: (part) ->

@@ -4,32 +4,32 @@
   <form class="col s12">
     <div class="row">
       <div class="input-field col s12 m8">
-	{{md-input value=scoreBuffer.title label="Titel"}}
+	{{md-input value=score.title label="Titel"}}
       </div>
       <div class="col s12 m2">
-	{{t-select options=genres value=scoreBuffer.genre label="Genre"}}
+	{{t-select options=genres value=score.genre label="Genre"}}
       </div>
       <div class="input-field col s12 m2">
-	{{md-check name="In archief" checked=scoreBuffer.isArchived}}
+	{{md-check name="In archief" checked=score.isArchived}}
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m4">
-	{{md-input value=scoreBuffer.composer label="Componist"}}
+	{{md-input value=score.composer label="Componist"}}
       </div>
       <div class="input-field col s12 m4">
-        {{md-input value=scoreBuffer.arranger label="Arrangeur"}}
+        {{md-input value=score.arranger label="Arrangeur"}}
       </div>
       <div class="input-field col s12 m4">
-        {{md-input value=scoreBuffer.publisher label="Publisher"}}
+        {{md-input value=score.publisher label="Publisher"}}
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m10">
-	{{md-textarea value=scoreBuffer.description label="Beschrijving"}}
+	{{md-textarea value=score.description label="Beschrijving"}}
       </div>
 	<div class="input-field col s12 m2">
-	  {{#md-input-duration for="duration" millis=scoreBuffer.duration}}Duur{{/md-input-duration}}
+	  {{#md-input-duration for="duration" millis=score.duration}}Duur{{/md-input-duration}}
 	</div>
     </div>
   </form>
@@ -40,7 +40,7 @@
   {{#md-btn action='cancel'}}Annuleer{{/md-btn}}
 </div>
 
-{{#unless scoreBuffer.isNew}}
+{{#unless score.isNew}}
   <h3>Partituren</h3>
   <div class="row">
     {{#file-picker fileLoaded='addPart' preview=false class="col s12 m6 grey lighten-3 grey-text"}}
