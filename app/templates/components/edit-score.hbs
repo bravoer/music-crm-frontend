@@ -1,63 +1,26 @@
-<h2>Gegevens</h2>
+{{score-form score=score}}
 
+<h3>Partituren</h3>
 <div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s12 m8">
-	{{md-input value=score.title label="Titel"}}
+  {{#file-picker fileLoaded='addPart' preview=false class="col s12 m6 grey lighten-3 grey-text"}}
+    <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
+  {{/file-picker}}
+</div>
+<div class="row">
+  {{#each score.parts as |part|}}
+    <div class="attachment grey lighten-3 grey-text valign-wrapper center-align">
+      <div class="icons">
+	<i class="material-icons small right" {{action 'deletePart' part}}>clear</i>
       </div>
-      <div class="col s12 m2">
-	{{t-select options=genres value=score.genre label="Genre"}}
-      </div>
-      <div class="input-field col s12 m2">
-	{{md-check name="In archief" checked=score.isArchived}}
-      </div>
+      <a href="{{part.file}}/download" target="_blank" title="Download">
+	<i class="material-icons large valign">attach_file</i>
+      </a>
+      <p>{{part.name}}</p>
     </div>
-    <div class="row">
-      <div class="input-field col s12 m4">
-	{{md-input value=score.composer label="Componist"}}
-      </div>
-      <div class="input-field col s12 m4">
-        {{md-input value=score.arranger label="Arrangeur"}}
-      </div>
-      <div class="input-field col s12 m4">
-        {{md-input value=score.publisher label="Publisher"}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12 m10">
-	{{md-textarea value=score.description label="Beschrijving"}}
-      </div>
-	<div class="input-field col s12 m2">
-	  {{#md-input-duration for="duration" millis=score.duration}}Duur{{/md-input-duration}}
-	</div>
-    </div>
-  </form>
+  {{/each}}
 </div>
 
 <div class="row">
-  {{#md-btn action='save'}}Opslaan{{/md-btn}}
-  {{#md-btn action='cancel'}}Annuleer{{/md-btn}}
+  {{#md-btn action='cancel'}}Klaar{{/md-btn}}
 </div>
 
-{{#unless score.isNew}}
-  <h3>Partituren</h3>
-  <div class="row">
-    {{#file-picker fileLoaded='addPart' preview=false class="col s12 m6 grey lighten-3 grey-text"}}
-      <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
-    {{/file-picker}}
-  </div>
-  <div class="row">
-    {{#each score.parts as |part|}}
-	<div class="attachment grey lighten-3 grey-text valign-wrapper center-align">
-	  <div class="icons">
-	    <i class="material-icons small right" {{action 'deletePart' part}}>clear</i>
-	  </div>
-	  <a href="{{part.file}}/download" target="_blank" title="Download">
-	    <i class="material-icons large valign">attach_file</i>
-	  </a>
-	  <p>{{part.name}}</p>
-	</div>
-    {{/each}}
-  </div>
-{{/unless}}
