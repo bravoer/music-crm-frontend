@@ -20,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
+    "buffered-save": "git+ssh://git@git.semte.ch:9922/mu-semtech/jsonapi-resources-buffered-save.git#5ffa0e64c74feda2078091045757063fd2c07d75",
     "ember-cli": "0.2.7",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-babel": "^5.0.0",
