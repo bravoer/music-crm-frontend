@@ -17,12 +17,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      API_HOST: '/',
-      API_HOST_PROXY: 'http://localhost:8080/',
-      API_PATH: '',
     },
     contentSecurityPolicy: {
-      'connect-src': "'self' localhost:8080"
+      'connect-src': "'self' localhost"
+    },
+    sassOptions: {
+      includePaths: ['bower_components/materialize/sass']
     }
   };
 
