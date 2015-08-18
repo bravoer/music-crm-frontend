@@ -54,20 +54,10 @@ blockquote {
 
 .card {
 
-    .card-title {
-	@extend .black-text;
-    }
-
     .card-subtitle {
-	@extend .black-text;
 	font-size: 18px;
 	font-weight: 300;
 	margin-bottom: 8px;
-    }
-
-    .btn {
-	@extend .white-text;
-	margin-bottom: 0;
     }
 }
 
