@@ -2,15 +2,26 @@
 `import Base from 'simple-auth/authenticators/base'`
 
 MuSemtechAuthenticator = Base.extend
-  store: Ember.inject.service 'store'
   restore: (data) ->
     Ember.RSVP.reject()
   authenticate: (options) ->
-    session = @container.lookup('model:sessions').create
-      isNew: true
-      attributes: { nickname: 'john_doe', password: 'secret' }
-    @get('store').createResource('sessions', session)
+    Ember.$.ajax
+      url: '/sessions'
+      type: 'POST'
+      dataType: 'json'
+      headers:
+        'Content-Type': 'application/vnd.api+json'
+      data: JSON.stringify
+        data:
+          type: 'sessions'
+          attributes:
+            nickname: options['nickname']
+            password: options['password']
   invalidate: (session) ->
-    @store.deleteResource('sessions', session)
+    Ember.$.ajax
+      url: 'sessions/current'
+      type: 'DELETE'
+      headers:
+        'Content-Type': 'application/vnd.api+json'
     
 `export default MuSemtechAuthenticator`
