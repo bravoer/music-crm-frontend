@@ -5,11 +5,12 @@ Router = Ember.Router.extend
   location: config.locationType
 
 Router.map ->
-  @resource 'scores', ->
-  @route 'admin', ->
-    @resource 'admin.scores', { path: '/scores' }, ->
-      @route 'add'
-      @route 'edit', path: '/:id/edit'
   @route 'login'
+  @resource 'main', { path: '/' }, ->
+    @resource 'scores', ->
+    @route 'admin', ->
+      @resource 'admin.scores', { path: '/scores' }, ->
+        @route 'add'
+        @route 'edit', path: '/:id/edit'
 
 `export default Router`

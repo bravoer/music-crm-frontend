@@ -1,22 +1,22 @@
-<h2>Login</h2>
-
 <div class="row">
-  {{#if errorMessage}}<p>{{errorMessage}}</p>{{/if}}
-  <form class="col s12">
+  <div class="col s12 m6 offset-m3 l4 offset-l4 center">
+    <div class="center"><h1>Bravoer</h1></div>
     <div class="row">
-      <div class="input-field col s12 m8">
-	{{md-input value=model.nickname label="Gebruikersnaam"}}
-      </div>
+      {{#if errorMessage}}
+	{{#md-card-panel class="red darken-1" bodyClass="white-text"}}
+	  {{errorMessage}}
+	{{/md-card-panel}}
+      {{/if}}
     </div>
-    <div class="row">
-      <div class="input-field col s12 m8">
-	{{md-input value=model.password label="Wachtwoord"}}
-      </div>
+    <div class="col s12 z-depth-3">
+      <form class="">
+	<div class="row">
+	  {{md-input value=model.nickname label="Gebruikersnaam" icon="mdi-social-person"}}
+	  {{md-input value=model.password label="Wachtwoord" type="password" icon="mdi-communication-vpn-key"}}
+	  {{#md-btn action='login'}}Login{{/md-btn}}
+	</div>
+      </form>
     </div>
-    <div class="row">
-      {{#md-btn action='login'}}Login{{/md-btn}}
-    </div>
-  </form>
+  </div>
 </div>
-
 
