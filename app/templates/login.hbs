@@ -1,0 +1,22 @@
+<h2>Login</h2>
+
+<div class="row">
+  {{#if errorMessage}}<p>{{errorMessage}}</p>{{/if}}
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12 m8">
+	{{md-input value=model.nickname label="Gebruikersnaam"}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12 m8">
+	{{md-input value=model.password label="Wachtwoord"}}
+      </div>
+    </div>
+    <div class="row">
+      {{#md-btn action='login'}}Login{{/md-btn}}
+    </div>
+  </form>
+</div>
+
+

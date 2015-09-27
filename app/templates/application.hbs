@@ -3,7 +3,9 @@
   <nav>
     <ul class="right hide-on-med-and-down">
       <li><a href="#!">Profiel</a></li>
-      <li><a href="#!">Logout</a></li>
+      {{#if session.isAuthenticated}}
+	<li><a {{action 'logout'}}>Logout</a></li>
+      {{/if}}
     </ul>
     <ul id="slide-out" class="side-nav fixed">
       <li class="no-padding">
