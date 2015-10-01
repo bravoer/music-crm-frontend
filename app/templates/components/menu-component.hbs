@@ -1,0 +1,41 @@
+<header>
+  <nav>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#!">Profiel</a></li>
+      {{#if session.isAuthenticated}}
+	<li><a {{action 'logout'}}>Logout</a></li>
+      {{/if}}
+    </ul>
+    <ul id="slide-out" class="side-nav fixed">
+      <li class="no-padding">
+	<ul class="collapsible collapsible-accordion">
+	  <li>
+            <a class="collapsible-header">Contacten <i class="mdi-navigation-arrow-drop-down"></i></a>
+            <div class="collapsible-body">
+              <ul>
+		<li><a href="#!">Muzikanten</a></li>
+		<li><a href="#!">Vrijwilligers</a></li>
+		<li><a href="#!">Sponsors</a></li>
+		<li><a href="#!">Sympathisanten</a></li>
+              </ul>
+            </div>
+	  </li>
+	</ul>
+      </li>
+      <li>{{#link-to 'scores.index'}}Muziekstukken{{/link-to}}</li>
+      <li class="no-padding">
+	<ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Admin<i class="mdi-navigation-arrow-drop-down"></i></a>
+            <div class="collapsible-body">
+              <ul>
+		<li>{{#link-to 'admin.scores.index'}}Muziekstukken{{/link-to}}</li>
+              </ul>
+            </div>
+          </li>
+	</ul>
+      </li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+  </nav>
+</header>
