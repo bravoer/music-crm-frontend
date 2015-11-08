@@ -1,22 +1,36 @@
-<div class="row">
-  <div class="col s12 m6 offset-m3 l4 offset-l4 center">
-    <div class="center"><h1>Bravoer</h1></div>
-    <div class="row">
-      {{#if errorMessage}}
-	{{#md-card-panel class="red darken-1" bodyClass="white-text"}}
-	  {{errorMessage}}
-	{{/md-card-panel}}
-      {{/if}}
-    </div>
-    <div class="col s12 z-depth-3">
-      <form>
+<div class="login-table row">
+  <div class="login-table-cell">
+  <div class="col s12 z-depth-4 card-panel">
+    <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="assets/images/logo.jpg" alt="" class="circle responsive-img valign logo">
+          </div>
+        </div>
 	<div class="row">
-	  {{md-input value=model.nickname label="Gebruikersnaam" icon="mdi-social-person"}}
-	  {{md-input value=model.password label="Wachtwoord" type="password" icon="mdi-communication-vpn-key"}}
-	  {{#md-btn action='login'}}Login{{/md-btn}}
+	  {{#if errorMessage}}
+	    {{#md-card-panel class="orange" bodyClass="white-text"}}
+	      {{errorMessage}}
+	    {{/md-card-panel}}
+	  {{/if}}
 	</div>
+        <div class="row">
+          <div class="input-field col s12">
+	    {{md-input value=model.nickname label="Gebruikersnaam" icon="mdi-social-person-outline"}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+	    {{md-input value=model.password label="Wachtwoord" type="password" icon="mdi-action-lock-outline"}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+	    {{#md-btn action="login" class="col s12 green"}}Login{{/md-btn}}
+          </div>
+        </div>
       </form>
-    </div>
+  </div>
   </div>
 </div>
 

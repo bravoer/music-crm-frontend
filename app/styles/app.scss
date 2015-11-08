@@ -126,3 +126,24 @@ header, main, footer {
   }
 }
 
+/** Login page */
+.login-body {
+    background-color: #4caf50;
+    height: 100%;
+}
+
+.login-table {
+    width: 300px;
+    height: 100%;
+    display: table;
+
+    img.logo {
+	width: 150px;
+    }
+}
+
+.login-table-cell {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+}

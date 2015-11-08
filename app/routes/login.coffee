@@ -4,6 +4,10 @@ LoginRoute = Ember.Route.extend
   model: ->
     nickname: null
     password: null
+  activate: ->
+    Ember.$('body').addClass('login-body')
+  deactivate: ->
+    Ember.$('body').removeClass('login-body')
   actions:
     login: ->
       credentials = @get('controller.model')
