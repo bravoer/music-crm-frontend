@@ -1,7 +1,7 @@
 <div class="login-table row">
   <div class="login-table-cell">
   <div class="col s12 z-depth-4 card-panel">
-    <form class="login-form">
+    <form class="login-form" {{action "login" on="submit"}}>
         <div class="row">
           <div class="input-field col s12 center">
             <img src="assets/images/logo.jpg" alt="" class="circle responsive-img valign logo">
@@ -15,18 +15,18 @@
 	  {{/if}}
 	</div>
         <div class="row">
-          <div class="input-field col s12">
+          <div class="col s12">
 	    {{md-input value=model.nickname label="Gebruikersnaam" icon="mdi-social-person-outline"}}
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12">
+          <div class="col s12">
 	    {{md-input value=model.password label="Wachtwoord" type="password" icon="mdi-action-lock-outline"}}
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12">
-	    {{#md-btn action="login" class="col s12 green"}}Login{{/md-btn}}
+          <div class="col s12">
+	    {{md-btn-submit text='Login' class="col s12 green"}}
           </div>
         </div>
       </form>
