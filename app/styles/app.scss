@@ -119,18 +119,6 @@ input[type=text].valid, input[type=text]:focus.valid, input[type=password].valid
     box-shadow: none;
 }
 
-/** Fixed SideNav  -- http://materializecss.com/side-nav.html */
-
-header, main, footer {
-    padding-left: 240px; 
-}
-
-
-@media #{$small-and-down} {
-  header, main, footer {
-    padding-left: 0; 
-  }
-}
 
 /** Login page */
 .login-body {

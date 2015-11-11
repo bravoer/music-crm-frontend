@@ -2,8 +2,7 @@
 
 MenuComponentComponent = Ember.Component.extend
   didInsertElement: ->
-    Ember.$('.button-collapse').sideNav()
-    Ember.$('.collapsible').collapsible()
+    Ember.$('.dropdown-button').dropdown()
   actions:
     logout: ->
       @sendAction 'logout'

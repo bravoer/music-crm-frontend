@@ -1,41 +1,36 @@
 <header>
+  <!-- Contacts dropdown -->
+  <ul id="contact-dropdown-nav" class="dropdown-content">
+    <li><a href="#!">Muzikanten</a></li>
+    <li><a href="#!">Vrijwilligers</a></li>
+    <li><a href="#!">Sponsors</a></li>
+    <li><a href="#!">Sympathisanten</a></li>
+  </ul>
+
+  <!-- Admin dropdown -->
+  <ul id="admin-dropdown-nav" class="dropdown-content">
+    <li>{{#link-to 'admin.scores.index'}}Bibliotheek{{/link-to}}</li>
+  </ul>
+
+  <!-- Profile dropdown -->
+  <ul id="profile-dropdown-nav" class="dropdown-content">
+    <li><a href="#!">Profiel</a></li>
+    {{#if session.isAuthenticated}}
+      <li><a {{action 'logout'}}>Logout</a></li>
+    {{/if}}
+  </ul>
+  
+  <!-- Main navbar -->
   <nav>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="#!">Profiel</a></li>
-      {{#if session.isAuthenticated}}
-	<li><a {{action 'logout'}}>Logout</a></li>
-      {{/if}}
-    </ul>
-    <ul id="slide-out" class="side-nav fixed">
-      <li class="no-padding">
-	<ul class="collapsible collapsible-accordion">
-	  <li>
-            <a class="collapsible-header">Contacten <i class="mdi-navigation-arrow-drop-down"></i></a>
-            <div class="collapsible-body">
-              <ul>
-		<li><a href="#!">Muzikanten</a></li>
-		<li><a href="#!">Vrijwilligers</a></li>
-		<li><a href="#!">Sponsors</a></li>
-		<li><a href="#!">Sympathisanten</a></li>
-              </ul>
-            </div>
-	  </li>
-	</ul>
-      </li>
-      <li>{{#link-to 'scores.index'}}Muziekstukken{{/link-to}}</li>
-      <li class="no-padding">
-	<ul class="collapsible collapsible-accordion">
-          <li>
-            <a class="collapsible-header">Admin<i class="mdi-navigation-arrow-drop-down"></i></a>
-            <div class="collapsible-body">
-              <ul>
-		<li>{{#link-to 'admin.scores.index'}}Muziekstukken{{/link-to}}</li>
-              </ul>
-            </div>
-          </li>
-	</ul>
-      </li>
-    </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Bravoer</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	<li>{{#link-to 'scores.index'}}Partituren{{/link-to}}</li>
+	<li><a class="dropdown-button" data-activates="contact-dropdown-nav">Contacten<i class="material-icons right">arrow_drop_down</i></a></li>
+	<li><a class="dropdown-button" data-activates="admin-dropdown-nav">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
+	<li><a class="dropdown-button right" data-activates="profile-dropdown-nav"><i class="material-icons right">account_circle</i></a></li>
+      </ul>
+    </div>
   </nav>
 </header>
+
