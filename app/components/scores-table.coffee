@@ -7,10 +7,10 @@ ScoresTableComponent = Ember.Component.extend
   actions:
     toggleArchive: ->
       scores = @get('selectedScores')
-      scores.forEach (score) ->
-        toggledStatus = if score.get('isActive') then 'archived' else 'active'
-        score.set('status', toggledStatus)
-        score.set('isSelected', false)
+      Ember.changeProperties () ->
+        scores.forEach (score) ->
+          toggledStatus = if score.get('isActive') then 'archived' else 'active'
+          score.setProperties( { status: toggledStatus, isSelected: false } )
     delete: () ->
       scores = @get('selectedScores')
       @sendAction('delete', scores)
