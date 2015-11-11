@@ -1,9 +1,12 @@
+{{md-btn text='Archiveer' icon='mdi-content-archive' action='toggleArchive' isDisabled=archiveBtnDisabled}}
+{{md-btn text='Activeer' icon='mdi-content-inbox' action='toggleArchive' isDisabled=archiveBtnDisabled}}
+
 {{#unless scores}}
   <p>Geen muziekstukken</p>
 {{/unless}}
 {{#md-table content=scores class="striped" as |row|}}
-  {{#md-table-col class="center" row=row key="isArchived" header="In archief"}}
-    {{md-check checked=row.isArchived action='toggleStatus'}}
+  {{#md-table-col row=row key="selection"}}
+    {{md-check checked=row.isSelected}}
   {{/md-table-col}}
   {{#md-table-col row=row key="title" header="Titel"}}
     {{row.title}}
