@@ -4,9 +4,11 @@ AdminScoresIndexRoute = Ember.Route.extend
   model: ->
     @store.find 'scores'
   actions:
-    deleteScore: (score) ->
-      @modelFor('admin.scores.index').removeObject(score)
-      @store.deleteResource('scores', score).then =>
-        @refresh
+    deleteScores: (scores) ->
+      promises = []
+      scores.forEach (score) =>
+        promises.push(@store.deleteResource('scores', score))
+      Promise.all(promises).then =>
+        @modelFor('admin.scores.index').removeObjects(scores)
 
 `export default AdminScoresIndexRoute`

@@ -2,7 +2,7 @@
 
 ScoresTableComponent = Ember.Component.extend
   selectedScores: Ember.computed.filterBy('scores', 'isSelected', true)
-  archiveBtnDisabled: Ember.computed 'scores.@each.isSelected', ->
+  selectionIsEmpty: Ember.computed 'scores.@each.isSelected', ->
     @get('scores').filterBy('isSelected', true).get('length') == 0
   actions:
     toggleArchive: ->
@@ -11,11 +11,11 @@ ScoresTableComponent = Ember.Component.extend
         toggledStatus = if score.get('isActive') then 'archived' else 'active'
         score.set('status', toggledStatus)
         score.set('isSelected', false)
-    delete: (score) ->
-      @sendAction('delete', score)
+    delete: () ->
+      scores = @get('selectedScores')
+      @sendAction('delete', scores)
     openDetail: (score) ->
       @set('selectedScore', score)
       @set('detailIsOpen', true)
-
 
 `export default ScoresTableComponent`

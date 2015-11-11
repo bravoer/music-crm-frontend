@@ -1,5 +1,6 @@
-{{md-btn text='Archiveer' icon='mdi-content-archive' action='toggleArchive' isDisabled=archiveBtnDisabled}}
-{{md-btn text='Activeer' icon='mdi-content-inbox' action='toggleArchive' isDisabled=archiveBtnDisabled}}
+{{md-btn text='Archiveer' icon='mdi-content-archive' action='toggleArchive' isDisabled=selectionIsEmpty}}
+{{md-btn text='Activeer' icon='mdi-content-inbox' action='toggleArchive' isDisabled=selectionIsEmpty}}
+{{md-btn text='Verwijder' icon='mdi-action-delete' action='delete' isDisabled=selectionIsEmpty}}
 
 {{#unless scores}}
   <p>Geen muziekstukken</p>
@@ -28,7 +29,6 @@
   {{/md-table-col}}
   <td><i class="material-icons" {{action 'openDetail' row}}>info outline</i></td>
   <td>{{#link-to 'admin.scores.edit' row}}<i class="material-icons">edit mode</i>{{/link-to}}</td>
-  <td><i class="material-icons" {{action 'delete' row}}>delete</i></td>
 {{/md-table}}
 
 {{score-detail-modal isOpen=detailIsOpen score=selectedScore}}
