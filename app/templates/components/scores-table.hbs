@@ -1,36 +1,48 @@
-{{md-btn text='Archiveer' icon='mdi-content-archive' action='toggleArchive' isDisabled=selectionIsEmpty}}
-{{md-btn text='Activeer' icon='mdi-content-inbox' action='toggleArchive' isDisabled=selectionIsEmpty}}
-{{md-btn text='Verwijder' icon='mdi-action-delete' action='delete' isDisabled=selectionIsEmpty}}
+<div class="row">
+  {{#if archived}}
+    {{#if scores}}
+      {{md-btn text='Activeer' icon='mdi-content-inbox' action='toggleArchive' isDisabled=selectionIsEmpty}}
+    {{/if}}
+  {{else}}
+    {{#link-to 'admin.scores.add' class="waves-effect waves-light btn"}}<i class="mdi-content-add left"></i> Nieuw{{/link-to}}
+    {{#if scores}}
+      {{md-btn text='Archiveer' icon='mdi-content-archive' action='toggleArchive' isDisabled=selectionIsEmpty}}
+    {{/if}}
+  {{/if}}
+  {{#if scores}}
+    {{md-btn text='Verwijder' icon='mdi-action-delete' action='delete' isDisabled=selectionIsEmpty}}
+  {{/if}}
+</div>
 
-{{#unless scores}}
+{{#if scores}}
+  {{#md-table content=scores class="striped" as |row|}}
+    {{#md-table-col row=row key="selection"}}
+      {{md-check checked=row.isSelected}}
+    {{/md-table-col}}
+    {{#md-table-col row=row key="title" header="Titel"}}
+      {{row.title}}
+    {{/md-table-col}}
+    {{#md-table-col row=row key="composer" header="Componist"}}
+      {{row.composer}}
+    {{/md-table-col}}
+    {{#md-table-col row=row key="arranger" header="Arrangeur"}}
+      {{row.arranger}}
+    {{/md-table-col}}
+    {{#md-table-col row=row key="genre" header="Genre"}}
+      {{t-label value=row.genre}}
+    {{/md-table-col}}
+    {{#md-table-col row=row key="duration" header="Duur"}}
+      {{fmt-duration millis=row.duration}}
+    {{/md-table-col}}
+    {{#md-table-col row=row key="parts.length" header="# Partituren"}}
+      {{row.parts.length}}
+    {{/md-table-col}}
+    <td><i class="material-icons" {{action 'openDetail' row}}>info outline</i></td>
+    <td>{{#link-to 'admin.scores.edit' row}}<i class="material-icons">edit mode</i>{{/link-to}}</td>
+  {{/md-table}}
+{{else}}
   <p>Geen muziekstukken</p>
-{{/unless}}
-{{#md-table content=scores class="striped" as |row|}}
-  {{#md-table-col row=row key="selection"}}
-    {{md-check checked=row.isSelected}}
-  {{/md-table-col}}
-  {{#md-table-col row=row key="title" header="Titel"}}
-    {{row.title}}
-  {{/md-table-col}}
-  {{#md-table-col row=row key="composer" header="Componist"}}
-    {{row.composer}}
-  {{/md-table-col}}
-  {{#md-table-col row=row key="arranger" header="Arrangeur"}}
-    {{row.arranger}}
-  {{/md-table-col}}
-  {{#md-table-col row=row key="genre" header="Genre"}}
-    {{t-label value=row.genre}}
-  {{/md-table-col}}
-  {{#md-table-col row=row key="duration" header="Duur"}}
-    {{fmt-duration millis=row.duration}}
-  {{/md-table-col}}
-  {{#md-table-col row=row key="parts.length" header="# Partituren"}}
-    {{row.parts.length}}
-  {{/md-table-col}}
-  <td><i class="material-icons" {{action 'openDetail' row}}>info outline</i></td>
-  <td>{{#link-to 'admin.scores.edit' row}}<i class="material-icons">edit mode</i>{{/link-to}}</td>
-{{/md-table}}
-
+{{/if}}
 {{score-detail-modal isOpen=detailIsOpen score=selectedScore}}
 
 

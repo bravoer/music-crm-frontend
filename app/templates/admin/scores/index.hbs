@@ -1,11 +1,8 @@
-<h1 class="">Muziekstukken</h1>
+{{md-tabs content=tabs selected=activeTab colWidth=6}}
 
-{{#link-to 'admin.scores.add' class="waves-effect waves-light btn"}}<i class="mdi-content-add left"></i> Nieuw{{/link-to}}
+{{#if isActiveScores}}
+  {{scores-table scores=activeScores archived=false delete='deleteScores'}}
+{{else}}
+  {{scores-table scores=archivedScores archived=true delete='deleteScores'}}
+{{/if}}
 
-{{scores-table scores=activeScores delete='deleteScores'}}
-
-<h2 class="">Archief</h2>
-
-{{scores-table scores=archivedScores delete='deleteScores'}}
-
-{{outlet}}
