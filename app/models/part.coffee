@@ -8,7 +8,8 @@ Part = Resource.extend
 
   name: attr()
   instrument: attr()
-  instrumentPart: attr()
+  instrumentPart: Ember.computed.alias 'instrument-part' 
+  'instrument-part': attr()
   key: attr()
   clef: attr()
   file: attr()
