@@ -13,6 +13,7 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
         part = @container.lookup('model:parts').create
           attributes: { file: response.links.self, name: file.name }
         @store.createResource('parts', part).then (resource) =>
+          resource.set('isEdit', false)
           score = @get('controller.model')
           resource.addRelationship('score', score.id)       
           @store.patchRelationship('parts', resource, 'score').then () =>
@@ -23,6 +24,8 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
       @store.patchRelationship('parts', part, 'score').then () =>
         @get('controller.model.parts').removeObject(part)
         @store.deleteResource('parts', part)
+    toggleEditPart: (part) ->
+      part.toggleProperty('isEdit')
 
 
 `export default AdminScoresEditRoute`

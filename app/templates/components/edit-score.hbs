@@ -6,21 +6,48 @@
     <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
   {{/file-picker}}
 </div>
+
 <div class="row">
-  {{#each score.parts as |part|}}
-    <div class="attachment grey lighten-3 grey-text valign-wrapper center-align">
-      <div class="icons">
-	<i class="material-icons small right" {{action 'deletePart' part}}>clear</i>
-      </div>
-      <a href="{{part.file}}/download" target="_blank" title="Download">
-	<i class="material-icons large valign">attach_file</i>
-      </a>
-      <p>{{part.name}}</p>
-    </div>
-  {{/each}}
+  <div class="col s12">
+    <table class="striped">
+      <thead>
+	<tr>
+	  <th>Bestandsnaam</th>
+	  <th>Instrument</th>
+	  <th>Stem</th>
+	  <th>Toonaard</th>
+	  <th>Sleutel</th>
+	  <th></th>
+	</tr>
+      </thead>
+
+      <tbody>
+	{{#each score.parts as |part|}}
+	  {{#if part.isEdit}}
+	    <tr>
+	      <td>{{part.name}}</td>
+	      <td>{{#t-select options=instruments value=part.instrument}}Instrument{{/t-select}}</td>
+	      <td>{{#t-select options=instrumentParts value=part.instrumentPart blankLabel="-"}}Stem{{/t-select}}</td>
+	      <td>{{#t-select options=keys value=part.key blankLabel="-"}}Stem{{/t-select}}</td>
+	      <td>{{#t-select options=clefs value=part.clef blankLabel="-"}}Sleutel{{/t-select}}</td>
+	      <td><a {{action 'toggleEditPart' part}}><i class="material-icons">done</i></a></td>
+	    </tr>
+	  {{else}}
+	    <tr {{action 'toggleEditPart' part}}>
+	      <td>{{part.name}}</td>
+	      <td>{{t-label value=part.instrument}}</td>
+	      <td>{{t-label value=part.instrumentPart}}</td>
+	      <td>{{t-label value=part.key}}</td>
+	      <td>{{t-label value=part.clef}}</td>
+	      <td><a {{action 'deletePart' part}}><i class="material-icons">delete</i></a></td>
+	    </tr>
+	  {{/if}}
+	{{/each}}
+      </tbody>
+</table>
+  </div>
 </div>
 
 <div class="row">
   {{#md-btn action='cancel'}}Klaar{{/md-btn}}
 </div>
-
