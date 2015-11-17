@@ -12,7 +12,7 @@
     <table class="striped">
       <thead>
 	<tr>
-	  <th>Bestandsnaam</th>
+	  <th>Naam</th>
 	  <th>Instrument</th>
 	  <th>Stem</th>
 	  <th>Toonaard</th>
@@ -26,7 +26,7 @@
 	  {{#if part.isEdit}}
 	    <tr>
 	      <td>{{part.name}}</td>
-	      <td>{{#t-select options=instruments value=part.instrument}}Instrument{{/t-select}}</td>
+	      <td>{{#t-select options=instruments value=part.instrument blankLabel="-"}}Instrument{{/t-select}}</td>
 	      <td>{{#t-select options=instrumentParts value=part.instrumentPart blankLabel="-"}}Stem{{/t-select}}</td>
 	      <td>{{#t-select options=keys value=part.key blankLabel="-"}}Stem{{/t-select}}</td>
 	      <td>{{#t-select options=clefs value=part.clef blankLabel="-"}}Sleutel{{/t-select}}</td>
