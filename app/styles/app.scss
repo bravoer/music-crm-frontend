@@ -61,29 +61,6 @@ blockquote {
     }
 }
 
-.file-field {
-    
-    input.file-path {
-	margin-left: 150px;
-    }
-}
-
-/** Attachment list */
-.attachment {
-    padding: 20px;
-    display: inline-block;
-
-    .icons {
-	position: relative;
-	top: -15px; /* 5px less than .attachment padding */
-	right: -15px; /* 5px less than .attachment padding */
-
-	.right {
-	    margin-left: 0; /* overwrite margin of .right class */
-	}
-    }
-}
-
 /** File picker */
 .file-picker {
     min-height: 150px;
