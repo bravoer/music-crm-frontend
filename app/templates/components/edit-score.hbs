@@ -2,10 +2,9 @@
 
 <h3>Partituren</h3>
 <div class="row">
-  {{#file-picker fileLoaded='addPart' preview=false class="col s12 m6 grey lighten-3 grey-text"}}
-    <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
-  {{/file-picker}}
+  {{#md-btn action='openNewMusicPart'}}Toevoegen{{/md-btn}}
 </div>
+{{music-part-create-modal isOpen=newMusicPartIsOpen musicPart=newMusicPart addFile=addFile savePart=savePart}}
 
 {{#if score.parts}}
   <div class="row">
@@ -24,25 +23,14 @@
 
 	<tbody>
 	  {{#each score.parts as |part|}}
-	    {{#if part.isEdit}}
-	      <tr>
-		<td>{{part.name}}</td>
-		<td>{{#t-select options=instruments value=part.instrument blankLabel="-"}}Instrument{{/t-select}}</td>
-		<td>{{#t-select options=instrumentParts value=part.instrumentPart blankLabel="-"}}Stem{{/t-select}}</td>
-		<td>{{#t-select options=keys value=part.key blankLabel="-"}}Stem{{/t-select}}</td>
-		<td>{{#t-select options=clefs value=part.clef blankLabel="-"}}Sleutel{{/t-select}}</td>
-		<td><a {{action 'toggleEditPart' part}}><i class="material-icons">done</i></a></td>
-	      </tr>
-	    {{else}}
-	      <tr {{action 'toggleEditPart' part}}>
-		<td>{{part.name}}</td>
-		<td>{{t-label value=part.instrument}}</td>
-		<td>{{t-label value=part.instrumentPart}}</td>
-		<td>{{t-label value=part.key}}</td>
-		<td>{{t-label value=part.clef}}</td>
-		<td><a {{action 'deletePart' part}}><i class="material-icons">delete</i></a></td>
-	      </tr>
-	    {{/if}}
+	    <tr>
+	      <td>{{part.name}}</td>
+	      <td>{{t-label value=part.instrument}}</td>
+	      <td>{{t-label value=part.instrumentPart}}</td>
+	      <td>{{t-label value=part.key}}</td>
+	      <td>{{t-label value=part.clef}}</td>
+	      <td><a {{action 'deletePart' part}}><i class="material-icons">delete</i></a></td>
+	    </tr>
 	  {{/each}}
 	</tbody>
       </table>

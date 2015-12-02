@@ -1,0 +1,38 @@
+{{#if isOpen}}
+  {{#md-modal close='close'}}
+    <div class="modal-content">
+      <h4>Partituur toevoegen</h4>
+      {{#unless musicPart.file}}
+	<div class="row">
+	  {{#file-picker fileLoaded='addFile' preview=false class="col s12 grey lighten-3 grey-text"}}
+	    <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
+	  {{/file-picker}}
+	</div>
+      {{else}}
+	<div class="row">
+	  <form class="col s12">
+	    <div class="row">
+	      <div class="col s6 m3">
+		{{t-select options=instruments value=musicPart.instrument blankLabel="-" label="Instrument"}}
+	      </div>
+	      <div class="col s6 m3">
+		{{t-select options=instrumentParts value=musicPart.instrumentPart blankLabel="-" label="Stem"}}
+	      </div>
+	      <div class="col s6 m3">
+		{{t-select options=keys value=musicPart.key blankLabel="-" label="Toonaard"}}
+	      </div>
+	      <div class="col s6 m3">
+		{{t-select options=clefs value=musicPart.clef blankLabel="-" label="Sleutel"}}
+	      </div>
+	    </div>
+	  </form>
+	</div>
+      {{/unless}}
+    </div>
+    
+    <div class="modal-footer">
+      <a {{action 'savePart'}} class="modal-action waves-effect btn-flat">Opslaan</a>
+      <a {{action 'close'}} class="modal-action modal-close waves-effect btn-flat">Annuleer</a>
+    </div>
+  {{/md-modal}}
+{{/if}}

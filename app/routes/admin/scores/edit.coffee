@@ -8,24 +8,23 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
   actions:
     cancel: ->
       @transitionTo 'admin.scores.index'
-    addPart: (file) ->
+    addFile: (file, part) ->
+      console.log 'add file action in edit route'
       @createFile(file).then (response) =>
-        part = @container.lookup('model:parts').create
-          attributes: { file: response.links.self, name: file.name }
-        @store.createResource('parts', part).then (resource) =>
-          resource.set('isEdit', false)
-          score = @get('controller.model')
-          resource.addRelationship('score', score.id)       
-          @store.patchRelationship('parts', resource, 'score').then () =>
-            @get('controller.model.parts').addObject(resource)
+        part.set('file', response.links.self)
+        part.set('name', file.name)
+    savePart: (part) ->
+      console.log 'save part action in edit route'
+      @store.createResource('parts', part).then (resource) =>
+        score = @get('controller.model')
+        resource.addRelationship('score', score.id)       
+        @store.patchRelationship('parts', resource, 'score').then () =>
+          @get('controller.model.parts').addObject(resource)
     deletePart: (part) ->
       @deleteFile(part.get('file'))
       part.removeRelationship('score', @get('controller.model.id'))
       @store.patchRelationship('parts', part, 'score').then () =>
         @get('controller.model.parts').removeObject(part)
         @store.deleteResource('parts', part)
-    toggleEditPart: (part) ->
-      part.toggleProperty('isEdit')
-
 
 `export default AdminScoresEditRoute`
