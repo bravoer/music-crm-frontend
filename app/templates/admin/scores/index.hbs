@@ -1,7 +1,7 @@
 {{md-tabs content=tabs selected=activeTab colWidth=6}}
 
 {{#if isActiveScores}}
-  {{scores-table scores=activeScores archived=false addFile='addFile' savePart='savePart' delete='deleteScores'}}
+  {{scores-table scores=activeScores archived=false addFile='addFile' savePart='savePart' delete='deleteScores' deletePart='deletePart'}}
 {{else}}
-  {{scores-table scores=archivedScores archived=true addFile='addFile' savePart='savePart' delete='deleteScores'}}
+  {{scores-table scores=archivedScores archived=true addFile='addFile' savePart='savePart' delete='deleteScores' deletePart='deletePart'}}
 {{/if}}

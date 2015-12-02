@@ -10,38 +10,10 @@
       {{/unless}}
     </div>
 
-    {{#if score.parts}}
-      <div class="row">
-	<div class="col s12">
-	  <table class="striped">
-	    <thead>
-	      <tr>
-		<th>Naam</th>
-		<th>Instrument</th>
-		<th>Stem</th>
-		<th>Toonaard</th>
-		<th>Sleutel</th>
-	      </tr>
-	    </thead>
-
-	    <tbody>
-	      {{#each score.parts as |part|}}
-		<tr>
-		  <td>{{part.name}}</td>
-		  <td>{{t-label value=part.instrument}}</td>
-		  <td>{{t-label value=part.instrumentPart}}</td>
-		  <td>{{t-label value=part.key}}</td>
-		  <td>{{t-label value=part.clef}}</td>
-		</tr>
-	      {{/each}}
-	    </tbody>
-	  </table>
-	</div>
-      </div>
-    {{/if}}
+    {{music-parts-table parts=score.parts delete='deletePart'}}
     
     <div class="modal-footer">
-      <a {{action 'close'}} class="modal-action modal-close waves-effect btn-flat">Annuleer</a>
+      <a {{action 'close'}} class="modal-action modal-close waves-effect btn-flat">Sluit</a>
       {{#link-to 'admin.scores.edit' score class="modal-action modal-close waves-effect btn-flat"}}Bewerk{{/link-to}}
       <div class="modal-audit">{{audit-note auditable=score}}</div>
     </div>

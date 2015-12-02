@@ -17,14 +17,16 @@ ScoresTableComponent = Ember.Component.extend
     openDetail: (score) ->
       @set('selectedScore', score)
       @set('detailIsOpen', true)
-    addFile: (file, part) ->
-      @sendAction('addFile', file, part)
-    savePart: (score, part) ->
-      @sendAction('savePart', score, part)
     openNewMusicPart: (score) ->
       musicPart = @container.lookup('model:parts').create()
       @set('selectedScore', score)
       @set('newMusicPart', musicPart)
       @set('newMusicPartIsOpen', true)
+    addFile: (file, part) ->
+      @sendAction('addFile', file, part)
+    savePart: (score, part) ->
+      @sendAction('savePart', score, part)
+    deletePart: (score, part) ->
+      @sendAction('deletePart', score, part)
 
 `export default ScoresTableComponent`

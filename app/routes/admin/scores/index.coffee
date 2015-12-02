@@ -24,5 +24,11 @@ AdminScoresIndexRoute = Ember.Route.extend FileManager,
         promises.push(@store.deleteResource('scores', score))
       Promise.all(promises).then =>
         @modelFor('admin.scores.index').removeObjects(scores)
+    deletePart: (score, part) ->
+      @deleteFile(part.get('file'))
+      part.removeRelationship('score', score.id)
+      @store.patchRelationship('parts', part, 'score').then () =>
+        @get('controller.model').findBy('id', score.id).get('parts').removeObject(part)
+        @store.deleteResource('parts', part)
 
 `export default AdminScoresIndexRoute`
