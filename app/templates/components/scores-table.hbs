@@ -15,31 +15,42 @@
 </div>
 
 {{#if scores}}
-  {{#md-table content=scores class="striped" as |row|}}
-    {{#md-table-col row=row key="selection"}}
-      {{md-check checked=row.isSelected}}
-    {{/md-table-col}}
-    {{#md-table-col row=row key="title" header="Titel"}}
-      {{row.title}}
-    {{/md-table-col}}
-    {{#md-table-col row=row key="composer" header="Componist"}}
-      {{row.composer}}
-    {{/md-table-col}}
-    {{#md-table-col row=row key="arranger" header="Arrangeur"}}
-      {{row.arranger}}
-    {{/md-table-col}}
-    {{#md-table-col row=row key="genre" header="Genre"}}
-      {{t-label value=row.genre}}
-    {{/md-table-col}}
-    {{#md-table-col row=row key="duration" header="Duur"}}
-      {{fmt-duration millis=row.duration}}
-    {{/md-table-col}}
-    {{#md-table-col row=row key="parts.length" header="# Partituren"}}
-      {{row.parts.length}}
-    {{/md-table-col}}
-    <td><i class="material-icons" {{action 'openDetail' row}}>info outline</i></td>
-    <td>{{#link-to 'admin.scores.edit' row}}<i class="material-icons">edit mode</i>{{/link-to}}</td>
-  {{/md-table}}
+  <div class="row">
+    <div class="col s12">
+      <table class="striped">
+	<thead>
+	  <tr>
+	    <th><!-- Archived --></th>
+	    <th>Titel</th>
+	    <th>Componist</th>
+	    <th>Arrangeur</th>
+	    <th>Genre</th>
+	    <th>Duur</th>
+	    <th># Partituren</th>
+	    <th><!-- Buttons --></th>
+	  </tr>
+	</thead>
+
+	<tbody>
+	  {{#each scores as |score|}}
+	    <tr>
+	      <td>{{md-check checked=score.isSelected}}</td>
+	      <td>{{score.title}}</td>
+	      <td>{{score.composer}}</td>
+	      <td>{{score.arranger}}</td>
+	      <td>{{t-label value=score.genre}}</td>
+	      <td>{{fmt-duration millis=score.duration}}</td>
+	      <td>{{score.parts.length}}</td>
+	      <td>
+		<a {{action 'openDetail' score}}><i class="material-icons">info outline</i></a>
+		{{#link-to 'admin.scores.edit' score}}<i class="material-icons">edit mode</i>{{/link-to}}
+	      </td>
+	    </tr>
+	  {{/each}}
+	</tbody>
+      </table>
+    </div>
+  </div>
 {{else}}
   <p>Geen muziekstukken</p>
 {{/if}}
