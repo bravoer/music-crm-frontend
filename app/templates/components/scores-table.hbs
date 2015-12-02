@@ -42,9 +42,10 @@
 	      <td>{{fmt-duration millis=score.duration}}</td>
 	      <td>{{score.parts.length}}</td>
 	      <td>
-		<a {{action 'openDetail' score}}><i class="material-icons">info outline</i></a>
-		<a {{action 'openNewMusicPart' score}}><i class="material-icons">add circle</i></a>
-		{{#link-to 'admin.scores.edit' score}}<i class="material-icons">edit mode</i>{{/link-to}}
+		<a {{action 'openDetail' score}}><i class="material-icons">info</i></a>
+		{{#link-to 'admin.scores.edit' score}}<i class="material-icons">mode_edit</i>{{/link-to}}
+		<a {{action 'openNewMusicPart' score}}><i class="material-icons">attach_file</i></a>
+
 	      </td>
 	    </tr>
 	  {{/each}}
