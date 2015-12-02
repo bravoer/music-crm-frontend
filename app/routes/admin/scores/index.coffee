@@ -1,9 +1,23 @@
 `import Ember from 'ember'`
+`import FileManager from 'client/mixins/file-manager'`
 
-AdminScoresIndexRoute = Ember.Route.extend
+AdminScoresIndexRoute = Ember.Route.extend FileManager,
   model: ->
     @store.find 'scores'
   actions:
+    addFile: (file, part) ->
+      console.log 'add file action in edit route'
+      @createFile(file).then (response) =>
+        part.set('file', response.links.self)
+        part.set('name', file.name)
+    savePart: (score, part) ->
+      console.log 'save part action in edit route'
+      @store.createResource('parts', part).then (resource) =>
+        resource.addRelationship('score', score.id)       
+        @store.patchRelationship('parts', resource, 'score').then () =>
+          console.log 'part added to score'
+          @get('controller.model').findBy('id', score.id).get('parts').addObject(resource)
+          # @get('controller.model.parts').addObject(resource)
     deleteScores: (scores) ->
       promises = []
       scores.forEach (score) =>

@@ -43,6 +43,7 @@
 	      <td>{{score.parts.length}}</td>
 	      <td>
 		<a {{action 'openDetail' score}}><i class="material-icons">info outline</i></a>
+		<a {{action 'openNewMusicPart' score}}><i class="material-icons">add circle</i></a>
 		{{#link-to 'admin.scores.edit' score}}<i class="material-icons">edit mode</i>{{/link-to}}
 	      </td>
 	    </tr>
@@ -54,6 +55,7 @@
 {{else}}
   <p>Geen muziekstukken</p>
 {{/if}}
-{{score-detail-modal isOpen=detailIsOpen score=selectedScore}}
 
+{{score-detail-modal isOpen=detailIsOpen score=selectedScore}}
+{{music-part-create-modal isOpen=newMusicPartIsOpen score=selectedScore musicPart=newMusicPart addFile=addFile savePart=savePart}}
 

@@ -17,7 +17,7 @@ MusicPartCreateModalComponent = Ember.Component.extend
     savePart: ->
       console.log 'save part action in modal'
       @set 'isOpen', false
-      @sendAction('savePart', @get('musicPart'))
+      @sendAction('savePart', @get('score'), @get('musicPart'))
     close: ->
       @set 'isOpen', false
       return false

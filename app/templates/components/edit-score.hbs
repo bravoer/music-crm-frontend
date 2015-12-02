@@ -1,10 +1,6 @@
 {{score-form score=score}}
 
 <h3>Partituren</h3>
-<div class="row">
-  {{#md-btn action='openNewMusicPart'}}Toevoegen{{/md-btn}}
-</div>
-{{music-part-create-modal isOpen=newMusicPartIsOpen musicPart=newMusicPart addFile=addFile savePart=savePart}}
 
 {{#if score.parts}}
   <div class="row">
