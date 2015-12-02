@@ -31,7 +31,9 @@
     </div>
     
     <div class="modal-footer">
-      <a {{action 'savePart'}} class="modal-action waves-effect btn-flat">Opslaan</a>
+      {{#if musicPart.file}}
+	<a {{action 'savePart'}} class="modal-action waves-effect btn-flat">Opslaan</a>
+      {{/if}}
       <a {{action 'close'}} class="modal-action modal-close waves-effect btn-flat">Annuleer</a>
     </div>
   {{/md-modal}}
