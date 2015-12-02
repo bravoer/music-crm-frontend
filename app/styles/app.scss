@@ -10,7 +10,9 @@ $link-color: $off-black;
 @import 'ember-cli-materialize';
 
 .modal-close,
-[data-ember-action] {
+[data-ember-action],
+li.tab,
+.dropdown-button {
   cursor: pointer;
 }
 
