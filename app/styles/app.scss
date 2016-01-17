@@ -29,7 +29,7 @@ blockquote {
 .input-field {
     label.pull-right {
 	font-size: $label-font-size;
-	@include transform(translateY(0));
+	transform: translateY(0);
 	position: absolute;
 	right: 0;
 	text-align: right;
