@@ -46,12 +46,13 @@
     "ember-json-api": "^0.5.0",
     "ember-jsonapi-resources": "^0.4.7",
     "ember-key-responder": "0.2.1",
+    "ember-legacy-views": "0.2.0",
     "ember-modal-dialog": "0.7.7",
     "ember-moment": "1.2.1",
     "ember-new-computed": "1.0.2",
     "ember-radio-button": "1.0.7",
+    "ember-resolver": "^2.0.3",
     "express": "^4.8.5",
-    "glob": "^4.0.5",
-    "ember-resolver": "^2.0.3"
+    "glob": "^4.0.5"
   }
 }
