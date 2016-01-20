@@ -8,15 +8,15 @@
     "ember-qunit-notifications": "0.1.0",
     "ember-resolver": "~0.1.20",
     "jquery": "1.11.3",
-    "loader.js": "ember-cli/loader.js#3.4.0",
+    "loader.js": "^3.5.0",
     "qunit": "~1.20.0",
     "materialize": "~0.97.0",
     "ember-cli-moment-shim": "~0.2.0",
     "fetch": "~0.9.0",
     "es6-promise": "~2.2.0",
     "ember-simple-auth": "0.8.0",
-    "loader.js": "^3.5.0",
-    "qunit": "~1.20.0"
+    "moment": "^2.8.0",
+    "moment-timezone": "^0.5.0"
   },
   "resolutions": {
     "ember": "2.2.0"
