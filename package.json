@@ -46,7 +46,7 @@
     "ember-i18n": "4.0.0",
     "ember-json-api": "^0.5.0",
     "ember-jsonapi-resources": "^0.4.7",
-    "ember-key-responder": "0.2.1",
+    "ember-key-responder": "0.4.2",
     "ember-legacy-views": "0.2.0",
     "ember-modal-dialog": "0.7.7",
     "ember-moment": "5.1.0",
