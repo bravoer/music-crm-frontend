@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
+`import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin'`
 
 MainRoute = Ember.Route.extend AuthenticatedRouteMixin,
+  session: Ember.inject.service('session')
   actions:
     logout: ->
       @get('session').invalidate('authenticator:mu-semtech')

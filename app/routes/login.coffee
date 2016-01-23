@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
 
 LoginRoute = Ember.Route.extend
+  session: Ember.inject.service('session')
   model: ->
     nickname: null
     password: null
@@ -12,12 +13,12 @@ LoginRoute = Ember.Route.extend
     login: ->
       credentials = @get('controller.model')
       @get('session').authenticate('authenticator:mu-semtech', credentials)
-    sessionAuthenticationSucceeded: -> 
+    sessionAuthenticated: -> 
       console.log 'Login succeeded'
       return true
-    sessionAuthenticationFailed: (error) ->
-      console.log 'Login failed'
-      message = JSON.parse(error.responseText).errors[0].title
-      @set('controller.errorMessage', message)
+    # sessionAuthenticationFailed: (error) ->
+    #   console.log 'Login failed'
+    #   message = JSON.parse(error.responseText).errors[0].title
+    #   @set('controller.errorMessage', message)
         
 `export default LoginRoute`
