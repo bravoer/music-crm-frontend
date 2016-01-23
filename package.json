@@ -42,7 +42,7 @@
     "ember-composability": "0.1.2",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
-    "ember-i18n": "4.0.0",
+    "ember-i18n": "^4.2.0",
     "ember-json-api": "^0.5.0",
     "ember-jsonapi-resources": "^0.4.7",
     "ember-key-responder": "0.4.2",
