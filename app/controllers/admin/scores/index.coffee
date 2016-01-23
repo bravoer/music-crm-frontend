@@ -1,7 +1,6 @@
 `import Ember from 'ember'`
 
-AdminScoresIndexController = Ember.ArrayController.extend
-  sortProperties: ['title']
+AdminScoresIndexController = Ember.Controller.extend
   tabs: [
     { id: 'activeScores', title: 'Muziekstukken' }
     { id: 'archivedScores', title: 'Archief' }
