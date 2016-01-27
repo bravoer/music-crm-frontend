@@ -16,7 +16,7 @@
   <ul id="profile-dropdown-nav" class="dropdown-content">
     <li><a href="#!">Profiel</a></li>
     {{#if session.isAuthenticated}}
-      <li>{{mu-logout}}</li>
+      {{logout-button}}
     {{/if}}
   </ul>
   
