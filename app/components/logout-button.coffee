@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import MuLogoutComponent from './mu-logout'`
+`import MuLogoutMixin from 'ember-mu-login/mixins/mu-logout'`
 
-LogoutButtonComponent = MuLogoutComponent.extend
+LogoutButtonComponent = Ember.Component.extend MuLogoutMixin,
   tagName: 'li'
 
 `export default LogoutButtonComponent`
