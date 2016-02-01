@@ -20,7 +20,6 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
-    "buffered-save": "git+ssh://git@git.semte.ch:9922/mu-semtech/jsonapi-resources-buffered-save.git#5ffa0e64c74feda2078091045757063fd2c07d75",
     "ember-ajax": "0.7.1",
     "ember-cli": "2.2.0-beta.6",
     "ember-cli-app-version": "^1.0.0",
@@ -43,8 +42,6 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-i18n": "^4.2.0",
-    "ember-json-api": "^0.5.0",
-    "ember-jsonapi-resources": "^0.4.7",
     "ember-key-responder": "0.4.2",
     "ember-legacy-views": "0.2.0",
     "ember-modal-dialog": "0.7.7",
