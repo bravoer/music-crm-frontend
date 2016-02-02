@@ -3,8 +3,8 @@
 ScoresTableComponent = Ember.Component.extend
   store: Ember.inject.service()
   selectedScores: Ember.computed.filterBy('scores', 'isSelected', true)
-  selectionIsEmpty: Ember.computed 'scores.@each.isSelected', ->
-    @get('scores').filterBy('isSelected', true).get('length') == 0
+  selectedScoresIsEmpty: Ember.computed 'selectedScores', ->
+    @get('selectedScores').get('length') == 0
   actions:
     toggleArchive: ->
       scores = @get('selectedScores')
