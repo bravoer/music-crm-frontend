@@ -10,6 +10,7 @@
 	{{#md-card-content}}
 	  <div class="card-subtitle">{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
 	  <div class="row">{{score-detail-note score=score}}</div>
+	  <div class="row">
 	  {{#if score.parts}}
 	    {{#md-collection content=score.parts as |part|}}
 	      <div class='collection-item grey lighten-4'>
@@ -20,10 +21,11 @@
 	      </div>
 	    {{/md-collection}}
 	  {{else}}
-	    <div class="row right">
+	    <div class="right">
 	      <a class="btn disabled">Geen partituren beschikbaar</a>
 	    </div>
           {{/if}}
+	  </div>
 	{{/md-card-content}}
       {{/md-card}}
     </div>
