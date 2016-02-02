@@ -16,19 +16,9 @@ ScoresTableComponent = Ember.Component.extend
     delete: () ->
       scores = @get('selectedScores')
       @sendAction('delete', scores)
-    openDetail: (score) ->
-      @set('selectedScore', score)
-      @set('detailIsOpen', true)
-    openNewMusicPart: (score) ->
-      musicPart = @get('store').createRecord('part', {})
-      @set('selectedScore', score)
-      @set('newMusicPart', musicPart)
-      @set('newMusicPartIsOpen', true)
-    addFile: (file, part) ->
-      @sendAction('addFile', file, part)
-    savePart: (score, part) ->
-      @sendAction('savePart', score, part)
-    deletePart: (score, part) ->
-      @sendAction('deletePart', score, part)
+    info: (score) ->
+      @sendAction('info', score)
+    attach: (score) ->
+      @sendAction('attach', score)
 
 `export default ScoresTableComponent`

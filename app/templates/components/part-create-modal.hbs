@@ -2,7 +2,7 @@
   {{#md-modal close='close'}}
     <div class="modal-content">
       <h4>Partituur toevoegen</h4>
-      {{#unless musicPart.file}}
+      {{#unless part.file}}
 	<div class="row">
 	  {{#file-picker fileLoaded='addFile' preview=false class="col s12 grey lighten-3 grey-text"}}
 	    <div class="message center-align"><h5>Sleep een bestand of klik om een bestand op te laden.</h5></div>
@@ -13,16 +13,16 @@
 	  <form class="col s12">
 	    <div class="row">
 	      <div class="col s6 m3">
-		{{t-select options=instruments value=musicPart.instrument blankLabel="-" label="Instrument"}}
+		{{t-select options=instruments value=part.instrument blankLabel="-" label="Instrument"}}
 	      </div>
 	      <div class="col s6 m3">
-		{{t-select options=instrumentParts value=musicPart.instrumentPart blankLabel="-" label="Stem"}}
+		{{t-select options=instrumentParts value=part.instrumentPart blankLabel="-" label="Stem"}}
 	      </div>
 	      <div class="col s6 m3">
-		{{t-select options=keys value=musicPart.key blankLabel="-" label="Toonaard"}}
+		{{t-select options=keys value=part.key blankLabel="-" label="Toonaard"}}
 	      </div>
 	      <div class="col s6 m3">
-		{{t-select options=clefs value=musicPart.clef blankLabel="-" label="Sleutel"}}
+		{{t-select options=clefs value=part.clef blankLabel="-" label="Sleutel"}}
 	      </div>
 	    </div>
 	  </form>
@@ -31,7 +31,7 @@
     </div>
     
     <div class="modal-footer">
-      {{#if musicPart.file}}
+      {{#if part.file}}
 	<a {{action 'savePart'}} class="modal-action waves-effect btn-flat">Opslaan</a>
       {{/if}}
       <a {{action 'close'}} class="modal-action modal-close waves-effect btn-flat">Annuleer</a>

@@ -4,7 +4,7 @@
 `import KeyOptions from 'client/config/key-options'`
 `import ClefOptions from 'client/config/clef-options'`
 
-MusicPartCreateModalComponent = Ember.Component.extend
+PartCreateModalComponent = Ember.Component.extend
   instruments: InstrumentOptions.get('all')
   instrumentParts: InstrumentPartOptions.get('options')
   clefs: ClefOptions.get('options')
@@ -12,14 +12,12 @@ MusicPartCreateModalComponent = Ember.Component.extend
 
   actions:
     addFile: (file) ->
-      console.log 'add file action in modal'
-      @sendAction('addFile', file, @get('musicPart'))
+      @sendAction('addFile', file, @get('part'))
     savePart: ->
-      console.log 'save part action in modal'
       @set 'isOpen', false
-      @sendAction('savePart', @get('score'), @get('musicPart'))
+      @sendAction('savePart', @get('score'), @get('part'))
     close: ->
       @set 'isOpen', false
       return false
 
-`export default MusicPartCreateModalComponent`
+`export default PartCreateModalComponent`
