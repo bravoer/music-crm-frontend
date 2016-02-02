@@ -3,7 +3,8 @@
 AddScoreComponent = Ember.Component.extend
   actions:
     save: ->
-      @sendAction('save')
+      score = @get('score')
+      @sendAction('save', score)
     cancel: ->
       @sendAction('cancel')
 

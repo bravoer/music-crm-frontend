@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
 
 ScoresTableComponent = Ember.Component.extend
+  store: Ember.inject.service()
   selectedScores: Ember.computed.filterBy('scores', 'isSelected', true)
   selectionIsEmpty: Ember.computed 'scores.@each.isSelected', ->
     @get('scores').filterBy('isSelected', true).get('length') == 0
@@ -11,6 +12,7 @@ ScoresTableComponent = Ember.Component.extend
         scores.forEach (score) ->
           toggledStatus = if score.get('isActive') then 'archived' else 'active'
           score.setProperties( { status: toggledStatus, isSelected: false } )
+          score.save()
     delete: () ->
       scores = @get('selectedScores')
       @sendAction('delete', scores)
@@ -18,7 +20,7 @@ ScoresTableComponent = Ember.Component.extend
       @set('selectedScore', score)
       @set('detailIsOpen', true)
     openNewMusicPart: (score) ->
-      musicPart = @container.lookup('model:parts').create()
+      musicPart = @get('store').createRecord('part', {})
       @set('selectedScore', score)
       @set('newMusicPart', musicPart)
       @set('newMusicPartIsOpen', true)

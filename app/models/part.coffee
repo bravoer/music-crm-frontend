@@ -1,20 +1,14 @@
-`import Ember from 'ember'`
-`import Resource from 'ember-jsonapi-resources/models/resource'`
-`import { attr, hasOne, hasMany } from 'ember-jsonapi-resources/models/resource'`
+`import DS from 'ember-data'`
 
-Part = Resource.extend
-  type: 'parts'
-  service: Ember.inject.service('parts')
+Part = DS.Model.extend
+  name: DS.attr('string')
+  instrument: DS.attr('string')
+  instrumentPart: DS.attr('string')
+  key: DS.attr('string')
+  clef: DS.attr('string')
+  file: DS.attr('string')
 
-  name: attr()
-  instrument: attr()
-  instrumentPart: Ember.computed.alias 'instrument-part' 
-  'instrument-part': attr()
-  key: attr()
-  clef: attr()
-  file: attr()
-
-  score: hasOne('score')
+  score: DS.belongsTo('score')
 
   description: Ember.computed 'instrument', 'instrumentPart', 'key', 'clef', ->
     description = ""
@@ -23,5 +17,6 @@ Part = Resource.extend
     description += " #{@i18n.t(@get('key'))}" if @get('key')
     description += " (#{@i18n.t(@get('clef'))})" if @get('clef')
     description || @get('name')
+
 
 `export default Part`

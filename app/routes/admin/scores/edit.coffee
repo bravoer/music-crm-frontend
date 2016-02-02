@@ -8,11 +8,13 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
   actions:
     cancel: ->
       @transitionTo 'admin.scores.index'
+    saveScore: (score) ->
+      score.save().then () =>
+        @transitionTo 'admin.scores.index'
     deletePart: (part) ->
       @deleteFile(part.get('file'))
-      part.removeRelationship('score', @get('controller.model.id'))
-      @store.patchRelationship('parts', part, 'score').then () =>
-        @get('controller.model.parts').removeObject(part)
-        @store.deleteResource('parts', part)
+      part.set('score', null)
+      part.save().then (part) ->
+        part.destroyRecord()
 
 `export default AdminScoresEditRoute`

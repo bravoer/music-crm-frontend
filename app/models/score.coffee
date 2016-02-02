@@ -1,21 +1,16 @@
-`import Ember from 'ember'`
-`import Resource from 'ember-jsonapi-resources/models/resource'`
-`import { attr, hasOne, hasMany } from 'ember-jsonapi-resources/models/resource'`
+`import DS from 'ember-data'`
 
-Score = Resource.extend
-  type: 'scores'
-  service: Ember.inject.service('scores')
+Score = DS.Model.extend
+  title: DS.attr('string')
+  description: DS.attr('string')
+  composer: DS.attr('string')
+  arranger: DS.attr('string')
+  duration: DS.attr('string')
+  genre: DS.attr('string')
+  publisher: DS.attr('string')
+  status: DS.attr('string')
 
-  title: attr()
-  description: attr()
-  composer: attr()
-  arranger: attr()
-  duration: attr()
-  genre: attr()
-  publisher: attr()
-  status: attr()
-
-  parts: hasMany('parts')
+  parts: DS.hasMany('part')
 
   _hasStatus: (status) ->
     @get('status') == status
@@ -31,5 +26,5 @@ Score = Resource.extend
     set: (_key, value, prevValue) ->
       if value and value != prevValue then @set('status', 'archived') else @set('status', 'active')
       @_hasStatus('archived')
-      
+
 `export default Score`
