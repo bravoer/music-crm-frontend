@@ -50,6 +50,7 @@
     "ember-modal-dialog": "0.7.7",
     "ember-moment": "5.1.0",
     "ember-mu-login": "^1.2.0",
+    "ember-mu-registration": "1.0.1",
     "ember-new-computed": "1.0.2",
     "ember-radio-button": "1.0.7",
     "ember-resolver": "^2.0.3",
