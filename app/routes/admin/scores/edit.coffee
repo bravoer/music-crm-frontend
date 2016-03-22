@@ -6,7 +6,8 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
     @store.find 'scores', params.id
 
   actions:
-    cancel: ->
+    cancel: (score) ->
+      score.rollbackAttributes()
       @transitionTo 'admin.scores.index'
     saveScore: (score) ->
       score.save().then () =>
