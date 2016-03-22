@@ -14,7 +14,7 @@
 
   <!-- Profile dropdown -->
   <ul id="profile-dropdown-nav" class="dropdown-content">
-    <li><a href="#!">Profiel</a></li>
+    <li>{{#link-to 'profile'}}Profiel{{/link-to}}</li>
     {{#if session.isAuthenticated}}
       {{logout-button}}
     {{/if}}
