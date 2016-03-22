@@ -5,7 +5,8 @@ AdminScoresAddRoute = Ember.Route.extend
     @store.createRecord 'score', { status: 'active' }
       
   actions:
-    cancel: ->
+    cancel: (score) ->
+      @store.deleteRecord score
       @transitionTo 'admin.scores.index'
     saveScore: (score) ->
       score.save().then () =>
