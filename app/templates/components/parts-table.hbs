@@ -7,8 +7,6 @@
 	    <th>Naam</th>
 	    <th>Instrument</th>
 	    <th>Stem</th>
-	    <th>Toonaard</th>
-	    <th>Sleutel</th>
 	    <th></th>
 	  </tr>
 	</thead>
@@ -19,8 +17,6 @@
 	      <td>{{part.name}}</td>
 	      <td>{{t-label value=part.instrument}}</td>
 	      <td>{{t-label value=part.instrumentPart}}</td>
-	      <td>{{t-label value=part.key}}</td>
-	      <td>{{t-label value=part.clef}}</td>
 	      <td><a {{action 'delete' part}}><i class="material-icons">delete</i></a></td>
 	    </tr>
 	  {{/each}}
