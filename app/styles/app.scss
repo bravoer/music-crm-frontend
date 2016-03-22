@@ -68,6 +68,11 @@ nav .brand-logo {
     padding-left: 10px;
 }
 
+/** Tabs */
+.materialize-tabs.row .col {
+    padding: 0;
+}
+
 /** File picker */
 .file-picker {
     min-height: 150px;
