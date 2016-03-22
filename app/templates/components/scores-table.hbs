@@ -25,7 +25,6 @@
 	    <th>Componist</th>
 	    <th>Arrangeur</th>
 	    <th>Genre</th>
-	    <th>Duur</th>
 	    <th># Partituren</th>
 	    <th><!-- Buttons --></th>
 	  </tr>
@@ -39,7 +38,6 @@
 	      <td>{{score.composer}}</td>
 	      <td>{{score.arranger}}</td>
 	      <td>{{t-label value=score.genre}}</td>
-	      <td>{{fmt-duration millis=score.duration}}</td>
 	      <td>{{score.parts.length}}</td>
 	      <td>
 		<a {{action 'info' score}}><i class="material-icons">info</i></a>
