@@ -13,10 +13,10 @@
 	  <form class="col s12">
 	    <div class="row">
 	      <div class="col s6 m3">
-		{{t-select options=instruments value=part.instrument blankLabel="-" label="Instrument"}}
+		{{t-radios options=instruments value=part.instrument label="Instrument"}}
 	      </div>
 	      <div class="col s6 m3">
-		{{t-select options=instrumentParts value=part.instrumentPart blankLabel="-" label="Stem"}}
+		{{t-radios options=instrumentParts value=part.instrumentPart label="Stem"}}
 	      </div>
 	    </div>
 	  </form>
