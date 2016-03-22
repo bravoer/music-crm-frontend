@@ -1,0 +1,10 @@
+<label>{{label}}</label>
+{{#md-radios
+  selection=value
+  optionValuePath="content.value"
+  optionLabelPath="content.label"}}
+  {{#each content as |option|}}
+    <p>{{md-radio value=option.value name=option.label}}</p>
+  {{/each}}
+{{/md-radios}}
+	
