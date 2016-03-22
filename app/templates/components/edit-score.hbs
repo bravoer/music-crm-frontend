@@ -1,10 +1,17 @@
-{{score-form score=score}}
-
-<h3>Partituren</h3>
-
-{{parts-table parts=score.parts delete='deletePart'}}
-
 <div class="row">
-  {{#md-btn action='save'}}Opslaan{{/md-btn}}
-  {{#md-btn action='cancel'}}Annuleer{{/md-btn}}
+  <div class="col s12"> 
+    <h3>Bewerk partituur</h3>
+    
+    {{score-form score=score}}
+
+    {{#if score.parts}}
+      <h4>Bestanden</h4>    
+      {{parts-table parts=score.parts delete='deletePart'}}
+    {{/if}}
+    
+    <div class="row">
+      {{#md-btn action='save'}}Opslaan{{/md-btn}}
+      {{#md-btn action='cancel'}}Annuleer{{/md-btn}}
+    </div>
+  </div>
 </div>
