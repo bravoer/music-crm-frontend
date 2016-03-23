@@ -1,35 +1,33 @@
-<h1>Muziekstukken</h1>
-
 <div class="row">
-</div>
-
-<div class="row">
-  {{#each model as |score|}}
-    <div class="col s12 m6 l4">
-      {{#md-card title=score.title class="grey lighten-4"}}
-	{{#md-card-content}}
-	  <div class="card-subtitle">{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
-	  <div class="row">{{score-detail-note score=score}}</div>
-	  <div class="row">
-	  {{#if score.parts}}
-	    {{#md-collection content=score.parts as |part|}}
-	      <div class='collection-item grey lighten-4' {{action 'download' part}}>
-		{{part.description}}
-		<a class='secondary-content'>
-		  <i class="material-icons">attach_file</i>
-		</a>
+  <div class="col s12">
+    <h3>Muziekstukken</h3>
+    <div class="row">
+      {{#each model as |score|}}
+	<div class="col s12 m6 l4">
+	  {{#md-card title=score.title class="grey lighten-4"}}
+	    {{#md-card-content}}
+	      <div class="card-subtitle">{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
+	      <div class="row">{{score-detail-note score=score}}</div>
+	      <div class="row">
+		{{#if score.parts}}
+		  {{#md-collection content=score.parts as |part|}}
+		    <div class='collection-item grey lighten-4' {{action 'download' part}}>
+		      {{part.description}}
+		      <a class='secondary-content'>
+			<i class="material-icons">attach_file</i>
+		      </a>
+		    </div>
+		  {{/md-collection}}
+		{{else}}
+		  <div class="right">
+		    <a class="btn disabled">Geen partituren beschikbaar</a>
+		  </div>
+		{{/if}}
 	      </div>
-	    {{/md-collection}}
-	  {{else}}
-	    <div class="right">
-	      <a class="btn disabled">Geen partituren beschikbaar</a>
-	    </div>
-          {{/if}}
-	  </div>
-	{{/md-card-content}}
-      {{/md-card}}
+	    {{/md-card-content}}
+	  {{/md-card}}
+	</div>
+      {{/each}}
     </div>
-  {{/each}}
+  </div>
 </div>
-
-{{outlet}}
