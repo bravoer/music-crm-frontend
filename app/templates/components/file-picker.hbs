@@ -1,0 +1,22 @@
+{{#if dropzone}}
+  <div class="file-picker__dropzone">
+    {{yield}}
+  </div>
+{{else}}
+  {{yield}}
+{{/if}}
+
+{{#if preview}}
+  <div class="file-picker__preview"></div>
+{{/if}}
+
+{{#if progress}}
+  {{#if showProgress}}
+    <div class="row">
+      <span>Loading...</span>
+      {{md-loader}}
+    </div>
+  {{/if}}
+{{/if}}
+
+{{input type="file" value=file accept=accept multiple=multiple class="file-picker__input"}}

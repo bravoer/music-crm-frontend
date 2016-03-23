@@ -74,10 +74,11 @@ nav .brand-logo {
 }
 
 /** File picker */
-.file-picker {
-    min-height: 150px;
+.file-picker__dropzone {
+    min-height: 50px;
+    background-color: color("grey", "lighten-3");
     border: 2px dashed color("grey", "base");
-    padding: 50px !important;
+    padding: 25px !important;
     margin: 5px 0;
     cursor: pointer;
 
