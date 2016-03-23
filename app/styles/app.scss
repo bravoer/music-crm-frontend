@@ -73,6 +73,15 @@ nav .brand-logo {
     padding: 0;
 }
 
+/** Radios */
+.md-radios .horizontal {
+    p {
+	display: inline-block;
+	margin: 5px 15px;
+	width: 100px;
+    }
+}
+
 /** File picker */
 .file-picker__dropzone {
     min-height: 50px;
