@@ -3,7 +3,7 @@
 
 AdminScoresEditRoute = Ember.Route.extend FileManager, 
   model: (params) ->
-    @store.find 'scores', params.id
+    @store.findRecord 'score', params.id
 
   actions:
     cancel: (score) ->
