@@ -2,9 +2,19 @@
 `import FileManager from 'client/mixins/file-manager'`
 `import PartActions from 'client/mixins/part-actions'`
 
-AdminScoresIndexRoute = Ember.Route.extend FileManager, PartActions, 
-  model: ->
-    @store.findAll 'score'
+AdminScoresIndexRoute = Ember.Route.extend FileManager, PartActions,
+  # http://emberigniter.com/pagination-in-ember-with-json-api-backend/
+  model: (params) ->
+    @store.query 'score', {
+      page:
+        number: params.page
+        size: params.size
+    }
+  queryParams:
+    page:
+      refreshModel: true
+    size:
+      refreshModel: true
   actions:
     addFile: (file, part) ->
       @createFile(file).then (response) =>
