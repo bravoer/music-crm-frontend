@@ -6,6 +6,6 @@ ScoreDetailModalComponent = Ember.Component.extend
       @set 'isOpen', false
       return false
     deletePart: (part) ->
-      @sendAction('deletePart', @get('score'), part)
+      @sendAction('deletePart', part)
 
 `export default ScoreDetailModalComponent`

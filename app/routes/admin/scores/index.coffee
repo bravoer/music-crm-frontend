@@ -1,7 +1,8 @@
 `import Ember from 'ember'`
 `import FileManager from 'client/mixins/file-manager'`
+`import PartActions from 'client/mixins/part-actions'`
 
-AdminScoresIndexRoute = Ember.Route.extend FileManager,
+AdminScoresIndexRoute = Ember.Route.extend FileManager, PartActions, 
   model: ->
     @store.findAll 'score'
   actions:
@@ -15,10 +16,5 @@ AdminScoresIndexRoute = Ember.Route.extend FileManager,
     deleteScores: (scores) ->
       scores.forEach (score) ->
         score.destroyRecord()
-    deletePart: (score, part) ->
-      @deleteFile(part.get('file'))
-      part.set('score', null)
-      part.save().then (part) ->
-        part.destroyRecord()
 
 `export default AdminScoresIndexRoute`

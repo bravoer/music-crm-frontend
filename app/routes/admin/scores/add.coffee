@@ -1,15 +1,8 @@
 `import Ember from 'ember'`
+`import ScoreActions from 'client/mixins/score-actions'`
 
-AdminScoresAddRoute = Ember.Route.extend
+AdminScoresAddRoute = Ember.Route.extend ScoreActions,
   model: ->
     @store.createRecord 'score', { status: 'active' }
       
-  actions:
-    cancel: (score) ->
-      @store.deleteRecord score
-      @transitionTo 'admin.scores.index'
-    saveScore: (score) ->
-      score.save().then () =>
-        @transitionTo 'admin.scores.index'
-
 `export default AdminScoresAddRoute`
