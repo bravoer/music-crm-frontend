@@ -24,5 +24,8 @@ AdminScoresIndexController = Ember.Controller.extend
       @set('scoreToCreatePartFor', score)
       @set('createPartModalIsOpen', true)
       return false
+    changePage: (page, size) ->
+      @set('page', page)
+      @set('size', size)
 
 `export default AdminScoresIndexController`

@@ -26,5 +26,5 @@ AdminScoresIndexRoute = Ember.Route.extend FileManager, PartActions,
     deleteScores: (scores) ->
       scores.forEach (score) ->
         score.destroyRecord()
-
+      
 `export default AdminScoresIndexRoute`
