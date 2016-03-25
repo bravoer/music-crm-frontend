@@ -6,6 +6,8 @@ PagePaginationComponent = Ember.Component.extend
     result = {}
     @get('keys').map (key) =>
       result[key] = @get('pagination')[key]
+    result['first'] = undefined unless @get('pagination.prev')
+    result['last'] = undefined unless @get('pagination.next')
     result
   actions:
     changePage: (page) ->
