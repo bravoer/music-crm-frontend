@@ -12,6 +12,9 @@ Router.map ->
       @resource 'admin.scores', { path: '/scores' }, ->
         @route 'add'
         @route 'edit', path: '/:id/edit'
+        @route 'list', ->
+          @route 'active'
+          @route 'archive'
     @resource 'profile', ->
 
 `export default Router`
