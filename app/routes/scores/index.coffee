@@ -6,6 +6,8 @@ ScoresIndexRoute = Ember.Route.extend
       page:
         number: params.page
         size: params.size
+      filter:
+        status: 'active'
     }
   queryParams:
     page:

@@ -9,6 +9,8 @@ AdminScoresIndexRoute = Ember.Route.extend FileManager, PartActions,
       page:
         number: params.page
         size: params.size
+      filter:
+        status: 'active'
     }
   queryParams:
     page:
