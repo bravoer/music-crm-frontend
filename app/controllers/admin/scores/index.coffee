@@ -1,9 +1,7 @@
 `import Ember from 'ember'`
+`import PagePagination from 'client/mixins/page-pagination'`
 
-AdminScoresIndexController = Ember.Controller.extend
-  queryParams: ['page', 'size']
-  page: 0
-  size: 1
+AdminScoresIndexController = Ember.Controller.extend PagePagination,
   tabs: [
     { id: 'activeScores', title: 'Muziekstukken' }
     { id: 'archivedScores', title: 'Archief' }
@@ -24,8 +22,5 @@ AdminScoresIndexController = Ember.Controller.extend
       @set('scoreToCreatePartFor', score)
       @set('createPartModalIsOpen', true)
       return false
-    changePage: (page, size) ->
-      @set('page', page)
-      @set('size', size)
 
 `export default AdminScoresIndexController`
