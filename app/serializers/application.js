@@ -16,11 +16,7 @@ export default DS.JSONAPISerializer.extend({
   createPageMeta(data) {
     let meta = {};
 
-    const refArray = ['first', 'prev', 'next', 'last'];
-    let sortedKeys = Object.keys(data).sort(function(a,b) {
-      return refArray.indexOf(a) - refArray.indexOf(b);
-    });
-    sortedKeys.forEach(type => {
+    Object.keys(data).forEach(type => {
       const link = data[type];
       meta[type] = {};
       let a = document.createElement('a');
