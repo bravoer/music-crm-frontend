@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 `import PagePagination from 'client/mixins/page-pagination'`
 
-AdminScoresListActiveController = Ember.Controller.extend PagePagination, 
+AdminScoresListActiveController = Ember.Controller.extend PagePagination,
   actions:
     openScoreDetailModal: (score) ->
       @set('detailedScore', score)

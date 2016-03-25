@@ -14,5 +14,9 @@ AdminScoresListActiveRoute = Ember.Route.extend
       refreshModel: true
     size:
       refreshModel: true
+  setupController: (controller, model) ->
+    @_super(controller, model)
+    controller.set('detailModalIsOpen', false)
+    controller.set('createPartModalIsOpen', false)
 
 `export default AdminScoresListActiveRoute`
