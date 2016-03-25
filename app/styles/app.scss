@@ -63,6 +63,11 @@ blockquote {
     }
 }
 
+/** Icons */
+i.disabled {
+    color: color("grey", "lighten-2");
+}
+
 /** Navigation bar */
 nav .brand-logo {
     padding-left: 10px;
