@@ -14,5 +14,8 @@ AdminScoresListArchiveRoute = Ember.Route.extend
       refreshModel: true
     size:
       refreshModel: true
+  setupController: (controller, model) ->
+    @_super(controller, model)
+    @controllerFor('admin.scores.list').set('activeTab', 'archive');
 
 `export default AdminScoresListArchiveRoute`
