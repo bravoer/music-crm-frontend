@@ -1,3 +1,11 @@
-Active scores come here
+<div class="row">
+  <div class="col s12"> 
+    {{scores-table scores=model archived=false addFile='addFile' savePart='savePart' delete='deleteScores' deletePart='deletePart' info='openScoreDetailModal' attach='openNewPartModal'}}
 
-{{outlet}}
+    {{page-pagination pagination=model.meta.pagination changePage='changePage'}}
+  </div>
+</div>
+
+{{score-detail-modal isOpen=detailModalIsOpen score=detailedScore deletePart='deletePart'}}
+{{part-create-modal isOpen=createPartModalIsOpen score=scoreToCreatePartFor part=newPart addFile='addFile' savePart='savePart'}}
+
