@@ -1,14 +1,7 @@
-<div class="row">
-  {{#if pagination.first}}
-    <i class="small material-icons" {{action 'changePage' pagination.first}}>first_page</i>
+<div class="row center">
+{{#each-in pagination as |key value|}}
+  {{#if value}}
+    <i class="small material-icons" {{action 'changePage' value}}>{{pagination-icon key}}</i>
   {{/if}}
-  {{#if pagination.prev}}
-    <i class="small material-icons" {{action 'changePage' pagination.prev}}>chevron_left</i>
-  {{/if}}
-  {{#if pagination.next}}
-    <i class="small material-icons" {{action 'changePage' pagination.next}}>chevron_right</i>
-  {{/if}}
-  {{#if pagination.last}}
-    <i class="small material-icons" {{action 'changePage' pagination.last}}>last_page</i>
-  {{/if}}
+{{/each-in}}
 </div>
