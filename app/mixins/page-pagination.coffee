@@ -3,7 +3,7 @@
 PagePaginationMixin = Ember.Mixin.create
   queryParams: ['page', 'size']
   page: 0
-  size: 3
+  size: 20
   actions:
     changePage: (page, size) ->
       @set('page', page)
