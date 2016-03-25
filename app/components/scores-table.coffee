@@ -13,6 +13,7 @@ ScoresTableComponent = Ember.Component.extend
           toggledStatus = if score.get('isActive') then 'archived' else 'active'
           score.setProperties( { status: toggledStatus, isSelected: false } )
           score.save()
+      @get('scores').removeObjects(scores)
     delete: () ->
       scores = @get('selectedScores')
       @sendAction('delete', scores)
