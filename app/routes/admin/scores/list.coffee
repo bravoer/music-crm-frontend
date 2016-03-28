@@ -10,6 +10,7 @@ AdminScoresListRoute = Ember.Route.extend FileManager, PartActions,
         part.set('name', file.name)
     savePart: (score, part) ->
       part.set('score', score)
+      part.set('modified', new Date())
       part.save()       
     deleteScores: (scores) ->
       scores.forEach (score) ->

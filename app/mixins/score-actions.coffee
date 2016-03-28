@@ -9,6 +9,7 @@ ScoreActionsMixin = Ember.Mixin.create
       else
         @transitionTo 'admin.scores.list.active'
     saveScore: (score) ->
+      score.set('modified', new Date())
       score.save().then () =>
         if score.get('status') == 'archived'
           @transitionTo 'admin.scores.list.archive'

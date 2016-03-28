@@ -9,6 +9,12 @@ Score = DS.Model.extend
   genre: DS.attr('string')
   publisher: DS.attr('string')
   status: DS.attr('string')
+  created: DS.attr('date',
+    defaultValue: () -> new Date()
+  )
+  modified: DS.attr('date',
+    defaultValue: () -> new Date()
+  )
 
   parts: DS.hasMany('part')
 
