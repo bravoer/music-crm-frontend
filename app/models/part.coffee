@@ -7,6 +7,12 @@ Part = DS.Model.extend
   key: DS.attr('string')
   clef: DS.attr('string')
   file: DS.attr('string')
+  created: DS.attr('date',
+    defaultValue: () -> new Date()
+  )
+  modified: DS.attr('date',
+    defaultValue: () -> new Date()
+  )
 
   score: DS.belongsTo('score')
 
