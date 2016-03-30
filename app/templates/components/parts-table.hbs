@@ -1,4 +1,4 @@
-{{#if parts}}
+{{#if sortedParts}}
   <div class="row">
     <div class="col s12">
       <table class="striped">
@@ -12,7 +12,7 @@
 	</thead>
 
 	<tbody>
-	  {{#each parts as |part|}}
+	  {{#each sortedParts as |part|}}
 	    <tr>
 	      <td>{{part.name}}</td>
 	      <td>{{t-label value=part.instrument}}</td>

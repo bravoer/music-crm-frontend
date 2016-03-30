@@ -21,10 +21,10 @@
 	<thead>
 	  <tr>
 	    <th><!-- Checkbox --></th>
-	    <th>Titel</th>
-	    <th>Componist</th>
-	    <th>Arrangeur</th>
-	    <th>Genre</th>
+	    <th {{action 'changeSort' 'title'}}>{{sort-icon 'title' sort}}Titel</th>
+	    <th {{action 'changeSort' 'composer'}}>{{sort-icon 'composer' sort}}Componist</th>
+	    <th {{action 'changeSort' 'arranger'}}>{{sort-icon 'arranger' sort}}Arrangeur</th>
+	    <th {{action 'changeSort' 'genre'}}>{{sort-icon 'genre' sort}}Genre</th>
 	    <th># Partituren</th>
 	    <th><!-- Buttons --></th>
 	  </tr>
