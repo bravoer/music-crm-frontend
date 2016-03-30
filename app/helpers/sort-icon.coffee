@@ -6,8 +6,7 @@ _inverseSort = (sort) ->
 # This function receives the params `params, hash`
 sortIcon = (params) ->
   icon = ''
-  field = params[0]
-  sort = params[1]
+  [field,sort] = params
   if sort == field
     icon = "<i class='tiny material-icons'>arrow_downward</i>"
   else if sort == "-#{field}"
