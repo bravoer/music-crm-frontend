@@ -2,6 +2,8 @@
 `import PagePagination from 'client/mixins/page-pagination'`
 
 AdminScoresListArchiveController = Ember.Controller.extend PagePagination, 
+  queryParams: ['sort']
+  sort: 'title'
   actions:
     openScoreDetailModal: (score) ->
       @set('detailedScore', score)

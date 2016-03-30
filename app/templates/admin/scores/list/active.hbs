@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12"> 
-    {{scores-table scores=model archived=false addFile='addFile' savePart='savePart' delete='deleteScores' deletePart='deletePart' info='openScoreDetailModal' attach='openNewPartModal'}}
+    {{scores-table scores=model archived=false sort=sort addFile='addFile' savePart='savePart' delete='deleteScores' deletePart='deletePart' info='openScoreDetailModal' attach='openNewPartModal'}}
 
     {{page-pagination pagination=model.meta.pagination changePage='changePage'}}
   </div>

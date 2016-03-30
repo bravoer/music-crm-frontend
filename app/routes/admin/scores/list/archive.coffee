@@ -8,13 +8,15 @@ AdminScoresListArchiveRoute = Ember.Route.extend
         size: params.size
       filter:
         status: 'archived'
-      sort: 'title'
+      sort: params.sort
     }
   queryParams:
     page:
       refreshModel: true
     size:
       refreshModel: true
+    sort:
+      refreshModel: true    
   setupController: (controller, model) ->
     @_super(controller, model)
     @controllerFor('admin.scores.list').set('activeTab', 'archive')
