@@ -8,6 +8,7 @@ AdminScoresListArchiveRoute = Ember.Route.extend
         size: params.size
       filter:
         status: 'archived'
+      sort: 'title'
     }
   queryParams:
     page:

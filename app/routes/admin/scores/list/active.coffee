@@ -8,6 +8,7 @@ AdminScoresListActiveRoute = Ember.Route.extend
         size: params.size
       filter:
         status: 'active'
+      sort: 'title'
     }
   queryParams:
     page:
