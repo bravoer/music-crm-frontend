@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import FieldSorting from 'client/mixins/field-sorting'`
 
-ScoresTableComponent = Ember.Component.extend
+ScoresTableComponent = Ember.Component.extend FieldSorting,
   store: Ember.inject.service()
   selectedScores: Ember.computed.filterBy('scores', 'isSelected', true)
   selectedScoresIsEmpty: Ember.computed 'selectedScores', ->
