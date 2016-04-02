@@ -1,10 +1,12 @@
 `import Ember from 'ember'`
-`import PagePagination from 'client/mixins/page-pagination'`
 
-ScoresIndexController = Ember.Controller.extend PagePagination,
+ScoresIndexController = Ember.Controller.extend
+  queryParams: ['page', 'size', 'sort']
+  page: 0
+  size: 20
+  sort: 'title'
   actions:
     download: (part) ->
-      console.log 'Download file ' + part.get('file')
       window.location = part.get('file') + '/download'
 
 `export default ScoresIndexController`

@@ -8,12 +8,14 @@ ScoresIndexRoute = Ember.Route.extend
         size: params.size
       filter:
         status: 'active'
-      sort: 'title'
+      sort: params.sort
     }
   queryParams:
     page:
       refreshModel: true
     size:
+      refreshModel: true
+    sort:
       refreshModel: true
 
 `export default ScoresIndexRoute`

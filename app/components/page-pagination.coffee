@@ -2,15 +2,16 @@
 
 PagePaginationComponent = Ember.Component.extend
   keys: ['first', 'prev', 'next', 'last']
-  sortedPagination: Ember.computed 'keys', 'pagination', ->
+  sortedLinks: Ember.computed 'keys', 'links', ->
     result = {}
     @get('keys').map (key) =>
-      result[key] = @get('pagination')[key]
-    result['first'] = undefined unless @get('pagination.prev')
-    result['last'] = undefined unless @get('pagination.next')
+      result[key] = @get('links')[key]
+    result['first'] = undefined unless @get('links.prev')
+    result['last'] = undefined unless @get('links.next')
     result
   actions:
-    changePage: (page) ->
-      @sendAction('changePage', page['number'] || 0, page['size'] || 0)
+    changePage: (link) ->
+      @set('page', link['number'] || 0)
+      @set('size', link['size'] || 0)
 
 `export default PagePaginationComponent`

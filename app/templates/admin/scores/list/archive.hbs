@@ -2,7 +2,7 @@
   <div class="col s12"> 
     {{scores-table scores=model archived=true sort=sort addFile='addFile' savePart='savePart' delete='deleteScores' deletePart='deletePart' info='openScoreDetailModal' attach='openNewPartModal'}}
 
-    {{page-pagination pagination=model.meta.pagination changePage='changePage'}}
+    {{page-pagination links=model.meta.pagination page=page size=size}}
   </div>
 </div>
 
