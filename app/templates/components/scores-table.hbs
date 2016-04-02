@@ -17,7 +17,7 @@
 {{#if scores}}
   <div class="row">
     <div class="col s12">
-      <table class="data-table responsive-table striped">
+      <table class="data-table responsive-table">
 	<thead>
 	  <tr>
 	    <th><!-- Checkbox --></th>
@@ -32,7 +32,7 @@
 
 	<tbody>
 	  {{#each scores as |score|}}
-	    <tr>
+	    <tr class="{{if score.isSelected 'selected'}}">
 	      <td class="center">{{md-check checked=score.isSelected}}</td>
 	      <td>{{score.title}}</td>
 	      <td>{{score.composer}}</td>
