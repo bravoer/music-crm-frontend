@@ -2,7 +2,6 @@
 
 ContextMenuComponent = Ember.Component.extend
   target: Ember.computed 'elementId', ->
-    console.log 'Id is ' + @get('elementId')
     "##{@get('elementId')}"
   targetAttachment: 'top left'
   attachment: 'top left'
