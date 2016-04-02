@@ -103,6 +103,26 @@ nav .brand-logo {
 }
 
 /** Data table */
+.data-table-header {
+    border-bottom: 1px solid $table-border-color;
+    padding: 10px 5px;
+    color: color("orange", "base");
+    
+    .btn-flat {
+	color: color("orange", "base");
+	padding: 0 1rem;
+    }
+
+    .item-count {
+	padding-left: 10px;
+	padding-right: 15px;
+    }
+
+    &.selected {
+	background-color: color("orange", "lighten-4");
+    }
+}
+
 table.data-table {
     font-size: 80%;
 
