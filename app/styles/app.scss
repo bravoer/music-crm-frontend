@@ -102,6 +102,29 @@ nav .brand-logo {
     }
 }
 
+/** Data table */
+table.data-table {
+    font-size: 80%;
+
+    input[type="checkbox"] {
+	+ label {
+	    padding-left: 5px;
+	    height: 15px;
+
+	    &:before {
+		height: 14px;
+		width: 14px;		
+	    }
+	}
+
+	&:checked + label:before {
+	    height: 18px;
+	    width: 10px;
+	}
+
+    }
+}
+
 
 /** Note of items. E.g. " foo | bar | baz " */
 
