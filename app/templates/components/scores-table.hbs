@@ -40,10 +40,13 @@
 	      <td>{{t-label value=score.genre}}</td>
 	      <td>{{score.parts.length}}</td>
 	      <td>
-		<a {{action 'info' score}}><i class="material-icons">info</i></a>
-		{{#link-to 'admin.scores.edit' score}}<i class="material-icons">mode_edit</i>{{/link-to}}
-		<a {{action 'attach' score}}><i class="material-icons">attach_file</i></a>
-
+		{{#context-menu}}
+		  <ul class="collection">
+		    <a class="collection-item" {{action 'info' score}}>Details</a> 
+		    {{#link-to 'admin.scores.edit' score class="collection-item"}}Bewerk{{/link-to}}
+		    <a class="collection-item" {{action 'attach' score}}>Bestand toevoegen</a>
+		  </ul>
+		{{/context-menu}}
 	      </td>
 	    </tr>
 	  {{/each}}
