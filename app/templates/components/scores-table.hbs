@@ -21,11 +21,13 @@
 	<thead>
 	  <tr>
 	    <th><!-- Checkbox --></th>
-	    <th {{action 'changeSort' 'title'}}>{{sort-icon 'title' sort}}Titel</th>
-	    <th {{action 'changeSort' 'composer'}}>{{sort-icon 'composer' sort}}Componist</th>
-	    <th {{action 'changeSort' 'arranger'}}>{{sort-icon 'arranger' sort}}Arrangeur</th>
-	    <th {{action 'changeSort' 'genre'}}>{{sort-icon 'genre' sort}}Genre</th>
+	    {{th-sortable field='title' current=sort label="Titel"}}
+	    {{th-sortable field='composer' current=sort label="Componist"}}
+	    {{th-sortable field='arranger' current=sort label="Arrangeur"}}
+	    {{th-sortable field='genre' current=sort label="Genre"}}
 	    <th># Partituren</th>
+	    {{th-sortable field='created' current=sort label="Aangemaakt"}}
+	    {{th-sortable field='modified' current=sort label="Bewerkt"}}
 	    <th><!-- Buttons --></th>
 	  </tr>
 	</thead>
@@ -39,6 +41,8 @@
 	      <td>{{score.arranger}}</td>
 	      <td>{{t-label value=score.genre}}</td>
 	      <td>{{score.parts.length}}</td>
+	      <td>{{moment-format score.created 'DD/MM/YYYY hh:mm:ss'}}</td>
+	      <td>{{moment-format score.modified 'DD/MM/YYYY hh:mm:ss'}}</td>
 	      <td>
 		{{#context-menu}}
 		  <ul class="collection">
