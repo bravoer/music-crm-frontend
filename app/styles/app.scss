@@ -104,57 +104,17 @@ nav .brand-logo {
 
 /** Data table */
 .data-table-header {
-    border-bottom: 1px solid $table-border-color;
-    padding: 10px 5px;
+    border-bottom: $table-border-color;
     color: color("orange", "base");
     
     .btn-flat {
 	color: color("orange", "base");
-	padding: 0 1rem;
-    }
-
-    .item-count {
-	padding-left: 10px;
-	padding-right: 15px;
     }
 
     &.selected {
 	background-color: color("orange", "lighten-4");
     }
 }
-
-table.data-table {
-    font-size: 80%;
-
-    tbody tr {
-	&:hover {
-	    background-color: color("grey", "lighten-3");	    
-	}
-	
-	&.selected {
-	    background-color: color("grey", "lighten-4");
-	}
-    }
-
-    input[type="checkbox"] {
-	+ label {
-	    padding-left: 5px;
-	    height: 15px;
-
-	    &:before {
-		height: 14px;
-		width: 14px;		
-	    }
-	}
-
-	&:checked + label:before {
-	    height: 18px;
-	    width: 10px;
-	}
-
-    }
-}
-
 
 /** Note of items. E.g. " foo | bar | baz " */
 

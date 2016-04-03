@@ -1,66 +1,17 @@
 <div class="row">
   <div class="col s12">
-    {{#if selectedScoresIsEmpty}}
-      <div class="data-table-header">
-	{{#link-to 'admin.scores.add' class="waves-effect waves-light btn-flat"}}Nieuw{{/link-to}}
-      </div>
-    {{else}}
-      <div class="data-table-header selected">
-	<span class="item-count">{{selectedScoresCount}} item(s) geselecteerd</span>
-	{{#if archived}}
-	  {{md-btn text='Activeer' action='toggleArchive' buttonType='flat'}}
-	{{else}}
-	  {{md-btn text='Archiveer' action='toggleArchive' buttonType='flat'}}
-	{{/if}}
-	{{md-btn text='Verwijder' action='delete' buttonType='flat'}}
-	{{md-btn text='Annuleer' action='clearSelection' buttonType='flat'}}
-      </div>
-    {{/if}}
-    {{#if scores}}
-      <table class="data-table responsive-table">
-	<thead>
-	  <tr>
-	    <th><!-- Checkbox --></th>
-	    {{th-sortable field='title' current=sort label="Titel"}}
-	    {{th-sortable field='composer' current=sort label="Componist"}}
-	    {{th-sortable field='arranger' current=sort label="Arrangeur"}}
-	    {{th-sortable field='genre' current=sort label="Genre"}}
-	    <th># Partituren</th>
-	    {{th-sortable field='created' current=sort label="Aangemaakt"}}
-	    {{th-sortable field='modified' current=sort label="Bewerkt"}}
-	    <th><!-- Buttons --></th>
-	  </tr>
-	</thead>
-
-	<tbody>
-	  {{#each scores as |score|}}
-	    <tr class="{{if score.isSelected 'selected'}}">
-	      <td class="center">{{md-check checked=score.isSelected}}</td>
-	      <td>{{score.title}}</td>
-	      <td>{{score.composer}}</td>
-	      <td>{{score.arranger}}</td>
-	      <td>{{t-label value=score.genre}}</td>
-	      <td>{{score.parts.length}}</td>
-	      <td>{{moment-format score.created 'DD/MM/YYYY hh:mm:ss'}}</td>
-	      <td>{{moment-format score.modified 'DD/MM/YYYY hh:mm:ss'}}</td>
-	      <td>
-		{{#context-menu}}
-		  <ul class="collection">
-		    <a class="collection-item" {{action 'info' score}}>Details</a> 
-		    {{#link-to 'admin.scores.edit' score class="collection-item"}}Bewerk{{/link-to}}
-		    <a class="collection-item" {{action 'attach' score}}>Bestand toevoegen</a>
-		  </ul>
-		{{/context-menu}}
-	      </td>
-	    </tr>
-	  {{/each}}
-	</tbody>
-      </table>
-    {{else}}
-      <p>Nog geen muziekstukken toegevoegd</p>
-    {{/if}}
+    {{data-table
+      rows=rows
+      columns=columns
+      sort=sort
+      headerMenu=headerMenu
+      selectionMenu=selectionMenu
+      contextMenu=contextMenu
+      noDataMessage='Nog geen muziekstukken toegevoegd'
+      info='info'
+      attach='attach'
+      delete='delete'
+      toggleArchive='toggleArchive'
+    }}
   </div>
 </div>
-
-
-
