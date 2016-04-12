@@ -15,6 +15,8 @@ Router.map ->
         @route 'list', ->
           @route 'active'
           @route 'archive'
+      @resource 'admin.musicians', { path: '/musicians' }, ->
+        @route 'add'
     @resource 'profile', ->
 
 `export default Router`
