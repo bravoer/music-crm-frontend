@@ -13,5 +13,9 @@ AdminMusiciansAddRoute = Ember.Route.extend
           contact.set('modified', new Date())
           contact.save().then =>
             @transitionTo 'admin.musicians.index'
+    cancel: ->
+      contact = @modelFor('admin.musicians.add')
+      contact.rollbackAttributes()
+      @transitionTo 'admin.musicians.index'
 
 `export default AdminMusiciansAddRoute`
