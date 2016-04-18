@@ -16,6 +16,7 @@ Router.map ->
           @route 'active'
           @route 'archive'
       @resource 'admin.musicians', { path: '/musicians' }, ->
+        @route 'index'
         @route 'add'
     @resource 'profile', ->
 
