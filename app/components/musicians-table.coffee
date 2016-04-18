@@ -21,6 +21,8 @@ MusiciansTableComponent = Ember.Component.extend
   selectionMenu: [
     { action: 'delete', label: 'Verwijder' }
   ]
-
+  actions:
+    delete: (contacts) ->
+      @sendAction('delete', contacts)
 
 `export default MusiciansTableComponent`

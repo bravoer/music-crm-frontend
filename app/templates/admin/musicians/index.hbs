@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col s12"> 
-    {{musicians-table musicians=model sort=sort}}
+    {{musicians-table musicians=model sort=sort delete='deleteMusicians'}}
 
     {{page-pagination links=model.meta.pagination page=page size=size}}
   </div>
