@@ -31,5 +31,10 @@ EnLocale =
   'Bb': 'Bb'
   'Eb': 'Eb'
   'F': 'F'
-  'C': 'C'  
+  'C': 'C'
+  # contact prefixes
+  mr: 'Dhr'
+  mrs: 'Mevr'
+  fam: 'Familie'
+  
 `export default EnLocale`
