@@ -6,18 +6,18 @@ Router = Ember.Router.extend
 
 Router.map ->
   @route 'login'
-  @resource 'main', { path: '/' }, ->
-    @resource 'scores', ->
+  @route 'main', path: '/', ->
+    @route 'scores', ->
     @route 'admin', ->
-      @resource 'admin.scores', { path: '/scores' }, ->
+      @route 'scores', ->
         @route 'add'
         @route 'edit', path: '/:id/edit'
         @route 'list', ->
           @route 'active'
           @route 'archive'
-      @resource 'admin.musicians', { path: '/musicians' }, ->
+      @route 'musicians', ->
         @route 'index'
         @route 'add'
-    @resource 'profile', ->
+    @route 'profile', ->
 
 `export default Router`

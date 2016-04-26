@@ -16,7 +16,7 @@ MusiciansTableComponent = Ember.Component.extend
     { field: 'modified', label: 'Gewijzigd', sortable: true, isDate: true }
   ]
   headerMenu: [
-    { link: 'admin.musicians.add', label: 'Nieuw' }
+    { link: 'main.admin.musicians.add', label: 'Nieuw' }
   ]
   selectionMenu: [
     { action: 'delete', label: 'Verwijder' }

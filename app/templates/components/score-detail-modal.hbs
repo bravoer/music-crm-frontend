@@ -14,7 +14,7 @@
     
     <div class="modal-footer">
       <a {{action 'close'}} class="modal-action modal-close waves-effect btn-flat">Sluit</a>
-      {{#link-to 'admin.scores.edit' score class="modal-action modal-close waves-effect btn-flat"}}Bewerk{{/link-to}}
+      {{#link-to 'main.admin.scores.edit' score class="modal-action modal-close waves-effect btn-flat"}}Bewerk{{/link-to}}
       <div class="modal-audit">{{audit-note auditable=score}}</div>
     </div>
     {{/md-modal}}

@@ -7,15 +7,15 @@ AdminMusiciansAddRoute = Ember.Route.extend
       telephones: Ember.A [@store.createRecord 'telephone']
   actions:
     save: ->
-      contact = @modelFor('admin.musicians.add')
+      contact = @modelFor('main.admin.musicians.add')
       contact.get('address.content').save().then (address) =>
         Ember.RSVP.Promise.all(contact.get('telephones').map (telephone) -> telephone.save()).then (telephones) =>
           contact.set('modified', new Date())
           contact.save().then =>
-            @transitionTo 'admin.musicians.index'
+            @transitionTo 'main.admin.musicians.index'
     cancel: ->
-      contact = @modelFor('admin.musicians.add')
+      contact = @modelFor('main.admin.musicians.add')
       contact.rollbackAttributes()
-      @transitionTo 'admin.musicians.index'
+      @transitionTo 'main.admin.musicians.index'
 
 `export default AdminMusiciansAddRoute`

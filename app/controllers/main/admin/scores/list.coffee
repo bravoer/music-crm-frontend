@@ -7,6 +7,6 @@ AdminScoresListController = Ember.Controller.extend
   ]
   activeTab: 'active'
   tabChanged: Ember.observer 'activeTab', ->
-    @transitionToRoute("admin.scores.list.#{@get('activeTab')}")
+    @transitionToRoute("main.admin.scores.list.#{@get('activeTab')}")
     
 `export default AdminScoresListController`

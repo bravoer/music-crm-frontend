@@ -1,7 +1,7 @@
 <header>
   <!-- Contacts dropdown -->
   <ul id="contact-dropdown-nav" class="dropdown-content">
-    <li>{{#link-to 'admin.musicians.index'}}Muzikanten{{/link-to}}</li>
+    <li>{{#link-to 'main.admin.musicians.index'}}Muzikanten{{/link-to}}</li>
     <li><a href="#!">Vrijwilligers</a></li>
     <li><a href="#!">Sponsors</a></li>
     <li><a href="#!">Sympathisanten</a></li>
@@ -9,12 +9,12 @@
 
   <!-- Admin dropdown -->
   <ul id="admin-dropdown-nav" class="dropdown-content">
-    <li>{{#link-to 'admin.scores.list.active'}}Bibliotheek{{/link-to}}</li>
+    <li>{{#link-to 'main.admin.scores.list.active'}}Bibliotheek{{/link-to}}</li>
   </ul>
 
   <!-- Profile dropdown -->
   <ul id="profile-dropdown-nav" class="dropdown-content">
-    <li>{{#link-to 'profile'}}Profiel{{/link-to}}</li>
+    <li>{{#link-to 'main.profile'}}Profiel{{/link-to}}</li>
     {{#if session.isAuthenticated}}
       {{logout-button}}
     {{/if}}
@@ -23,9 +23,9 @@
   <!-- Main navbar -->
   <nav>
     <div class="nav-wrapper">
-      {{#link-to 'scores.index' class="brand-logo"}}Bravoer Backstage{{/link-to}}
+      {{#link-to 'main.scores.index' class="brand-logo"}}Bravoer Backstage{{/link-to}}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-	<li>{{#link-to 'scores.index'}}Partituren{{/link-to}}</li>
+	<li>{{#link-to 'main.scores.index'}}Partituren{{/link-to}}</li>
 	<li><a class="dropdown-button" data-activates="contact-dropdown-nav">Contacten<i class="material-icons right">arrow_drop_down</i></a></li>
 	<li><a class="dropdown-button" data-activates="admin-dropdown-nav">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
 	<li><a class="dropdown-button right" data-activates="profile-dropdown-nav"><i class="material-icons right">account_circle</i></a></li>

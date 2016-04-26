@@ -19,7 +19,7 @@ AdminScoresListArchiveRoute = Ember.Route.extend
       refreshModel: true    
   setupController: (controller, model) ->
     @_super(controller, model)
-    @controllerFor('admin.scores.list').set('activeTab', 'archive')
+    @controllerFor('main.admin.scores.list').set('activeTab', 'archive')
     controller.set('detailModalIsOpen', false)
     controller.set('createPartModalIsOpen', false)
 

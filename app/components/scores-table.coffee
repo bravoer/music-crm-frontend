@@ -16,7 +16,7 @@ ScoresTableComponent = Ember.Component.extend
     { field: 'modified', label: 'Gewijzigd', sortable: true, isDate: true }
   ]
   headerMenu: [
-    { link: 'admin.scores.add', label: 'Nieuw' }
+    { link: 'main.admin.scores.add', label: 'Nieuw' }
   ]
   selectionMenu: Ember.computed 'archived', ->
     [
@@ -26,7 +26,7 @@ ScoresTableComponent = Ember.Component.extend
     ]
   contextMenu: [
     { action: 'info', label: 'Details' }
-    { link: 'admin.scores.edit', label: 'Bewerk' }
+    { link: 'main.admin.scores.edit', label: 'Bewerk' }
     { action: 'attach', label: 'Bestand toevoegen' } 
   ]
   actions:
