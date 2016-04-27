@@ -16,6 +16,8 @@ Musician = DS.Model.extend
 
   address: DS.belongsTo('address')
   telephones: DS.hasMany('telephone')
+
+  user: DS.belongsTo('user')
   
 `export default Musician`
 
