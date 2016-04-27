@@ -11,7 +11,7 @@ MainSystemUsersRoute = Ember.Route.extend
       musicians: @store.query 'musician', {
         page:
           size: 1000
-        sort: 'email'
+        sort: 'last-name'
       }
 
 `export default MainSystemUsersRoute`

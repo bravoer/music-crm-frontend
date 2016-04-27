@@ -1,11 +1,12 @@
-<h3>Relate user to musician</h3>
+<h3>Gebruikers</h3>
 
 {{#md-table content=model.musicians as |contact|}}
   {{md-table-col row=contact valueBindingPath='lastName' header='Achternaam'}}
   {{md-table-col row=contact valueBindingPath='firstName' header='Voornaam'}}
-  {{md-table-col row=contact valueBindingPath='user.name' header='Gebruiker'}}
   {{#md-table-col row=contact key='user' header='Gebruiker'}}
-    {{md-select content=model.users value=contact.user optionLabelPath="content.name" optionValuePath="content" prompt="Please choose..."}}
+    {{#power-select options=model.users selected=contact.user onchange=(action 'selectUser' contact) allowClear=true searchField='name' as |user|}}
+      {{user.name}}
+    {{/power-select}}
   {{/md-table-col}}
 {{/md-table}}
 
