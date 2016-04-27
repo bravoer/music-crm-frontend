@@ -1,0 +1,14 @@
+<h3>Relate user to musician</h3>
+
+{{#md-table content=model.musicians as |contact|}}
+  {{md-table-col row=contact valueBindingPath='lastName' header='Achternaam'}}
+  {{md-table-col row=contact valueBindingPath='firstName' header='Voornaam'}}
+  {{md-table-col row=contact valueBindingPath='user.name' header='Gebruiker'}}
+  {{#md-table-col row=contact key='user' header='Gebruiker'}}
+    {{md-select content=model.users value=contact.user optionLabelPath="content.name" optionValuePath="content" prompt="Please choose..."}}
+  {{/md-table-col}}
+{{/md-table}}
+
+<h3>Authorization manager testing</h3>
+
+{{authorization-manager}}
