@@ -9,6 +9,8 @@ $link-color: $off-black;
 @import 'materialize';
 @import 'ember-cli-materialize';
 
+@import "ember-power-select";
+
 .modal-close,
 [data-ember-action],
 li.tab,
