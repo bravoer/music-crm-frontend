@@ -63,6 +63,12 @@ blockquote {
 	font-weight: 300;
 	margin-bottom: 8px;
     }
+
+    .empty-collection {
+	@extend .grey-text;
+	text-align: right;
+	font-style: italic;
+    }
 }
 
 /** Icons */
