@@ -5,6 +5,14 @@ ScoresIndexController = Ember.Controller.extend
   page: 0
   size: 20
   sort: 'title'
+  session: Ember.inject.service('session')
+  scoreFilteredParts: Ember.computed 'model.@each.parts', ->
+      instrument = @get('session.data.instrument')
+      @get('model').map (score) =>
+        score.get('parts').then (parts) =>
+          filteredParts = if @get('session.data.isBoard') then parts else parts.filterBy('instrument', instrument)
+          score.set('filteredParts', filteredParts)
+        score
   actions:
     download: (part) ->
       window.location = part.get('file') + '/download'

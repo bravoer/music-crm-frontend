@@ -19,5 +19,7 @@ Router.map ->
         @route 'index'
         @route 'add'
     @route 'profile', ->
+    @route 'system', ->
+      @route 'users'
 
 `export default Router`

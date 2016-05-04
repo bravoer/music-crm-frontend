@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
+`import HasManyQuery from 'ember-data-has-many-query'`
 
-Score = DS.Model.extend
+Score = DS.Model.extend HasManyQuery.ModelMixin, 
   title: DS.attr('string')
   description: DS.attr('string')
   composer: DS.attr('string')
@@ -16,7 +17,10 @@ Score = DS.Model.extend
     defaultValue: () -> new Date()
   )
 
-  parts: DS.hasMany('part')
+  parts: DS.hasMany 'part',
+    parameters:
+      page:
+        size: 10000
 
   _hasStatus: (status) ->
     @get('status') == status

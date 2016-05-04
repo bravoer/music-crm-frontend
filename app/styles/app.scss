@@ -9,6 +9,8 @@ $link-color: $off-black;
 @import 'materialize';
 @import 'ember-cli-materialize';
 
+@import "ember-power-select";
+
 .modal-close,
 [data-ember-action],
 li.tab,
@@ -60,6 +62,12 @@ blockquote {
 	font-size: 18px;
 	font-weight: 300;
 	margin-bottom: 8px;
+    }
+
+    .empty-collection {
+	@extend .grey-text;
+	text-align: right;
+	font-style: italic;
     }
 }
 

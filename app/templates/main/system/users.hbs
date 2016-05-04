@@ -1,0 +1,15 @@
+<h3>Gebruikers</h3>
+
+{{#md-table content=model.musicians as |contact|}}
+  {{md-table-col row=contact valueBindingPath='lastName' header='Achternaam'}}
+  {{md-table-col row=contact valueBindingPath='firstName' header='Voornaam'}}
+  {{#md-table-col row=contact key='user' header='Gebruiker'}}
+    {{#power-select options=model.users selected=contact.user onchange=(action 'selectUser' contact) allowClear=true searchField='name' as |user|}}
+      {{user.name}}
+    {{/power-select}}
+  {{/md-table-col}}
+{{/md-table}}
+
+<h3>Authorization manager testing</h3>
+
+{{authorization-manager}}
