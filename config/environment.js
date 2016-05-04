@@ -19,7 +19,8 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth': {
-      routeAfterAuthentication: 'main.admin.scores.index'
+      routeAfterAuthentication: 'main.scores.index',
+      routeIfAlreadyAuthenticated: 'main.scores.index'
     }
   };
 
