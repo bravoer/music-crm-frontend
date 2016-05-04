@@ -12,7 +12,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       session.set('data.isBoard', data.authGroups.indexOf('board') >= 0);
       session.set('data.isMusician', data.authGroups.indexOf('musician') >= 0);
       session.set('data.isGuest', data.authGroups.indexOf('guest') >= 0);
-      return data;
     }.bind(this));
     this._super();
   }
