@@ -31,10 +31,18 @@
       <div class="container">
 	{{#link-to 'main.scores.index' class="brand-logo"}}Bravoer Backstage{{/link-to}}
 	<ul id="nav-mobile" class="right hide-on-med-and-down">
-	  <li>{{#link-to 'main.scores.index'}}Partituren{{/link-to}}</li>
-	  <li><a class="dropdown-button" data-activates="contact-dropdown-nav">Contacten<i class="material-icons right">arrow_drop_down</i></a></li>
-	  <li><a class="dropdown-button" data-activates="admin-dropdown-nav">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
-	  <li><a class="dropdown-button" data-activates="system-dropdown-nav">System<i class="material-icons right">arrow_drop_down</i></a></li>
+	  {{#if session.data.isMusician}}
+	    <li>{{#link-to 'main.scores.index'}}Partituren{{/link-to}}</li>
+	  {{/if}}
+	  {{#if session.data.isBoard}}
+	    <li><a class="dropdown-button" data-activates="contact-dropdown-nav">Contacten<i class="material-icons right">arrow_drop_down</i></a></li>
+	  {{/if}}
+	  {{#if session.data.isBoard}}
+	    <li><a class="dropdown-button" data-activates="admin-dropdown-nav">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
+	  {{/if}}
+	  {{#if session.data.isAdmin}}
+	    <li><a class="dropdown-button" data-activates="system-dropdown-nav">System<i class="material-icons right">arrow_drop_down</i></a></li>
+	  {{/if}}
 	  <li><a class="dropdown-button right" data-activates="profile-dropdown-nav"><i class="material-icons right">account_circle</i></a></li>
 	</ul>
       </div>
