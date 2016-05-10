@@ -10,7 +10,7 @@ ScoresIndexController = Ember.Controller.extend
       instrument = @get('session.data.instrument')
       @get('model').map (score) =>
         score.get('parts').then (parts) =>
-          filteredParts = if @get('session.data.isBoard') then parts else parts.filterBy('instrument', instrument)
+          filteredParts = parts.filterBy('instrument', instrument)
           score.set('filteredParts', filteredParts)
         score
   actions:
