@@ -30,7 +30,9 @@
     <div class="nav-wrapper navbar-fixed">
       <div class="container">
 	{{#link-to 'main.scores.index' class="brand-logo"}}Bravoer Backstage{{/link-to}}
-	<ul id="nav-mobile" class="right hide-on-med-and-down">
+	<a data-activates="mobile-navbar" class="button-collapse"><i class="material-icons">menu</i></a>
+	<!-- Top menu (non-mobile) -->
+	<ul class="right hide-on-med-and-down">
 	  <li class="{{unless session.data.isMusician 'hide'}}">
 	    {{#link-to 'main.scores.index'}}Partituren{{/link-to}}
 	  </li>
@@ -44,6 +46,56 @@
 	    <a class="dropdown-button" data-activates="system-dropdown-nav">System<i class="material-icons right">arrow_drop_down</i></a>
 	  </li>
 	  <li><a class="dropdown-button right" data-activates="profile-dropdown-nav"><i class="material-icons right">account_circle</i></a></li>
+	</ul>
+	<!-- Mobile menu -->
+	<ul class="side-nav" id="mobile-navbar">
+	  <li class="{{unless session.data.isMusician 'hide'}}">
+	    {{#link-to 'main.scores.index'}}Partituren{{/link-to}}
+	  </li>
+	  <li class="no-padding">
+	    <ul class="collapsible">
+	      <!-- Contacts dropdown -->
+	      <li class="{{unless session.data.isBoard 'hide'}}">
+		<a class="collapsible-header">Contacten</a>
+		<div class="collapsible-body">
+		  <ul>
+		    <li>{{#link-to 'main.admin.musicians.index'}}Muzikanten{{/link-to}}</li>
+		    <li><a href="#!">Vrijwilligers</a></li>
+		    <li><a href="#!">Sponsors</a></li>
+		    <li><a href="#!">Sympathisanten</a></li>
+		  </ul>
+		</div>
+	      </li>
+	      <!-- Admin dropdown -->
+	      <li class="{{unless session.data.isBoard 'hide'}}">
+		<a class="collapsible-header">Admin</a>
+		<div class="collapsible-body">
+		  <ul>
+		    <li>{{#link-to 'main.admin.scores.list.active'}}Bibliotheek{{/link-to}}</li>
+		  </ul>
+		</div>
+	      </li>
+	      <!-- System dropdown -->
+	      <li class="{{unless session.data.isAdmin 'hide'}}">
+		<a class="collapsible-header">System</a>
+		<div class="collapsible-body">
+		  <ul>
+		    <li>{{#link-to 'main.system.users'}}Gebruikers{{/link-to}}</li>
+		  </ul>
+		</div>
+	      </li>
+	      <!-- Profile dropdown -->
+	      <li>
+		<a class="collapsible-header">Gebruiker</a>
+		<div class="collapsible-body">
+		  <ul>
+		    <li>{{#link-to 'main.profile'}}Profiel{{/link-to}}</li>
+		    {{#if session.isAuthenticated}}{{logout-button}}{{/if}}
+		  </ul>
+		</div>
+	      </li>
+	    </ul>
+	  </li>
 	</ul>
       </div>
     </div>
