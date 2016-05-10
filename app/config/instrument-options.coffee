@@ -6,10 +6,10 @@ instruments = [
   'flugelhorn'
   'althorn'
   'bariton'
-  'euphonium'
   'trombone'
-  'bass_bb'
+  'euphonium'
   'bass_eb'
+  'bass_bb'
   'percussion'
 ]
 

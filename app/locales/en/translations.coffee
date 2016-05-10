@@ -10,10 +10,10 @@ EnLocale =
   flugelhorn: 'Flugel'
   althorn: 'Horn'
   bariton: 'Bariton'
-  euphonium: 'Euphonium'
   trombone: 'Trombone'
-  bass_bb: 'Bas Bb'
+  euphonium: 'Euphonium'
   bass_eb: 'Bas Eb'
+  bass_bb: 'Bas Bb'
   percussion: 'Slagwerk'
   conductor: 'Dirigent'
   # instrument parts

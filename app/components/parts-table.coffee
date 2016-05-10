@@ -2,7 +2,7 @@
 
 MusicPartsTableComponent = Ember.Component.extend
   sortedParts: Ember.computed.sort 'parts', (a,b) ->
-      refArray = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'euphonium', 'trombone', 'bass_bb', 'bass_eb', 'percussion', 'conductor']
+      refArray = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'trombone', 'euphonium', 'bass_eb', 'bass_bb', 'percussion', 'conductor']
       sort = refArray.indexOf(a.get('instrument')) - refArray.indexOf(b.get('instrument'))
       if sort == 0
         refArray = ['solo', '1st', '2nd', '3th', 'repiano', 'bas']
