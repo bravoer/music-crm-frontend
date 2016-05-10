@@ -8,7 +8,7 @@ EnLocale =
   soprano: 'Soprano'
   cornet: 'Cornet'
   flugelhorn: 'Flugel'
-  althorn: 'Alto'
+  althorn: 'Horn'
   bariton: 'Bariton'
   euphonium: 'Euphonium'
   trombone: 'Trombone'
