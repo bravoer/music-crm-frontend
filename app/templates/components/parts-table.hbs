@@ -4,7 +4,6 @@
       <table class="striped">
 	<thead>
 	  <tr>
-	    <th>Naam</th>
 	    <th>Instrument</th>
 	    <th>Stem</th>
 	    <th></th>
@@ -14,7 +13,6 @@
 	<tbody>
 	  {{#each sortedParts as |part|}}
 	    <tr>
-	      <td>{{part.name}}</td>
 	      <td>{{t-label value=part.instrument}}</td>
 	      <td>{{t-label value=part.instrumentPart}}</td>
 	      <td><a {{action 'delete' part}}><i class="material-icons">delete</i></a></td>
