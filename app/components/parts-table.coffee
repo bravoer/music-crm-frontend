@@ -1,11 +1,13 @@
 `import Ember from 'ember'`
+`import InstrumentOptions from 'client/config/instrument-options'`
+`import InstrumentPartOptions from 'client/config/instrument-part-options'`
 
 MusicPartsTableComponent = Ember.Component.extend
   sortedParts: Ember.computed.sort 'parts', (a,b) ->
-      refArray = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'trombone', 'euphonium', 'bass_eb', 'bass_bb', 'percussion', 'conductor']
+      refArray = InstrumentOptions.get('all')
       sort = refArray.indexOf(a.get('instrument')) - refArray.indexOf(b.get('instrument'))
       if sort == 0
-        refArray = ['solo', '1st', '2nd', '3th', 'repiano', 'bas']
+        refArray = InstrumentPartOptions.get('options')
         sort = refArray.indexOf(a.get('instrumentPart')) - refArray.indexOf(b.get('instrumentPart'))
       return sort
         
