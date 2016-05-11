@@ -7,5 +7,7 @@ ScoreDetailModalComponent = Ember.Component.extend
       return false
     deletePart: (part) ->
       @sendAction('deletePart', part)
-
+    downloadPart: (part) ->
+      @sendAction('downloadPart', part)
+  
 `export default ScoreDetailModalComponent`

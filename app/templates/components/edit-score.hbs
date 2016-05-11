@@ -11,7 +11,7 @@
   {{#if score.parts}}
     <div class="col s12 l4"> 
       <h3>Bestanden</h3>    
-      {{parts-table parts=score.parts delete='deletePart'}}
+      {{parts-table parts=score.parts delete='deletePart' download='downloadPart'}}
     </div>
   {{/if}}
 </div>

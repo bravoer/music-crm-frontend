@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import FileManager from 'client/mixins/file-manager'`
 
-PartActionsMixin = Ember.Mixin.create
+PartActionsMixin = Ember.Mixin.create FileManager,
   actions:
     deletePart: (part) ->
       @deleteFile(part.get('file'))
@@ -8,5 +9,7 @@ PartActionsMixin = Ember.Mixin.create
       part.set('modified', new Date())
       part.save().then (part) ->
         part.destroyRecord()
+    downloadPart: (part) ->
+      @downloadFile part.get('file'), part.get('downloadFileName')
 
 `export default PartActionsMixin`

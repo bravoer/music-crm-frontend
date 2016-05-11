@@ -14,6 +14,8 @@ MusicPartsTableComponent = Ember.Component.extend
   actions:
     delete: (part) ->
       @sendAction('delete', part)
+    download: (part) ->
+      @sendAction('download', part)
 
 
 `export default MusicPartsTableComponent`

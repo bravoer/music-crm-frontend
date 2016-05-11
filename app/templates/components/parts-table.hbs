@@ -7,6 +7,7 @@
 	    <th>Instrument</th>
 	    <th>Stem</th>
 	    <th></th>
+	    <th></th>
 	  </tr>
 	</thead>
 
@@ -15,6 +16,7 @@
 	    <tr>
 	      <td>{{t-label value=part.instrument}}</td>
 	      <td>{{t-label value=part.instrumentPart}}</td>
+	      <td><a {{action 'download' part}}><i class="material-icons">file_download</i></a></td>
 	      <td><a {{action 'delete' part}}><i class="material-icons">delete</i></a></td>
 	    </tr>
 	  {{/each}}
