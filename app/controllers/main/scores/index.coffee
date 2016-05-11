@@ -1,5 +1,6 @@
 `import Ember from 'ember'`
 `import FileManager from 'client/mixins/file-manager'`
+`import InstrumentPartOptions from 'client/config/instrument-part-options'`
 
 ScoresIndexController = Ember.Controller.extend FileManager,
   queryParams: ['page', 'size', 'sort']
@@ -12,6 +13,9 @@ ScoresIndexController = Ember.Controller.extend FileManager,
       @get('model').map (score) =>
         score.get('parts').then (parts) =>
           filteredParts = parts.filterBy('instrument', instrument)
+          refArray = InstrumentPartOptions.get('options')
+          filteredParts.sort (a,b) =>
+            refArray.indexOf(a.get('instrumentPart')) - refArray.indexOf(b.get('instrumentPart'))
           score.set('filteredParts', filteredParts)
         score
   actions:
