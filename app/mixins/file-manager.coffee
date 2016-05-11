@@ -23,4 +23,9 @@ FileManagerMixin = Ember.Mixin.create
       url: "/files/#{id}"
       type: "DELETE"
 
+  downloadFile: (file, name) ->
+    url = file + '/download'
+    url += "?name=#{name}" if name
+    window.location = url
+
 `export default FileManagerMixin`

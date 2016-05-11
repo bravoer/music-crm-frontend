@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import FileManager from 'client/mixins/file-manager'`
 
-ScoresIndexController = Ember.Controller.extend
+ScoresIndexController = Ember.Controller.extend FileManager,
   queryParams: ['page', 'size', 'sort']
   page: 0
   size: 20
@@ -15,6 +16,6 @@ ScoresIndexController = Ember.Controller.extend
         score
   actions:
     download: (part) ->
-      window.location = part.get('file') + '/download'
+      @downloadFile part.get('file'), part.get('downloadFileName')
 
 `export default ScoresIndexController`

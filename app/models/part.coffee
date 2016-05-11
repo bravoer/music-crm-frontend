@@ -24,5 +24,11 @@ Part = DS.Model.extend
     description += " (#{@i18n.t(@get('clef'))})" if @get('clef')
     description || @get('name')
 
+  downloadFileName: Ember.computed 'instrument', 'instrumentPart', ->
+    name = ""
+    name += "#{@i18n.t(@get('instrumentPart'))}_" if @get('instrumentPart')
+    name += "#{@i18n.t(@get('instrument'))}" if @get('instrument')
+    name += ".pdf" if name
+    name
 
 `export default Part`
