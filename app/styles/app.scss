@@ -8,6 +8,9 @@ $link-color: $off-black;
 @import 'components/variables';
 @import 'materialize';
 @import 'ember-cli-materialize';
+/* Fix for Roboto font path */
+$roboto-font-path: '../assets/';
+
 
 @import "ember-power-select";
 
