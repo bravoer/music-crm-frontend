@@ -42,7 +42,7 @@
     "ember-composability": "0.3.5",
     "ember-data": "^2.3.0",
     "ember-data-has-many-query": "0.1.1",
-    "ember-data-table": "0.1.1",
+    "ember-data-table": "0.1.2",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-i18n": "^4.2.0",
