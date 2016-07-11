@@ -21,5 +21,6 @@ Router.map ->
     @route 'profile', ->
     @route 'system', ->
       @route 'users'
+      @route 'authorization'
 
 `export default Router`
