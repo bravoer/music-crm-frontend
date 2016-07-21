@@ -18,6 +18,9 @@ Router.map ->
       @route 'musicians', ->
         @route 'index'
         @route 'add'
+      @route 'attendeeTracking', ->
+        @route 'index'
+        @route 'add'
     @route 'profile', ->
     @route 'system', ->
       @route 'users'
