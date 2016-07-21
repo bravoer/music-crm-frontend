@@ -36,5 +36,9 @@ EnLocale =
   mr: 'Dhr'
   mrs: 'Mevr'
   fam: 'Familie'
+  # event types
+  rehearsal: 'Repetitie'
+  concert: 'Concert'
+  other: 'Andere'
   
 `export default EnLocale`
