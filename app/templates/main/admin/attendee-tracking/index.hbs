@@ -1,11 +1,11 @@
 {{#md-collection content=model header='Evenementen' as |event|}}
   <div class='collection-item'>
     {{event.name}}
-    {{#link-to 'main.admin.attendeeTracking.index' class='secondary-content'}}
+    {{#link-to 'main.admin.attendeeTracking.track' event class='secondary-content'}}
       <i class="material-icons">edit</i>
     {{/link-to}}
   </div>
 {{/md-collection}}
 
-{{#link-to 'main.admin.attendeeTracking.add' class="btn-floating btn-large waves-effect waves-light"}}<i class="material-icons">add</i>{{/link-to}}
+{{#link-to 'main.admin.attendeeTracking.add' class='btn-floating btn-large waves-effect waves-light'}}<i class="material-icons">add</i>{{/link-to}}
 

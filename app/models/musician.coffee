@@ -18,6 +18,9 @@ Musician = DS.Model.extend
   telephones: DS.hasMany('telephone')
 
   user: DS.belongsTo('user')
-  
+
+  name: Ember.computed 'firstName', 'lastName', ->
+    @get('firstName') + ' ' + @get('lastName')
+    
 `export default Musician`
 

@@ -21,6 +21,7 @@ Router.map ->
       @route 'attendeeTracking', ->
         @route 'index'
         @route 'add'
+        @route 'track', path: '/:id/track'
     @route 'profile', ->
     @route 'system', ->
       @route 'users'
