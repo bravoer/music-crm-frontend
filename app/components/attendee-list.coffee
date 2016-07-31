@@ -19,7 +19,7 @@ AttendeeListComponent = Ember.Component.extend
       data: @get('chartData')
       backgroundColor: [
         '#4CAF50' # green
-        '#ff9800' # orange
+        '#FF9800' # orange
         '#F44336' # red
         '#9e9e9e' # grey
       ]

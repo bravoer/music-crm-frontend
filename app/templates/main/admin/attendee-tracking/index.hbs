@@ -1,4 +1,10 @@
 <h3>Aanwezigheden</h3>
+
+<div class="row">
+  <div class="col s12">
+    {{#link-to 'main.admin.attendeeTracking.statistics' class='btn waves-effect waves-light'}}<i class="material-icons left">insert_chart</i>Statistieken{{/link-to}}
+  </div>
+</div>
 {{#md-collection content=model as |event|}}
   <div class='collection-item'>
     {{#link-to 'main.admin.attendeeTracking.track' event}}

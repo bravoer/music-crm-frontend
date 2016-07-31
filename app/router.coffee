@@ -22,6 +22,7 @@ Router.map ->
         @route 'index'
         @route 'add'
         @route 'track', path: '/:id/track'
+        @route 'statistics'
     @route 'profile', ->
     @route 'system', ->
       @route 'users'
