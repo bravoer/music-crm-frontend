@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
+`import HasManyQuery from 'ember-data-has-many-query'`
 
-Event = DS.Model.extend
+Event = DS.Model.extend HasManyQuery.ModelMixin,
   name: DS.attr('string')
   type: DS.attr('eventType')
   startDate: DS.attr('date')
@@ -12,8 +13,20 @@ Event = DS.Model.extend
     defaultValue: () -> new Date()
   )
 
-  attendees: DS.hasMany('musician', { inverse: 'attendances' } )
-  legitimateAbsentees: DS.hasMany('musician', { inverse: 'legitimateAbsences' } )
-  illegitimateAbsentees: DS.hasMany('musician', { inverse: 'illegitimateAbsences' } )
+  attendees: DS.hasMany 'musician',
+    inverse: 'attendances'
+    parameters:
+      page:
+        size: 10000
+  legitimateAbsentees: DS.hasMany 'musician',
+    inverse: 'legitimateAbsences'
+    parameters:
+      page:
+        size: 10000
+  illegitimateAbsentees: DS.hasMany 'musician',
+    inverse: 'illegitimateAbsences'
+    parameters:
+      page:
+        size: 10000
 
 `export default Event`

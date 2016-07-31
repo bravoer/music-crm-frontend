@@ -1,6 +1,7 @@
 `import DS from 'ember-data'`
+`import HasManyQuery from 'ember-data-has-many-query'`
 
-Musician = DS.Model.extend
+Musician = DS.Model.extend HasManyQuery.ModelMixin,
   prefix: DS.attr('string')
   firstName: DS.attr('string')
   lastName: DS.attr('string')
@@ -19,9 +20,18 @@ Musician = DS.Model.extend
 
   user: DS.belongsTo('user')
 
-  attendances: DS.hasMany('event')
-  legitimateAbsences: DS.hasMany('event')
-  illegitimateAbsences: DS.hasMany('event')
+  attendances: DS.hasMany 'event',
+    parameters:
+      page:
+        size: 10000
+  legitimateAbsences: DS.hasMany 'event',
+    parameters:
+      page:
+        size: 10000
+  illegitimateAbsences: DS.hasMany 'event',
+    parameters:
+      page:
+        size: 10000
 
   name: Ember.computed 'firstName', 'lastName', ->
     @get('firstName') + ' ' + @get('lastName')
