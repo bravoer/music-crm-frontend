@@ -1,21 +1,21 @@
 <td>{{attendee.name}}</td>
 <td>
   {{#if (is-pending attendee.attendances)}}
-    {{md-loader mode='circular' size='small' color='green'}}
+    {{spinkit-fading-circle}}
   {{else}}
     {{attendee.attendances.length}}
   {{/if}}
 </td>
 <td>
   {{#if (is-pending attendee.legitimateAbsences)}}
-    {{md-loader mode='circular' size='small' color='green'}}
+    {{spinkit-fading-circle}}
   {{else}}
     {{attendee.legitimateAbsences.length}}
   {{/if}}
 </td>
 <td>
   {{#if (is-pending attendee.illegitimateAbsences)}}
-    {{md-loader mode='circular' size='small' color='green'}}
+    {{spinkit-fading-circle}}
   {{else}}
     {{attendee.illegitimateAbsences.length}}
   {{/if}}
