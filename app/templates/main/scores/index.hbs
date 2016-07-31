@@ -2,26 +2,9 @@
   <div class="col s12">
     <h3>Muziekstukken</h3>
     <div class="row">
-      {{#each scoreFilteredParts as |score|}}
+      {{#each model as |score|}}
 	<div class="col s12 m6">
-	  {{#md-card title=score.title class="grey lighten-4"}}
-	    {{#md-card-content}}
-	      <div class="card-subtitle">{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
-	      {{score-detail-note score=score}}
-	      {{#if score.filteredParts}}
-		{{#md-collection content=score.filteredParts as |part|}}
-		  <div class='collection-item grey lighten-4' {{action 'download' part}}>
-		    {{part.description}}
-		    <a class='secondary-content'>
-		      <i class="material-icons">file_download</i>
-		    </a>
-		  </div>
-		{{/md-collection}}
-	      {{else}}
-		<div class="empty-collection">Geen partituren beschikbaar voor {{t-label value=session.data.instrument}}</div>
-	      {{/if}}
-	    {{/md-card-content}}
-	  {{/md-card}}
+	  {{download-score-per-instrument-card score=score instrument=instrument}}
 	</div>
       {{/each}}
     </div>
