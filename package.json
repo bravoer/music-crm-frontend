@@ -38,6 +38,7 @@
     "ember-cli-qunit": "^1.2.1",
     "ember-cli-release": "0.2.8",
     "ember-cli-sass": "git://github.com/mike-north/ember-cli-sass.git#8ceb57d41f5774e8ececb5d1f05454449c19000c",
+    "ember-cli-spinkit": "2.0.0",
     "ember-cli-sri": "^2.0.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-composability": "0.3.5",
