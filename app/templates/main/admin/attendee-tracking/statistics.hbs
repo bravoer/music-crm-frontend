@@ -1,7 +1,11 @@
-<h3>Aanwezigheden</h3>
+{{md-tabs content=tabs selected=selectedTab}}
 
 <div class="row">
   <div class="col s12">
-       {{ember-chart type='bar' data=chart}}
+    {{#if showPerEvent}}
+      {{ember-chart type='bar' data=perEventChart}}
+    {{else}}
+      {{stats-attendances-per-attendee attendees=model.musicians}}
+    {{/if}}
   </div>
 </div>

@@ -1,0 +1,16 @@
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>Aanwezig</th>
+      <th>Afwezig</th>
+      <th>Niet verwittigd</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each attendees as |attendee|}}
+      {{stats-attendances-per-attendee-item attendee=attendee}}
+    {{/each}}
+  </tbody>
+</table>
+

@@ -1,17 +1,26 @@
 `import Ember from 'ember'`
 
 MainAdminAttendeeTrackingStatisticsController = Ember.Controller.extend
+  tabs: [
+    { id: 'perEvent', title: 'Aanwezigheden per repetitie' }
+    { id: 'perAttendee', title: 'Aanwezigheden per muzikant' }
+  ]
+  selectedTab: 'perEvent'
+  showPerEvent: Ember.computed.equal 'selectedTab', 'perEvent'
+  showPerAttendee: Ember.computed.equal 'selectedTab', 'perAttendee'
+  
   eventSorting: ['startDate']
-  events: Ember.computed.sort 'model', 'eventSorting'
-  eventDates: Ember.computed.map 'events', (event, i) ->
+  sortedEvents: Ember.computed.sort 'model.events', 'eventSorting'
+  eventDates: Ember.computed.map 'sortedEvents', (event, i) ->
     event.get('startDate').toLocaleDateString('nl') if event.get('startDate')
-  attendeeCounts: Ember.computed.map 'events.@each.attendees', (event, i) ->
+    
+  attendeeCounts: Ember.computed.map 'sortedEvents.@each.attendees', (event, i) ->
     event.get('attendees.length')
-  legitimateAbsenteeCounts: Ember.computed.map 'events.@each.legitimateAbsentees', (event, i) ->
+  legitimateAbsenteeCounts: Ember.computed.map 'sortedEvents.@each.legitimateAbsentees', (event, i) ->
     event.get('legitimateAbsentees.length')
-  illegitimateAbsenteeCounts: Ember.computed.map 'events.@each.illegitimateAbsentees', (event, i) ->
+  illegitimateAbsenteeCounts: Ember.computed.map 'sortedEvents.@each.illegitimateAbsentees', (event, i) ->
     event.get('illegitimateAbsentees.length')
-  chart: Ember.computed 'eventDates', 'attendeeCounts', 'legitimateAbsenteeCounts', 'illegitimateAbsenteeCounts', ->
+  perEventChart: Ember.computed 'eventDates', 'attendeeCounts', 'legitimateAbsenteeCounts', 'illegitimateAbsenteeCounts', ->
     labels: @get('eventDates')
     datasets: [
       {
@@ -30,5 +39,12 @@ MainAdminAttendeeTrackingStatisticsController = Ember.Controller.extend
         data: @get('illegitimateAbsenteeCounts')
       }
     ]
+
+  musicianAttendances: Ember.computed 'model.musicians', 'model.musicians.@each.attendances', 'model.musicians.@each.legitimateAbsences', 'model.musicians.@each.illegitimateAbsences', ->
+    @get('model.musicians').map (musician, i) ->
+      name: musician.get('name')
+      attendances: musician.get('attendances.length')
+      legitimateAbsences: musician.get('legitimateAbsences.length')
+      illegitimateAbsences: musician.get('illegitimateAbsences.length')
 
 `export default MainAdminAttendeeTrackingStatisticsController`
