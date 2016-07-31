@@ -24,10 +24,10 @@ Part = DS.Model.extend
     description += " (#{@i18n.t(@get('clef'))})" if @get('clef')
     description || @get('name')
 
-  downloadFileName: Ember.computed 'instrument', 'instrumentPart', ->
-    name = ""
-    name += "#{@i18n.t(@get('instrumentPart'))}_" if @get('instrumentPart')
-    name += "#{@i18n.t(@get('instrument'))}" if @get('instrument')
+  downloadFileName: Ember.computed 'score', 'instrument', 'instrumentPart', ->
+    name = @get('score.title').replace(/[^A-Z0-9]+/ig, "_")
+    name += "_#{@i18n.t(@get('instrumentPart'))}" if @get('instrumentPart')
+    name += "_#{@i18n.t(@get('instrument'))}" if @get('instrument')
     name += ".pdf" if name
     name
 
