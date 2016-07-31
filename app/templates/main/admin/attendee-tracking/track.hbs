@@ -1,5 +1,9 @@
 {{#if (is-pending musicians)}}
-  {{md-loader mode="circular" size="small" color="green"}}
+  <div class="row">
+    <div class="col s12 loader">
+      {{md-loader mode="circular" size="small" color="green"}}
+    </div>
+  </div>
 {{else}}
   {{attendee-list attendees=musicians event=model}}
   <div class="row">

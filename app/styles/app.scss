@@ -74,6 +74,18 @@ blockquote {
     }
 }
 
+/** Placeholder */
+.height-placeholder {
+    visibility: hidden; /** doesn't remove the tag from the DOM like display:none */
+    max-width: 1px;
+}
+
+/** Loader */
+.loader {
+    text-align: center;
+    margin-top: 50px;
+}
+
 /** Icons */
 i.disabled {
     color: color("grey", "lighten-2");

@@ -1,11 +1,12 @@
-{{#md-collection content=model header='Evenementen' as |event|}}
+<h3>Aanwezigheden</h3>
+{{#md-collection content=model as |event|}}
   <div class='collection-item'>
-    {{event.name}}
-    {{#link-to 'main.admin.attendeeTracking.track' event class='secondary-content'}}
-      <i class="material-icons">playlist_add_check</i>
+    {{#link-to 'main.admin.attendeeTracking.track' event}}
+      {{event.name}}
+      <span class="secondary-content"><i class="material-icons">playlist_add_check</i></span>
     {{/link-to}}
   </div>
 {{/md-collection}}
 
-{{#link-to 'main.admin.attendeeTracking.add' class='btn-floating btn-large waves-effect waves-light'}}<i class="material-icons">add</i>{{/link-to}}
+{{#link-to 'main.admin.attendeeTracking.add' class='btn-floating btn-large waves-effect waves-light right'}}<i class="material-icons">add</i>{{/link-to}}
 

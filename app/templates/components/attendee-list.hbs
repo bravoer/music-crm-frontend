@@ -1,4 +1,5 @@
-{{#md-collection content=attendees header=event.name as |attendee|}}
+<h3>{{event.name}}</h3>
+{{#md-collection content=attendees as |attendee|}}
   {{attendee-list-item attendee=attendee event=event}}
 {{/md-collection}}
 
