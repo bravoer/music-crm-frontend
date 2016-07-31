@@ -1,6 +1,9 @@
 `import Ember from 'ember'`
 
 MainAdminAttendeeTrackingStatisticsController = Ember.Controller.extend
+  queryParams: ['size']
+  size: 10
+  
   tabs: [
     { id: 'perEvent', title: 'Aanwezigheden per repetitie' }
     { id: 'perAttendee', title: 'Aanwezigheden per muzikant' }
