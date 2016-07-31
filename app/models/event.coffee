@@ -12,8 +12,8 @@ Event = DS.Model.extend
     defaultValue: () -> new Date()
   )
 
-  attendees: DS.hasMany('musician')
-  legitimateAbsentees: DS.hasMany('musician')
-  illegitimateAbsentees: DS.hasMany('musician')
+  attendees: DS.hasMany('musician', { inverse: 'attendances' } )
+  legitimateAbsentees: DS.hasMany('musician', { inverse: 'legitimateAbsences' } )
+  illegitimateAbsentees: DS.hasMany('musician', { inverse: 'illegitimateAbsences' } )
 
 `export default Event`

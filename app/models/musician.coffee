@@ -19,6 +19,10 @@ Musician = DS.Model.extend
 
   user: DS.belongsTo('user')
 
+  attendances: DS.hasMany('event')
+  legitimateAbsences: DS.hasMany('event')
+  illegitimateAbsences: DS.hasMany('event')
+
   name: Ember.computed 'firstName', 'lastName', ->
     @get('firstName') + ' ' + @get('lastName')
     

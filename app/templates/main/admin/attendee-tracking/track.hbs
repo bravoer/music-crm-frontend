@@ -1,8 +1,11 @@
-{{attendee-list attendees=musicians event=model}}
-
-<div class="row">
-  <div class="col s12">
-    {{#link-to 'main.admin.attendeeTracking.index' class="btn"}}Terug{{/link-to}}
+{{#if (is-pending musicians)}}
+  {{md-loader mode="circular" size="small" color="green"}}
+{{else}}
+  {{attendee-list attendees=musicians event=model}}
+  <div class="row">
+    <div class="col s12">
+      {{#link-to 'main.admin.attendeeTracking.index' class="btn"}}Terug{{/link-to}}
+    </div>
   </div>
-</div>
+{{/if}}
 

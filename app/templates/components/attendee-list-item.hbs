@@ -1,8 +1,7 @@
 {{attendee.name}}
-
-<span class='secondary-content'>
-  <i class="material-icons">done</i>
-  <i class="material-icons">notifications_off</i>
-  <i class="material-icons">close</i>
+<span class="secondary-content">
+  <a class="btn-floating waves-effect waves-light green {{unless isPresent "disabled" }}" {{action 'setPresent' attendee}}><i class="material-icons">done</i></a>
+  <a class="btn-floating waves-effect waves-light orange {{unless isLegitimateAbsent "disabled" }}" {{action 'setLegitimateAbsent' attendee}}><i class="material-icons">close</i></a>
+  <a class="btn-floating waves-effect waves-light red {{unless isIllegitimateAbsent "disabled" }}" {{action 'setIllegitimateAbsent' attendee}}><i class="material-icons">help</i></a>
 </span>
 

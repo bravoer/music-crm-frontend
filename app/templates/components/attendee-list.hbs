@@ -1,7 +1,4 @@
-{{#if (is-pending attendees)}}
-  {{md-loader mode="circular"}}
-{{else}}
-  {{#md-collection content=attendees header=event.name as |attendee|}}
-    {{attendee-list-item attendee=attendee event=event}}
-  {{/md-collection}}
-{{/if}}
+{{#md-collection content=attendees header=event.name as |attendee|}}
+  {{attendee-list-item attendee=attendee event=event}}
+{{/md-collection}}
+
