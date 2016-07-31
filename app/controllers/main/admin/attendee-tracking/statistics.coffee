@@ -39,7 +39,12 @@ MainAdminAttendeeTrackingStatisticsController = Ember.Controller.extend
         data: @get('illegitimateAbsenteeCounts')
       }
     ]
-
+  perEventChartOptions:
+    scales:
+      yAxes: [
+        ticks: { min: 0 }
+      ]
+      
   musicianAttendances: Ember.computed 'model.musicians', 'model.musicians.@each.attendances', 'model.musicians.@each.legitimateAbsences', 'model.musicians.@each.illegitimateAbsences', ->
     @get('model.musicians').map (musician, i) ->
       name: musician.get('name')

@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col s12">
     {{#if showPerEvent}}
-      {{ember-chart type='bar' data=perEventChart}}
+      {{ember-chart type='bar' data=perEventChart options=perEventChartOptions}}
     {{else}}
       {{stats-attendances-per-attendee attendees=model.musicians}}
     {{/if}}
