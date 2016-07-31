@@ -7,7 +7,9 @@ MainAdminAttendeeTrackingAddController = Ember.Controller.extend
   updateStartDate: Ember.observer 'date', ->
     @set('model.startDate', new Date(@get('date')))
   updateName: Ember.observer 'model.type', 'model.startDate', ->
-    name = @i18n.t(@get('model.type')) + ' ' + @get('model.startDate').toLocaleDateString('nl')
-    @set('model.name', name)
+    unless @get('model.isDeleted')
+      name = @i18n.t(@get('model.type'))
+      name += ' ' + @get('model.startDate').toLocaleDateString('nl') if @get('model.startDate')
+      @set('model.name', name)
 
 `export default MainAdminAttendeeTrackingAddController`
