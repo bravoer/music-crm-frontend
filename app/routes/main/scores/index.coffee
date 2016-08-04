@@ -12,6 +12,7 @@ ScoresIndexRoute = Ember.Route.extend CanMixin,
       filter:
         status: 'active'
       sort: params.sort
+      include: 'parts'
     }
   queryParams:
     page:
