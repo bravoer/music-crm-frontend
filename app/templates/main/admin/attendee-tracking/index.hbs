@@ -7,7 +7,7 @@
 </div>
 {{#md-collection content=model as |event|}}
   <div class='collection-item'>
-    {{#link-to 'main.admin.attendeeTracking.track' event}}
+    {{#link-to 'main.admin.attendeeTracking.track' event.id}}
       {{event.name}}
       <span class="secondary-content"><i class="material-icons">playlist_add_check</i></span>
     {{/link-to}}

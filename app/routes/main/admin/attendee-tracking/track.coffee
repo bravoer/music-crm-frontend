@@ -2,10 +2,8 @@
 
 MainAdminAttendeeTrackingTrackRoute = Ember.Route.extend
   model: (params) ->
-    @store.findRecord 'event', params.id, { include: 'attendees,legitimate-absentees,illegitimate-absentees' }
-  setupController: (controller, model) ->
-    @_super(controller, model)
-    musicians = @store.query 'musician', { page: { size: 10000 }, sort: 'last-name' }
-    @controller.set('musicians', musicians)
+    Ember.RSVP.hash
+      event: @store.findRecord 'event', params.id, { include: 'attendees,legitimate-absentees,illegitimate-absentees' }
+      musicians: @store.query 'musician', { page: { size: 10000 }, sort: 'last-name' }
 
 `export default MainAdminAttendeeTrackingTrackRoute`
