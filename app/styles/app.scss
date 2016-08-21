@@ -4,13 +4,10 @@ $secondary-color: #ff9800; /* orange base */
 $error-color: #e53935; /* red darken-1 */
 $link-color: $off-black;
 
-@import 'components/color';
-@import 'components/variables';
-@import 'materialize';
-@import 'ember-cli-materialize';
 /* Fix for Roboto font path */
 $roboto-font-path: '../assets/';
-
+@import 'materialize';
+@import 'ember-cli-materialize';
 
 @import "ember-power-select";
 
