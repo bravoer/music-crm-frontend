@@ -1,6 +1,9 @@
 `import Ember from 'ember'`
 
 AttendeeListComponent = Ember.Component.extend
+  store: Ember.inject.service()
+  attendees: Ember.computed 'store', ->
+    @get('store').query 'musician', { page: { size: 10000 }, sort: 'last-name' }
   attendeeCount: Ember.computed.alias('event.attendees.length')
   legitimateAbsenteeCount: Ember.computed.alias('event.legitimateAbsentees.length')
   illegitimateAbsenteeCount: Ember.computed.alias('event.illegitimateAbsentees.length')

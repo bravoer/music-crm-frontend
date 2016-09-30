@@ -5,7 +5,7 @@
     </div>
   </div>
 {{else}}
-  {{attendee-list attendees=model.musicians event=model.event}}
+  {{attendee-list event=model}}
   <div class="row">
     <div class="col s12">
       {{#link-to 'main.admin.attendeeTracking.index' class="btn"}}Terug{{/link-to}}
