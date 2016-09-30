@@ -7,6 +7,9 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
+      EXTEND_PROTOTYPES: {
+	Date: false,
+      },
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
@@ -21,7 +24,10 @@ module.exports = function(environment) {
     'ember-simple-auth': {
       routeAfterAuthentication: 'main.scores.index',
       routeIfAlreadyAuthenticated: 'main.scores.index'
-    }
+    },
+    i18n: {
+      defaultLocale: 'en'
+    },
   };
 
   if (environment === 'development') {
