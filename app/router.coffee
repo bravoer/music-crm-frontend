@@ -3,7 +3,8 @@
 
 Router = Ember.Router.extend
   location: config.locationType
-
+  rootURL: config.rootURL
+  
 Router.map ->
   @route 'login'
   @route 'main', path: '/', ->
