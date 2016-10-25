@@ -46,7 +46,7 @@
     "ember-composability": "0.3.7",
     "ember-data": "^2.7.0",
     "ember-data-has-many-query": "^0.1.5",
-    "ember-data-table": "git+https://git@github.com/erikap/ember-data-table.git#88e9cc5e017a614127459465e3ec6fe2089780f6",
+    "ember-data-table": "git+https://git@github.com/erikap/ember-data-table.git#ace2cbf6274756eb3fb0316414556dc21afed4fc",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.5",
     "ember-i18n": "^4.2.0",

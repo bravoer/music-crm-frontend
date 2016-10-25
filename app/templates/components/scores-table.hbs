@@ -1,17 +1,47 @@
 <div class="row">
   <div class="col s12">
-    {{data-table
-      rows=rows
-      columns=columns
-      sort=sort
-      headerMenu=headerMenu
-      selectionMenu=selectionMenu
-      contextMenu=contextMenu
-      noDataMessage='Nog geen muziekstukken toegevoegd'
-      info='info'
-      attach='attach'
-      delete='delete'
-      toggleArchive='toggleArchive'
-    }}
+    {{#data-table noDataMessage='Nog geen muziekstukken toegevoegd' rows=rows sort=sort as |t|}}
+      {{#t.menu as |menu|}}
+        {{#menu.general}}
+          {{#link-to 'main.admin.scores.add'}}Nieuw{{/link-to}}
+        {{/menu.general}}
+        {{#menu.selected as |selection|}}
+          {{#if archived}}
+            <a {{action 'toggleArchive' selection}}>Activeer</a>
+          {{else}}
+            <a {{action 'toggleArchive' selection}}>Archiveer</a>
+          {{/if}}
+          <a {{action 'delete' selection}}>Verwijder</a>
+        {{/menu.selected}}
+      {{/t.menu}}
+      {{#t.content as |c|}}
+        {{#c.header}}
+          {{th-sortable field='title' currentSorting=sort label='Titel'}}
+          {{th-sortable field='composer' currentSorting=sort label='Componist'}}
+          {{th-sortable field='arranger' currentSorting=sort label='Arrangeur'}}
+          {{th-sortable field='genre' currentSorting=sort label='Genre'}}
+          <th># Partituren</th>
+          {{th-sortable field='created' currentSorting=sort label='Gemaakt'}}
+          {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
+          <th><!-- More menu --></th>
+        {{/c.header}}
+        {{#c.body as |row|}}
+          <td>{{row.title}}</td>
+          <td>{{row.composer}}</td>
+          <td>{{row.arranger}}</td>
+          <td>{{#if row.genre}}{{t row.genre}}{{/if}}</td>
+          <td>{{row.parts.length}}</td>
+          <td>{{moment-format row.created dateFormat}}</td>
+          <td>{{moment-format row.modified dateFormat}}</td>
+          <td>
+            {{#more-menu}}
+              <a class="collection-item" {{action 'info' row}}>Details</a>
+              {{#link-to 'main.admin.scores.edit' row class="collection-item"}}Bewerk{{/link-to}}
+              <a class="collection-item" {{action 'attach' row}}>Bestand toevoegen</a>
+            {{/more-menu}}
+          </td>
+        {{/c.body}}
+      {{/t.content}}
+    {{/data-table}}
   </div>
 </div>

@@ -1,14 +1,36 @@
 <div class="row">
   <div class="col s12">
-    {{data-table
-      rows=rows
-      columns=columns
-      sort=sort
-      headerMenu=headerMenu
-      selectionMenu=selectionMenu
-      contextMenu=contextMenu
-      noDataMessage='Nog geen muzikanten toegevoegd'
-      delete='delete'
-    }}
+    {{#data-table rows=rows sort=sort as |t|}}
+      {{#t.menu as |menu|}}
+        {{#menu.general}}
+          {{#link-to 'main.admin.musicians.add'}}Nieuw{{/link-to}}
+        {{/menu.general}}
+        {{#menu.selected as |selection|}}
+          <a {{action 'delete' selection}}>Verwijder</a>
+        {{/menu.selected}}
+      {{/t.menu}}
+      {{#t.content as |c|}}
+        {{#c.header}}
+          <th>Titel</th>
+          {{th-sortable field='firstName' currentSorting=sort label='Voornaam'}}
+          {{th-sortable field='lastName' currentSorting=sort label='Achternaam'}}
+          <th>Instrument</th>
+          <th>E-mail</th>
+          {{th-sortable field='created' currentSorting=sort label='Gemaakt'}}
+          {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
+          <th><!-- More menu --></th>
+        {{/c.header}}
+        {{#c.body as |row|}}
+          <td>{{#if row.prefix}}{{t row.prefix}}{{/if}}</td>
+          <td>{{row.firstName}}</td>
+          <td>{{row.lastName}}</td>
+          <td>{{#if row.instrument}}{{t row.instrument}}{{/if}}</td>
+          <td>{{row.email}}</td>
+          <td>{{moment-format row.created dateFormat}}</td>
+          <td>{{moment-format row.modified dateFormat}}</td>
+          <td><!-- More menu --></td>
+        {{/c.body}}
+      {{/t.content}}
+    {{/data-table}}
   </div>
 </div>
