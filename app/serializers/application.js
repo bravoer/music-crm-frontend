@@ -1,3 +1,6 @@
-import ApplicationSerializer from 'ember-data-table/serializers/application';
+import DS from 'ember-data';
+import DataTableSerializerMixin from 'ember-data-table/mixins/serializer';
 
-export default ApplicationSerializer.extend({ });
+export default DS.JSONAPISerializer.extend(DataTableSerializerMixin, {
+
+});

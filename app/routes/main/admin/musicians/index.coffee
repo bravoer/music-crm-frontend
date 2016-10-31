@@ -1,20 +1,8 @@
 `import Ember from 'ember'`
+`import DataTableRouteMixin from 'ember-data-table/mixins/route'`
 
-AdminMusiciansIndexRoute = Ember.Route.extend
-  model: (params) ->
-    @store.query 'musician', {
-      page:
-        number: params.page
-        size: params.size
-      sort: params.sort
-    }
-  queryParams:
-    page:
-      refreshModel: true
-    size:
-      refreshModel: true
-    sort:
-      refreshModel: true
+AdminMusiciansIndexRoute = Ember.Route.extend DataTableRouteMixin,
+  modelName: 'musician'
   actions:
     deleteMusicians: (contacts) ->
       contacts.forEach (contact) ->

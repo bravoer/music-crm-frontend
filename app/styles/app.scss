@@ -71,6 +71,11 @@ blockquote {
     }
 }
 
+/** Data table */
+.data-table-header.selected {
+    background-color: lighten($secondary-color, 40%);
+}
+
 /** Placeholder */
 .height-placeholder {
     visibility: hidden; /** doesn't remove the tag from the DOM like display:none */
@@ -87,11 +92,6 @@ blockquote {
     height: 20px;
     width: 20px;
     margin: 0;
-}
-
-/** Icons */
-i.disabled {
-    color: color("grey", "lighten-2");
 }
 
 /** Navigation bar */
@@ -125,20 +125,6 @@ nav .brand-logo {
     .message {
 	font-weight: 400;
 	margin: 20px 0; 
-    }
-}
-
-/** Data table */
-.data-table-header {
-    border-bottom: $table-border-color;
-    color: color("orange", "base");
-    
-    .btn-flat {
-	color: color("orange", "base");
-    }
-
-    &.selected {
-	background-color: color("orange", "lighten-4");
     }
 }
 

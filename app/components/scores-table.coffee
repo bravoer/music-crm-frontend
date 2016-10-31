@@ -1,9 +1,8 @@
 `import Ember from 'ember'`
 
 ScoresTableComponent = Ember.Component.extend
-  rows: Ember.computed 'scores', 'scores.@each.status', ->
-    expectedStatus = if @get('archived') then 'archived' else 'active'
-    @get('scores').filterBy('status', expectedStatus)
+  status: Ember.computed.readOnly 'archived', ->
+    if @get('archived') then 'archived' else 'active'
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
   actions:
     toggleArchive: (scores) ->

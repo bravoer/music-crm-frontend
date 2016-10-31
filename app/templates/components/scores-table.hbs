@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12">
-    {{#data-table noDataMessage='Nog geen muziekstukken toegevoegd' rows=rows sort=sort as |t|}}
+    {{#data-table noDataMessage='Nog geen muziekstukken toegevoegd' content=scores page=page size=size sort=sort as |t|}}
       {{#t.menu as |menu|}}
         {{#menu.general}}
           {{#link-to 'main.admin.scores.add'}}Nieuw{{/link-to}}

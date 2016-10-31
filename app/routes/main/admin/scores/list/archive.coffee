@@ -1,23 +1,12 @@
 `import Ember from 'ember'`
+`import DataTableRouteMixin from 'ember-data-table/mixins/route'`
 
-AdminScoresListArchiveRoute = Ember.Route.extend
-  model: (params) ->
-    @store.query 'score', {
-      page:
-        number: params.page
-        size: params.size
-      filter:
-        status: 'archived'
-      sort: params.sort
-      include: 'parts'
-    }
-  queryParams:
-    page:
-      refreshModel: true
-    size:
-      refreshModel: true
-    sort:
-      refreshModel: true    
+AdminScoresListArchiveRoute = Ember.Route.extend DataTableRouteMixin,
+  modelName: 'score'
+  mergedQueryOptions:
+    filter:
+      status: 'archived'
+    include: 'parts'
   setupController: (controller, model) ->
     @_super(controller, model)
     @controllerFor('main.admin.scores.list').set('activeTab', 'archive')
