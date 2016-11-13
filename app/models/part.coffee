@@ -17,7 +17,7 @@ Part = DS.Model.extend
   score: DS.belongsTo('score')
 
   description: Ember.computed 'instrument', 'instrumentPart', 'key', 'clef', ->
-    description = ""
+    description = ''
     description += "#{@i18n.t(@get('instrumentPart'))}" if @get('instrumentPart')
     description += " #{@i18n.t(@get('instrument'))}" if @get('instrument')
     description += " #{@i18n.t(@get('key'))}" if @get('key')
@@ -25,10 +25,10 @@ Part = DS.Model.extend
     description || @get('name')
 
   downloadFileName: Ember.computed 'score', 'instrument', 'instrumentPart', ->
-    name = @get('score.title').replace(/[^A-Z0-9]+/ig, "_")
+    name = @get('score.title').replace(/[^A-Z0-9]+/ig, '_')
     name += "_#{@i18n.t(@get('instrumentPart'))}" if @get('instrumentPart')
     name += "_#{@i18n.t(@get('instrument'))}" if @get('instrument')
-    name += ".pdf" if name
+    name += '.pdf' if name
     name
 
 `export default Part`

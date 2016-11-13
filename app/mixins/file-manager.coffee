@@ -6,22 +6,22 @@ FileManagerMixin = Ember.Mixin.create
     formData.append 'file', file
 
     request = Ember.$.ajax
-      url: "/files"
-      type: "POST"
+      url: '/files'
+      type: 'POST'
       data: formData
       processData: false # tell jQuery not to process the data
-      contentType: false # tell jQuery not to set contentType      
+      contentType: false # tell jQuery not to set contentType
 
     request.then (data) ->
       data
     , (error, status, request) ->
       null
-    
+
   deleteFile: (url) ->
-    id = url.substring(url.lastIndexOf("/") + 1)
+    id = url.substring(url.lastIndexOf('/') + 1)
     Ember.$.ajax
       url: "/files/#{id}"
-      type: "DELETE"
+      type: 'DELETE'
 
   downloadFile: (file, name) ->
     url = file + '/download'

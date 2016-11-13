@@ -22,7 +22,7 @@ AttendeeListItemComponent = Ember.Component.extend
       event.get('attendees')
       event.get('legitimateAbsentees')
       event.get('illegitimateAbsentees')
-    ]).then (attendees) =>
+    ]).then (attendees) ->
       attendees[0].removeObject(attendee)
       attendees[1].removeObject(attendee)
       attendees[2].removeObject(attendee)
@@ -31,7 +31,7 @@ AttendeeListItemComponent = Ember.Component.extend
         when 'attendees' then index = 0
         when 'legitimateAbsentees' then index = 1
         when 'illegitimateAbsentees' then index = 2
-      event.get(list).then (attendees) =>
+      event.get(list).then (attendees) ->
         attendees.pushObject(attendee)
         event.save()
   actions:

@@ -8,9 +8,9 @@ FmtDurationComponent = Ember.Component.extend
   seconds: Ember.computed 'millis', ->
     parseInt( (@get('millis') / 1000) % 60 ) if @get('millis')
   minutes: Ember.computed 'millis', ->
-    parseInt( (@get('millis') / (1000*60) ) % 60 ) if @get('millis')
+    parseInt( (@get('millis') / (1000 * 60) ) % 60 ) if @get('millis')
   hours: Ember.computed 'millis', ->
-    parseInt( (@get('millis') / (1000*60*60) ) % 24 ) if @get('millis')
+    parseInt( (@get('millis') / (1000 * 60 * 60) ) % 24 ) if @get('millis')
   time: Ember.computed 'millis', 'seconds', 'minutes', 'hours', ->
     if @get('millis')
       time = ''

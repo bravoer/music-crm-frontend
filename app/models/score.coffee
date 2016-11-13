@@ -1,7 +1,7 @@
 `import DS from 'ember-data'`
 `import HasManyQuery from 'ember-data-has-many-query'`
 
-Score = DS.Model.extend HasManyQuery.ModelMixin, 
+Score = DS.Model.extend HasManyQuery.ModelMixin,
   title: DS.attr('string')
   description: DS.attr('string')
   composer: DS.attr('string')
