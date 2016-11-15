@@ -57,7 +57,7 @@
     "ember-materialize-mu-authorization": "0.1.0",
     "ember-materialize-shim": "0.2.3",
     "ember-modal-dialog": "0.8.8",
-    "ember-mu-login": "1.4.1",
+    "ember-mu-login": "1.6.0",
     "ember-mu-registration": "1.0.1",
     "ember-mu-transform-helpers": "0.1.1",
     "ember-new-computed": "1.0.3",
