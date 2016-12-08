@@ -1,9 +1,7 @@
 `import Ember from 'ember'`
+`import DefaultQueryParams from 'ember-data-table/mixins/default-query-params'`
 
-AdminScoresListActiveController = Ember.Controller.extend
-  queryParams: ['page', 'size', 'sort']
-  page: 0
-  size: 20
+AdminScoresListActiveController = Ember.Controller.extend DefaultQueryParams,
   sort: 'title'
   actions:
     openScoreDetailModal: (score) ->

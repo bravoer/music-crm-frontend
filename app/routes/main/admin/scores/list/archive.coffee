@@ -4,8 +4,7 @@
 AdminScoresListArchiveRoute = Ember.Route.extend DataTableRouteMixin,
   modelName: 'score'
   mergedQueryOptions:
-    filter:
-      status: 'archived'
+    'filter[status]': 'archived'
     include: 'parts'
   setupController: (controller, model) ->
     @_super(controller, model)

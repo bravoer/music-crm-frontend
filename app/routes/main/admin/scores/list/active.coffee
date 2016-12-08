@@ -4,8 +4,7 @@
 AdminScoresListActiveRoute = Ember.Route.extend DataTableRouteMixin,
   modelName: 'score'
   mergedQueryOptions:
-    filter:
-      status: 'active'
+    'filter[status]': 'active'
     include: 'parts'
   setupController: (controller, model) ->
     @_super(controller, model)

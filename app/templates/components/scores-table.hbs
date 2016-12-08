@@ -1,17 +1,17 @@
 <div class="row">
   <div class="col s12">
-    {{#data-table noDataMessage='Nog geen muziekstukken toegevoegd' content=scores page=page size=size sort=sort as |t|}}
+    {{#data-table noDataMessage='Nog geen muziekstukken toegevoegd' content=filteredScores page=page size=size sort=sort filter=filter as |t|}}
       {{#t.menu as |menu|}}
         {{#menu.general}}
           {{#link-to 'main.admin.scores.add'}}Nieuw{{/link-to}}
         {{/menu.general}}
-        {{#menu.selected as |selection|}}
+        {{#menu.selected as |selection datatable|}}
           {{#if archived}}
-            <a {{action 'toggleArchive' selection}}>Activeer</a>
+            <a {{action 'toggleArchive' selection datatable}}>Activeer</a>
           {{else}}
-            <a {{action 'toggleArchive' selection}}>Archiveer</a>
+            <a {{action 'toggleArchive' selection datatable}}>Archiveer</a>
           {{/if}}
-          <a {{action 'delete' selection}}>Verwijder</a>
+          <a {{action 'delete' selection datatable}}>Verwijder</a>
         {{/menu.selected}}
       {{/t.menu}}
       {{#t.content as |c|}}
