@@ -4,13 +4,14 @@
 Router = Ember.Router.extend
   location: config.locationType
   rootURL: config.rootURL
-  
+
 Router.map ->
   @route 'login'
   @route 'main', path: '/', ->
     @route 'scores', ->
     @route 'admin', ->
       @route 'scores', ->
+        @route 'index', path: '/:status'
         @route 'add'
         @route 'edit', path: '/:id/edit'
         @route 'list', ->

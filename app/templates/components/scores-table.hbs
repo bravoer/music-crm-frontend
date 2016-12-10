@@ -6,7 +6,7 @@
           {{#link-to 'main.admin.scores.add'}}Nieuw{{/link-to}}
         {{/menu.general}}
         {{#menu.selected as |selection datatable|}}
-          {{#if archived}}
+          {{#if (eq status 'archived')}}
             <a {{action 'toggleArchive' selection datatable}}>Activeer</a>
           {{else}}
             <a {{action 'toggleArchive' selection datatable}}>Archiveer</a>

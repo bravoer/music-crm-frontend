@@ -1,12 +1,12 @@
 `import Ember from 'ember'`
 
 ScoresTableComponent = Ember.Component.extend
-  status: Ember.computed.readOnly 'archived', ->
-    if @get('archived') then 'archived' else 'active'
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
   # add this dummy filter such that view gets updated if an item's status changes / is deleted
-  filteredScores: Ember.computed 'scores.[]', 'scores.@each.isArchived', () ->
-    @get('scores').filterBy('isArchived', @get('archived'))
+  filteredScores: Ember.computed 'scores.[]', 'scores.@each.status', () ->
+    scores = @get('scores').filterBy('status', @get('status'))
+    scores.meta = @get('scores.meta')
+    scores
   actions:
     toggleArchive: (scores, datatable) ->
       datatable.clearSelection()

@@ -9,7 +9,7 @@
 
   <!-- Admin dropdown -->
   <ul id="admin-dropdown-nav" class="dropdown-content">
-    <li>{{#link-to 'main.admin.scores.list.active'}}Bibliotheek{{/link-to}}</li>
+    <li>{{#link-to 'main.admin.scores.index' 'active'}}Bibliotheek{{/link-to}}</li>
     <li>{{#link-to 'main.admin.attendeeTracking.index'}}Aanwezig{{/link-to}}</li>
   </ul>
 
@@ -26,7 +26,7 @@
       {{logout-button}}
     {{/if}}
   </ul>
-  
+
   <!-- Main navbar -->
   <nav>
     <div class="nav-wrapper navbar-fixed">
@@ -73,7 +73,7 @@
 		<a class="collapsible-header">Admin</a>
 		<div class="collapsible-body">
 		  <ul>
-		    <li>{{#link-to 'main.admin.scores.list.active'}}Bibliotheek{{/link-to}}</li>
+		    <li>{{#link-to 'main.admin.scores.index' 'active'}}Bibliotheek{{/link-to}}</li>
 		    <li>{{#link-to 'main.admin.attendeeTracking.index'}}Aanwezigheden{{/link-to}}</li>
 		  </ul>
 		</div>
@@ -105,5 +105,3 @@
     </div>
   </nav>
 </header>
-
-
