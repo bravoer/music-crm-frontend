@@ -5,11 +5,6 @@ AdminScoresEditRoute = Ember.Route.extend FileManager,
   model: (params) ->
     @store.findRecord 'score', params.id
   actions:
-    cancel: () ->
-      score = @modelFor('main.admin.scores.edit')
-      status = score.get('status')
-      score.rollbackAttributes()
-      @transitionTo 'main.admin.scores.index', status
     save: () ->
       score = @modelFor('main.admin.scores.edit')
       score.set('modified', new Date())
