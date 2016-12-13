@@ -35,7 +35,7 @@
           <td>{{moment-format row.modified dateFormat}}</td>
           <td>
             {{#more-menu}}
-              <a class="collection-item" {{action 'info' row}}>Details</a>
+              {{#link-to 'main.admin.scores.edit' row class="collection-item"}}Details{{/link-to}}
               {{#link-to 'main.admin.scores.edit' row class="collection-item"}}Bewerk{{/link-to}}
               <a class="collection-item" {{action 'attach' row}}>Bestand toevoegen</a>
             {{/more-menu}}
