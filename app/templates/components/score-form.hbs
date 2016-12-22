@@ -2,21 +2,21 @@
   <form class="col s12">
     <div class="row">
       <div class="col s12 m4">
-	<label>Status</label>
-	{{md-check name="In archief" checked=score.isArchived}}
+	      <label>Status</label>
+	      {{md-check name="In archief" checked=score.isArchived}}
       </div>
       <div class="col s12 m8">
-	{{t-radios options=genres value=score.genre label="Genre" horizontal=true}}
+	      {{t-radios options=genres value=score.genre label="Genre" horizontal=true}}
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-	{{md-input value=score.title label="Titel"}}
+	      {{md-input value=score.title label="Titel"}}
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12 m6">
-	{{md-input value=score.composer label="Componist"}}
+	      {{md-input value=score.composer label="Componist"}}
       </div>
       <div class="input-field col s12 m6">
         {{md-input value=score.arranger label="Arrangeur"}}
@@ -27,14 +27,13 @@
         {{md-input value=score.publisher label="Publisher"}}
       </div>
       <div class="input-field col s12 m4">
-	{{#md-input-duration for="duration" millis=score.duration}}Duur{{/md-input-duration}}
+	      {{#md-input-duration for="duration" millis=score.duration}}Duur{{/md-input-duration}}
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-	{{md-textarea value=score.description label="Beschrijving"}}
+	      {{md-textarea value=score.description label="Beschrijving"}}
       </div>
     </div>
   </form>
 </div>
-
