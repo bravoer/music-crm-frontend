@@ -19,9 +19,5 @@ ScoresTableComponent = Ember.Component.extend
       datatable.clearSelection()
       scores.forEach (score) =>
         score.destroyRecord()
-    info: (score) ->
-      @sendAction('info', score)
-    attach: (score) ->
-      @sendAction('attach', score)
 
 `export default ScoresTableComponent`
