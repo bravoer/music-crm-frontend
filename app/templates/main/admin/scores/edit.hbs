@@ -13,6 +13,7 @@
       <h4>{{model.composer}}{{#if model.arranger}}, arr. {{model.arranger}}{{/if}}</h4>
       <blockquote>{{#if model.description}}{{model.description}}{{else}}Geen beschrijving{{/if}}</blockquote>
       {{score-detail-note score=model}}
+      {{audit-note auditable=model}}
 
       <div class="row">
         {{#md-btn action='toggleEdit'}}Bewerk{{/md-btn}}
