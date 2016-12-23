@@ -1,10 +1,10 @@
 `import Ember from 'ember'`
 `import InstrumentOptions from 'client/config/instrument-options'`
 `import InstrumentPartOptions from 'client/config/instrument-part-options'`
-`import FileManagerMixin from 'client/mixins/file-manager'`
 
-PartUploadComponent = Ember.Component.extend FileManagerMixin,
+PartUploadComponent = Ember.Component.extend
   store: Ember.inject.service()
+  fileService: Ember.inject.service('file')
 
   instruments: InstrumentOptions.get('all')
   instrumentParts: InstrumentPartOptions.get('options')
@@ -33,7 +33,7 @@ PartUploadComponent = Ember.Component.extend FileManagerMixin,
       , (error) ->
         Ember.Logger.warn('Something went wrong while saving the part. Error: ' + error)
     cancel: () ->
-      @deleteFile(@get('part.file'))
+      @get('fileService').deleteFile(@get('part.file'))
       @get('part').destroyRecord()
       @set('part', null)
 

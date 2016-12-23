@@ -1,8 +1,9 @@
 `import Ember from 'ember'`
 `import InstrumentPartOptions from 'client/config/instrument-part-options'`
-`import FileManager from 'client/mixins/file-manager'`
 
-DownloadScorePerInstrumentCardComponent = Ember.Component.extend FileManager,
+DownloadScorePerInstrumentCardComponent = Ember.Component.extend
+  fileService: Ember.inject.service('file')
+
   filteredParts: Ember.computed 'score.parts', 'instrument', ->
     parts = @get('score.parts').filterBy('instrument', @get('instrument'))
     refArray = InstrumentPartOptions.get('options')
@@ -11,6 +12,6 @@ DownloadScorePerInstrumentCardComponent = Ember.Component.extend FileManager,
 
   actions:
     download: (part) ->
-      @downloadFile part.get('file'), part.get('downloadFileName')
+      @get('fileService').downloadFile(part)
 
 `export default DownloadScorePerInstrumentCardComponent`
