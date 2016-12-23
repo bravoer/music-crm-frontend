@@ -13,6 +13,6 @@ AdminScoresAddRoute = Ember.Route.extend
       score = @modelFor('main.admin.scores.add')
       score.set('modified', new Date())
       score.save().then (score) =>
-        @transitionTo 'main.admin.scores.index', score.get('status')
+        @transitionTo 'main.admin.scores.edit', score
 
 `export default AdminScoresAddRoute`

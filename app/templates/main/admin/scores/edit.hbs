@@ -2,9 +2,9 @@
   <div class="col s12 l8">
     {{#if editMode}}
       <h3>Bewerk {{model.title}}</h3>
+      {{score-form score=model}}
 
       <div class="row">
-        {{score-form score=model}}
         {{#md-btn action='save'}}Opslaan{{/md-btn}}
         {{#md-btn action='cancelEdit'}}Annuleer{{/md-btn}}
       </div>
@@ -19,15 +19,15 @@
         {{#md-btn action='back'}}Terug{{/md-btn}}
       </div>
     {{/if}}
+
+    {{part-upload score=model}}
   </div>
-  {{#if model.parts}}
-    <div class="col s12 l4">
-      <h3>Bestanden</h3>
-      {{#if model.parts}}
-        {{parts-table parts=model.parts}}
-      {{else}}
-        Geen bestanden opgeladen
-      {{/if}}
-    </div>
-  {{/if}}
+  <div class="col s12 l4">
+    <h3>Bestanden</h3>
+    {{#if model.parts}}
+      {{parts-table parts=model.parts}}
+    {{else}}
+      Geen bestanden opgeladen
+    {{/if}}
+  </div>
 </div>

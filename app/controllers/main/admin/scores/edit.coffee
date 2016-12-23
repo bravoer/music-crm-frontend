@@ -2,6 +2,7 @@
 
 MainAdminScoresEditController = Ember.Controller.extend
   editMode: false
+
   actions:
     cancelEdit: () ->
       @get('model').rollbackAttributes()

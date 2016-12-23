@@ -120,8 +120,8 @@ nav .brand-logo {
   margin: 50px auto;
 }
 
-/** File picker */
-.file-picker__dropzone {
+/** File upload */
+.file-dropzone {
   min-height: 50px;
   background-color: color("grey", "lighten-3");
   border: 2px dashed color("grey", "base");

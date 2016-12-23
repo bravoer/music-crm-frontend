@@ -34,11 +34,9 @@
           <td>{{moment-format row.created dateFormat}}</td>
           <td>{{moment-format row.modified dateFormat}}</td>
           <td>
-            {{#more-menu}}
-              {{#link-to 'main.admin.scores.edit' row class="collection-item"}}Details{{/link-to}}
-              {{#link-to 'main.admin.scores.edit' row class="collection-item"}}Bewerk{{/link-to}}
-              <a class="collection-item" {{action 'attach' row}}>Bestand toevoegen</a>
-            {{/more-menu}}
+            {{#link-to 'main.admin.scores.edit' row}}
+              <i class="material-icons">info</i>
+            {{/link-to}}
           </td>
         {{/c.body}}
       {{/t.content}}
