@@ -7,7 +7,9 @@
         {{/menu.general}}
         {{#menu.selected as |selection datatable|}}
           {{#if (eq status 'active')}}
-            <a {{action 'toggleArchive' selection datatable}}>Archiveer</a>
+            <a {{action 'changeStatus' selection datatable 'archived'}}>Archiveer</a>
+          {{else}}
+            <a {{action 'changeStatus' selection datatable 'active'}}>Activeer</a>
           {{/if}}
           <a {{action 'delete' selection datatable}}>Verwijder</a>
         {{/menu.selected}}

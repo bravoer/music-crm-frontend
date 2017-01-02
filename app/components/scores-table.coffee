@@ -7,16 +7,16 @@ ScoresTableComponent = Ember.Component.extend
     if (@get('status') != 'all')
       scores = @get('scores').filterBy('status', @get('status'))
     else
-      scores = @get('scores')
+      # dummy filter to make sure we return the same kind of object (not a promise) as the if-clause
+      scores = @get('scores').filterBy('title')
     scores.meta = @get('scores.meta')
     scores
   actions:
-    toggleArchive: (scores, datatable) ->
+    changeStatus: (scores, datatable, status) ->
       datatable.clearSelection()
       Ember.changeProperties () ->
         scores.forEach (score) ->
-          toggledStatus = if score.get('isActive') then 'archived' else 'active'
-          score.setProperties( { status: toggledStatus, modified: new Date() } )
+          score.setProperties( { status: status, modified: new Date() } )
           score.save()
     delete: (scores, datatable) ->
       datatable.clearSelection()
