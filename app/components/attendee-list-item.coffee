@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 AttendeeListItemComponent = Ember.Component.extend
-  classNames: ["collection-item"]
+  classNames: ['collection-item']
   status: Ember.computed 'event.attendees', 'event.legitimateAbsentees', 'event.illegitimateAbsentees', ->
     event = @get('event')
     attendee = @get('attendee')

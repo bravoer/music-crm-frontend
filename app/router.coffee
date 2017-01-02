@@ -1,3 +1,4 @@
+# coffeelint: disable=no_empty_functions
 `import Ember from 'ember'`
 `import config from './config/environment'`
 
@@ -31,3 +32,4 @@ Router.map ->
       @route 'authorization'
 
 `export default Router`
+# coffeelint: enable=no_empty_functions
