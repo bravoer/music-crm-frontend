@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
+`import DataTableRouteMixin from 'ember-data-table/mixins/route'`
 
-AdminScoresListRoute = Ember.Route.extend
+AdminScoresListRoute = Ember.Route.extend DataTableRouteMixin,
   modelName: 'score'
   queryParams: {
     filter: { refreshModel: true }
@@ -8,19 +9,12 @@ AdminScoresListRoute = Ember.Route.extend
     size: { refreshModel: true }
     sort: { refreshModel: true }
   }
-  model: (params) ->
-    # TODO: replace with mergedQueryOptions when it becomes a function
-    @set('params', params)
-    options =
-      sort: params.sort
-      page:
-        number: params.page
-        size: params.size
+  mergeQueryOptions: (params) ->
+    @set('params', params) # params need to be available in setupController
+    {
       'filter[status]': params.status
       include: 'parts'
-    # TODO: sending an empty filter param to backend returns []
-    options.filter = params.filter if params.filter
-    @store.query('score', options)
+    }
   setupController: (controller, model) ->
     @_super(controller, model)
     # TODO: retrieve status value from model meta when self parsing is implemented
