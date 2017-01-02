@@ -6,9 +6,7 @@
           {{#link-to 'main.admin.scores.add'}}Nieuw{{/link-to}}
         {{/menu.general}}
         {{#menu.selected as |selection datatable|}}
-          {{#if (eq status 'archived')}}
-            <a {{action 'toggleArchive' selection datatable}}>Activeer</a>
-          {{else}}
+          {{#if (eq status 'active')}}
             <a {{action 'toggleArchive' selection datatable}}>Archiveer</a>
           {{/if}}
           <a {{action 'delete' selection datatable}}>Verwijder</a>
@@ -16,6 +14,7 @@
       {{/t.menu}}
       {{#t.content as |c|}}
         {{#c.header}}
+          <th><!-- Status --></th>
           {{th-sortable field='title' currentSorting=sort label='Titel'}}
           {{th-sortable field='composer' currentSorting=sort label='Componist'}}
           {{th-sortable field='arranger' currentSorting=sort label='Arrangeur'}}
@@ -26,6 +25,15 @@
           <th><!-- More menu --></th>
         {{/c.header}}
         {{#c.body as |row|}}
+          {{#if (eq status 'all')}}
+            <td class="center">
+              {{#if row.isActive}}
+                <i class="material-icons green-text">description</i>
+              {{else}}
+                <i class="material-icons grey-text">archive</i>
+              {{/if}}
+            </td>
+          {{/if}}
           <td>{{row.title}}</td>
           <td>{{row.composer}}</td>
           <td>{{row.arranger}}</td>

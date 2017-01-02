@@ -4,7 +4,10 @@ ScoresTableComponent = Ember.Component.extend
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
   # add this dummy filter such that view gets updated if an item's status changes / is deleted
   filteredScores: Ember.computed 'scores.[]', 'scores.@each.status', () ->
-    scores = @get('scores').filterBy('status', @get('status'))
+    if (@get('status') != 'all')
+      scores = @get('scores').filterBy('status', @get('status'))
+    else
+      scores = @get('scores')
     scores.meta = @get('scores.meta')
     scores
   actions:

@@ -12,7 +12,7 @@ AdminScoresListRoute = Ember.Route.extend DataTableRouteMixin,
   mergeQueryOptions: (params) ->
     @set('params', params) # params need to be available in setupController
     {
-      'filter[status]': params.status
+      'filter[status]': params.status unless params.status == 'all'
       include: 'parts'
     }
   setupController: (controller, model) ->

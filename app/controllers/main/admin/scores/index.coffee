@@ -4,8 +4,8 @@
 MainAdminScoresIndexController = Ember.Controller.extend DefaultQueryParams,
   sort: 'title'
   tabs: [
-    { id: 'active', title: 'Muziekstukken' }
-    { id: 'archived', title: 'Archief' }
+    { id: 'active', title: 'Actief' }
+    { id: 'all', title: 'Bibliotheek' }
   ]
   tabChanged: Ember.observer 'status', ->
     @transitionToRoute('main.admin.scores.index', @get('status'))
