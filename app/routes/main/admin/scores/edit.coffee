@@ -8,6 +8,6 @@ AdminScoresEditRoute = Ember.Route.extend
       score = @modelFor('main.admin.scores.edit')
       score.set('modified', new Date())
       score.save().then (score) =>
-        @transitionTo 'main.admin.scores.index', score.get('status')
+        @controllerFor('main.admin.scores.edit').set('editMode', false)
 
 `export default AdminScoresEditRoute`

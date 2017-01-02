@@ -9,10 +9,23 @@
         {{#md-btn action='cancelEdit'}}Annuleer{{/md-btn}}
       </div>
     {{else}}
-      <h3>{{model.title}}</h3>
+      <h3>
+        {{#if model.location}}<span class="library-location">{{model.location}}</span>{{/if}}
+        {{model.title}}
+        <span class="new badge">{{#if model.isOriginal}}origineel{{else}}kopie{{/if}}</span>
+      </h3>
       <h4>{{model.composer}}{{#if model.arranger}}, arr. {{model.arranger}}{{/if}}</h4>
-      <blockquote>{{#if model.description}}{{model.description}}{{else}}Geen beschrijving{{/if}}</blockquote>
-      {{score-detail-note score=model}}
+      <blockquote>
+        {{#if model.comment}}{{model.comment}}{{else}}Geen opmerkingen{{/if}}
+      </blockquote>
+
+      <ul>
+        <li>Genre: {{#if model.genre}}{{t-label value=model.genre}}{{else}}-{{/if}}</li>
+        <li>Duur: {{#if model.duration}}{{fmt-duration millis=model.duration}}{{else}}-{{/if}}</li>
+        <li>Uitgeverij: {{#if model.publisher}}{{model.publisher}}{{else}}-{{/if}}</li>
+        <li>Uitgeleend aan: {{#if model.load}}{{model.loan}}{{else}}-{{/if}}</li>
+      </ul>
+
       {{audit-note auditable=model}}
 
       <div class="row">
@@ -24,7 +37,6 @@
     {{part-upload score=model}}
   </div>
   <div class="col s12 l4">
-    <h3>Bestanden</h3>
     {{#if model.parts}}
       {{parts-table parts=model.parts}}
     {{else}}

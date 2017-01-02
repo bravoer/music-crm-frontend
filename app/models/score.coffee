@@ -3,13 +3,16 @@
 
 Score = DS.Model.extend HasManyQuery.ModelMixin,
   title: DS.attr('string')
-  description: DS.attr('string')
+  comment: DS.attr('string')
   composer: DS.attr('string')
   arranger: DS.attr('string')
   duration: DS.attr('string')
   genre: DS.attr('string')
   publisher: DS.attr('string')
   status: DS.attr('string')
+  location: DS.attr('string')
+  isOriginal: DS.attr('boolean')
+  loan: DS.attr('string')
   created: DS.attr('date',
     defaultValue: () -> new Date()
   )

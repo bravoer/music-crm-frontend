@@ -1,7 +1,6 @@
 {{#md-card title=score.title class="grey lighten-4"}}
   {{#md-card-content}}
     <div class="card-subtitle">{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
-    {{score-detail-note score=score}}
     {{#if filteredParts}}
       {{#md-collection content=filteredParts as |part|}}
 	<div class='collection-item grey lighten-4' {{action 'download' part}}>
@@ -16,4 +15,3 @@
     {{/if}}
   {{/md-card-content}}
 {{/md-card}}
-

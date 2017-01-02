@@ -14,13 +14,13 @@
       {{/t.menu}}
       {{#t.content as |c|}}
         {{#c.header}}
-          <th><!-- Status --></th>
+          {{#if (eq status 'all')}}<th><!-- Status --></th>{{/if}}
+          {{th-sortable field='location' currentSorting=sort label='Nr.'}}
           {{th-sortable field='title' currentSorting=sort label='Titel'}}
           {{th-sortable field='composer' currentSorting=sort label='Componist'}}
           {{th-sortable field='arranger' currentSorting=sort label='Arrangeur'}}
           {{th-sortable field='genre' currentSorting=sort label='Genre'}}
           <th># Partituren</th>
-          {{th-sortable field='created' currentSorting=sort label='Gemaakt'}}
           {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
           <th><!-- More menu --></th>
         {{/c.header}}
@@ -34,12 +34,12 @@
               {{/if}}
             </td>
           {{/if}}
+          <td>{{row.location}}</td>
           <td>{{row.title}}</td>
           <td>{{row.composer}}</td>
           <td>{{row.arranger}}</td>
           <td>{{#if row.genre}}{{t row.genre}}{{/if}}</td>
           <td>{{row.parts.length}}</td>
-          <td>{{moment-format row.created dateFormat}}</td>
           <td>{{moment-format row.modified dateFormat}}</td>
           <td>
             {{#link-to 'main.admin.scores.edit' row}}

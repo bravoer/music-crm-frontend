@@ -9,7 +9,8 @@ MainAdminScoresEditController = Ember.Controller.extend
       @set('editMode', false)
     toggleEdit: ->
       @toggleProperty('editMode')
+      false
     back: ->
-      @transitionToRoute 'main.admin.scores.index', @get('model.status')
+      @transitionToRoute 'main.admin.scores.index', 'all'
 
 `export default MainAdminScoresEditController`
