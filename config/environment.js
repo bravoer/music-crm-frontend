@@ -8,7 +8,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {
       EXTEND_PROTOTYPES: {
-	Date: false,
+	      Date: false,
       },
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -28,6 +28,13 @@ module.exports = function(environment) {
     i18n: {
       defaultLocale: 'en'
     },
+    googleFonts: [
+      'Architects+Daughter:400'
+    ],
+    contentSecurityPolicy: {
+      'font-src': "'self' fonts.gstatic.com",
+      'style-src': "'self' fonts.googleapis.com"
+    }
   };
 
   if (environment === 'development') {
