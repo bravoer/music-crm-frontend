@@ -1,8 +1,11 @@
 .ember-burger-menu {
   width: 100%;
+  overflow: auto;
 
   .bm-menu {
     background: $primary-color;
+    height: auto;
+    min-height: 100%;
 
     a.icon-close {
       float: right;
