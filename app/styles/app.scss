@@ -40,22 +40,6 @@ blockquote {
   }
 }
 
-
-.card {
-
-  .card-subtitle {
-	  font-size: 18px;
-	  font-weight: 300;
-	  margin-bottom: 8px;
-  }
-
-  .empty-collection {
-	  @extend .grey-text;
-	  text-align: right;
-	  font-style: italic;
-  }
-}
-
 /** Data table */
 .data-table-header.selected {
   background-color: lighten($secondary-color, 40%);
@@ -111,6 +95,41 @@ h6 span.badge {
 
   &.new:after {
     content: none;
+  }
+}
+
+/** Download scores */
+.download-score-card {
+
+  .card-content {
+    min-height: 175px;
+
+    .card-subtitle {
+	    font-size: 18px;
+	    font-weight: 300;
+	    margin-bottom: 8px;
+    }
+
+    .empty-collection {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+	    @extend .grey-text;
+	    font-style: italic;
+    }
+
+    .chip {
+      margin: 2px;
+
+      i.material-icons {
+        padding-left: 4px;
+        font-size: 18px;
+      }
+
+      &:hover {
+        background-color: color("orange", "lighten-2");
+      }
+    }
   }
 }
 

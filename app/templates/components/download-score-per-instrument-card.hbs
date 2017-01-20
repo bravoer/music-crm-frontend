@@ -2,16 +2,14 @@
   {{#md-card-content}}
     <div class="card-subtitle">{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</div>
     {{#if filteredParts}}
-      {{#md-collection content=filteredParts as |part|}}
-	<div class='collection-item grey lighten-4' {{action 'download' part}}>
-	  {{part.description}}
-	  <a class='secondary-content'>
-	    <i class="material-icons">file_download</i>
-	  </a>
-	</div>
-      {{/md-collection}}
+      {{#each filteredParts as |part|}}
+        <div class="chip" {{action 'download' part}}>
+	        {{part.description}}
+          <i class="material-icons">file_download</i>
+        </div>
+      {{/each}}
     {{else}}
-      <div class="empty-collection">Geen partituren beschikbaar voor {{t-label value=session.data.instrument}}</div>
+      <div class="empty-collection">Geen partituren beschikbaar</div>
     {{/if}}
   {{/md-card-content}}
 {{/md-card}}
