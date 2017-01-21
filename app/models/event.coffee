@@ -28,5 +28,13 @@ Event = DS.Model.extend HasManyQuery.ModelMixin,
     parameters:
       page:
         size: 10000
+  sponsorships: DS.hasMany 'sponsorship',
+    parameters:
+      page:
+        size: 10000
+  helpers: DS.hasMany 'sympathizer',
+    parameters:
+      page:
+        size: 10000
 
 `export default Event`

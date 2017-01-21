@@ -20,6 +20,7 @@ Musician = DS.Model.extend HasManyQuery.ModelMixin,
 
   user: DS.belongsTo('user')
 
+  groups: DS.hasMany 'musicianGroup'
   attendances: DS.hasMany 'event',
     parameters:
       page:
@@ -35,6 +36,5 @@ Musician = DS.Model.extend HasManyQuery.ModelMixin,
 
   name: Ember.computed 'firstName', 'lastName', ->
     @get('firstName') + ' ' + @get('lastName')
-    
-`export default Musician`
 
+`export default Musician`
