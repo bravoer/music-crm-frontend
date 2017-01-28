@@ -1,13 +1,13 @@
 `import Ember from 'ember'`
 
-MainAdminMusiciansAddRoute = Ember.Route.extend
+MainAdminSympathizersAddRoute = Ember.Route.extend
   model: ->
-    @store.createRecord 'musician',
+    @store.createRecord 'sympathizer',
       address: @store.createRecord 'address'
       telephones: Ember.A [@store.createRecord 'telephone']
   actions:
     save: ->
-      contact = @modelFor('main.admin.musicians.add')
+      contact = @modelFor('main.admin.sympathizers.add')
       contact.get('address').then (address) =>
         promises = [address.save()]
         contact.get('telephones').then (telephones) =>
@@ -15,10 +15,10 @@ MainAdminMusiciansAddRoute = Ember.Route.extend
           Ember.RSVP.Promise.all(promises).then () =>
             contact.set('modified', new Date())
             contact.save().then =>
-              @transitionTo 'main.admin.musicians.index'
+              @transitionTo 'main.admin.sympathizers.index'
     cancel: ->
-      contact = @modelFor('main.admin.musicians.add')
+      contact = @modelFor('main.admin.sympathizers.add')
       contact.rollbackAttributes()
-      @transitionTo 'main.admin.musicians.index'
+      @transitionTo 'main.admin.sympathizers.index'
 
-`export default MainAdminMusiciansAddRoute`
+`export default MainAdminSympathizersAddRoute`

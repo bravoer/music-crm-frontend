@@ -17,7 +17,11 @@
     <div class="menu-title">Beheer</div>
     <ul>
       {{#menu.item}}
-        {{link-to 'Contacten' 'main.admin.musicians.index'}}
+        {{link-to 'Muzikanten' 'main.admin.musicians.index'}}
+      {{/menu.item}}
+
+      {{#menu.item}}
+        {{link-to 'Sympathizanten' 'main.admin.sympathizers.index'}}
       {{/menu.item}}
 
       {{#menu.item}}

@@ -1,11 +1,11 @@
 `import Ember from 'ember'`
 `import DataTableRouteMixin from 'ember-data-table/mixins/route'`
 
-MainAdminMusiciansIndexRoute = Ember.Route.extend DataTableRouteMixin,
-  modelName: 'musician'
+MainAdminSympathizersIndexRoute = Ember.Route.extend DataTableRouteMixin,
+  modelName: 'sympathizer'
   mergeQueryOptions: (params) ->
     {
       include: 'address,telephones'
     }
 
-`export default MainAdminMusiciansIndexRoute`
+`export default MainAdminSympathizersIndexRoute`

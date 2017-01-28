@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col s12">
+    {{#data-table noDataMessage='Geen sympathizanten/sponsors gevonden'
+         content=sympathizers page=page size=size sort=sort filter=filter autoSearch=false as |t|}}
+      {{#t.menu as |menu|}}
+        {{#menu.general}}
+          {{#link-to 'main.admin.sympathizers.add'}}Nieuw{{/link-to}}
+        {{/menu.general}}
+        {{#menu.selected as |selection datatable|}}
+          <a {{action 'delete' selection datatable}}>Verwijder</a>
+        {{/menu.selected}}
+      {{/t.menu}}
+      {{#t.content as |c|}}
+        {{#c.header}}
+          {{th-sortable field='organizationName' currentSorting=sort label='Bedrijfsnaam'}}
+          {{th-sortable field='firstName' currentSorting=sort label='Voornaam'}}
+          {{th-sortable field='lastName' currentSorting=sort label='Achternaam'}}
+          <th>E-mail</th>
+          <th>Adres</th>
+          {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
+          <th><!-- Info icon --></th>
+        {{/c.header}}
+        {{#c.body as |row|}}
+          <td>{{row.organizationName}}</td>
+          <td>{{row.firstName}}</td>
+          <td>{{row.lastName}}</td>
+          <td>{{row.email}}</td>
+          <td>{{row.address.oneLine}}</td>
+          <td>{{moment-format row.modified dateFormat}}</td>
+          <td>
+            {{#link-to 'main.admin.sympathizers.edit' row}}
+              <i class="material-icons">info</i>
+            {{/link-to}}
+          </td>
+        {{/c.body}}
+      {{/t.content}}
+    {{/data-table}}
+  </div>
+</div>

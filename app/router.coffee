@@ -22,6 +22,10 @@ Router.map ->
         @route 'index'
         @route 'add'
         @route 'edit', path: '/:id'
+      @route 'sympathizers', ->
+        @route 'index'
+        @route 'add'
+        @route 'edit', path: '/:id'
       @route 'attendeeTracking', ->
         @route 'index'
         @route 'add'
@@ -33,5 +37,4 @@ Router.map ->
       @route 'authorization'
 
 `export default Router`
-
 # coffeelint: enable=no_empty_functions

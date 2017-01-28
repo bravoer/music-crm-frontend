@@ -1,11 +1,11 @@
 `import Ember from 'ember'`
 
-MainAdminMusiciansEditRoute = Ember.Route.extend
+MainAdminSympathizersEditRoute = Ember.Route.extend
   model: (params) ->
-    @store.findRecord 'musician', params.id
+    @store.findRecord 'sympathizer', params.id
   actions:
     save: () ->
-      contact = @modelFor('main.admin.musicians.edit')
+      contact = @modelFor('main.admin.sympathizers.edit')
       promises = []
       contact.get('address').then (address) =>
         promises.push(address.save()) if address.get('hasDirtyAttributes')
@@ -16,6 +16,7 @@ MainAdminMusiciansEditRoute = Ember.Route.extend
             contact.set('modified', new Date())
             promises.push(contact.save())
           Ember.RSVP.Promise.all(promises).then () =>
-            @controllerFor('main.admin.musicians.edit').set('editMode', false)
+            @controllerFor('main.admin.sympathizers.edit').set('editMode', false)
 
-`export default MainAdminMusiciansEditRoute`
+
+`export default MainAdminSympathizersEditRoute`
