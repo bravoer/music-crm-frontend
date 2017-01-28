@@ -2,6 +2,9 @@
 
 MusiciansTableComponent = Ember.Component.extend
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
+  # dummy filter such that view gets updated if an item is deleted
+  filteredMusicians: Ember.computed 'musicians.[]', () ->
+    @get('musicians').filterBy('created')
   actions:
     delete: (contacts, datatable) ->
       datatable.clearSelection()

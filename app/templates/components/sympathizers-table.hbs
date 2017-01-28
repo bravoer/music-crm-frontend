@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col s12">
     {{#data-table noDataMessage='Geen sympathizanten/sponsors gevonden'
-         content=sympathizers page=page size=size sort=sort filter=filter autoSearch=false as |t|}}
+         content=filteredSympathizers page=page size=size sort=sort filter=filter autoSearch=false as |t|}}
       {{#t.menu as |menu|}}
         {{#menu.general}}
           {{#link-to 'main.admin.sympathizers.add'}}Nieuw{{/link-to}}
