@@ -3,12 +3,6 @@
 
 AdminScoresListRoute = Ember.Route.extend DataTableRouteMixin,
   modelName: 'score'
-  queryParams: {
-    filter: { refreshModel: true }
-    page: { refreshModel: true }
-    size: { refreshModel: true }
-    sort: { refreshModel: true }
-  }
   mergeQueryOptions: (params) ->
     @set('params', params) # params need to be available in setupController
     {

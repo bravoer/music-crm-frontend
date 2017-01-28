@@ -188,6 +188,25 @@ h3 span.library-location {
   padding: 5px;
 }
 
+/** Contact detail view */
+.icon-prefix-item {
+  position: relative;
+
+  span {
+    margin-left: 10px;
+    margin-top: 2px;
+    position: absolute;
+  }
+}
+
+.description-item {
+  min-height: 2em;
+
+  .label {
+    font-weight: bold;
+  }
+}
+
 /* Dashboard */
 .cover-tip {
   position: fixed;

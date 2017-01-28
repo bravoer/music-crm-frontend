@@ -1,0 +1,55 @@
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12 m6 l2">
+	      {{md-input value=musician.firstName label="Voornaam"}}
+      </div>
+      <div class="input-field col s12 m6 l2">
+	      {{md-input value=musician.lastName label="Achternaam"}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m6 l3">
+        <div class="row">
+          <h5>Adres</h5>
+          <div class="input-field col s8 m8">
+	          {{md-input value=musician.address.street label="Straat"}}
+          </div>
+          <div class="input-field col s4 m4">
+	          {{md-input value=musician.address.number label="Nummer"}}
+          </div>
+          <div class="input-field col s4 m2">
+	          {{md-input value=musician.address.postCode label="Postcode"}}
+          </div>
+          <div class="input-field col s8 m10">
+	          {{md-input value=musician.address.city label="Gemeente"}}
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <h5>Contactgegevens</h5>
+        <div class="row">
+          <div class="input-field col s12">
+	          {{md-input value=musician.email label="Email"}}
+          </div>
+          {{#each musician.telephones as |telephone|}}
+	          <div class="input-field col s12">
+	            {{md-input value=telephone.value label="Telefoon"}}
+	          </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <h5>Overige</h5>
+        <div class="row">
+          <div class="col s12">
+	          {{t-select options=instruments value=musician.instrument blankLabel="-" label="Instrument"}}
+          </div>
+          <div class="input-field col s12">
+	          {{md-datepicker placeholder="Geboortedatum" dateChanged='updateBirthdate' selectedDate=musician.birthdate utc=true dateFormat='DD/MM/YYYY'}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

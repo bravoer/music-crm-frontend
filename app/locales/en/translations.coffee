@@ -8,7 +8,7 @@ EnLocale =
   soprano: 'Soprano'
   cornet: 'Cornet'
   flugelhorn: 'Flugel'
-  althorn: 'Horn'
+  althorn: 'Alto'
   bariton: 'Bariton'
   trombone: 'Trombone'
   euphonium: 'Euphonium'
@@ -33,12 +33,12 @@ EnLocale =
   'F': 'F'
   'C': 'C'
   # contact prefixes
-  mr: 'Dhr'
-  mrs: 'Mevr'
-  fam: 'Familie'
+  mr: 'Dhr.'
+  mrs: 'Mevr.'
+  fam: 'Fam.'
   # event types
   rehearsal: 'Repetitie'
   concert: 'Concert'
   other: 'Andere'
-  
+
 `export default EnLocale`

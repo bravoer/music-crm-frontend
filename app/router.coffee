@@ -14,13 +14,14 @@ Router.map ->
       @route 'scores', ->
         @route 'index', path: '/:status'
         @route 'add'
-        @route 'edit', path: '/:id/edit'
+        @route 'edit', path: '/:id'
         @route 'list', ->
           @route 'active'
           @route 'archive'
       @route 'musicians', ->
         @route 'index'
         @route 'add'
+        @route 'edit', path: '/:id'
       @route 'attendeeTracking', ->
         @route 'index'
         @route 'add'
@@ -32,4 +33,5 @@ Router.map ->
       @route 'authorization'
 
 `export default Router`
+
 # coffeelint: enable=no_empty_functions

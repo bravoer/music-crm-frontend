@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col s12">
+    {{#if editMode}}
+      <h3>Bewerk {{model.name}}</h3>
+      {{musician-form musician=model}}
+
+      <div class="row">
+        {{#md-btn action='save'}}Opslaan{{/md-btn}}
+        {{#md-btn action='cancelEdit'}}Annuleer{{/md-btn}}
+      </div>
+    {{else}}
+      <div class="row">
+        <div class="col s12 m6 l3">
+          <h4>{{model.name}}</h4>
+          <div>{{model.address.street}} {{model.address.number}}</div>
+          <div>{{model.address.postCode}} {{model.address.city}}</div>
+        </div>
+        <div class="col s12 m6 l3">
+          <h4>Contactgegevens</h4>
+          <div class="icon-prefix-item"><i class="material-icons">mail</i> <span>{{model.email}}</span></div>
+          {{#each model.telephones as |tel|}}
+            <div class="icon-prefix-item"><i class="material-icons">phone</i> <span>{{tel.value}}</span></div>
+          {{/each}}
+        </div>
+        <div class="col s12 m6 l3">
+          <h4>Overige</h4>
+          <div class="description-item">
+            <span class="label">Instrument:</span>
+            {{#if model.instrument}}{{t-label value=model.instrument}}{{else}}-{{/if}}
+          </div>
+          <div class="description-item">
+            <span class="label">Geboortedatum:</span>
+            {{#if model.birthdate}}{{moment-format model.birthdate 'DD/MM/YYYY'}}{{else}}-{{/if}}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        {{audit-note auditable=model}}
+      </div>
+
+      <div class="row">
+        {{#md-btn action='toggleEdit'}}Bewerk{{/md-btn}}
+        {{#md-btn action='back'}}Terug{{/md-btn}}
+      </div>
+    {{/if}}
+  </div>
+</div>

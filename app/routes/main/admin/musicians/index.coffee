@@ -3,14 +3,9 @@
 
 AdminMusiciansIndexRoute = Ember.Route.extend DataTableRouteMixin,
   modelName: 'musician'
-  actions:
-    deleteMusicians: (contacts) ->
-      contacts.forEach (contact) ->
-        contact.get('address').then (address) ->
-          address.destroyRecord() if address
-        contact.get('telephones').then (telephones) ->
-          telephones.forEach (tel) ->
-            tel.destroyRecord() if tel
-        contact.destroyRecord()
+  mergeQueryOptions: (params) ->
+    {
+      include: 'address,telephones'
+    }
 
 `export default AdminMusiciansIndexRoute`
