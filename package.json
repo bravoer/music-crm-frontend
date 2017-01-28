@@ -55,6 +55,7 @@
     "ember-inflector": "1.9.4",
     "ember-keyboard": "1.0.3",
     "ember-load-initializers": "^0.5.1",
+    "ember-material-design-datepicker": "1.1.4",
     "ember-material-design-icons-shim": "0.1.9",
     "ember-materialize-mu-authorization": "0.1.0",
     "ember-materialize-shim": "0.2.3",
