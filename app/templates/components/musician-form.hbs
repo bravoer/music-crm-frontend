@@ -50,6 +50,16 @@
           </div>
         </div>
       </div>
+      <div class="col s12 m6 l3">
+        <h5>Groepen</h5>
+        <div class="row">
+          <div class="col s12">
+            {{#each groups as |group|}}
+              {{md-check name=(t group.name) checked=group.isSelected action='updateGroupSelection'}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
     </div>
   </form>
 </div>

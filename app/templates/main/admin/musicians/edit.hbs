@@ -25,6 +25,10 @@
         <div class="col s12 m6 l3">
           <h4>Overige</h4>
           <div class="description-item">
+            <span class="label">Groepen:</span>
+            {{join ' | ' (map (action 'translate') (map-by 'name' model.groups))}}
+          </div>
+          <div class="description-item">
             <span class="label">Instrument:</span>
             {{#if model.instrument}}{{t-label value=model.instrument}}{{else}}-{{/if}}
           </div>

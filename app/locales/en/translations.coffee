@@ -40,5 +40,9 @@ EnLocale =
   rehearsal: 'Repetitie'
   concert: 'Concert'
   other: 'Andere'
+  # musician groups
+  bravoer: 'Bravoer'
+  youthband: 'Jeugd'
+  backup: 'Reserven'
 
 `export default EnLocale`

@@ -5,7 +5,7 @@ MainAdminMusiciansIndexRoute = Ember.Route.extend DataTableRouteMixin,
   modelName: 'musician'
   mergeQueryOptions: (params) ->
     {
-      include: 'address,telephones'
+      include: 'address,telephones,groups'
     }
 
 `export default MainAdminMusiciansIndexRoute`
