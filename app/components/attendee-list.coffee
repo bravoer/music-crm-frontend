@@ -2,8 +2,16 @@
 
 AttendeeListComponent = Ember.Component.extend
   store: Ember.inject.service()
-  attendees: Ember.computed 'store', ->
-    @get('store').query 'musician', { page: { size: 10000 }, sort: 'last-name' }
+  attendees: Ember.computed 'store', 'event', ->
+    event = @get('event')
+    currentMusiciansPromise = @get('store').query 'musician',
+      { page: { size: 10000 }, sort: 'last-name', filter: { groups: { name: 'bravoer' } } }
+    Promise.all([
+      currentMusiciansPromise
+      event.get('attendees')
+      event.get('legitimateAbsentees')
+      event.get('illegitimateAbsentees')
+    ])
   attendeeCount: Ember.computed.alias('event.attendees.length')
   legitimateAbsenteeCount: Ember.computed.alias('event.legitimateAbsentees.length')
   illegitimateAbsenteeCount: Ember.computed.alias('event.illegitimateAbsentees.length')

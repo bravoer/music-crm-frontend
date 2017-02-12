@@ -6,7 +6,6 @@
   </div>
 </div>
 
-{{#md-collection content=attendees as |attendee|}}
+{{#md-collection content=(union (flatten (await attendees))) as |attendee|}}
   {{attendee-list-item attendee=attendee event=event}}
 {{/md-collection}}
-

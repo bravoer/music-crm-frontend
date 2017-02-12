@@ -26,7 +26,7 @@ AttendeeListItemComponent = Ember.Component.extend
       attendees[0].removeObject(attendee)
       attendees[1].removeObject(attendee)
       attendees[2].removeObject(attendee)
-      index = 0 # index of the list in the attendees array return by Promise.all
+      index = 0 # index of the list in the attendees array returned by Promise.all
       switch list
         when 'attendees' then index = 0
         when 'legitimateAbsentees' then index = 1
