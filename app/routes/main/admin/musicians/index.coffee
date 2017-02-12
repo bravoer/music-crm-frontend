@@ -3,9 +3,16 @@
 
 MainAdminMusiciansIndexRoute = Ember.Route.extend DataTableRouteMixin,
   modelName: 'musician'
+  queryParams:
+    filter: { refreshModel: true }
+    page: { refreshModel: true }
+    size: { refreshModel: true }
+    sort: { refreshModel: true }
+    group: { refreshModel: true }
   mergeQueryOptions: (params) ->
     {
       include: 'address,telephones,groups'
+      'filter[groups][name]' : params.group
     }
 
 `export default MainAdminMusiciansIndexRoute`

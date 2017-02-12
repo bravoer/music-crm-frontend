@@ -1,3 +1,11 @@
+<div class="right">
+  {{#md-btn-dropdown text=filterBtnText belowOrigin=true}}
+    {{#each (await groups) as |g| }}
+	    <li><a href="#!" {{action 'changeGroup' g}}>{{t g.name}}</a></li>
+    {{/each}}
+  {{/md-btn-dropdown}}
+</div>
+
 <h3>Muzikanten</h3>
 
 <div class="row">
