@@ -37,4 +37,5 @@ Router.map ->
       @route 'authorization'
 
 `export default Router`
+
 # coffeelint: enable=no_empty_functions

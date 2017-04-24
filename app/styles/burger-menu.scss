@@ -76,3 +76,22 @@
   }
 
 }
+
+/* Custom menu color on homepage */
+body.homepage {
+  .bm-menu {
+    background: color("deep-purple", "lighten-1");
+
+    ul li a:hover {
+      background: color("deep-purple", "darken-2");
+    }
+  }
+
+  .hamburger {
+    &:hover,
+    &:focus,
+    &:active {
+      color: color("deep-purple", "lighten-1");
+    }
+  }
+}
