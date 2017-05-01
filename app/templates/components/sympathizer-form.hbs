@@ -35,11 +35,15 @@
       <div class="col s12 m6 l3">
         <h5>Contactgegevens</h5>
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s12 m8">
 	          {{md-input value=sympathizer.email label="Email"}}
           </div>
+          <div class="col s12 m4">
+	          <label>Uitnodiging</label>
+	          {{md-check name="Op papier" checked=communicationOnPaper action="updateCommunication"}}
+          </div>
           {{#each sympathizer.telephones as |telephone|}}
-	          <div class="input-field col s12">
+	          <div class="input-field col s12 m8">
 	            {{md-input value=telephone.value label="Telefoon"}}
 	          </div>
           {{/each}}

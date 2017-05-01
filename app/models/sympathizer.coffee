@@ -6,6 +6,7 @@ Sympathizer = DS.Model.extend
   lastName: DS.attr('string')
   organizationName: DS.attr('string')
   email: DS.attr('email')
+  communication: DS.attr('string')
   created: DS.attr('date',
     defaultValue: () -> new Date()
   )
