@@ -11,7 +11,6 @@ MainAdminMusiciansIndexController = Ember.Controller.extend DefaultQueryParams,
     'Toon: ' + @get('i18n').t(@get('group'))
   actions:
     changeGroup: (group) ->
-      console.log 'Changing group to ' + group.get('name')
       @set('page', 0)
       @set('group', group.get('name'))
 

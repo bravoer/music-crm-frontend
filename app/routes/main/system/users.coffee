@@ -12,6 +12,7 @@ MainSystemUsersRoute = Ember.Route.extend
         page:
           size: 1000
         sort: 'last-name'
+        include: 'groups'
       }
 
 `export default MainSystemUsersRoute`
