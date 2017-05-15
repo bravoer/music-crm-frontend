@@ -4,6 +4,9 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Ember.Route.extend(ApplicationRouteMixin, {
   session: Ember.inject.service('session'),
   sessionAuthenticated() {
+    // clear attempted transition so user is always redirected to the configured routeAfterAuthentication
+    this.set('session.attemptedTransition', undefined);
+
     Ember.$.getJSON('/userprofile').then( function(data) {
       let session = this.get('session');
       session.set('data.instrument', data.instrument);
