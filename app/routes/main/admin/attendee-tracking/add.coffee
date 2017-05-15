@@ -1,4 +1,4 @@
-e`import Ember from 'ember'`
+`import Ember from 'ember'`
 
 MainAdminAttendeeTrackingAddRoute = Ember.Route.extend
   model: ->
