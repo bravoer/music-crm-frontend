@@ -2,7 +2,7 @@
 
 MainSystemUsersController = Ember.Controller.extend
   musiciansWithGroup: Ember.computed 'model', ->
-    @get('model.musicians').map (musician) =>
+    @get('model.musicians').map (musician) ->
       groups = musician.get('groups').map (group) -> group.get('name')
       musician.set('majorGroup', 'backup') if groups.contains('backup')
       musician.set('majorGroup', 'youthband') if groups.contains('youthband')
