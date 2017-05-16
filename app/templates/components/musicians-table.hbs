@@ -4,6 +4,7 @@
       {{#t.menu as |menu|}}
         {{#menu.general}}
           {{#link-to 'main.admin.musicians.add'}}Nieuw{{/link-to}}
+          <a {{action 'export'}}>Export</a>
         {{/menu.general}}
         {{#menu.selected as |selection datatable|}}
           <a {{action 'delete' selection datatable}}>Verwijder</a>

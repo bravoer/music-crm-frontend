@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
 
 MusiciansTableComponent = Ember.Component.extend
+  exportService: Ember.inject.service('export')
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
   # dummy filter such that view gets updated if an item is deleted
   filteredMusicians: Ember.computed 'musicians.[]', () ->
@@ -17,5 +18,7 @@ MusiciansTableComponent = Ember.Component.extend
           telephones.forEach (tel) ->
             tel.destroyRecord() if tel
         contact.destroyRecord()
+    export: () ->
+      @get('exportService').exportMusicians(@get('group'))
 
 `export default MusiciansTableComponent`
