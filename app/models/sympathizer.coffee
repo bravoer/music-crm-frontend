@@ -26,10 +26,10 @@ Sympathizer = DS.Model.extend
       page:
         size: 10000
 
-  name: Ember.computed 'firstName', 'lastName', 'organizationName', ->
+  name: Ember.computed 'prefix', 'firstName', 'lastName', 'organizationName', ->
     if @get('organizationName')
       @get('organizationName')
     else
-      @get('firstName') + ' ' + @get('lastName')
+      "#{@get('prefix') || ''} #{@get('firstName') || ''} #{@get('lastName') || ''}".trim()
 
 `export default Sympathizer`

@@ -2,7 +2,7 @@
 `import ContactPrefixOptions from 'client/config/contact-prefix-options'`
 
 SympathizerFormComponent = Ember.Component.extend ContactPrefixOptions,
-  prefixes: ContactPrefixOptions.get('prefixes')
+  prefixes: [{ label: '-', value: ''}].concat(ContactPrefixOptions.get('prefixes').map (prefix) -> { label: prefix, value: prefix })
   communicationOnPaper: Ember.computed 'sympathizer.communication', ->
     @get('sympathizer.communication') == 'paper'
   actions:

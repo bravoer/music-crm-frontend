@@ -32,10 +32,6 @@ EnLocale =
   'Eb': 'Eb'
   'F': 'F'
   'C': 'C'
-  # contact prefixes
-  mr: 'Dhr.'
-  mrs: 'Mevr.'
-  fam: 'Fam.'
   # event types
   rehearsal: 'Repetitie'
   concert: 'Concert'

@@ -1,9 +1,9 @@
 `import Ember from 'ember'`
 
 prefixes = [
-  'mr'
-  'mrs'
-  'fam'
+  'Dhr.'
+  'Mevr.'
+  'Fam.'
 ]
 
 Options = Ember.Object.create

@@ -2,7 +2,7 @@
   <form class="col s12">
     <div class="row">
       <div class="col s12 m6 l2">
-	      {{t-select options=prefixes value=sympathizer.prefix blankLabel="-" label="Aanspreking"}}
+	      {{md-select content=prefixes value=sympathizer.prefix optionLabelPath="content.label" optionValuePath="content.value" label="Aanspreking"}}
       </div>
       <div class="input-field col s12 m6 l2">
 	      {{md-input value=sympathizer.organizationName label="Bedrijfsnaam"}}
