@@ -5,6 +5,7 @@
       {{#t.menu as |menu|}}
         {{#menu.general}}
           {{#link-to 'main.admin.sympathizers.add'}}Nieuw{{/link-to}}
+          <a {{action 'printLabels'}}>Etiketten</a>
         {{/menu.general}}
         {{#menu.selected as |selection datatable|}}
           <a {{action 'delete' selection datatable}}>Verwijder</a>

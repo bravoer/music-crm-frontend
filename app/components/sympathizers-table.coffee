@@ -1,6 +1,7 @@
 `import Ember from 'ember'`
 
 SympathizersTableComponent = Ember.Component.extend
+  labelPrinterService: Ember.inject.service('label-printer')
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
   # dummy filter such that view gets updated if an item is deleted
   filteredSympathizers: Ember.computed 'sympathizers.[]', () ->
@@ -15,5 +16,8 @@ SympathizersTableComponent = Ember.Component.extend
           telephones.forEach (tel) ->
             tel.destroyRecord() if tel
         contact.destroyRecord()
+    printLabels: () ->
+      @get('labelPrinterService').invitationLabels()
+
 
 `export default SympathizersTableComponent`
