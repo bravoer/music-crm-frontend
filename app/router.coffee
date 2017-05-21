@@ -26,6 +26,9 @@ Router.map ->
         @route 'index'
         @route 'add'
         @route 'edit', path: '/:id'
+      @route 'helpers', ->
+        @route 'index'
+        @route 'edit', path: '/:id'
       @route 'attendeeTracking', ->
         @route 'index'
         @route 'add'

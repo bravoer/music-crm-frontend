@@ -1,0 +1,18 @@
+<div>
+  {{event-form type='concert' action='addEvent'}}
+</div>
+
+<h3>Helpers van het afgelopen jaar</h3>
+<div>
+  {{helpers-table}}
+</div>
+
+<h3>Helpers per concert</h3>
+{{#md-collection content=model as |event|}}
+  <div class='collection-item'>
+    {{#link-to 'main.admin.helpers.edit' event.id}}
+      {{event.name}}
+      <span class="secondary-content"><i class="material-icons">playlist_add_check</i></span>
+    {{/link-to}}
+  </div>
+{{/md-collection}}

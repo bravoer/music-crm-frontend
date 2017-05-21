@@ -6,5 +6,7 @@ MainAdminAttendeeTrackingIndexRoute = Ember.Route.extend
       sort: '-start-date'
       page:
         size: 10000
+      filter:
+        type: 'http://mu.semte.ch/vocabularies/ext/bravoer/event-types/Rehearsal'
 
 `export default MainAdminAttendeeTrackingIndexRoute`

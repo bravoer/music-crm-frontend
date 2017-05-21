@@ -1,0 +1,13 @@
+<h3>Helpers op {{model.name}}</h3>
+
+{{sympathizer-search action='addHelper'}}
+
+{{#md-collection content=model.helpers as |helper|}}
+  <div class='collection-item'>
+    {{helper.name}}
+    <span class="secondary-content">{{#link-to 'main.admin.sympathizers.edit' helper}}<i class="material-icons">launch</i>{{/link-to}}</span>
+    <span {{action 'deleteHelper' helper}} class="secondary-content"><i class="material-icons">delete</i></span>
+  </div>
+{{/md-collection}}
+
+{{#link-to 'main.admin.helpers.index' class='btn waves-effect waves-light'}}Terug{{/link-to}}

@@ -7,6 +7,8 @@ MainAdminAttendeeTrackingStatisticsRoute = Ember.Route.extend
         sort: '-start-date'
         page:
           size: params.size
+        filter:
+          type: 'http://mu.semte.ch/vocabularies/ext/bravoer/event-types/Rehearsal'
         include: 'attendees,legitimate-absentees,illegitimate-absentees'
       musicians: @store.query 'musician',
         sort: 'last-name'
@@ -16,5 +18,5 @@ MainAdminAttendeeTrackingStatisticsRoute = Ember.Route.extend
   queryParams:
     size:
       refreshModel: true
-        
+
 `export default MainAdminAttendeeTrackingStatisticsRoute`
