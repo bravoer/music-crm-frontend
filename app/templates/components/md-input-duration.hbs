@@ -2,10 +2,10 @@
   <label class="active">Duur</label>
   <div class="input-field col s6">
     {{input type="number" value=minutes}}
-    <label class={{":pull-right minutes:active"}} >Minuten</label>
+    <label class="pull-right {{if minutes "active"}}">Minuten</label>
   </div>
   <div class="input-field col s6">
     {{input type="number" value=seconds}}
-    <label class={{":pull-right seconds:active"}} >Seconden</label>
+    <label class="pull-right {{if seconds "active"}}">Seconden</label>
   </div>
 </div>
