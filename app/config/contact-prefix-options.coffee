@@ -1,4 +1,4 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
 prefixes = [
   'Dhr.'
@@ -6,7 +6,5 @@ prefixes = [
   'Fam.'
 ]
 
-Options = Ember.Object.create
+export default Ember.Object.create
   prefixes: prefixes
-
-`export default Options`

@@ -1,5 +1,3 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-ProfileRoute = Ember.Route.extend()
-
-`export default ProfileRoute`
+export default Ember.Route.extend()

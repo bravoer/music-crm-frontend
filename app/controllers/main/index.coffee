@@ -1,10 +1,8 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainIndexController = Ember.Controller.extend
+export default Ember.Controller.extend
   session: Ember.inject.service('session')
   burgerMenu: Ember.inject.service()
   actions:
     toggleMenu: ->
       @get('burgerMenu').toggleProperty('open')
-
-`export default MainIndexController`

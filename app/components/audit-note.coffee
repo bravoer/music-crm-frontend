@@ -1,5 +1,3 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-AuditNoteComponent = Ember.Component.extend()
-
-`export default AuditNoteComponent`
+export default Ember.Component.extend()

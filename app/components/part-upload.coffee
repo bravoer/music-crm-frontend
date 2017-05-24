@@ -1,8 +1,8 @@
-`import Ember from 'ember'`
-`import InstrumentOptions from 'client/config/instrument-options'`
-`import InstrumentPartOptions from 'client/config/instrument-part-options'`
+import Ember from 'ember'
+import InstrumentOptions from 'client/config/instrument-options'
+import InstrumentPartOptions from 'client/config/instrument-part-options'
 
-PartUploadComponent = Ember.Component.extend
+export default Ember.Component.extend
   store: Ember.inject.service()
   fileService: Ember.inject.service('file')
 
@@ -36,5 +36,3 @@ PartUploadComponent = Ember.Component.extend
       @get('fileService').deleteFile(@get('part.file'))
       @get('part').destroyRecord()
       @set('part', null)
-
-`export default PartUploadComponent`

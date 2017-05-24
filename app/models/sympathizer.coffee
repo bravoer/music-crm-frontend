@@ -1,6 +1,6 @@
-`import DS from 'ember-data'`
+import DS from 'ember-data'
 
-Sympathizer = DS.Model.extend
+export default DS.Model.extend
   prefix: DS.attr('string')
   firstName: DS.attr('string')
   lastName: DS.attr('string')
@@ -31,5 +31,3 @@ Sympathizer = DS.Model.extend
       @get('organizationName')
     else
       "#{@get('prefix') || ''} #{@get('firstName') || ''} #{@get('lastName') || ''}".trim()
-
-`export default Sympathizer`

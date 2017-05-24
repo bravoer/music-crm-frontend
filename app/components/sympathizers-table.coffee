@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-SympathizersTableComponent = Ember.Component.extend
+export default Ember.Component.extend
   exportService: Ember.inject.service('export')
   labelPrinterService: Ember.inject.service('label-printer')
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
@@ -21,6 +21,3 @@ SympathizersTableComponent = Ember.Component.extend
       @get('exportService').exportSympathizers()
     printLabels: () ->
       @get('labelPrinterService').invitationLabels()
-
-
-`export default SympathizersTableComponent`

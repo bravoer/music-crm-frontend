@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import InstrumentPartOptions from 'client/config/instrument-part-options'`
+import Ember from 'ember'
+import InstrumentPartOptions from 'client/config/instrument-part-options'
 
-DownloadScorePerInstrumentCardComponent = Ember.Component.extend
+export default Ember.Component.extend
   fileService: Ember.inject.service('file')
   classNames: ['download-score-card']
   filteredParts: Ember.computed 'score.parts', 'instrument', ->
@@ -12,5 +12,3 @@ DownloadScorePerInstrumentCardComponent = Ember.Component.extend
   actions:
     download: (part) ->
       @get('fileService').downloadFile(part)
-
-`export default DownloadScorePerInstrumentCardComponent`

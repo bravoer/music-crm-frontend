@@ -1,6 +1,6 @@
 # coffeelint: disable=no_empty_functions
-`import Ember from 'ember'`
-`import config from './config/environment'`
+import Ember from 'ember'
+import config from './config/environment'
 
 Router = Ember.Router.extend
   location: config.locationType
@@ -39,6 +39,6 @@ Router.map ->
       @route 'users'
       @route 'authorization'
 
-`export default Router`
+export default Router
 
 # coffeelint: enable=no_empty_functions

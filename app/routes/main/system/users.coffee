@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainSystemUsersRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: (params) ->
     Ember.RSVP.hash
       users: @store.query 'user', {
@@ -14,5 +14,3 @@ MainSystemUsersRoute = Ember.Route.extend
         sort: 'last-name'
         include: 'groups'
       }
-
-`export default MainSystemUsersRoute`

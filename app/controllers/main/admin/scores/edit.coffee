@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminScoresEditController = Ember.Controller.extend
+export default Ember.Controller.extend
   editMode: false
 
   actions:
@@ -12,5 +12,3 @@ MainAdminScoresEditController = Ember.Controller.extend
       false
     back: ->
       @transitionToRoute 'main.admin.scores.index', 'all'
-
-`export default MainAdminScoresEditController`

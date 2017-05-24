@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-AdminScoresListController = Ember.Controller.extend
+export default Ember.Controller.extend
   tabs: [
     { id: 'active', title: 'Muziekstukken' }
     { id: 'archive', title: 'Archief' }
@@ -8,5 +8,3 @@ AdminScoresListController = Ember.Controller.extend
   activeTab: 'active'
   tabChanged: Ember.observer 'activeTab', ->
     @transitionToRoute("main.admin.scores.list.#{@get('activeTab')}")
-    
-`export default AdminScoresListController`

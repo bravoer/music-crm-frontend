@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-ScoresTableComponent = Ember.Component.extend
+export default Ember.Component.extend
   dateFormat: 'DD/MM/YYYY hh:mm:ss'
   # add this dummy filter such that view gets updated if an item's status changes / is deleted
   filteredScores: Ember.computed 'scores.[]', 'scores.@each.status', () ->
@@ -22,5 +22,3 @@ ScoresTableComponent = Ember.Component.extend
       datatable.clearSelection()
       scores.forEach (score) ->
         score.destroyRecord()
-
-`export default ScoresTableComponent`

@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-FileService = Ember.Service.extend
+export default Ember.Service.extend
   deleteFile: (url) ->
     id = url.substring(url.lastIndexOf('/') + 1)
     Ember.$.ajax
@@ -12,5 +12,3 @@ FileService = Ember.Service.extend
     name = part.get('downloadFileName')
     url += "?name=#{name}" if name
     window.location = url
-
-`export default FileService`

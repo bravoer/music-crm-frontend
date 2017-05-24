@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminAttendeeTrackingStatisticsRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: (params) ->
     Ember.RSVP.hash
       events: @store.query 'event',
@@ -18,5 +18,3 @@ MainAdminAttendeeTrackingStatisticsRoute = Ember.Route.extend
   queryParams:
     size:
       refreshModel: true
-
-`export default MainAdminAttendeeTrackingStatisticsRoute`

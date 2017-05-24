@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminAttendeeTrackingIndexRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: ->
     @store.query 'event',
       sort: '-start-date'
@@ -8,5 +8,3 @@ MainAdminAttendeeTrackingIndexRoute = Ember.Route.extend
         size: 10000
       filter:
         type: 'http://mu.semte.ch/vocabularies/ext/bravoer/event-types/Rehearsal'
-
-`export default MainAdminAttendeeTrackingIndexRoute`

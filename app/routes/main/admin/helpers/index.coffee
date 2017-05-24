@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminHelpersIndexRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: ->
     @store.query 'event',
       sort: '-start-date'
@@ -11,5 +11,3 @@ MainAdminHelpersIndexRoute = Ember.Route.extend
   actions:
     invalidateModel: ->
       @refresh()
-
-`export default MainAdminHelpersIndexRoute`

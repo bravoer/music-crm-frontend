@@ -1,7 +1,7 @@
-`import DS from 'ember-data'`
-`import HasManyQuery from 'ember-data-has-many-query'`
+import DS from 'ember-data'
+import HasManyQuery from 'ember-data-has-many-query'
 
-Score = DS.Model.extend HasManyQuery.ModelMixin,
+export default DS.Model.extend HasManyQuery.ModelMixin,
   title: DS.attr('string')
   comment: DS.attr('string')
   composer: DS.attr('string')
@@ -39,5 +39,3 @@ Score = DS.Model.extend HasManyQuery.ModelMixin,
     set: (_key, value, prevValue) ->
       if value and value != prevValue then @set('status', 'archived') else @set('status', 'active')
       @_hasStatus('archived')
-
-`export default Score`

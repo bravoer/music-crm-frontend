@@ -1,7 +1,7 @@
-`import DS from 'ember-data'`
-`import HasManyQuery from 'ember-data-has-many-query'`
+import DS from 'ember-data'
+import HasManyQuery from 'ember-data-has-many-query'
 
-Musician = DS.Model.extend HasManyQuery.ModelMixin,
+export default DS.Model.extend HasManyQuery.ModelMixin,
   prefix: DS.attr('string')
   firstName: DS.attr('string')
   lastName: DS.attr('string')
@@ -36,5 +36,3 @@ Musician = DS.Model.extend HasManyQuery.ModelMixin,
 
   name: Ember.computed 'firstName', 'lastName', ->
     @get('firstName') + ' ' + @get('lastName')
-
-`export default Musician`

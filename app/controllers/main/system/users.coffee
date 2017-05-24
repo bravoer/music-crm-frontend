@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainSystemUsersController = Ember.Controller.extend
+export default Ember.Controller.extend
   musiciansWithGroup: Ember.computed 'model', ->
     @get('model.musicians').map (musician) ->
       groups = musician.get('groups').map (group) -> group.get('name')
@@ -14,5 +14,3 @@ MainSystemUsersController = Ember.Controller.extend
       contact.save()
     translate: (name) ->
       @get('i18n').t(name)
-
-`export default MainSystemUsersController`

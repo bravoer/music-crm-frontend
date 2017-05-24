@@ -1,8 +1,8 @@
-`import Ember from 'ember'`
-`import InstrumentOptions from 'client/config/instrument-options'`
-`import ContactPrefixOptions from 'client/config/contact-prefix-options'`
+import Ember from 'ember'
+import InstrumentOptions from 'client/config/instrument-options'
+import ContactPrefixOptions from 'client/config/contact-prefix-options'
 
-MusicianFormComponent = Ember.Component.extend InstrumentOptions, ContactPrefixOptions,
+export default Ember.Component.extend InstrumentOptions, ContactPrefixOptions,
   init: () ->
     @_super(arguments...)
     @get('store').findAll('musicianGroup').then (groups) =>
@@ -22,5 +22,3 @@ MusicianFormComponent = Ember.Component.extend InstrumentOptions, ContactPrefixO
       selectedGroups = @get('groups').filterBy('isSelected').map (wrapper) -> wrapper.group
       @set('musician.groups', selectedGroups)
       @set('musician.modified', new Date()) # change attribute of musician to force save action in route
-
-`export default MusicianFormComponent`

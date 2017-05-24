@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-SympathizerSearchComponent = Ember.Component.extend
+export default Ember.Component.extend
   store: Ember.inject.service('store')
   sympathizers: Ember.computed 'store', ->
     @get('store').findAll('sympathizer')
@@ -10,5 +10,3 @@ SympathizerSearchComponent = Ember.Component.extend
         filter: term
     addHelper: (helper) ->
       @sendAction('action', helper)
-
-`export default SympathizerSearchComponent`

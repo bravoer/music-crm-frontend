@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminSympathizersEditRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: (params) ->
     @store.findRecord 'sympathizer', params.id
   actions:
@@ -17,6 +17,3 @@ MainAdminSympathizersEditRoute = Ember.Route.extend
             promises.push(contact.save())
           Ember.RSVP.Promise.all(promises).then () =>
             @controllerFor('main.admin.sympathizers.edit').set('editMode', false)
-
-
-`export default MainAdminSympathizersEditRoute`

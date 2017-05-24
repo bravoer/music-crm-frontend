@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminMusiciansEditController = Ember.Controller.extend
+export default Ember.Controller.extend
   editMode: false
 
   actions:
@@ -18,5 +18,3 @@ MainAdminMusiciansEditController = Ember.Controller.extend
       false
     back: ->
       @transitionToRoute 'main.admin.musicians.index'
-
-`export default MainAdminMusiciansEditController`

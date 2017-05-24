@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminMusiciansAddRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: ->
     @store.createRecord 'musician',
       address: @store.createRecord 'address'
@@ -20,5 +20,3 @@ MainAdminMusiciansAddRoute = Ember.Route.extend
       contact = @modelFor('main.admin.musicians.add')
       contact.rollbackAttributes()
       @transitionTo 'main.admin.musicians.index'
-
-`export default MainAdminMusiciansAddRoute`

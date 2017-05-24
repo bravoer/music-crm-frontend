@@ -1,9 +1,7 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainIndexRoute = Ember.Route.extend
+export default Ember.Route.extend
   activate: ->
     Ember.$('body').addClass('homepage')
   deactivate: ->
     Ember.$('body').removeClass('homepage')
-
-`export default MainIndexRoute`

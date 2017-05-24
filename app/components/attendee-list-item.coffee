@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-AttendeeListItemComponent = Ember.Component.extend
+export default Ember.Component.extend
   classNames: ['collection-item']
   status: Ember.computed 'event.attendees', 'event.legitimateAbsentees', 'event.illegitimateAbsentees', ->
     event = @get('event')
@@ -41,5 +41,3 @@ AttendeeListItemComponent = Ember.Component.extend
       @_setAttendeeStatus(attendee, 'legitimateAbsentees')
     setIllegitimateAbsent: (attendee) ->
       @_setAttendeeStatus(attendee, 'illegitimateAbsentees')
-
-`export default AttendeeListItemComponent`

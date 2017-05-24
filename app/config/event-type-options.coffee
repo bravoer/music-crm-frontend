@@ -1,10 +1,8 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-Options = Ember.Object.create
+export default Ember.Object.create
   types: [
     'rehearsal'
     'concert'
     'other'
   ]
-
-`export default Options`

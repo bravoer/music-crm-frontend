@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-EnLocale =
+export default
   # genres
   classic: 'Klassiek'
   light: 'Licht'
@@ -40,5 +40,3 @@ EnLocale =
   bravoer: 'Bravoer'
   youthband: 'Jeugd'
   backup: 'Reserven'
-
-`export default EnLocale`

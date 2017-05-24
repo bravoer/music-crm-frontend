@@ -1,9 +1,9 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminAttendeeTrackingStatisticsController = Ember.Controller.extend
+export default Ember.Controller.extend
   queryParams: ['size']
   size: 10
-  
+
   tabs: [
     { id: 'perEvent', title: 'Aanwezigheden per repetitie' }
     { id: 'perAttendee', title: 'Aanwezigheden per muzikant' }
@@ -11,12 +11,12 @@ MainAdminAttendeeTrackingStatisticsController = Ember.Controller.extend
   selectedTab: 'perEvent'
   showPerEvent: Ember.computed.equal 'selectedTab', 'perEvent'
   showPerAttendee: Ember.computed.equal 'selectedTab', 'perAttendee'
-  
+
   eventSorting: ['startDate']
   sortedEvents: Ember.computed.sort 'model.events', 'eventSorting'
   eventDates: Ember.computed.map 'sortedEvents', (event, i) ->
     event.get('startDate').toLocaleDateString('nl') if event.get('startDate')
-    
+
   attendeeCounts: Ember.computed.map 'sortedEvents.@each.attendees', (event, i) ->
     event.get('attendees.length')
   legitimateAbsenteeCounts: Ember.computed.map 'sortedEvents.@each.legitimateAbsentees', (event, i) ->
@@ -47,12 +47,10 @@ MainAdminAttendeeTrackingStatisticsController = Ember.Controller.extend
       yAxes: [
         ticks: { min: 0 }
       ]
-      
+
   musicianAttendances: Ember.computed 'model.musicians', 'model.musicians.@each.attendances', 'model.musicians.@each.legitimateAbsences', 'model.musicians.@each.illegitimateAbsences', ->
     @get('model.musicians').map (musician, i) ->
       name: musician.get('name')
       attendances: musician.get('attendances.length')
       legitimateAbsences: musician.get('legitimateAbsences.length')
       illegitimateAbsences: musician.get('illegitimateAbsences.length')
-
-`export default MainAdminAttendeeTrackingStatisticsController`

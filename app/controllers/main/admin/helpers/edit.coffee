@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminHelpersEditController = Ember.Controller.extend
+export default Ember.Controller.extend
   actions:
     addHelper: (helper) ->
       @get('model.helpers').pushObject(helper)
@@ -8,5 +8,3 @@ MainAdminHelpersEditController = Ember.Controller.extend
     deleteHelper: (helper) ->
       @get('model.helpers').removeObject(helper)
       @get('model').save()
-
-`export default MainAdminHelpersEditController`

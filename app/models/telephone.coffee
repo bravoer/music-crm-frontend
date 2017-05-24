@@ -1,6 +1,4 @@
-`import DS from 'ember-data';`
+import DS from 'ember-data'
 
-Telephone = DS.Model.extend
+export default DS.Model.extend
   value: DS.attr('phone')
-  
-`export default Telephone`

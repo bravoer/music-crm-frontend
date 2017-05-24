@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-AttendeeListComponent = Ember.Component.extend
+export default Ember.Component.extend
   store: Ember.inject.service()
   attendees: Ember.computed 'store', 'event', ->
     event = @get('event')
@@ -40,5 +40,3 @@ AttendeeListComponent = Ember.Component.extend
         '#9e9e9e' # grey
       ]
     }]
-
-`export default AttendeeListComponent`

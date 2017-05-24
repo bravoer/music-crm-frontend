@@ -1,5 +1,3 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminAttendeeTrackingIndexController = Ember.Controller.extend()
-
-`export default MainAdminAttendeeTrackingIndexController`
+export default Ember.Controller.extend()

@@ -1,4 +1,4 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
 instruments = [
   'soprano'
@@ -13,8 +13,6 @@ instruments = [
   'percussion'
 ]
 
-Options = Ember.Object.create
+export default Ember.Object.create
   instruments: instruments
   all: instruments.concat ['conductor']
-
-`export default Options`

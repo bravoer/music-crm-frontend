@@ -1,11 +1,9 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
 ###
 # Component to render the translation of a value
 ###
-TLabelComponent = Ember.Component.extend
+export default Ember.Component.extend
   tagName: 'span'
   label: Ember.computed 'value', ->
     if @get('value') then @i18n.t(@get('value')) else null
-
-`export default TLabelComponent`

@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import { CanMixin } from 'ember-can'`
+import Ember from 'ember'
+import { CanMixin } from 'ember-can'
 
-ScoresIndexRoute = Ember.Route.extend CanMixin,
+export default Ember.Route.extend CanMixin,
   beforeModel: ->
     @transitionTo('index') unless @can 'read score'
   model: (params) ->
@@ -21,5 +21,3 @@ ScoresIndexRoute = Ember.Route.extend CanMixin,
       refreshModel: true
     sort:
       refreshModel: true
-
-`export default ScoresIndexRoute`

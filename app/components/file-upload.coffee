@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import EmberUploader from 'ember-uploader'`
+import Ember from 'ember'
+import EmberUploader from 'ember-uploader'
 
-FileUploadComponent = EmberUploader.FileField.extend
+export default EmberUploader.FileField.extend
   filesDidChange: (files) ->
     @set('isLoading', true)
     uploader = EmberUploader.Uploader.create
@@ -13,5 +13,3 @@ FileUploadComponent = EmberUploader.FileField.extend
       Ember.Logger.warn('File upload error')
       @set('isLoading', false)
       @set('error', error)
-
-`export default FileUploadComponent`

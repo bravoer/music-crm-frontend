@@ -1,7 +1,7 @@
-`import DS from 'ember-data'`
-`import HasManyQuery from 'ember-data-has-many-query'`
+import DS from 'ember-data'
+import HasManyQuery from 'ember-data-has-many-query'
 
-Event = DS.Model.extend HasManyQuery.ModelMixin,
+export default DS.Model.extend HasManyQuery.ModelMixin,
   name: DS.attr('string')
   type: DS.attr('eventType')
   startDate: DS.attr('date')
@@ -36,5 +36,3 @@ Event = DS.Model.extend HasManyQuery.ModelMixin,
     parameters:
       page:
         size: 10000
-
-`export default Event`

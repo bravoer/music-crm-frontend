@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-AdminScoresAddRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: ->
     @store.createRecord 'score', { status: 'active' }
   actions:
@@ -14,5 +14,3 @@ AdminScoresAddRoute = Ember.Route.extend
       score.set('modified', new Date())
       score.save().then (score) =>
         @transitionTo 'main.admin.scores.edit', score
-
-`export default AdminScoresAddRoute`

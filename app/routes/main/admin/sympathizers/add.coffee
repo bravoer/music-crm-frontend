@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminSympathizersAddRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: ->
     @store.createRecord 'sympathizer',
       address: @store.createRecord 'address'
@@ -20,5 +20,3 @@ MainAdminSympathizersAddRoute = Ember.Route.extend
       contact = @modelFor('main.admin.sympathizers.add')
       contact.rollbackAttributes()
       @transitionTo 'main.admin.sympathizers.index'
-
-`export default MainAdminSympathizersAddRoute`

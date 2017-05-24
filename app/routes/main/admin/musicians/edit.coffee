@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminMusiciansEditRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: (params) ->
     @store.findRecord 'musician', params.id
   actions:
@@ -17,5 +17,3 @@ MainAdminMusiciansEditRoute = Ember.Route.extend
             promises.push(contact.save())
           Ember.RSVP.Promise.all(promises).then () =>
             @controllerFor('main.admin.musicians.edit').set('editMode', false)
-
-`export default MainAdminMusiciansEditRoute`

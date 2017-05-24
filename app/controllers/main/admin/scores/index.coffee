@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import DefaultQueryParams from 'ember-data-table/mixins/default-query-params'`
+import Ember from 'ember'
+import DefaultQueryParams from 'ember-data-table/mixins/default-query-params'
 
-MainAdminScoresIndexController = Ember.Controller.extend DefaultQueryParams,
+export default Ember.Controller.extend DefaultQueryParams,
   sort: 'title'
   tabs: [
     { id: 'active', title: 'Actief' }
@@ -9,5 +9,3 @@ MainAdminScoresIndexController = Ember.Controller.extend DefaultQueryParams,
   ]
   tabChanged: Ember.observer 'status', ->
     @transitionToRoute('main.admin.scores.index', @get('status'))
-
-`export default MainAdminScoresIndexController`

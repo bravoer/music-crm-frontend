@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-AdvancedSearchService = Ember.Service.extend
+export default Ember.Service.extend
   store: Ember.inject.service('store')
   helpers: () ->
     since = new Date()
@@ -13,5 +13,3 @@ AdvancedSearchService = Ember.Service.extend
           id: uuids.join(',')
         size: 10000
         sort: 'last-name'
-
-`export default AdvancedSearchService`

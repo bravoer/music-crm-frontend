@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import DefaultQueryParams from 'ember-data-table/mixins/default-query-params'`
+import Ember from 'ember'
+import DefaultQueryParams from 'ember-data-table/mixins/default-query-params'
 
-MainAdminMusiciansIndexController = Ember.Controller.extend DefaultQueryParams,
+export default Ember.Controller.extend DefaultQueryParams,
   store: Ember.inject.service()
   sort: 'last-name'
   group: 'bravoer'
@@ -13,5 +13,3 @@ MainAdminMusiciansIndexController = Ember.Controller.extend DefaultQueryParams,
     changeGroup: (group) ->
       @set('page', 0)
       @set('group', group.get('name'))
-
-`export default MainAdminMusiciansIndexController`

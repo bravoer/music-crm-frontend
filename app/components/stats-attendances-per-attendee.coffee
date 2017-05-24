@@ -1,5 +1,3 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-StatsAttendancesPerAttendeeComponent = Ember.Component.extend()
-
-`export default StatsAttendancesPerAttendeeComponent`
+export default Ember.Component.extend()

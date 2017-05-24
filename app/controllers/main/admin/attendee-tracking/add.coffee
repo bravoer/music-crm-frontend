@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import EventTypeOptions from 'client/config/event-type-options'`
+import Ember from 'ember'
+import EventTypeOptions from 'client/config/event-type-options'
 
-MainAdminAttendeeTrackingAddController = Ember.Controller.extend
+export default Ember.Controller.extend
   eventTypes: EventTypeOptions.get('types')
   date: new Date()
   updateStartDate: Ember.observer 'date', ->
@@ -11,5 +11,3 @@ MainAdminAttendeeTrackingAddController = Ember.Controller.extend
       name = @i18n.t(@get('model.type'))
       name += ' ' + @get('model.startDate').toLocaleDateString('nl') if @get('model.startDate')
       @set('model.name', name)
-
-`export default MainAdminAttendeeTrackingAddController`

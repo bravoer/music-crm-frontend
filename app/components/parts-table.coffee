@@ -1,8 +1,8 @@
-`import Ember from 'ember'`
-`import InstrumentOptions from 'client/config/instrument-options'`
-`import InstrumentPartOptions from 'client/config/instrument-part-options'`
+import Ember from 'ember'
+import InstrumentOptions from 'client/config/instrument-options'
+import InstrumentPartOptions from 'client/config/instrument-part-options'
 
-MusicPartsTableComponent = Ember.Component.extend
+export default Ember.Component.extend
   fileService: Ember.inject.service('file')
 
   sortedParts: Ember.computed.sort 'parts', (a, b) ->
@@ -22,5 +22,3 @@ MusicPartsTableComponent = Ember.Component.extend
         part.destroyRecord()
     download: (part) ->
       @get('fileService').downloadFile(part)
-
-`export default MusicPartsTableComponent`

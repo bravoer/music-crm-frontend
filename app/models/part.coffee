@@ -1,6 +1,6 @@
-`import DS from 'ember-data'`
+import DS from 'ember-data'
 
-Part = DS.Model.extend
+export default DS.Model.extend
   name: DS.attr('string')
   instrument: DS.attr('string')
   instrumentPart: DS.attr('string')
@@ -30,5 +30,3 @@ Part = DS.Model.extend
     name += "_#{@i18n.t(@get('instrument'))}" if @get('instrument')
     name += '.pdf' if name
     name
-
-`export default Part`

@@ -1,10 +1,8 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-Options = Ember.Object.create
+export default Ember.Object.create
   options: [
     'G-clef'
     'F-clef'
     'C-clef'
   ]
-
-`export default Options`

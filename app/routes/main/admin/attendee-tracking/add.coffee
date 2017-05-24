@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminAttendeeTrackingAddRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: ->
     @store.createRecord 'event',
       type: 'rehearsal'
@@ -14,5 +14,3 @@ MainAdminAttendeeTrackingAddRoute = Ember.Route.extend
       event = @modelFor('main.admin.attendeeTracking.add')
       event.rollbackAttributes()
       @transitionTo 'main.admin.attendeeTracking.index'
-
-`export default MainAdminAttendeeTrackingAddRoute`

@@ -1,8 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminHelpersIndexController = Ember.Controller.extend
+export default Ember.Controller.extend
   actions:
     addEvent: (event) ->
       @send('invalidateModel')
-
-`export default MainAdminHelpersIndexController`

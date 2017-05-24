@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import DataTableRouteMixin from 'ember-data-table/mixins/route'`
+import Ember from 'ember'
+import DataTableRouteMixin from 'ember-data-table/mixins/route'
 
-MainAdminMusiciansIndexRoute = Ember.Route.extend DataTableRouteMixin,
+export default Ember.Route.extend DataTableRouteMixin,
   modelName: 'musician'
   queryParams:
     filter: { refreshModel: true }
@@ -14,5 +14,3 @@ MainAdminMusiciansIndexRoute = Ember.Route.extend DataTableRouteMixin,
       include: 'address,telephones,groups'
       'filter[groups][name]' : params.group
     }
-
-`export default MainAdminMusiciansIndexRoute`

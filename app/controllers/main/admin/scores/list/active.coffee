@@ -1,7 +1,7 @@
-`import Ember from 'ember'`
-`import DefaultQueryParams from 'ember-data-table/mixins/default-query-params'`
+import Ember from 'ember'
+import DefaultQueryParams from 'ember-data-table/mixins/default-query-params'
 
-AdminScoresListActiveController = Ember.Controller.extend DefaultQueryParams,
+export default Ember.Controller.extend DefaultQueryParams,
   sort: 'title'
   actions:
     openScoreDetailModal: (score) ->
@@ -14,5 +14,3 @@ AdminScoresListActiveController = Ember.Controller.extend DefaultQueryParams,
       @set('scoreToCreatePartFor', score)
       @set('createPartModalIsOpen', true)
       return false
-
-`export default AdminScoresListActiveController`

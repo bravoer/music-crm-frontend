@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminSympathizersEditController = Ember.Controller.extend
+export default Ember.Controller.extend
   editMode: false
 
   actions:
@@ -15,5 +15,3 @@ MainAdminSympathizersEditController = Ember.Controller.extend
       false
     back: ->
       @transitionToRoute 'main.admin.sympathizers.index'
-
-`export default MainAdminSympathizersEditController`

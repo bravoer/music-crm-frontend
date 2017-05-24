@@ -1,6 +1,6 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainAdminScoresEditRoute = Ember.Route.extend
+export default Ember.Route.extend
   model: (params) ->
     @store.findRecord 'score', params.id
   actions:
@@ -9,5 +9,3 @@ MainAdminScoresEditRoute = Ember.Route.extend
       score.set('modified', new Date())
       score.save().then (score) =>
         @controllerFor('main.admin.scores.edit').set('editMode', false)
-
-`export default MainAdminScoresEditRoute`

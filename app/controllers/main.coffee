@@ -1,6 +1,4 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-MainController = Ember.Controller.extend
+export default Ember.Controller.extend
   session: Ember.inject.service('session')
-
-`export default MainController`

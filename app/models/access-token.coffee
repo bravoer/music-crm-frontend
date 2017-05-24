@@ -1,6 +1,4 @@
-`import DS from 'ember-data'`
-`import MuAuthorizationAccessTokenMixin from 'ember-mu-authorization/mixins/mu-authorization-access-token-mixin'`
+import DS from 'ember-data'
+import MuAuthorizationAccessTokenMixin from 'ember-mu-authorization/mixins/mu-authorization-access-token-mixin'
 
-AccessToken = DS.Model.extend MuAuthorizationAccessTokenMixin
-
-`export default AccessToken`
+export default DS.Model.extend MuAuthorizationAccessTokenMixin

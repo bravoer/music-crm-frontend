@@ -1,6 +1,4 @@
-`import Ember from 'ember'`
+import Ember from 'ember'
 
-StatsAttendancesPerAttendeeItemComponent = Ember.Component.extend
+export default Ember.Component.extend
   tagName: 'tr'
-
-`export default StatsAttendancesPerAttendeeItemComponent`
