@@ -7,7 +7,6 @@ AdvancedSearchService = Ember.Service.extend
     since.setFullYear(since.getFullYear() - 1)
     url = "/advanced-search/helpers?since=#{since.toISOString().substring(0, 10)}"
     Ember.$.get(url).then (result) =>
-      console.log('Result is: ' + JSON.stringify(result))
       uuids = result.data.uuids
       @get('store').query 'sympathizer',
         filter:

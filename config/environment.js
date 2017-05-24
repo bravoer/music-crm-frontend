@@ -7,9 +7,6 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
-      EXTEND_PROTOTYPES: {
-	      Date: false,
-      },
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
@@ -32,7 +29,7 @@ module.exports = function(environment) {
     ],
     contentSecurityPolicy: {
       'font-src': "'self' fonts.gstatic.com",
-      'style-src': "'self' fonts.googleapis.com"
+      'style-src': "'self' fonts.googleapis.com 'unsafe-inline'"
     }
   };
 
