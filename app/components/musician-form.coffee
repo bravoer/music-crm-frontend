@@ -9,7 +9,7 @@ MusicianFormComponent = Ember.Component.extend InstrumentOptions, ContactPrefixO
       @get('musician.groups').then (currentGroups) =>
         wrappers = groups.map (group) ->
           group: group
-          isSelected: currentGroups.contains(group)
+          isSelected: currentGroups.includes(group)
           name: group.get('name')
         @set('groups', wrappers)
   store: Ember.inject.service()
