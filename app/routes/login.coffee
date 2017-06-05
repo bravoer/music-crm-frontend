@@ -6,3 +6,4 @@ export default Ember.Route.extend UnauthenticatedRouteMixin,
     Ember.$('body').addClass('login-body')
   deactivate: ->
     Ember.$('body').removeClass('login-body')
+  routeIfAlreadyAuthenticated: 'main.index'

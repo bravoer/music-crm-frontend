@@ -3,7 +3,7 @@ import { CanMixin } from 'ember-can'
 
 export default Ember.Route.extend CanMixin,
   beforeModel: ->
-    @transitionTo('index') unless @can 'read score'
+    @transitionTo('main.index') unless @can 'read score'
   model: (params) ->
     @store.query 'score', {
       page:
