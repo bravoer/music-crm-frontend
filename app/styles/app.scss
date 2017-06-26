@@ -1,1 +1,7 @@
+$primary: "teal";
+$accent: "amber";
+
+@import "color-palette";
+$color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
+
 @import 'ember-paper';
