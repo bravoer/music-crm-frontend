@@ -1,0 +1,81 @@
+{{#paper-toolbar as |toolbar|}}
+  {{#toolbar.tools}}
+    {{#paper-button iconButton=true onClick=(action (mut isMainMenuOpen))}}
+      {{paper-icon "menu"}}
+    {{/paper-button}}
+    <h1>Bravoer Backstage</h1>
+    <span class="flex"></span>
+    {{#paper-button iconButton=true}}
+      {{paper-icon "help"}}
+    {{/paper-button}}
+    {{#paper-button iconButton=true}}
+      {{paper-icon "account circle"}}
+    {{/paper-button}}
+    {{#paper-button iconButton=true}}
+      {{paper-icon "exit to app"}}
+    {{/paper-button}}
+  {{/toolbar.tools}}
+{{/paper-toolbar}}
+
+{{#paper-sidenav-container class="inner-sidenav"}}
+  {{#paper-sidenav
+       class="md-whiteframe-z2"
+       name="left2"
+       open=isMainMenuOpen
+       lockedOpen=leftSideBarLockedOpen
+       onToggle=(action (mut isMainMenuOpen))}}
+    {{#paper-toolbar as |toolbar|}}
+      {{#toolbar.tools}}
+        Menu
+        <span class="flex"></span>
+        {{#paper-button iconButton=true}}
+          {{paper-icon "close"}}
+        {{/paper-button}}
+      {{/toolbar.tools}}
+    {{/paper-toolbar}}
+    {{#paper-content}}
+
+      {{#paper-list}}
+        {{#paper-item class=""}}Home{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Partituren{{/paper-item}}
+      {{/paper-list}}
+
+      {{#paper-list}}
+        {{#paper-subheader}}Beheer{{/paper-subheader}}
+        {{#paper-item class=""}}Muzikanten{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Sympathizanten{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Helpers{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Bibliotheek{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Aanwezigheden{{/paper-item}}
+      {{/paper-list}}
+
+      {{#paper-list}}
+        {{#paper-subheader}}Systeem{{/paper-subheader}}
+        {{#paper-item class=""}}Gebruikers{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Rechten{{/paper-item}}
+      {{/paper-list}}
+
+      {{#paper-list}}
+        {{#paper-subheader}}Gebruiker{{/paper-subheader}}
+        {{#paper-item class=""}}Profiel{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Huishoudelijk reglement{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Vragen/opmerkingen{{/paper-item}}
+        {{paper-divider}}
+        {{#paper-item class=""}}Logout{{/paper-item}}
+      {{/paper-list}}
+
+    {{/paper-content}}
+  {{/paper-sidenav}}
+
+  <h1>Welkom in de backstage!</h1>
+  {{outlet}}
+
+{{/paper-sidenav-container}}
