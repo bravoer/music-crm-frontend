@@ -5,3 +5,4 @@ $accent: "amber";
 $color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
 
 @import 'ember-paper';
+@import 'ember-data-table';
