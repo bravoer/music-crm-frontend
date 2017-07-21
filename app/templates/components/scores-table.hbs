@@ -3,7 +3,7 @@
      onClickRow=(action onClickRow) as |t|}}
   {{#t.menu as |menu|}}
     {{#menu.general}}
-      {{#paper-button onClick=(action "createScore") accent=true noInk=true}}Nieuw{{/paper-button}}
+      {{#paper-link 'main.admin.scores.add' accent=true noInk=true}}Nieuw{{/paper-link}}
       {{#if (eq status 'active')}}
         {{#paper-button onClick=(action "updateStatusFilter" undefined) accent=true noInk=true}}Toon alle{{/paper-button}}
       {{else}}

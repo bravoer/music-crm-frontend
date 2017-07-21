@@ -1,0 +1,6 @@
+{{#paper-button iconButton=true onClick=(action "cancel")}}{{paper-icon "arrow backward"}}{{/paper-button}}
+
+<div class="content-container">
+  <h1>Nieuwe partituur: {{model.title}}</h1>
+  {{score-form score=model save=(action "save") cancel=(action "cancel")}}
+</div>

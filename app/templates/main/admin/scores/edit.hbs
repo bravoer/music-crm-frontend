@@ -3,31 +3,7 @@
 <div class="content-container">
   {{#if editMode}}
     <h1>Bewerk {{model.title}}</h1>
-    {{#paper-form onSubmit=(action "save") as |form|}}
-      <div class="layout-row">
-        {{paper-checkbox label="In archief" value=model.isArchived onChange=(action (mut model.isArchived))}}
-        {{paper-checkbox label="Is orginele partituur" value=model.isOriginal onChange=(action (mut model.isOriginal))}}
-      </div>
-      <div class="layout-row">
-        {{form.input label="Titel" value=model.title onChange=(action (mut model.title)) required=true}}
-        {{form.input label="Componist" value=model.composer onChange=(action (mut model.composer))}}
-        {{form.input label="Arrangeur" value=model.arranger onChange=(action (mut model.arranger))}}
-      </div>
-      <div class="layout-row">
-        {{#paper-select label="Genre" options=genres selected=model.genre onChange=(action (mut model.genre)) as |genre|}}
-          {{genre}}
-        {{/paper-select}}
-        {{form.input label="Plaats in bib" value=model.location onChange=(action (mut model.location))}}
-        {{form.input label="Uitgeleend aan" value=model.loan onChange=(action (mut model.loan))}}
-      </div>
-      <div class="layout-row">
-        {{form.input label="Opmerkingen" value=model.comment onChange=(action (mut model.comment)) textarea=true passThru=(hash rows=5)}}
-      </div>
-      <div class="layout-row">
-        {{#form.submit-button accent=true raised=true}}Opslaan{{/form.submit-button}}
-        {{#paper-button onClick=(action "cancel") accent=true raised=true}}Cancel{{/paper-button}}
-      </div>
-    {{/paper-form}}
+    {{score-form score=model save=(action "save") cancel=(action "cancel")}}
   {{else}}
     <div class="layout-row layout-align-start-center">
       <h1>{{model.title}}</h1>

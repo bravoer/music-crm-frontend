@@ -1,0 +1,25 @@
+{{#paper-form onSubmit=(action save) as |form|}}
+  <div class="layout-row">
+    {{paper-checkbox label="In archief" value=score.isArchived onChange=(action (mut score.isArchived))}}
+    {{paper-checkbox label="Is orginele partituur" value=score.isOriginal onChange=(action (mut score.isOriginal))}}
+  </div>
+  <div class="layout-row">
+    {{form.input label="Titel" value=score.title onChange=(action (mut score.title)) required=true}}
+    {{form.input label="Componist" value=score.composer onChange=(action (mut score.composer))}}
+    {{form.input label="Arrangeur" value=score.arranger onChange=(action (mut score.arranger))}}
+  </div>
+  <div class="layout-row">
+    {{#paper-select label="Genre" options=genres selected=score.genre onChange=(action (mut score.genre)) as |genre|}}
+      {{genre}}
+    {{/paper-select}}
+    {{form.input label="Plaats in bib" value=score.location onChange=(action (mut score.location))}}
+    {{form.input label="Uitgeleend aan" value=score.loan onChange=(action (mut score.loan))}}
+  </div>
+  <div class="layout-row">
+    {{form.input label="Opmerkingen" value=score.comment onChange=(action (mut score.comment)) textarea=true passThru=(hash rows=5)}}
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button accent=true raised=true}}Opslaan{{/form.submit-button}}
+    {{#paper-button onClick=(action cancel) accent=true raised=true}}Cancel{{/paper-button}}
+  </div>
+{{/paper-form}}

@@ -10,6 +10,7 @@ Router.map ->
     @route 'admin', ->
       @route 'scores', ->
         @route 'index',
+        @route 'add'
         @route 'edit', path: '/:id'
 
 export default Router
