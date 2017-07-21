@@ -11,3 +11,6 @@ export default Ember.Route.extend DataTableRouteMixin,
     status: { refreshModel: true }
   mergeQueryOptions: (params) ->
     'filter[status]': params.status
+  actions:
+    refreshModel: () ->
+      @refresh()

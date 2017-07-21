@@ -1,7 +1,6 @@
 import Ember from 'ember'
 
 export default Ember.Controller.extend
-  editMode: true
   options: Ember.inject.service()
   genres: Ember.computed 'options', ->
     @get('options').genres()

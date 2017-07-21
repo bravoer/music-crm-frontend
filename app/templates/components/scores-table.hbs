@@ -30,7 +30,6 @@
       <th>Commentaar</th>
       <th>Uitgeleend</th>
       {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
-      <th><!-- Info icon --></th>
     {{/c.header}}
     {{#c.body as |row|}}
       <td>{{row.location}}</td>
@@ -44,7 +43,6 @@
       <td>{{#if row.comment}}{{paper-icon "comment"}}{{/if}}</td>
       <td>{{row.loan}}</td>
       <td>{{moment-format row.modified}}</td>
-      <td>{{paper-icon "chevron right"}}</td>
     {{/c.body}}
   {{/t.content}}
 {{/data-table}}
