@@ -1,0 +1,36 @@
+<div class="layout-row layout-wrap">
+  {{#each sortedParts as |part|}}
+    {{#paper-card as |card|}}
+      {{#card.title as |title|}}
+        {{#title.text as |text|}}
+          {{#text.headline}}{{part.instrument}}{{/text.headline}}
+          {{#text.subhead}}{{part.instrumentPart}}{{/text.subhead}}
+        {{/title.text}}
+      {{/card.title}}
+      {{#card.actions}}
+        {{#paper-button onClick=(action "download" part)}}Download{{/paper-button}}
+        {{#paper-button onClick=(action "delete" part)}}Delete{{/paper-button}}
+      {{/card.actions}}
+    {{/paper-card}}
+  {{/each}}
+</div>
+<!-- <table class="striped">
+	   <thead>
+	   <tr>
+	   <th>Instrument</th>
+	   <th>Stem</th>
+	   <th></th>
+	   <th></th>
+	   </tr>
+	   </thead>
+	   <tbody>
+	   {{#each sortedParts as |part|}}
+	   <tr>
+	   <td>{{part.instrument}}</td>
+	   <td>{{part.instrumentPart}}</td>
+     <td>{{#paper-button iconButton=true onClick=(action "download" part)}}{{paper-icon "file download"}}{{/paper-button}}</td>
+     <td>{{#paper-button iconButton=true onClick=(action "delete" part)}}{{paper-icon "delete"}}{{/paper-button}}</td>
+	   </tr>
+	   {{/each}}
+	   </tbody>
+     </table> -->
