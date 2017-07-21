@@ -6,6 +6,8 @@ $color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
 
 @import 'ember-paper';
 @import 'ember-data-table';
+@import 'ember-paper-link';
+
 .main-outlet {
   margin: 20px;
 }
