@@ -15,3 +15,39 @@ $color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
 .content-container {
   margin-left: 20px;
 }
+y
+.italic {
+  font-style: italic;
+}
+
+p.note {
+  color: color('grey');
+
+  .note-item {
+	  padding: 0 8px;
+  }
+
+  .note-item:first-child {
+	  padding-left: 0;
+  }
+}
+
+blockquote {
+  border-left: 4px solid color($accent);
+  padding: 10px;
+}
+
+.badge {
+  background-color: color($accent);
+  margin: 0 10px;
+  padding: 5px;
+  color: #FFF;
+  font-size: 1em;
+}
+
+dl {
+  dt {
+    margin-top: 15px;
+    font-weight: 500;
+  }
+}

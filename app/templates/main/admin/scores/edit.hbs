@@ -1,6 +1,21 @@
 {{#paper-link 'main.admin.scores.index' iconButton=true}}{{paper-icon "arrow backward"}}{{/paper-link}}
 
 <div class="content-container">
-  <h1>{{model.title}}</h1>
-  <h2>{{model.composer}}</h2>
+  <div class="layout-row layout-align-start-center">
+    <h1>{{model.title}}</h1>
+    <div><span class="badge">{{#if model.isOriginal}}origineel{{else}}kopie{{/if}}</span></div>
+  </div>
+  <h2>{{model.composer}}{{#if model.arranger}}, arr. {{model.arranger}}{{/if}}</h2>
+  <blockquote>{{#if model.comment}}{{model.comment}}{{else}}Geen opmerkingen{{/if}}</blockquote>
+  <dl>
+    <dt>Genre</dt>
+    <dd>{{#if model.genre}}{{model.genre}}{{else}}-{{/if}}</dd>
+    <dt>Uitgeverij</dt>
+    <dd>{{#if model.publisher}}{{model.publisher}}{{else}}-{{/if}}</dd>
+    <dt>Plaats</dt>
+    <dd>{{#if model.location}}{{model.location}}{{else}}-{{/if}}</dd>
+    <dt>Uitgeleend aan</dt>
+    <dd>{{#if model.loan}}{{model.loan}}{{else}}-{{/if}}</dd>
+  </dl>
+  {{audit-note auditable=model}}
 </div>
