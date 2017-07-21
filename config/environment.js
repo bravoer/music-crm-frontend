@@ -22,6 +22,7 @@ module.exports = function(environment) {
       // when it is created
     },
     moment: {
+      includeLocales: ['nl'],
       outputFormat: 'DD-MM-YYYY hh:mm:ss'
     }
   };
