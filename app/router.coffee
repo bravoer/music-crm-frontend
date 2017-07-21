@@ -7,5 +7,8 @@ Router = Ember.Router.extend
 
 Router.map ->
   @route 'main', path: '/', ->
+    @route 'admin', ->
+      @route 'scores', ->
+        @route 'index'
 
 export default Router

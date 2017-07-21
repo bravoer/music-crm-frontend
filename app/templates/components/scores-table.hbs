@@ -1,0 +1,48 @@
+{{#data-table noDataMessage='Geen muziekstukken gevonden' content=content isLoading=isLoading page=page size=size sort=sort filter=filter autoSearch=false as |t|}}
+  {{#t.menu as |menu|}}
+    {{#menu.general}}
+      {{#paper-button onClick=(action "createScore") accent=true noInk=true}}Nieuw{{/paper-button}}
+      {{#if (eq status 'active')}}
+        {{#paper-button onClick=(action "updateStatusFilter" undefined) accent=true noInk=true}}Toon alle{{/paper-button}}
+      {{else}}
+        {{#paper-button onClick=(action "updateStatusFilter" 'active') accent=true noInk=true}}Toon enkel actief{{/paper-button}}
+      {{/if}}
+    {{/menu.general}}
+    {{#menu.selected as |selection datatable|}}
+      {{#if (eq status 'active')}}
+        {{#paper-button onClick=(action "changeStatuses" selection datatable 'archived') accent=true noInk=true}}Archiveer{{/paper-button}}
+      {{else}}
+        {{#paper-button onClick=(action "changeStatuses" selection datatable 'active') accent=true noInk=true}}Activeer{{/paper-button}}
+      {{/if}}
+      {{#paper-button onClick=(action "deleteScores" selection datatable) accent=true noInk=true}}Verwijder{{/paper-button}}
+    {{/menu.selected}}
+  {{/t.menu}}
+  {{#t.content as |c|}}
+    {{#c.header}}
+      {{th-sortable field='location' currentSorting=sort label='Nr.'}}
+      {{#unless (eq status 'active')}}<th>Actief</th>{{/unless}}
+      {{th-sortable field='title' currentSorting=sort label='Titel'}}
+      {{th-sortable field='composer' currentSorting=sort label='Componist'}}
+      {{th-sortable field='arranger' currentSorting=sort label='Arrangeur'}}
+      {{th-sortable field='genre' currentSorting=sort label='Genre'}}
+      <th>Commentaar</th>
+      <th>Uitgeleend</th>
+      {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
+      <th><!-- Info icon --></th>
+    {{/c.header}}
+    {{#c.body as |row|}}
+      <td>{{row.location}}</td>
+      {{#unless (eq status 'active')}}
+        <td>{{#if row.isActive}}{{paper-icon "check"}}{{/if}}</td>
+      {{/unless}}
+      <td>{{row.title}}</td>
+      <td>{{row.composer}}</td>
+      <td>{{row.arranger}}</td>
+      <td>{{row.genre}}</td>
+      <td>{{#if row.comment}}{{paper-icon "comment"}}{{/if}}</td>
+      <td>{{#if row.loan}}{{paper-icon "check"}}{{/if}}</td>
+      <td>{{moment-format row.modified}}</td>
+      <td>{{#paper-link 'main.admin.scores.edit' row iconButton=true}}{{paper-icon "chevron right"}}{{/paper-link}}</td>
+    {{/c.body}}
+  {{/t.content}}
+{{/data-table}}
