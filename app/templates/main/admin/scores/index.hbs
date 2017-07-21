@@ -1,5 +1,8 @@
 <div class="content-container">
   <h1>Bibliotheek</h1>
 
-  {{scores-table content=model isLoading=isLoadingModel filter=filter status=status sort=sort page=page size=size}}
+  {{scores-table content=model isLoading=isLoadingModel
+      filter=filter status=status sort=sort page=page size=size
+      onClickRow=(action "clickRow")
+  }}
 </div>

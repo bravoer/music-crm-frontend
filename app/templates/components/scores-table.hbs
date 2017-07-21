@@ -1,4 +1,6 @@
-{{#data-table noDataMessage='Geen muziekstukken gevonden' content=content isLoading=isLoading page=page size=size sort=sort filter=filter autoSearch=false as |t|}}
+{{#data-table noDataMessage='Geen muziekstukken gevonden' content=content isLoading=isLoading
+     page=page size=size sort=sort filter=filter autoSearch=false
+     onClickRow=(action onClickRow) as |t|}}
   {{#t.menu as |menu|}}
     {{#menu.general}}
       {{#paper-button onClick=(action "createScore") accent=true noInk=true}}Nieuw{{/paper-button}}
@@ -42,7 +44,7 @@
       <td>{{#if row.comment}}{{paper-icon "comment"}}{{/if}}</td>
       <td>{{#if row.loan}}{{paper-icon "check"}}{{/if}}</td>
       <td>{{moment-format row.modified}}</td>
-      <td>{{#paper-link 'main.admin.scores.edit' row iconButton=true}}{{paper-icon "chevron right"}}{{/paper-link}}</td>
+      <td>{{paper-icon "chevron right"}}</td>
     {{/c.body}}
   {{/t.content}}
 {{/data-table}}
