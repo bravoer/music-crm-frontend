@@ -42,7 +42,7 @@
       <td>{{row.arranger}}</td>
       <td>{{row.genre}}</td>
       <td>{{#if row.comment}}{{paper-icon "comment"}}{{/if}}</td>
-      <td>{{#if row.loan}}{{paper-icon "check"}}{{/if}}</td>
+      <td>{{row.loan}}</td>
       <td>{{moment-format row.modified}}</td>
       <td>{{paper-icon "chevron right"}}</td>
     {{/c.body}}
