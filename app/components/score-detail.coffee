@@ -6,14 +6,10 @@ export default Ember.Component.extend
   selectedScore: null
   isDeleting: false
   actions:
-    openDialog: () ->
-      @set('selectedScore', @get('score'))
-    closeDialog: () ->
-      @set('selectedScore', null)
-    confirmDelete: () ->
+    delete: (score) ->
       @set('isDeleting', true)
-      title = @get('selectedScore.title')
-      @get('selectedScore.parts').then (parts) =>
+      title = score.get('title')
+      score.get('parts').then (parts) =>
         copiedParts = parts.slice(0)
         copiedParts.forEach (part) =>
           @get('file').deleteFile(part)
@@ -23,7 +19,7 @@ export default Ember.Component.extend
         Ember.RSVP.Promise.all(partSavePromises).finally () => # don't care wether save was successful
           partDeletePromises = copiedParts.map (part) -> part.destroyRecord()
           Ember.RSVP.Promise.all(partDeletePromises).then () =>
-            @get('selectedScore').destroyRecord().then () =>
+            score.destroyRecord().then () =>
               @get('paperToaster').show("#{title} verwijderd", { position: 'top right' })
               @set('selectedScore', null)
               @set('isDeleting', false)

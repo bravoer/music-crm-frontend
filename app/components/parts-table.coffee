@@ -8,12 +8,7 @@ export default Ember.Component.extend
     @get('options').sortInstrumentParts(@get('content'))
   selectedPart: null
   actions:
-    openDialog: (part) ->
-      @set('selectedPart', part)
-    closeDialog: () ->
-      @set('selectedPart', null)
-    confirmDelete: () ->
-      part = @get('selectedPart')
+    delete: (part) ->
       description = part.get('description')
       @get('file').deleteFile(part)
       part.set('score', null)

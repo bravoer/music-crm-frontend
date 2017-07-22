@@ -9,29 +9,12 @@
       {{/card.title}}
       {{#card.actions}}
         {{#paper-button onClick=(action "download" part)}}Download{{/paper-button}}
-        {{#paper-button onClick=(action "openDialog" part)}}Delete{{/paper-button}}
+        {{#paper-button onClick=(action (mut selectedPart) part)}}Delete{{/paper-button}}
       {{/card.actions}}
     {{/paper-card}}
   {{/each}}
 </div>
 
-{{#if selectedPart}}
-  {{#paper-dialog fullscreen=true onClose=(action "closeDialog")}}
-    {{#paper-toolbar}}
-      {{#paper-toolbar-tools}}
-        <h2>Opgelet</h2>
-        <span class="flex"></span>
-        {{#paper-button iconButton=true onClick=(action "closeDialog")}}{{paper-icon icon="close"}}{{/paper-button}}
-      {{/paper-toolbar-tools}}
-    {{/paper-toolbar}}
-    {{#paper-dialog-content}}
-      <p>Ben je zeker dat je de partituur van {{selectedPart.description}} wil verwijderen?</p>
-    {{/paper-dialog-content}}
-
-    {{#paper-dialog-actions class="layout-row"}}
-      <span class="flex"></span>
-      {{#paper-button primary=true onClick=(action "closeDialog")}}Annuleer{{/paper-button}}
-      {{#paper-button primary=true onClick=(action "confirmDelete")}}Ja, zeker{{/paper-button}}
-    {{/paper-dialog-actions}}
-  {{/paper-dialog}}
-{{/if}}
+{{#dialog-delete-item selectedItem=selectedPart delete=(action "delete") as |part|}}
+  <p>Ben je zeker dat je de partituur van {{part.description}} wil verwijderen?</p>
+{{/dialog-delete-item}}

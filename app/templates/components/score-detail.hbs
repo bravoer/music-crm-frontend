@@ -2,7 +2,7 @@
   <h1>{{score.title}}</h1>
   <div><span class="badge">{{#if score.isOriginal}}origineel{{else}}kopie{{/if}}</span></div>
   {{#paper-button onClick=(action enableEdit) iconButton=true}}{{paper-icon "edit"}}{{/paper-button}}
-  {{#paper-button onClick=(action "openDialog") iconButton=true}}{{paper-icon "delete"}}{{/paper-button}}
+  {{#paper-button onClick=(action (mut selectedScore) score) iconButton=true}}{{paper-icon "delete"}}{{/paper-button}}
 </div>
 <h2>{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</h2>
 <blockquote>{{#if score.comment}}{{score.comment}}{{else}}Geen opmerkingen{{/if}}</blockquote>
@@ -18,28 +18,11 @@
 </dl>
 {{audit-note auditable=score}}
 
-{{#if selectedScore}}
-  {{#paper-dialog fullscreen=true onClose=(action "closeDialog")}}
-    {{#paper-toolbar}}
-      {{#paper-toolbar-tools}}
-        <h2>Opgelet</h2>
-        <span class="flex"></span>
-        {{#paper-button iconButton=true onClick=(action "closeDialog")}}{{paper-icon icon="close"}}{{/paper-button}}
-      {{/paper-toolbar-tools}}
-    {{/paper-toolbar}}
-    {{#paper-dialog-content}}
-      {{#unless isDeleting}}
-        <p>Ben je zeker dat je {{selectedScore.title}} en bijhorende partituren wil verwijderen?</p>
-      {{else}}
-        <p>Partituren verwijderen...</p>
-        {{paper-progress-linear}}
-      {{/unless}}
-    {{/paper-dialog-content}}
-
-    {{#paper-dialog-actions class="layout-row"}}
-      <span class="flex"></span>
-      {{#paper-button primary=true onClick=(action "closeDialog")}}Annuleer{{/paper-button}}
-      {{#paper-button primary=true onClick=(action "confirmDelete")}}Ja, zeker{{/paper-button}}
-    {{/paper-dialog-actions}}
-  {{/paper-dialog}}
-{{/if}}
+{{#dialog-delete-item selectedItem=selectedScore delete=(action "delete") as |score|}}
+  {{#unless isDeleting}}
+    <p>Ben je zeker dat je {{score.title}} en bijhorende partituren wil verwijderen?</p>
+  {{else}}
+    <p>Partituren verwijderen...</p>
+    {{paper-progress-linear}}
+  {{/unless}}
+{{/dialog-delete-item}}
