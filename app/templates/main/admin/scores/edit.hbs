@@ -7,24 +7,7 @@
   {{else}}
     <div class="layout-gt-md-row layout-column layout-margin">
       <div class="score-metadata flex-noshrink">
-        <div class="layout-row layout-align-start-center">
-          <h1>{{model.title}}</h1>
-          <div><span class="badge">{{#if model.isOriginal}}origineel{{else}}kopie{{/if}}</span></div>
-          {{#paper-button onClick=(action (mut editMode) true) iconButton=true}}{{paper-icon "edit"}}{{/paper-button}}
-        </div>
-        <h2>{{model.composer}}{{#if model.arranger}}, arr. {{model.arranger}}{{/if}}</h2>
-        <blockquote>{{#if model.comment}}{{model.comment}}{{else}}Geen opmerkingen{{/if}}</blockquote>
-        <dl>
-          <dt>Genre</dt>
-          <dd>{{#if model.genre}}{{model.genre}}{{else}}-{{/if}}</dd>
-          <dt>Uitgeverij</dt>
-          <dd>{{#if model.publisher}}{{model.publisher}}{{else}}-{{/if}}</dd>
-          <dt>Plaats</dt>
-          <dd>{{#if model.location}}{{model.location}}{{else}}-{{/if}}</dd>
-          <dt>Uitgeleend aan</dt>
-          <dd>{{#if model.loan}}{{model.loan}}{{else}}-{{/if}}</dd>
-        </dl>
-        {{audit-note auditable=model}}
+        {{score-detail score=model enableEdit=(action (mut editMode) true) cancel=(action "cancel")}}
       </div>
       <div class="score-parts">
         <h1>Partituren</h1>

@@ -16,7 +16,6 @@
       {{else}}
         {{#paper-button onClick=(action "changeStatuses" selection datatable 'active') accent=true noInk=true}}Activeer{{/paper-button}}
       {{/if}}
-      {{#paper-button onClick=(action "deleteScores" selection datatable) accent=true noInk=true}}Verwijder{{/paper-button}}
     {{/menu.selected}}
   {{/t.menu}}
   {{#t.content as |c|}}
