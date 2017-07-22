@@ -1,6 +1,7 @@
 import Ember from 'ember'
 
 export default Ember.Controller.extend
+  paperToaster: Ember.inject.service()
   actions:
     cancel: () ->
       if @get('editMode')
@@ -11,4 +12,5 @@ export default Ember.Controller.extend
     save: () ->
       @set('model.modified', new Date())
       @get('model').save().then () =>
+        @get('paperToaster').show("#{@get('model.title')} opgeslagen", { position: 'top right' })
         @set('editMode', false)
