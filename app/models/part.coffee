@@ -13,4 +13,10 @@ export default DS.Model.extend {
   )
 
   score: DS.belongsTo('score')
+
+  description: Ember.computed 'instrument', 'instrumentPart', ->
+    description = ''
+    description += @get('instrumentPart') if @get('instrumentPart')
+    description += ' ' + @get('instrument') if @get('instrument')
+    description.trim()
 }
