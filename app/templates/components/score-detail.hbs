@@ -7,6 +7,8 @@
 <h2>{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</h2>
 <blockquote>{{#if score.comment}}{{score.comment}}{{else}}Geen opmerkingen{{/if}}</blockquote>
 <dl>
+  <dt>Status</dt>
+  <dd>{{#if score.isActive}}In de map{{else}}In archief{{/if}}</dd>
   <dt>Genre</dt>
   <dd>{{#if score.genre}}{{score.genre}}{{else}}-{{/if}}</dd>
   <dt>Uitgeverij</dt>
