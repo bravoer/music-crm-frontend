@@ -1,6 +1,8 @@
 import Ember from 'ember'
 
 export default Ember.Controller.extend
+  queryParams: ['editMode']
+  editMode: false
   paperToaster: Ember.inject.service()
   actions:
     cancel: () ->

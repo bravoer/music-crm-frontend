@@ -1,7 +1,7 @@
 {{#paper-button iconButton=true onClick=(action "cancel")}}{{paper-icon "arrow backward"}}{{/paper-button}}
 
 <div class="content-container">
-  {{#if editMode}}
+  {{#liquid-if editMode class="edit-mode-toggle"}}
     <h1>Bewerk: {{model.title}}</h1>
     <div class="layout-gt-md-row layout-column layout-margin">
       <div class="score-metadata flex-noshrink">
@@ -25,5 +25,5 @@
         {{/if}}
       </div>
     </div>
-  {{/if}}
+  {{/liquid-if}}
 </div>

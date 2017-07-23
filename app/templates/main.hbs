@@ -19,12 +19,12 @@
   {{/toolbar.tools}}
 {{/paper-toolbar}}
 
-{{#paper-sidenav-container class="inner-sidenav"}}
+{{#paper-sidenav-container class="main-side-nav"}}
   {{#paper-sidenav
        class="md-whiteframe-z2"
-       name="left2"
+       name="main-side-nav"
        open=isMainMenuOpen
-       lockedOpen=leftSideBarLockedOpen
+       lockedOpen=false
        onToggle=(action (mut isMainMenuOpen))}}
     {{#paper-toolbar as |toolbar|}}
       {{#toolbar.tools}}
@@ -79,7 +79,7 @@
 
   <div class="layout-row flex">
     <div class="main-outlet">
-      {{outlet}}
+      {{liquid-outlet}}
     </div>
   </div>
 

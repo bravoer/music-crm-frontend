@@ -9,4 +9,4 @@ export default Ember.Controller.extend
     save: () ->
       @get('model').save().then (score) =>
         @get('paperToaster').show("#{@get('model.title')} aangemaakt", { position: 'top right' })
-        @transitionToRoute 'main.admin.scores.edit', score
+        @transitionToRoute 'main.admin.scores.edit', score, queryParams: { editMode: true }
