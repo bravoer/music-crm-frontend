@@ -3,6 +3,17 @@ import Ember from 'ember'
 _genres = ['classic', 'light']
 _instruments = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'trombone', 'euphonium', 'bass_eb', 'bass_bb', 'percussion', 'conductor']
 _instrumentParts = ['solo', '1st', '2nd', '3th', 'repiano', 'bas']
+_partsPerInstrument =
+  'soprano': []
+  'cornet': ['solo', 'repiano', '2nd', '3th']
+  'flugelhorn': []
+  'althorn': ['solo', '1st', '2nd']
+  'bariton': ['1st', '2nd']
+  'trombone': ['1st', '2nd', 'bas']
+  'euphonium': ['solo', '2nd']
+  'bass_eb': []
+  'bass_bb': []
+  'percussion': []
 
 export default Ember.Service.extend
   genres: () -> _genres
@@ -16,3 +27,4 @@ export default Ember.Service.extend
         sort = _instrumentParts.indexOf(a.get('instrumentPart')) - _instrumentParts.indexOf(b.get('instrumentPart'))
       return sort
     sortedParts
+  partsPerInstrument: () -> _partsPerInstrument

@@ -15,9 +15,18 @@ $color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
 .content-container {
   margin-left: 20px;
 }
-y
-.italic {
-  font-style: italic;
+
+blockquote {
+  border-left: 4px solid color($accent);
+  padding: 10px;
+}
+
+dl {
+  margin: 2em 0;
+  dt {
+    margin-top: 15px;
+    font-weight: 500;
+  }
 }
 
 p.note {
@@ -32,11 +41,6 @@ p.note {
   }
 }
 
-blockquote {
-  border-left: 4px solid color($accent);
-  padding: 10px;
-}
-
 .badge {
   background-color: color($accent);
   margin: 0 10px;
@@ -45,10 +49,32 @@ blockquote {
   font-size: 1em;
 }
 
-dl {
-  margin: 2em 0;
-  dt {
-    margin-top: 15px;
-    font-weight: 500;
+.score-metadata {
+  min-width: 250px;
+}
+
+.parts-upload-grid {
+  .part-upload-grid-header {
+    width: 100px;
+  }
+
+  .file-dropzone {
+    width: 175px;
+    height: 125px;
+    margin: 10px;
+    text-align: center;
+    color: color('grey');
+    background-color: color('grey', '300');
+    border: 2px dashed color('grey');
+
+    &.active, &.active.uploaded {
+      color: color($primary);
+      background-color: color($primary, '100');
+      border: 2px dashed color($primary);
+    }
+
+    &.uploaded {
+      background-color: color('light-green', '100');
+    }
   }
 }

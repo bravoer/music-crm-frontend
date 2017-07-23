@@ -12,6 +12,8 @@
         {{#paper-button onClick=(action (mut selectedPart) part)}}Delete{{/paper-button}}
       {{/card.actions}}
     {{/paper-card}}
+  {{else}}
+    Geen partituren opgeladen
   {{/each}}
 </div>
 
