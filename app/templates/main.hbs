@@ -20,19 +20,13 @@
 {{/paper-toolbar}}
 
 {{#paper-sidenav-container class="main-side-nav"}}
-  {{#paper-sidenav
-       class="md-whiteframe-z2"
-       name="main-side-nav"
-       open=isMainMenuOpen
-       lockedOpen=false
-       onToggle=(action (mut isMainMenuOpen))}}
+  {{#paper-sidenav class="md-whiteframe-z2" name="main-side-nav" open=isMainMenuOpen
+       lockedOpen=false onToggle=(action (mut isMainMenuOpen))}}
     {{#paper-toolbar as |toolbar|}}
       {{#toolbar.tools}}
         Menu
         <span class="flex"></span>
-        {{#paper-button iconButton=true}}
-          {{paper-icon "close"}}
-        {{/paper-button}}
+        {{#paper-button iconButton=true}}{{paper-icon "close"}}{{/paper-button}}
       {{/toolbar.tools}}
     {{/paper-toolbar}}
     {{#paper-content}}
@@ -45,7 +39,7 @@
 
       {{#paper-list}}
         {{#paper-subheader}}Beheer{{/paper-subheader}}
-        {{#paper-item class=""}}Muzikanten{{/paper-item}}
+        {{#paper-link-item 'main.admin.musicians.index'}}Muzikanten{{/paper-link-item}}
         {{paper-divider}}
         {{#paper-item class=""}}Sympathizanten{{/paper-item}}
         {{paper-divider}}

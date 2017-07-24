@@ -9,8 +9,6 @@ export default Ember.Component.extend
         score.save()
       ).then (scores) =>
         @get('refreshModel')() if scores && scores.length > 0
-    createScore: ->
-      console.log('Score must be created here');
     updateStatusFilter: (status) ->
       @set('status', status)
       @set('page', 0)
