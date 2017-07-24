@@ -4,7 +4,7 @@
   {{#t.menu as |menu|}}
     {{#menu.general}}
       {{#paper-link 'main' accent=true noInk=true}}Nieuw{{/paper-link}} <!-- TODO add route -->
-      {{#paper-link 'main' accent=true noInk=true}}Export{{/paper-link}} <!-- TODO add export -->
+      {{#paper-button onClick=(action "export") accent=true noInk=true}}Export{{/paper-button}}
       {{#paper-menu as |menu|}}
         {{#menu.trigger}}
           {{#paper-button}}Filter: {{get (find-by 'id' group groups.content) 'label'}}{{/paper-button}}
