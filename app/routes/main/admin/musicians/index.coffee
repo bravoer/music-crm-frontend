@@ -12,5 +12,5 @@ export default Ember.Route.extend DataTableRouteMixin,
   mergeQueryOptions: (params) ->
     {
       include: 'address,telephones'
-      'filter[groups][name]' : params.group
+      'filter[groups][id]' : params.group
     }

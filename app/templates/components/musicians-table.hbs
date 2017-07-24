@@ -7,18 +7,14 @@
       {{#paper-link 'main' accent=true noInk=true}}Export{{/paper-link}} <!-- TODO add export -->
       {{#paper-menu as |menu|}}
         {{#menu.trigger}}
-          {{#paper-button}}Filter: {{group}}{{/paper-button}}
+          {{#paper-button}}Filter: {{get (find-by 'id' group groups.content) 'label'}}{{/paper-button}}
         {{/menu.trigger}}
         {{#menu.content width=4 as |content|}}
-          {{#content.menu-item onClick=(action (mut group) "bravoer")}}
-            <span>Bravoer</span>
-          {{/content.menu-item}}
-          {{#content.menu-item onClick=(action (mut group) "youthband")}}
-            <span>Jeugd</span>
-          {{/content.menu-item}}
-          {{#content.menu-item onClick=(action (mut group) "backup")}}
-            <span>Reserve</span>
-          {{/content.menu-item}}
+          {{#each (await groups.content) as |groupOption|}}
+            {{#content.menu-item onClick=(action (mut group) groupOption.id)}}
+              <span>{{groupOption.label}}</span>
+            {{/content.menu-item}}
+          {{/each}}
         {{/menu.content}}
       {{/paper-menu}}
     {{/menu.general}}

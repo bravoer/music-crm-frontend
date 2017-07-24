@@ -9,7 +9,7 @@ $color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
 @import 'ember-paper-link';
 
 .main-side-nav {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .main-outlet {

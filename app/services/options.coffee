@@ -1,4 +1,5 @@
 import Ember from 'ember'
+import DS from 'ember-data'
 
 _genres = ['classic', 'light']
 _instruments = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'trombone', 'euphonium', 'bass_eb', 'bass_bb', 'percussion', 'conductor']
@@ -14,8 +15,10 @@ _partsPerInstrument =
   'bass_eb': []
   'bass_bb': []
   'percussion': []
+_musicianGroups = null
 
 export default Ember.Service.extend
+  ajax: Ember.inject.service()
   genres: () -> _genres
   instruments: () -> _instruments
   instrumentParts: () -> _instrumentParts
@@ -28,3 +31,13 @@ export default Ember.Service.extend
       return sort
     sortedParts
   partsPerInstrument: () -> _partsPerInstrument
+  musicianGroups: () ->
+    if _musicianGroups
+      DS.PromiseObject.create
+        promise: Ember.RSVP.resolve(_musicianGroups)
+    else
+      DS.PromiseObject.create
+        promise: @get('ajax').request('/musician-groups').then (response) ->
+          _musicianGroups = response.data.map (item) ->
+            { id: item.id, label: item.attributes.name }
+          _musicianGroups
