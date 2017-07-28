@@ -24,7 +24,10 @@ export default DS.Model.extend
     @get('firstName') + ' ' + @get('lastName')
   birthdateStr: Ember.computed 'birthdate',
     get: ->
-      moment(@get('birthdate')).format('YYYY-MM-DD')
+      if @get('birthdate')
+        moment(@get('birthdate')).format('YYYY-MM-DD')
+      else
+        null
     set: (_key, value, prevValue) ->
-      if value then @set('birthdate', new Date(value))
+      if value then @set('birthdate', new Date(value)) else @set('birthdate', null)
       value

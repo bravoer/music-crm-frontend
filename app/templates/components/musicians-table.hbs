@@ -3,7 +3,7 @@
      onClickRow=(action onClickRow) as |t|}}
   {{#t.menu as |menu|}}
     {{#menu.general}}
-      {{#paper-link 'main' accent=true noInk=true}}Nieuw{{/paper-link}} <!-- TODO add route -->
+      {{#paper-link 'main.admin.musicians.add' accent=true noInk=true}}Nieuw{{/paper-link}}
       {{#paper-button onClick=(action "export") accent=true noInk=true}}Export{{/paper-button}}
       {{#paper-menu as |menu|}}
         {{#menu.trigger}}

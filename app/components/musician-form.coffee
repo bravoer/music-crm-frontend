@@ -7,6 +7,10 @@ export default Ember.Component.extend
       if telephones.length == 0
         phone = @get('store').createRecord('telephone')
         telephones.pushObject(phone)
+    @get('musician.address').then (address) =>
+      unless address
+        addr = @get('store').createRecord('address')
+        @set('musician.address', addr)
   options: Ember.inject.service()
   store: Ember.inject.service()
   instruments: Ember.computed 'options', ->
