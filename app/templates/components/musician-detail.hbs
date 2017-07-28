@@ -1,0 +1,35 @@
+<div class="layout-row layout-align-start-center">
+  <h1>{{musician.name}}</h1>
+  {{#paper-button onClick=(action enableEdit) iconButton=true}}{{paper-icon "edit"}}{{/paper-button}}
+  {{#paper-button onClick=(action (mut selectedMusician) musician) iconButton=true}}{{paper-icon "delete"}}{{/paper-button}}
+</div>
+
+<div class="layout-row">
+  <div class="layout-column layout-margin">
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "home"}} <div class="flex">{{musician.address.oneLine}}</div></div>
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "email"}} <div class="flex">{{musician.email}}</div></div>
+    {{#each (await musician.telephones) as |phone|}}
+      <div class="layout-row layout-margin layout-align-start-end">{{paper-icon (if (lte phone.length 9) "phone" "smartphone")}} <div class="flex">{{phone.value}}</div></div>
+    {{else}}
+      <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "phone"}}<div class="flex"></div></div>
+    {{/each}}
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "cake"}} <div class="flex">{{moment-format musician.birthdate 'L'}}</div></div>
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "music note"}} <div class="flex">{{musician.instrument}}</div></div>
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "group"}}
+      {{#unless (is-pending musician.groups)}}
+        <div class="flex">{{join ", " (map-by "name" musician.groups)}}</div>
+      {{/unless}}
+    </div>
+  </div>
+</div>
+
+{{audit-note auditable=musician}}
+
+{{#dialog-delete-item selectedItem=selectedMusician delete=(action "delete") as |musician|}}
+  {{#unless isDeleting}}
+    <p>Ben je zeker dat je {{musician.name}} wil verwijderen?</p>
+  {{else}}
+    <p>Muzikant verwijderen...</p>
+    {{paper-progress-linear}}
+  {{/unless}}
+{{/dialog-delete-item}}

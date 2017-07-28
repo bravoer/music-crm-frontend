@@ -14,5 +14,6 @@ Router.map ->
         @route 'edit', path: '/:id'
       @route 'musicians', ->
         @route 'index',
+        @route 'edit', path: '/:id'
 
 export default Router

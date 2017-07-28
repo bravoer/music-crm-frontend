@@ -1,4 +1,5 @@
 import DS from 'ember-data'
+import moment from 'moment'
 
 export default DS.Model.extend
   prefix: DS.attr('string')
@@ -21,3 +22,9 @@ export default DS.Model.extend
 
   name: Ember.computed 'firstName', 'lastName', ->
     @get('firstName') + ' ' + @get('lastName')
+  birthdateStr: Ember.computed 'birthdate',
+    get: ->
+      moment(@get('birthdate')).format('YYYY-MM-DD')
+    set: (_key, value, prevValue) ->
+      if value then @set('birthdate', new Date(value))
+      value

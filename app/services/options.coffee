@@ -15,10 +15,11 @@ _partsPerInstrument =
   'bass_eb': []
   'bass_bb': []
   'percussion': []
-_musicianGroups = null
+musicianGroups = null
 
 export default Ember.Service.extend
   ajax: Ember.inject.service()
+  store: Ember.inject.service()
   genres: () -> _genres
   instruments: () -> _instruments
   instrumentParts: () -> _instrumentParts
@@ -31,13 +32,10 @@ export default Ember.Service.extend
       return sort
     sortedParts
   partsPerInstrument: () -> _partsPerInstrument
+  musicianGroupsLoaded: false
   musicianGroups: () ->
-    if _musicianGroups
-      DS.PromiseObject.create
-        promise: Ember.RSVP.resolve(_musicianGroups)
+    if @get('musicianGroupsLoaded')
+      @get('store').peekAll('musician-group')
     else
-      DS.PromiseObject.create
-        promise: @get('ajax').request('/musician-groups').then (response) ->
-          _musicianGroups = response.data.map (item) ->
-            { id: item.id, label: item.attributes.name }
-          _musicianGroups
+      @set('musicianGroupsLoaded', true)
+      @get('store').findAll('musician-group')

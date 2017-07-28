@@ -7,4 +7,4 @@ export default Ember.Controller.extend DefaultQueryParams,
   group: 'b209dbf2-e011-11e6-bf01-fe55135034f3' # bravoer
   actions:
     clickRow: (row) ->
-      console.log("implement clickRow here")
+      @transitionToRoute('main.admin.musicians.edit', row)

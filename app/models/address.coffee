@@ -7,4 +7,6 @@ export default DS.Model.extend
   city: DS.attr('string')
 
   oneLine: Ember.computed 'street', 'number', 'postCode', 'city', ->
-    "#{@get('street') || ''} #{@get('number') || ''}, #{@get('postCode') || ''} #{@get('city') || ''}"
+    line1 = "#{@get('street') || ''} #{@get('number') || ''}".trim()
+    line2 = "#{@get('postCode') || ''} #{@get('city') || ''}".trim()
+    [line1, line2].filter( (l) -> l.length > 0).join(', ')

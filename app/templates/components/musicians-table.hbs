@@ -7,12 +7,12 @@
       {{#paper-button onClick=(action "export") accent=true noInk=true}}Export{{/paper-button}}
       {{#paper-menu as |menu|}}
         {{#menu.trigger}}
-          {{#paper-button}}Filter: {{get (find-by 'id' group groups.content) 'label'}}{{/paper-button}}
+          {{#paper-button}}Filter: {{get (find-by 'id' group groups) 'name'}}{{/paper-button}}
         {{/menu.trigger}}
         {{#menu.content width=4 as |content|}}
-          {{#each (await groups.content) as |groupOption|}}
-            {{#content.menu-item onClick=(action (mut group) groupOption.id)}}
-              <span>{{groupOption.label}}</span>
+          {{#each (await groups) as |option|}}
+            {{#content.menu-item onClick=(action (mut group) option.id)}}
+              <span>{{option.name}}</span>
             {{/content.menu-item}}
           {{/each}}
         {{/menu.content}}
