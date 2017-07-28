@@ -1,6 +1,7 @@
 import Ember from 'ember'
 import DS from 'ember-data'
 
+_prefixes = ['Mr.', 'Mevr.', 'Fam.']
 _genres = ['classic', 'light']
 _instruments = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'trombone', 'euphonium', 'bass_eb', 'bass_bb', 'percussion', 'conductor']
 _instrumentParts = ['solo', '1st', '2nd', '3th', 'repiano', 'bas']
@@ -20,6 +21,7 @@ musicianGroups = null
 export default Ember.Service.extend
   ajax: Ember.inject.service()
   store: Ember.inject.service()
+  prefixes: () -> _prefixes
   genres: () -> _genres
   instruments: () -> _instruments
   instrumentParts: () -> _instrumentParts

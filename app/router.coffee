@@ -16,5 +16,9 @@ Router.map ->
         @route 'index',
         @route 'add'
         @route 'edit', path: '/:id'
+      @route 'sympathizers', ->
+        @route 'index',
+        @route 'add'
+        @route 'edit', path: '/:id'
 
 export default Router

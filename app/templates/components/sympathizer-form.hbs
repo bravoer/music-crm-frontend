@@ -1,0 +1,43 @@
+{{#paper-form onSubmit=(action save) as |form|}}
+  <div class="layout-row">
+    {{#paper-select label="Aanspreking" options=prefixes selected=sympathizer.prefix onChange=(action (mut sympathizer.prefix)) as |prefix|}}
+      {{prefix}}
+    {{/paper-select}}
+
+    {{form.input label="Bedrijfsnaam" value=sympathizer.organizationName onChange=(action (mut sympathizer.organizationName))}}
+    {{form.input label="Voornaam" value=sympathizer.firstName onChange=(action (mut sympathizer.firstName))}}
+    {{form.input label="Achternaam" value=sympathizer.lastName onChange=(action (mut sympathizer.lastName))}}
+  </div>
+  <div class="layout-row">
+    <div class="layout-column">
+      {{#with sympathizer.address as |address|}}
+        <div class="layout-row">
+          {{form.input label="Straat" value=address.street onChange=(action (mut address.street))}}
+          {{form.input label="Nummer" value=address.number onChange=(action (mut address.number))}}
+        </div>
+        <div class="layout-row">
+          {{form.input label="Postcode" value=address.postCode onChange=(action (mut address.postCode))}}
+          {{form.input label="Gemeente" value=address.city onChange=(action (mut address.city))}}
+        </div>
+      {{/with}}
+    </div>
+    <div class="layout-column">
+      {{form.input label="Email" value=sympathizer.email onChange=(action (mut sympathizer.email))}}
+
+      <div class="layout-row layout-align-end-end">
+        <div class="layout-column">
+          {{#each sympathizer.telephones as |phone i|}}
+            {{form.input label=(concat "Telefoon " (inc i)) value=phone.value onChange=(action (mut phone.value))}}
+          {{/each}}
+        </div>
+        {{#paper-button iconButton=true onClick=(action "addPhone")}}{{paper-icon "add"}}{{/paper-button}}
+      </div>
+
+      {{paper-checkbox label="Uitnodiging op papier" value=(eq "paper" sympathizer.communication) onChange=(action "setCommunication")}}
+    </div>
+  </div>
+  <div class="layout-row">
+    {{#form.submit-button accent=true raised=true}}Opslaan{{/form.submit-button}}
+    {{#paper-button onClick=(action cancel) accent=true raised=true}}Terug{{/paper-button}}
+  </div>
+{{/paper-form}}
