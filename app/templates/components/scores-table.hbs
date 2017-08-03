@@ -4,11 +4,15 @@
   {{#t.menu as |menu|}}
     {{#menu.general}}
       {{#paper-link 'main.admin.scores.add' accent=true noInk=true}}Nieuw{{/paper-link}}
-      {{#if (eq status 'active')}}
-        {{#paper-button onClick=(action "updateStatusFilter" undefined) accent=true noInk=true}}Toon alle{{/paper-button}}
-      {{else}}
-        {{#paper-button onClick=(action "updateStatusFilter" 'active') accent=true noInk=true}}Toon enkel actief{{/paper-button}}
-      {{/if}}
+      {{#paper-menu as |menu|}}
+        {{#menu.trigger}}
+          {{#paper-button}}Toon: {{if (eq status 'active') "Actief" "Alle"}}{{/paper-button}}
+        {{/menu.trigger}}
+        {{#menu.content width=4 as |content|}}
+          {{#content.menu-item onClick=(action "updateStatusFilter" undefined)}}<span>Alle</span>{{/content.menu-item}}
+          {{#content.menu-item onClick=(action "updateStatusFilter" "active")}}<span>Enkel actief</span>{{/content.menu-item}}
+        {{/menu.content}}
+      {{/paper-menu}}
     {{/menu.general}}
     {{#menu.selected as |selection datatable|}}
       {{#if (eq status 'active')}}
