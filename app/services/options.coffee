@@ -19,7 +19,6 @@ _partsPerInstrument =
 musicianGroups = null
 
 export default Ember.Service.extend
-  ajax: Ember.inject.service()
   store: Ember.inject.service()
   prefixes: () -> _prefixes
   genres: () -> _genres
