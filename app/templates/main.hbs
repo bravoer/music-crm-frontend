@@ -1,13 +1,13 @@
 {{paper-toaster}}
 
-{{#paper-toolbar as |toolbar|}}
+{{#paper-toolbar class="main-toolbar" as |toolbar|}}
   {{#toolbar.tools}}
     {{#paper-button iconButton=true onClick=(action (mut isMainMenuOpen))}}
       {{paper-icon "menu"}}
     {{/paper-button}}
     <h1>Bravoer Backstage</h1>
     <span class="flex"></span>
-    {{#paper-button iconButton=true}}
+    {{#paper-button onClick=(action "openMail") iconButton=true}}
       {{paper-icon "help"}}
     {{/paper-button}}
     {{#paper-button iconButton=true}}
@@ -19,8 +19,8 @@
   {{/toolbar.tools}}
 {{/paper-toolbar}}
 
-{{#paper-sidenav-container class="main-side-nav"}}
-  {{#paper-sidenav class="md-whiteframe-z2" name="main-side-nav" open=isMainMenuOpen
+{{#paper-sidenav-container class="main-side-nav-container"}}
+  {{#paper-sidenav class="md-whiteframe-z2 main-side-nav" name="main-side-nav" open=isMainMenuOpen
        lockedOpen=false onToggle=(action (mut isMainMenuOpen))}}
     {{#paper-toolbar as |toolbar|}}
       {{#toolbar.tools}}
@@ -32,13 +32,14 @@
     {{#paper-content}}
 
       {{#paper-list}}
-        {{#paper-link-item 'main'}}Home{{/paper-link-item}}
+        {{#paper-link-item 'main.index'}}Home{{/paper-link-item}}
         {{paper-divider}}
         {{#paper-item class=""}}Partituren{{/paper-item}}
       {{/paper-list}}
 
       {{#paper-list}}
         {{#paper-subheader}}Beheer{{/paper-subheader}}
+        {{paper-divider}}
         {{#paper-link-item 'main.admin.musicians.index'}}Muzikanten{{/paper-link-item}}
         {{paper-divider}}
         {{#paper-link-item 'main.admin.sympathizers.index'}}Sympathizanten{{/paper-link-item}}
@@ -52,6 +53,7 @@
 
       {{#paper-list}}
         {{#paper-subheader}}Systeem{{/paper-subheader}}
+        {{paper-divider}}
         {{#paper-item class=""}}Gebruikers{{/paper-item}}
         {{paper-divider}}
         {{#paper-item class=""}}Rechten{{/paper-item}}
@@ -59,11 +61,10 @@
 
       {{#paper-list}}
         {{#paper-subheader}}Gebruiker{{/paper-subheader}}
+        {{paper-divider}}
         {{#paper-item class=""}}Profiel{{/paper-item}}
         {{paper-divider}}
-        {{#paper-item class=""}}Huishoudelijk reglement{{/paper-item}}
-        {{paper-divider}}
-        {{#paper-item class=""}}Vragen/opmerkingen{{/paper-item}}
+        {{#paper-item onClick=(action "goToGuidelines")}}Huishoudelijk reglement{{/paper-item}}
         {{paper-divider}}
         {{#paper-item class=""}}Logout{{/paper-item}}
       {{/paper-list}}

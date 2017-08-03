@@ -2,14 +2,48 @@ $primary: "teal";
 $accent: "orange";
 
 @import "color-palette";
-$color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
+$color-teal: map-merge($color-teal, ('contrastDefaultColor':  $light-contrast-color));
+$color-orange: map-merge($color-orange, ('contrastDefaultColor':  $light-contrast-color));
 
 @import 'ember-paper';
 @import 'ember-data-table';
 @import 'ember-paper-link';
 
-.main-side-nav {
+.main-side-nav-container {
   min-height: 100vh;
+
+  .main-side-nav {
+    text-transform: uppercase;
+    background-color: color($primary);
+
+    md-content {
+      background-color: color($primary);
+    }
+
+    a.paper-link, md-list-item .md-button {
+      text-transform: uppercase;
+    }
+
+    .md-subheader {
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    md-list {
+      background-color: color($primary);
+
+      md-list-item {
+        color: color($primary, 'contrastDefaultColor');
+      }
+    }
+  }
+}
+
+.main-toolbar {
+  text-transform: uppercase;
+  h1 {
+    font-weight: 600;
+  }
 }
 
 .main-outlet {
