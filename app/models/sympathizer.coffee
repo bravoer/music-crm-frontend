@@ -14,8 +14,9 @@ export default DS.Model.extend
     defaultValue: () -> new Date()
   )
 
-  address: DS.belongsTo('address')
-  telephones: DS.hasMany('telephone')
+  address: DS.belongsTo 'address'
+  telephones: DS.hasMany 'telephone'
+  voluntaryActivities: DS.hasMany 'event'
 
   name: Ember.computed 'prefix', 'firstName', 'lastName', 'organizationName', ->
     if @get('organizationName')

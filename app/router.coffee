@@ -9,16 +9,20 @@ Router.map ->
   @route 'main', path: '/', ->
     @route 'admin', ->
       @route 'scores', ->
-        @route 'index',
+        @route 'index'
         @route 'add'
         @route 'edit', path: '/:id'
       @route 'musicians', ->
-        @route 'index',
+        @route 'index'
         @route 'add'
         @route 'edit', path: '/:id'
       @route 'sympathizers', ->
-        @route 'index',
+        @route 'index'
         @route 'add'
         @route 'edit', path: '/:id'
+      @route 'helpers', ->
+        @route 'index'
+        @route 'current'
+        @route 'event', path: '/event/:id'
 
 export default Router

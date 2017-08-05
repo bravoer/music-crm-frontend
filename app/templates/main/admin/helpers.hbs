@@ -1,0 +1,37 @@
+<div class="layout-gt-md-row layout-column layout-margin">
+
+  <div class="left-panel flex-noshrink concerts-panel">
+    <div class="layout-row layout-align-space-between-center">
+      <h1>Helpers</h1>
+      {{#paper-button iconButton=true accent=true fab=true mini=true onClick=(action "createEvent") disabled=createIsEnabled}}{{paper-icon "add"}}{{/paper-button}}
+    </div>
+    {{#liquid-if createIsEnabled class="collapse-down-toggle"}}
+      {{paper-divider}}
+      <div class="layout-row layout-align-space-between-start">
+        <div class="flex">{{event-form event=newEvent save=(action "saveEvent") cancel=(action "cancelEvent")}}</div>
+        {{#paper-button iconButton=true onClick=(action "cancelEvent")}}{{paper-icon "close"}}{{/paper-button}}
+      </div>
+      {{paper-divider}}
+    {{/liquid-if}}
+    {{#paper-list}}
+      {{#paper-link-item 'main.admin.helpers.current'}}
+        <p>Huidige leden</p>
+        <div class="md-secondary-container">{{paper-icon "chevron right"}}</div>
+      {{/paper-link-item}}
+
+      {{#paper-subheader}}Concerten{{/paper-subheader}}
+      {{#each (await model) as |event|}}
+        {{#paper-link-item 'main.admin.helpers.event' event}}
+          <p>{{moment-format event.startDate 'L'}} -- {{event.name}}</p>
+          <div class="md-secondary-container">{{paper-icon "chevron right"}}</div>
+        {{/paper-link-item}}
+      {{/each}}
+    {{/paper-list}}
+    {{number-pagination page=page size=size nbOfItems=model.length total=model.meta.count links=model.meta.pagination}}
+  </div>
+
+  <div class="right-panel helpers-panel">
+    {{liquid-outlet}}
+  </div>
+
+</div>

@@ -5,6 +5,7 @@ _prefixes = ['Mr.', 'Mevr.', 'Fam.']
 _genres = ['classic', 'light']
 _instruments = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'trombone', 'euphonium', 'bass_eb', 'bass_bb', 'percussion', 'conductor']
 _instrumentParts = ['solo', '1st', '2nd', '3th', 'repiano', 'bas']
+_eventTypes = ['repetitie', 'concert', 'andere']
 _partsPerInstrument =
   'soprano': []
   'cornet': ['solo', 'repiano', '2nd', '3th']
@@ -33,6 +34,7 @@ export default Ember.Service.extend
       return sort
     sortedParts
   partsPerInstrument: () -> _partsPerInstrument
+  eventTypes: () -> _eventTypes
   musicianGroupsLoaded: false
   musicianGroups: () ->
     if @get('musicianGroupsLoaded')

@@ -54,6 +54,10 @@ $color-orange: map-merge($color-orange, ('contrastDefaultColor':  $light-contras
   margin-left: 20px;
 }
 
+.left-panel {
+  min-width: 300px;
+}
+
 blockquote {
   border-left: 4px solid color($accent);
   padding: 10px;
@@ -87,10 +91,6 @@ p.note {
   font-size: 1em;
 }
 
-.score-metadata {
-  min-width: 250px;
-}
-
 .parts-upload-grid {
   .part-upload-grid-header {
     width: 100px;
@@ -115,4 +115,9 @@ p.note {
       background-color: color('light-green', '100');
     }
   }
+}
+
+.helpers-panel .autocomplete-input md-icon {
+  position: relative;
+  top: -10px;
 }

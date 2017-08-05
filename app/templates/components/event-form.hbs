@@ -1,0 +1,14 @@
+<h3>Nieuw evenement</h3>
+{{#paper-form onSubmit=(action save) as |form|}}
+  <div class="layout-column">
+    {{form.input label="Titel" value=event.name onChange=(action (mut event.name)) required=true}}
+    {{#paper-select label="Wat" options=eventTypes selected=event.type onChange=(action (mut event.type)) as |type|}}
+      {{type}}
+    {{/paper-select}}
+    {{form.input label="Datum" value=event.startDateStr onChange=(action (mut event.startDateStr)) type="date"}}
+  </div>
+  <div class="layout-row layout-align-end">
+    {{#form.submit-button accent=true}}Opslaan{{/form.submit-button}}
+    {{#paper-button accent=true onClick=(action cancel)}}Annuleer{{/paper-button}}
+  </div>
+{{/paper-form}}
