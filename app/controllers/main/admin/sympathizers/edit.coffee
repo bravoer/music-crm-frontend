@@ -3,6 +3,8 @@ import Ember from 'ember'
 export default Ember.Controller.extend
   editMode: false
   paperToaster: Ember.inject.service()
+  hasVoluntaryActivities: Ember.computed 'model.voluntaryActivities', 'model.voluntaryActivities.[]', ->
+    @get('model.voluntaryActivities.length') > 0
   actions:
     cancel: () ->
       if @get('editMode')
@@ -27,3 +29,5 @@ export default Ember.Controller.extend
               @get('model').save().then () =>
                 @get('paperToaster').show("#{@get('model.name')} opgeslagen", { position: 'top right' })
                 @set('editMode', false)
+    goToEvent: (event) ->
+      @transitionToRoute 'main.admin.helpers.event', event

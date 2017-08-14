@@ -58,6 +58,10 @@ $color-orange: map-merge($color-orange, ('contrastDefaultColor':  $light-contras
   min-width: 300px;
 }
 
+.margin-top-25 {
+  margin-top: 25px;
+}
+
 blockquote {
   border-left: 4px solid color($accent);
   padding: 10px;

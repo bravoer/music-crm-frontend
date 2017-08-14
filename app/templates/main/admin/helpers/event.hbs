@@ -1,15 +1,16 @@
 {{#liquid-bind model use="toRight" as |liquidModel|}}
-<h1>{{liquidModel.name}} ({{moment-format liquidModel.startDate 'L'}})</h1>
+  <h1>{{liquidModel.name}}</h1>
+  <h2>{{moment-format liquidModel.startDate 'L'}}</h2>
 
-<div class="layout-row autocomplete-input">
-  {{paper-icon "search"}}
-  <div class="flex">
-    {{sympathizers-autocomplete onSelectionChange=(action "addHelper") label="Zoek een helper om toe te voegen"}}
+  <div class="layout-row autocomplete-input">
+    {{paper-icon "search"}}
+    <div class="flex">
+      {{sympathizers-autocomplete onSelectionChange=(action "addHelper") label="Zoek een helper om toe te voegen"}}
+    </div>
   </div>
-</div>
 
-<h2>Helpers</h2>
-{{helpers-table helpers=liquidModel.helpers onClickRow=(action "goToDetail")}}
+  <h2>Helpers</h2>
+  {{helpers-table helpers=liquidModel.helpers onClickRow=(action "goToDetail")}}
 
-{{liquid-outlet}}
+  {{liquid-outlet}}
 {{/liquid-bind}}

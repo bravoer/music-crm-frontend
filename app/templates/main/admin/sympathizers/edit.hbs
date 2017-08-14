@@ -1,18 +1,36 @@
 {{#paper-button iconButton=true onClick=(action "cancel")}}{{paper-icon "arrow backward"}}{{/paper-button}}
 
-<div class="content-container">
-  {{#liquid-if editMode class="edit-mode-toggle"}}
-    <h1>Bewerk: {{model.name}}</h1>
-    <div class="layout-gt-md-row layout-column layout-margin">
-      <div class="sympathizer-metadata flex-noshrink">
-        {{sympathizer-form sympathizer=model save=(action "save") cancel=(action "cancel")}}
+<div class="content-container layout-row">
+  <div class="left-panel">
+    {{#liquid-if editMode class="edit-mode-toggle"}}
+      <h1>Bewerk: {{model.name}}</h1>
+      <div class="layout-gt-md-row layout-column layout-margin">
+        <div class="sympathizer-metadata flex-noshrink">
+          {{sympathizer-form sympathizer=model save=(action "save") cancel=(action "cancel")}}
+        </div>
       </div>
-    </div>
-  {{else}}
-    <div class="layout-gt-md-row layout-column layout-margin">
-      <div class="sympathizer-metadata flex-noshrink">
-        {{sympathizer-detail sympathizer=model enableEdit=(action (mut editMode) true) cancel=(action "cancel")}}
+    {{else}}
+      <div class="layout-gt-md-row layout-column layout-margin">
+        <div class="sympathizer-metadata flex-noshrink">
+          {{sympathizer-detail sympathizer=model enableEdit=(action (mut editMode) true) cancel=(action "cancel")}}
+        </div>
       </div>
-    </div>
-  {{/liquid-if}}
+    {{/liquid-if}}
+  </div>
+  <div class="right-panel margin-top-25">
+    {{#if hasVoluntaryActivities}}
+      <h2>Geholpen op</h2>
+      {{#paper-list}}
+        {{#each (await model.voluntaryActivities) as |event|}}
+          {{#paper-item class="md-2-line" onClick=(action "goToEvent" event)}}
+            {{paper-icon "event" class="md-avatar-icon"}}
+            <div class="md-list-item-text">
+              <h3>{{event.name}}</h3>
+              <p>{{moment-format event.startDate 'L'}}</p>
+            </div>
+          {{/paper-item}}
+        {{/each}}
+      {{/paper-list}}
+    {{/if}}
+  </div>
 </div>
