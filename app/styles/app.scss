@@ -9,6 +9,25 @@ $color-orange: map-merge($color-orange, ('contrastDefaultColor':  $light-contras
 @import 'ember-data-table';
 @import 'ember-paper-link';
 
+.login-screen {
+  min-height: 100vh;
+  background-color: color($primary);
+
+  form {
+    background-color: #FFF;
+    padding: 50px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    width: 350px;
+  }
+
+  .error {
+    color: color($warn);
+    text-align: center;
+  }
+}
+
 .main-side-nav-container {
   min-height: 100vh;
 

@@ -1,0 +1,7 @@
+{{#if (eq type "item")}}
+  {{#paper-item onClick=(action "logout")}}Logout{{/paper-item}}
+{{else}}
+  {{#paper-button onClick=(action "logout") iconButton=true}}
+    {{paper-icon "exit to app"}}
+  {{/paper-button}}
+{{/if}}

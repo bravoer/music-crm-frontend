@@ -24,5 +24,6 @@ Router.map ->
         @route 'index'
         @route 'current'
         @route 'event', path: '/event/:id'
+  @route 'login'
 
 export default Router
