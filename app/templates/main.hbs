@@ -10,9 +10,9 @@
     {{#paper-button onClick=(action "openMail") iconButton=true}}
       {{paper-icon "help"}}
     {{/paper-button}}
-    {{#paper-button iconButton=true}}
+    {{#paper-link 'main.profile' iconButton=true}}
       {{paper-icon "account circle"}}
-    {{/paper-button}}
+    {{/paper-link}}
     {{mu-logout type="icon"}}
   {{/toolbar.tools}}
 {{/paper-toolbar}}
@@ -67,7 +67,7 @@
         {{#paper-list}}
           {{#paper-subheader}}Gebruiker{{/paper-subheader}}
           {{paper-divider}}
-          {{#paper-item class=""}}Profiel{{/paper-item}}
+          {{#paper-link-item 'main.profile'}}Profiel{{/paper-link-item}}
           {{paper-divider}}
           {{#paper-item onClick=(action "goToGuidelines")}}Huishoudelijk reglement{{/paper-item}}
           {{paper-divider}}

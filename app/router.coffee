@@ -6,7 +6,9 @@ Router = Ember.Router.extend
   rootURL: config.rootURL
 
 Router.map ->
+  @route 'login'
   @route 'main', path: '/', ->
+    @route 'profile'
     @route 'admin', ->
       @route 'scores', ->
         @route 'index'
@@ -24,6 +26,6 @@ Router.map ->
         @route 'index'
         @route 'current'
         @route 'event', path: '/event/:id'
-  @route 'login'
+
 
 export default Router
