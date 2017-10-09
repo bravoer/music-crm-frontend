@@ -39,6 +39,7 @@
     "ember-file-upload": "^2.1.1",
     "ember-load-initializers": "^1.0.0",
     "ember-moment": "^7.3.1",
+    "ember-mu-authorization": "^0.1.0",
     "ember-mu-login": "^1.7.1",
     "ember-mu-registration": "^1.0.1",
     "ember-mu-transform-helpers": "^0.2.1",
