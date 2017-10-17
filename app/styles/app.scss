@@ -9,6 +9,21 @@ $color-orange: map-merge($color-orange, ('contrastDefaultColor':  $light-contras
 @import 'ember-data-table';
 @import 'ember-paper-link';
 
+// Default style overwrites
+td md-input-container {
+
+  margin: 0;
+
+  .md-errors-spacer {
+    min-height: 0;
+  }
+}
+
+md-tabs md-ink-bar, md-tabs.md-default-theme md-ink-bar {
+  background-color: color($primary);
+}
+
+
 .login-screen {
   min-height: 100vh;
   background-color: color($primary);

@@ -15,9 +15,10 @@ export default DS.Model.extend
     defaultValue: () -> new Date()
   )
 
-  address: DS.belongsTo('address')
-  telephones: DS.hasMany('telephone')
+  address: DS.belongsTo 'address'
+  telephones: DS.hasMany 'telephone'
 
+  user: DS.belongsTo 'user'
   groups: DS.hasMany 'musicianGroup'
 
   name: Ember.computed 'firstName', 'lastName', ->
