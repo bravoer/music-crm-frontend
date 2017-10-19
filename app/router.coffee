@@ -9,6 +9,7 @@ Router.map ->
   @route 'login'
   @route 'main', path: '/', ->
     @route 'profile'
+    @route 'scores', ->
     @route 'admin', ->
       @route 'scores', ->
         @route 'index'

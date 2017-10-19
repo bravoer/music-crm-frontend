@@ -1,3 +1,5 @@
+/* Ember paper configuration */
+
 $primary: "teal";
 $accent: "orange";
 
@@ -9,7 +11,9 @@ $color-orange: map-merge($color-orange, ('contrastDefaultColor':  $light-contras
 @import 'ember-data-table';
 @import 'ember-paper-link';
 
-// Default style overwrites
+
+/* Default style overwrites */
+
 td md-input-container {
 
   margin: 0;
@@ -19,10 +23,82 @@ td md-input-container {
   }
 }
 
+td md-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 md-tabs md-ink-bar, md-tabs.md-default-theme md-ink-bar {
   background-color: color($primary);
 }
 
+blockquote {
+  border-left: 4px solid color($accent);
+  padding: 10px;
+}
+
+dl {
+  margin: 2em 0;
+  dt {
+    margin-top: 15px;
+    font-weight: 500;
+  }
+}
+
+.badge {
+  background-color: color($accent);
+  margin: 0 10px;
+  padding: 5px;
+  color: #FFF;
+  font-size: 1em;
+}
+
+
+/* Custom tweaks */
+
+.helpers-panel .autocomplete-input md-icon {
+  position: relative;
+  top: -10px;
+}
+
+
+/* Custom helpers classes */
+
+.main-outlet {
+  margin: 20px;
+}
+
+.content-container {
+  margin-left: 20px;
+}
+
+.left-panel {
+  min-width: 300px;
+}
+
+.margin-top-25 {
+  margin-top: 25px;
+}
+
+p.note {
+  color: color('grey');
+
+  &.info-note {
+    font-style: italic;
+  }
+
+  .note-item {
+	  padding: 0 8px;
+  }
+
+  .note-item:first-child {
+	  padding-left: 0;
+  }
+}
+
+
+/* Login screen */
 
 .login-screen {
   min-height: 100vh;
@@ -42,6 +118,9 @@ md-tabs md-ink-bar, md-tabs.md-default-theme md-ink-bar {
     text-align: center;
   }
 }
+
+
+/* Main side menu */
 
 .main-side-nav-container {
   min-height: 100vh;
@@ -73,6 +152,9 @@ md-tabs md-ink-bar, md-tabs.md-default-theme md-ink-bar {
   }
 }
 
+
+/* Main top level bar */
+
 .main-toolbar {
   text-transform: uppercase;
   h1 {
@@ -80,54 +162,8 @@ md-tabs md-ink-bar, md-tabs.md-default-theme md-ink-bar {
   }
 }
 
-.main-outlet {
-  margin: 20px;
-}
 
-.content-container {
-  margin-left: 20px;
-}
-
-.left-panel {
-  min-width: 300px;
-}
-
-.margin-top-25 {
-  margin-top: 25px;
-}
-
-blockquote {
-  border-left: 4px solid color($accent);
-  padding: 10px;
-}
-
-dl {
-  margin: 2em 0;
-  dt {
-    margin-top: 15px;
-    font-weight: 500;
-  }
-}
-
-p.note {
-  color: color('grey');
-
-  .note-item {
-	  padding: 0 8px;
-  }
-
-  .note-item:first-child {
-	  padding-left: 0;
-  }
-}
-
-.badge {
-  background-color: color($accent);
-  margin: 0 10px;
-  padding: 5px;
-  color: #FFF;
-  font-size: 1em;
-}
+/* Score file upload page */
 
 .parts-upload-grid {
   .part-upload-grid-header {
@@ -155,7 +191,48 @@ p.note {
   }
 }
 
-.helpers-panel .autocomplete-input md-icon {
-  position: relative;
-  top: -10px;
+
+/* Score download page */
+.parts-download-grid {
+  md-card {
+    min-width: 400px;
+    background-color: color('grey', '100');
+
+    p.info-note {
+      margin-right: 1em;
+    }
+
+    .parts-download-btns {
+      width: 400px;
+
+      .part-download-btn {
+        font-size: 1em;
+        color: color($accent);
+        border: 1px solid color($accent);
+        border-radius: 25px;
+        margin: 10px;
+        padding: 5px 15px;
+
+        md-icon {
+          color: color($accent);
+          margin-right: 4px;
+        }
+
+        &:hover {
+          color: #FFF;
+          background-color: color($accent);
+          cursor: pointer;
+
+          md-icon {
+            color: #FFF;
+            -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+            transform:rotate(360deg);
+            -ms-transform:rotate(360deg);
+            -webkit-transform:rotate(360deg);
+          }
+        }
+      }
+    }
+  }
 }

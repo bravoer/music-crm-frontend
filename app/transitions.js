@@ -56,6 +56,12 @@ const transitions = function() {
     this.reverse('toLeft')
   );
 
+  this.transition(
+    this.hasClass('part-download-card'),
+    this.use('scale', { duration: 1000 }),
+    this.onInitialRender()
+  );
+
 };
 
 export default transitions;

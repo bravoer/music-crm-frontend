@@ -1,6 +1,8 @@
 <div class="content-container">
   <h1>Gebruikers</h1>
 
+  <p>Koppel een muzikant aan een gebruiker zodaning dat de juiste partituren getoond worden wanneer een muzikant ingelogd is.</p>
+
   {{#paper-tabs primary=true selected=selectedGroup onChange=(action (mut selectedGroup)) as |tabs|}}
     {{#each groups as |group|}}
       {{#tabs.tab value=group}}{{group}}{{/tabs.tab}}
@@ -14,6 +16,7 @@
         <th>Voornaam</th>
         <th>Groepen</th>
         <th>Gebruiker</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -35,6 +38,7 @@
               {{paper-icon "clear" size=24}}
             {{/paper-button}}
           </td>
+          <td {{action "goToMusician" contact}}>{{paper-icon "open in new" size=18}}</td>
         </tr>
       {{/each}}
     </tbody>

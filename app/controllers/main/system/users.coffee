@@ -19,3 +19,5 @@ export default Ember.Controller.extend
     unlinkUser: (contact) ->
       contact.set('user', null)
       contact.save()
+    goToMusician: (contact) ->
+      @transitionToRoute 'main.admin.musicians.edit', contact
