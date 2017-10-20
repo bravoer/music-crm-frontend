@@ -34,7 +34,7 @@
     "ember-cli-string-helpers": "^1.4.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "~2.13.2",
-    "ember-data-table": "1.0.0-alpha.2",
+    "ember-data-table": "1.0.0-alpha.3",
     "ember-export-application-global": "^2.0.0",
     "ember-file-upload": "^2.1.1",
     "ember-load-initializers": "^1.0.0",
