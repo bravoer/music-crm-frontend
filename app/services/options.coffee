@@ -17,6 +17,7 @@ _partsPerInstrument =
   'bass_eb': []
   'bass_bb': []
   'percussion': []
+  'conductor': []
 musicianGroups = null
 
 export default Ember.Service.extend
