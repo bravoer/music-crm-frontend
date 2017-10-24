@@ -1,4 +1,4 @@
-{{#file-dropzone name=queueName onfileadd=(action "upload") as |dropzone queue|}}
+{{#file-dropzone name=queueName allowUploadsFromWebsites=true onfileadd=(action "upload") as |dropzone queue|}}
   <div class="file-dropzone flex-none layout-column layout-align-center-center {{if dropzone.active "active"}} {{if isUploaded "uploaded"}}">
     <h2>{{if isSpecial "andere" part}}</h2>
     {{#if dropzone.active}}
