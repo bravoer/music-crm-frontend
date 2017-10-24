@@ -36,6 +36,14 @@ const transitions = function() {
   );
 
   this.transition(
+    this.fromRoute('main.admin.attendeeTracking.index'),
+    this.toRoute('main.admin.attendeeTracking.event'),
+    // transitions in main.admin.attendeeTracking.event are handled with liquid-bind in template
+    this.use('toRight'),
+    this.reverse('toRight')
+  );
+
+  this.transition(
     this.hasClass('edit-mode-toggle'),
     this.toValue(true),
     this.use('crossFade'),

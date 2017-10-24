@@ -12,6 +12,12 @@ export default DS.Model.extend
     defaultValue: () -> new Date()
   )
 
+  attendees: DS.hasMany 'musician',
+    inverse: 'attendances'
+
+  absentees: DS.hasMany 'musician',
+    inverse: 'absences'
+
   helpers: DS.hasMany 'sympathizer'
 
   startDateStr: Ember.computed 'startDate',

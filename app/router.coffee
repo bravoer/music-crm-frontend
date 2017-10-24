@@ -27,6 +27,10 @@ Router.map ->
         @route 'index'
         @route 'current'
         @route 'event', path: '/event/:id'
+      @route 'attendeeTracking', ->
+        @route 'index'
+        @route 'statistics'
+        @route 'event', path: '/event/:id'
     @route 'system', ->
       @route 'authorization'
       @route 'users'

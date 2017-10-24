@@ -21,6 +21,9 @@ export default DS.Model.extend
   user: DS.belongsTo 'user'
   groups: DS.hasMany 'musicianGroup'
 
+  attendances: DS.hasMany 'event'
+  absences: DS.hasMany 'event'
+
   name: Ember.computed 'firstName', 'lastName', ->
     @get('firstName') + ' ' + @get('lastName')
   birthdateStr: Ember.computed 'birthdate',
