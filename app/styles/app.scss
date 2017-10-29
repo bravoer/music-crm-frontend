@@ -236,3 +236,36 @@ p.note {
     }
   }
 }
+
+
+/** Attendee tracking */
+.attendees-panel {
+  .md-button.md-default-theme.btn-invitee-present {
+    background-color: color('light-green');
+
+    md-icon {
+      color: #FFF;
+    }
+
+    &:hover {
+      background-color: color('light-green');
+    }
+  }
+
+  .md-button.md-default-theme.btn-invitee-absent {
+    background-color: color('red');
+
+    md-icon {
+      color: #FFF;
+    }
+
+    &:hover {
+      background-color: color('red');
+    }
+  }
+
+  p.note {
+    margin-top: 75px;
+  }
+
+}

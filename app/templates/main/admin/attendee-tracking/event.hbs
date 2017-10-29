@@ -2,5 +2,8 @@
   <h1>{{liquidModel.name}}</h1>
   <h2>{{moment-format liquidModel.startDate 'L'}}</h2>
 
+  <h3>Aanwezig: {{attendeesCount}} || Afwezig: {{absenteesCount}}</h3>
+
+  {{attendee-list event=liquidModel}}
   {{liquid-outlet}}
 {{/liquid-bind}}
