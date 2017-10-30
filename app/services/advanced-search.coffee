@@ -13,3 +13,15 @@ export default Ember.Service.extend
           id: uuids.join(',')
         size: result.data.uuids.length
         sort: 'last-name'
+  attendancesPerRehearsal: (from, to) ->
+    fromQueryParam = from.toISOString().substring(0, 10)
+    toQueryParam = to.toISOString().substring(0, 10)
+    url = "/advanced-search/statistics/attendances/events?from=#{fromQueryParam}&to=#{toQueryParam}"
+    @get('ajax').request(url).then (result) =>
+      result.data
+  attendancesPerMusician: (from, to) ->
+    fromQueryParam = from.toISOString().substring(0, 10)
+    toQueryParam = to.toISOString().substring(0, 10)
+    url = "/advanced-search/statistics/attendances/musicians?from=#{fromQueryParam}&to=#{toQueryParam}"
+    @get('ajax').request(url).then (result) =>
+      result.data
