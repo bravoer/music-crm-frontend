@@ -1,6 +1,8 @@
 import Ember from 'ember'
 
 export default Ember.Component.extend
+  classNames: ['attendee-list-item']
+  tagName: ''
   isPresent: Ember.computed 'event.attendees.[]', ->
     @get('event.attendees').indexOf(@get('invitee')) >= 0
   isAbsent: Ember.computed 'event.absentees.[]', ->

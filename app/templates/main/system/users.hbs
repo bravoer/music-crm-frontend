@@ -3,7 +3,7 @@
 
   <p>Koppel een muzikant aan een gebruiker zodaning dat de juiste partituren getoond worden wanneer een muzikant ingelogd is.</p>
 
-  {{#paper-tabs primary=true selected=selectedGroup onChange=(action (mut selectedGroup)) as |tabs|}}
+  {{#paper-tabs selected=selectedGroup onChange=(action (mut selectedGroup)) as |tabs|}}
     {{#each groups as |group|}}
       {{#tabs.tab value=group}}{{group}}{{/tabs.tab}}
     {{/each}}

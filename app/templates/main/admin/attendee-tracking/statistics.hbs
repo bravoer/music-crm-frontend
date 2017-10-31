@@ -8,7 +8,7 @@
   {{#tabs.tab}}Aanwezigheden per muzikant{{/tabs.tab}}
 {{/paper-tabs}}
 
-{{#if (eq selectedTab 0)}}
+{{#liquid-if (eq selectedTab 0) class="statistics-tab"}}
   {{#if (is-pending attendancesPerRehearsal)}}
     {{paper-progress-circular}}
   {{/if}}
@@ -28,10 +28,7 @@
       {{/each}}
     </tbody>
   </table>
-{{/if}}
-
-
-{{#if (eq selectedTab 1)}}
+{{else}}
   {{#if (is-pending attendancesPerMusician)}}
     {{paper-progress-circular}}
   {{/if}}
@@ -51,6 +48,6 @@
       {{/each}}
     </tbody>
   </table>
-{{/if}}
+{{/liquid-if}}
 
 {{liquid-outlet}}

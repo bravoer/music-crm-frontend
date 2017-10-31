@@ -51,9 +51,16 @@ const transitions = function() {
   );
 
   this.transition(
-    this.hasClass('collapse-down-toggle'),
+    this.hasClass('edit-mode-toggle'),
     this.toValue(true),
-    this.use('toDown'),
+    this.use('crossFade'),
+    this.reverse('crossFade')
+  );
+
+  this.transition(
+    this.hasClass('statistics-tab'),
+    this.toValue(true),
+    this.use('toUp'),
     this.reverse('toUp')
   );
 
