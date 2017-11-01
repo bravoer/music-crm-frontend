@@ -330,3 +330,11 @@ $part-download-card-width: 250px;
   }
 
 }
+
+
+/* Helpers page */
+.helpers-panel {
+  md-autocomplete {
+    overflow-x: hidden;
+  }
+}

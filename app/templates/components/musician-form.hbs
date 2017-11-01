@@ -32,14 +32,14 @@
     </div>
     <div class="layout-column">
       {{#paper-select label="Instrument" options=instruments selected=musician.instrument onChange=(action (mut musician.instrument)) as |instrument|}}
-        {{instrument}}
+        {{capitalize instrument}}
       {{/paper-select}}
 
       <md-input-container class="md-input-has-value">
         <label>Groepen</label>
         <div class="layout-column layout-margin">
           {{#each groups as |group|}}
-            <div>{{paper-checkbox label=group.name value=(contains group musician.groups) onChange=(action "toggleGroup" group)}}</div>
+            <div>{{paper-checkbox label=(capitalize group.name) value=(contains group musician.groups) onChange=(action "toggleGroup" group)}}</div>
           {{/each}}
         </div>
       </md-input-container>

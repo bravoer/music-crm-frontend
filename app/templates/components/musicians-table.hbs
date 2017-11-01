@@ -12,7 +12,7 @@
         {{#menu.content width=4 as |content|}}
           {{#each (await groups) as |option|}}
             {{#content.menu-item onClick=(action (mut group) option.id)}}
-              <span>{{option.name}}</span>
+              <span>{{capitalize option.name}}</span>
             {{/content.menu-item}}
           {{/each}}
         {{/menu.content}}
@@ -32,7 +32,7 @@
     {{#c.body as |row|}}
       <td>{{row.lastName}}</td>
       <td>{{row.firstName}}</td>
-      <td>{{row.instrument}}</td>
+      <td>{{capitalize row.instrument}}</td>
       <td>{{row.email}}</td>
       <td>{{#if (await row.address)}}{{get (await row.address) 'oneLine'}}{{/if}}</td>
       <td>{{#if (await row.telephones)}}{{get (object-at 0 (await row.telephones)) 'value'}}{{/if}}</td>

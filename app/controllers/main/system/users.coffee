@@ -5,13 +5,13 @@ export default Ember.Controller.extend
   musiciansWithGroup: Ember.computed 'model', ->
     @get('model.musicians').map (musician) ->
       groups = musician.get('groups').map (group) -> group.get('name')
-      musician.set('majorGroup', 'backup') if groups.includes('backup')
-      musician.set('majorGroup', 'youthband') if groups.includes('youthband')
+      musician.set('majorGroup', 'reserven') if groups.includes('reserven')
+      musician.set('majorGroup', 'jeugdband') if groups.includes('jeugdband')
       musician.set('majorGroup', 'bravoer') if groups.includes('bravoer')
-      musician.set('majorGroup', 'none') unless musician.get('majorGroup')
+      musician.set('majorGroup', 'geen') unless musician.get('majorGroup')
       musician
   selectedGroup: 'bravoer'
-  groups: ['bravoer', 'youthband', 'backup', 'none']
+  groups: ['bravoer', 'jeugdband', 'reserven', 'geen']
   actions:
     linkUser: (contact, user) ->
       contact.set('user', user)

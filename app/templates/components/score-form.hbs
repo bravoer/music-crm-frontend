@@ -8,7 +8,7 @@
     {{form.input label="Arrangeur" value=score.arranger onChange=(action (mut score.arranger))}}
 
     {{#paper-select label="Genre" options=genres selected=score.genre onChange=(action (mut score.genre)) as |genre|}}
-      {{genre}}
+      {{capitalize genre}}
     {{/paper-select}}
     {{form.input label="Plaats in bib" value=score.location onChange=(action (mut score.location))}}
     {{form.input label="Uitgeleend aan" value=score.loan onChange=(action (mut score.loan))}}

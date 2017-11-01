@@ -3,8 +3,8 @@
     {{#paper-card as |card|}}
       {{#card.title as |title|}}
         {{#title.text as |text|}}
-          {{#text.headline}}{{part.instrument}}{{/text.headline}}
-          {{#text.subhead}}{{part.instrumentPart}}{{/text.subhead}}
+          {{#text.headline}}{{capitalize part.instrument}}{{/text.headline}}
+          {{#text.subhead}}{{capitalize part.instrumentPart}}{{/text.subhead}}
         {{/title.text}}
       {{/card.title}}
       {{#card.actions}}

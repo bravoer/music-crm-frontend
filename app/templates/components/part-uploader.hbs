@@ -1,6 +1,6 @@
 {{#file-dropzone name=queueName allowUploadsFromWebsites=true onfileadd=(action "upload") as |dropzone queue|}}
   <div class="file-dropzone flex-none layout-column layout-align-center-center {{if dropzone.active "active"}} {{if isUploaded "uploaded"}}">
-    <h2>{{if isSpecial "andere" part}}</h2>
+    <h2>{{capitalize (if isSpecial "andere" part)}}</h2>
     {{#if dropzone.active}}
       <p>{{if dropzone.valid "Drop om op te laden" "Invalid"}}</p>
     {{else if queue.files.length}}

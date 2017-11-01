@@ -16,7 +16,7 @@
           <div class="layout-row layout-align-end layout-wrap parts-download-btns">
             {{#each filteredParts as |part|}}
               <div class="part-download-btn" {{action "download" part}}>
-                {{paper-icon "file_download"}}{{part.description}}
+                {{paper-icon "file_download"}}{{capitalize part.description}}
               </div>
             {{/each}}
           </div>

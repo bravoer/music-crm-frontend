@@ -14,10 +14,10 @@
       <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "phone"}}<div class="flex"></div></div>
     {{/each}}
     <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "cake"}} <div class="flex">{{moment-format musician.birthdate 'L'}}</div></div>
-    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "music note"}} <div class="flex">{{musician.instrument}}</div></div>
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "music note"}} <div class="flex">{{capitalize musician.instrument}}</div></div>
     <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "group"}}
       {{#unless (is-pending musician.groups)}}
-        <div class="flex">{{join ", " (map-by "name" musician.groups)}}</div>
+        <div class="flex">{{titleize (join ", " (map-by "name" musician.groups))}}</div>
       {{/unless}}
     </div>
   </div>

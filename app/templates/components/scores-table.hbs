@@ -42,7 +42,7 @@
       <td>{{row.title}}</td>
       <td>{{row.composer}}</td>
       <td>{{row.arranger}}</td>
-      <td>{{row.genre}}</td>
+      <td>{{capitalize row.genre}}</td>
       <td>{{#if row.comment}}{{paper-icon "comment"}}{{/if}}</td>
       <td>{{row.loan}}</td>
       <td>{{moment-format row.modified}}</td>

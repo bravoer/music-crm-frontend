@@ -24,7 +24,7 @@
         <tr>
           <td>{{contact.lastName}}</td>
           <td>{{contact.firstName}}</td>
-          <td>{{join ' | ' (map-by 'name' contact.groups)}}</td>
+          <td>{{titleize (join ', ' (map-by 'name' contact.groups))}}</td>
           <td>
             {{#paper-select
                  placeholder="Koppel gebruiker"
