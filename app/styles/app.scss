@@ -72,6 +72,11 @@ table {
   }
 }
 
+.liquid-container,
+.liquid-child {
+  overflow-x: auto;
+}
+
 
 /* Custom tweaks */
 
@@ -92,7 +97,7 @@ table {
 }
 
 .left-panel {
-  min-width: 300px;
+  min-width: 250px;
 }
 
 .margin-top-25 {
@@ -211,9 +216,10 @@ p.note {
 
 
 /* Score download page */
+$part-download-card-width: 250px;
 .parts-download-grid {
   md-card {
-    min-width: 400px;
+    min-width: $part-download-card-width;
     background-color: color('grey', '100');
 
     p.info-note {
@@ -221,7 +227,7 @@ p.note {
     }
 
     .parts-download-btns {
-      width: 400px;
+      width: $part-download-card-width;
 
       .part-download-btn {
         font-size: 1em;
