@@ -13,7 +13,7 @@ _partsPerInstrument =
   'alto': ['solo', '1e', '2e']
   'bariton': ['1e', '2e']
   'trombone': ['1e', '2e', 'bas']
-  'euphonium': ['solo', '2e']
+  'euphonium': []
   'bas Eb': []
   'bas Bb': []
   'slagwerk': []
