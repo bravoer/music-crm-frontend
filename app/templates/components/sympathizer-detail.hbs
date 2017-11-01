@@ -1,0 +1,32 @@
+<div class="layout-row layout-align-start-center">
+  <h1>{{sympathizer.name}}</h1>
+  {{#paper-button onClick=(action enableEdit) iconButton=true}}{{paper-icon "edit"}}{{/paper-button}}
+  {{#paper-button onClick=(action (mut selectedSympathizer) sympathizer) iconButton=true}}{{paper-icon "delete"}}{{/paper-button}}
+</div>
+
+<div class="layout-row">
+  <div class="layout-column layout-margin">
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "home"}} <div class="flex">{{sympathizer.address.oneLine}}</div></div>
+    <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "email"}} <div class="flex">{{sympathizer.email}}</div></div>
+    {{#each (await sympathizer.telephones) as |phone|}}
+      <div class="layout-row layout-margin layout-align-start-end">{{paper-icon (if (lte phone.length 9) "phone" "smartphone")}} <div class="flex">{{phone.value}}</div></div>
+    {{else}}
+      <div class="layout-row layout-margin layout-align-start-end">{{paper-icon "phone"}}<div class="flex"></div></div>
+    {{/each}}
+    <div class="layout-row layout-margin layout-align-start-end">
+      {{paper-icon (if (eq sympathizer.communication "paper") "check box" "check box outline blank")}}
+      <div class="flex">Uitnodiging op papier</div>
+    </div>
+  </div>
+</div>
+
+{{audit-note auditable=sympathizer}}
+
+{{#dialog-delete-item selectedItem=selectedSympathizer delete=(action "delete") as |sympathizer|}}
+  {{#unless isDeleting}}
+    <p>Ben je zeker dat je {{sympathizer.name}} wil verwijderen?</p>
+  {{else}}
+    <p>Sympathizant verwijderen...</p>
+    {{paper-progress-linear}}
+  {{/unless}}
+{{/dialog-delete-item}}

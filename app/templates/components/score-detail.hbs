@@ -1,0 +1,30 @@
+<div class="layout-row layout-align-start-center">
+  <h1>{{score.title}}</h1>
+  <div><span class="badge">{{#if score.isOriginal}}origineel{{else}}kopie{{/if}}</span></div>
+  {{#paper-button onClick=(action enableEdit) iconButton=true}}{{paper-icon "edit"}}{{/paper-button}}
+  {{#paper-button onClick=(action (mut selectedScore) score) iconButton=true}}{{paper-icon "delete"}}{{/paper-button}}
+</div>
+<h2>{{score.composer}}{{#if score.arranger}}, arr. {{score.arranger}}{{/if}}</h2>
+<blockquote>{{#if score.comment}}{{score.comment}}{{else}}Geen opmerkingen{{/if}}</blockquote>
+<dl>
+  <dt>Status</dt>
+  <dd>{{#if score.isActive}}In de map{{else}}In archief{{/if}}</dd>
+  <dt>Genre</dt>
+  <dd>{{#if score.genre}}{{score.genre}}{{else}}-{{/if}}</dd>
+  <dt>Uitgeverij</dt>
+  <dd>{{#if score.publisher}}{{score.publisher}}{{else}}-{{/if}}</dd>
+  <dt>Plaats</dt>
+  <dd>{{#if score.location}}{{score.location}}{{else}}-{{/if}}</dd>
+  <dt>Uitgeleend aan</dt>
+  <dd>{{#if score.loan}}{{score.loan}}{{else}}-{{/if}}</dd>
+</dl>
+{{audit-note auditable=score}}
+
+{{#dialog-delete-item selectedItem=selectedScore delete=(action "delete") as |score|}}
+  {{#unless isDeleting}}
+    <p>Ben je zeker dat je {{score.title}} en bijhorende partituren wil verwijderen?</p>
+  {{else}}
+    <p>Partituren verwijderen...</p>
+    {{paper-progress-linear}}
+  {{/unless}}
+{{/dialog-delete-item}}

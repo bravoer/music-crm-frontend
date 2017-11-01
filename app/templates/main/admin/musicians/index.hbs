@@ -1,0 +1,10 @@
+<div class="content-container">
+  <h1>Muzikanten</h1>
+
+  {{musicians-table content=model isLoading=isLoadingModel
+      filter=filter sort=sort page=page size=size group=group
+      onClickRow=(action "clickRow")
+  }}
+</div>
+
+{{liquid-outlet}}

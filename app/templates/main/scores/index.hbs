@@ -1,0 +1,8 @@
+<div class="content-container">
+  <h1>Partituren</h1>
+  <div class="layout-row layout-wrap parts-download-grid">
+    {{#each model as |score|}}
+	    {{download-score-per-instrument-card score=score instrument=instrument}}
+    {{/each}}
+  </div>
+</div>

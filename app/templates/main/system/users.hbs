@@ -1,0 +1,49 @@
+<div class="content-container">
+  <h1>Gebruikers</h1>
+
+  <p>Koppel een muzikant aan een gebruiker zodaning dat de juiste partituren getoond worden wanneer een muzikant ingelogd is.</p>
+
+  {{#paper-tabs selected=selectedGroup onChange=(action (mut selectedGroup)) as |tabs|}}
+    {{#each groups as |group|}}
+      {{#tabs.tab value=group}}{{group}}{{/tabs.tab}}
+    {{/each}}
+  {{/paper-tabs}}
+
+  <table>
+    <thead>
+      <tr>
+        <th>Achternaam</th>
+        <th>Voornaam</th>
+        <th>Groepen</th>
+        <th>Gebruiker</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each (filter-by "majorGroup" selectedGroup musiciansWithGroup) as |contact|}}
+        <tr>
+          <td>{{contact.lastName}}</td>
+          <td>{{contact.firstName}}</td>
+          <td>{{join ' | ' (map-by 'name' contact.groups)}}</td>
+          <td>
+            {{#paper-select
+                 placeholder="Koppel gebruiker"
+                 selected=contact.user
+                 options=model.users
+                 onChange=(action "linkUser" contact)
+                 as |user|}}
+              {{user.name}}
+            {{/paper-select}}
+            {{#paper-button disabled=(not contact.user) iconButton=true onClick=(action "unlinkUser" contact)}}
+              {{paper-icon "clear" size=24}}
+            {{/paper-button}}
+          </td>
+          <td {{action "goToMusician" contact}}>{{paper-icon "open in new" size=18}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>
+
+{{liquid-outlet}}

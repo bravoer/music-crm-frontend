@@ -1,0 +1,10 @@
+{{#paper-button iconButton=true onClick=(action "cancel")}}{{paper-icon "arrow backward"}}{{/paper-button}}
+
+<div class="content-container">
+  <h1>Nieuwe muzikant</h1>
+  <div class="layout-gt-md-row layout-column layout-margin">
+    <div class="score-metadata flex-noshrink">
+      {{musician-form musician=model save=(action "save") cancel=(action "cancel")}}
+    </div>
+  </div>
+</div>

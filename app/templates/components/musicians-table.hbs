@@ -1,0 +1,42 @@
+{{#data-table noDataMessage='Geen muzikanten gevonden' content=content isLoading=isLoading
+     page=page size=size sort=sort filter=filter autoSearch=false
+     onClickRow=(action onClickRow) as |t|}}
+  {{#t.menu as |menu|}}
+    {{#menu.general}}
+      {{#paper-link 'main.admin.musicians.add' accent=true noInk=true}}Nieuw{{/paper-link}}
+      {{#paper-button onClick=(action "export") accent=true noInk=true}}Export{{/paper-button}}
+      {{#paper-menu as |menu|}}
+        {{#menu.trigger}}
+          {{#paper-button}}Filter: {{get (find-by 'id' group groups) 'name'}}{{/paper-button}}
+        {{/menu.trigger}}
+        {{#menu.content width=4 as |content|}}
+          {{#each (await groups) as |option|}}
+            {{#content.menu-item onClick=(action (mut group) option.id)}}
+              <span>{{option.name}}</span>
+            {{/content.menu-item}}
+          {{/each}}
+        {{/menu.content}}
+      {{/paper-menu}}
+    {{/menu.general}}
+  {{/t.menu}}
+  {{#t.content as |c|}}
+    {{#c.header}}
+      {{th-sortable field='lastName' currentSorting=sort label='Achternaam'}}
+      {{th-sortable field='firstName' currentSorting=sort label='Voornaam'}}
+      {{th-sortable field='instrument' currentSorting=sort label='Instrument'}}
+      {{th-sortable field='email' currentSorting=sort label='E-mail'}}
+      <th>Adres</th>
+      <th>Telefoon</th>
+      {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
+    {{/c.header}}
+    {{#c.body as |row|}}
+      <td>{{row.lastName}}</td>
+      <td>{{row.firstName}}</td>
+      <td>{{row.instrument}}</td>
+      <td>{{row.email}}</td>
+      <td>{{#if (await row.address)}}{{get (await row.address) 'oneLine'}}{{/if}}</td>
+      <td>{{#if (await row.telephones)}}{{get (object-at 0 (await row.telephones)) 'value'}}{{/if}}</td>
+      <td>{{moment-format row.modified}}</td>
+    {{/c.body}}
+  {{/t.content}}
+{{/data-table}}

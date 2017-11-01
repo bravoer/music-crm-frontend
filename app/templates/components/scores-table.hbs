@@ -1,0 +1,51 @@
+{{#data-table noDataMessage='Geen muziekstukken gevonden' content=content isLoading=isLoading
+     page=page size=size sort=sort filter=filter autoSearch=false
+     onClickRow=(action onClickRow) as |t|}}
+  {{#t.menu as |menu|}}
+    {{#menu.general}}
+      {{#paper-link 'main.admin.scores.add' accent=true noInk=true}}Nieuw{{/paper-link}}
+      {{#paper-menu as |menu|}}
+        {{#menu.trigger}}
+          {{#paper-button}}Toon: {{if (eq status 'active') "Actief" "Alle"}}{{/paper-button}}
+        {{/menu.trigger}}
+        {{#menu.content width=4 as |content|}}
+          {{#content.menu-item onClick=(action "updateStatusFilter" undefined)}}<span>Alle</span>{{/content.menu-item}}
+          {{#content.menu-item onClick=(action "updateStatusFilter" "active")}}<span>Enkel actief</span>{{/content.menu-item}}
+        {{/menu.content}}
+      {{/paper-menu}}
+    {{/menu.general}}
+    {{#menu.selected as |selection datatable|}}
+      {{#if (eq status 'active')}}
+        {{#paper-button onClick=(action "changeStatuses" selection datatable 'archived') accent=true noInk=true}}Archiveer{{/paper-button}}
+      {{else}}
+        {{#paper-button onClick=(action "changeStatuses" selection datatable 'active') accent=true noInk=true}}Activeer{{/paper-button}}
+      {{/if}}
+    {{/menu.selected}}
+  {{/t.menu}}
+  {{#t.content as |c|}}
+    {{#c.header}}
+      {{th-sortable field='location' currentSorting=sort label='Nr.'}}
+      {{#unless (eq status 'active')}}<th>Actief</th>{{/unless}}
+      {{th-sortable field='title' currentSorting=sort label='Titel'}}
+      {{th-sortable field='composer' currentSorting=sort label='Componist'}}
+      {{th-sortable field='arranger' currentSorting=sort label='Arrangeur'}}
+      {{th-sortable field='genre' currentSorting=sort label='Genre'}}
+      <th>Commentaar</th>
+      <th>Uitgeleend</th>
+      {{th-sortable field='modified' currentSorting=sort label='Aangepast'}}
+    {{/c.header}}
+    {{#c.body as |row|}}
+      <td>{{row.location}}</td>
+      {{#unless (eq status 'active')}}
+        <td>{{#if row.isActive}}{{paper-icon "check"}}{{/if}}</td>
+      {{/unless}}
+      <td>{{row.title}}</td>
+      <td>{{row.composer}}</td>
+      <td>{{row.arranger}}</td>
+      <td>{{row.genre}}</td>
+      <td>{{#if row.comment}}{{paper-icon "comment"}}{{/if}}</td>
+      <td>{{row.loan}}</td>
+      <td>{{moment-format row.modified}}</td>
+    {{/c.body}}
+  {{/t.content}}
+{{/data-table}}

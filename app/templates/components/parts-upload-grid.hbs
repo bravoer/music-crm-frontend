@@ -1,0 +1,17 @@
+<div class="layout-column">
+  {{#if (is-pending score.parts)}}
+    {{paper-progress-linear}}
+  {{else}}
+    {{#each-in grid as |instrument parts|}}
+      <div class="layout-row layout-align-start-center layout-wrap">
+        <div class="part-upload-grid-header flex-none">{{uppercase instrument}}</div>
+        {{#each parts as |part|}}
+          {{part-uploader name=(concat instrument "-" part) score=score uploadedParts=(await score.parts) instrument=instrument part=part}}
+        {{else}}
+          {{part-uploader name=(concat instrument "-other") score=score uploadedParts=(await score.parts) instrument=instrument}}
+        {{/each}}
+        {{part-uploader name=(concat instrument "-special") score=score uploadedParts=(await score.parts) instrument=instrument isSpecial=true}}
+      </div>
+    {{/each-in}}
+  {{/if}}
+</div>

@@ -1,0 +1,37 @@
+{{#file-dropzone name=queueName allowUploadsFromWebsites=true onfileadd=(action "upload") as |dropzone queue|}}
+  <div class="file-dropzone flex-none layout-column layout-align-center-center {{if dropzone.active "active"}} {{if isUploaded "uploaded"}}">
+    <h2>{{if isSpecial "andere" part}}</h2>
+    {{#if dropzone.active}}
+      <p>{{if dropzone.valid "Drop om op te laden" "Invalid"}}</p>
+    {{else if queue.files.length}}
+      Uploading...
+      {{paper-progress-linear value=queue.progress}}
+    {{else}}
+      <p>
+        {{#file-upload name=queueName multiple=false onfileadd=(action "upload")}}
+          <i class="material-icons">{{if isUploaded "check" "file_upload"}}</i>
+        {{/file-upload}}
+      </p>
+    {{/if}}
+  </div>
+{{/file-dropzone}}
+
+{{#if specialFile}}
+  {{#paper-dialog fullscreen=true onClose=(action "closeDialog" queue)}}
+    {{#paper-toolbar}}
+      {{#paper-toolbar-tools}}
+        <h2>Beschrijving</h2>
+        <span class="flex"></span>
+        {{#paper-button iconButton=true onClick=(action "closeDialog")}}{{paper-icon icon="close"}}{{/paper-button}}
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+    {{#paper-dialog-content}}
+      {{paper-input placeholder="Instrument" autofocus=true value=specialPartName onChange=(action (mut specialPartName))}}
+    {{/paper-dialog-content}}
+    {{#paper-dialog-actions class="layout-row"}}
+      <span class="flex"></span>
+      {{#paper-button primary=true onClick=(action "closeDialog" queue)}}Annuleer{{/paper-button}}
+      {{#paper-button primary=true onClick=(queue (action "uploadSpecial") (action "closeDialog"))}}Opladen{{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}

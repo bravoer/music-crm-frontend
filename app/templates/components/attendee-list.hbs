@@ -1,0 +1,7 @@
+{{#if (is-pending invitees)}}
+  {{paper-progress-circular}}
+{{/if}}
+
+{{#each (await invitees) as |invitee|}}
+  {{attendee-list-item invitee=invitee event=event}}
+{{/each}}

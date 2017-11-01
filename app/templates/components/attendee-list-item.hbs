@@ -1,0 +1,11 @@
+{{#paper-item as |controls|}}
+  <p>{{invitee.name}}</p>
+  <div class="md-secondary-container">
+    {{#controls.button class=(if isPresent 'btn-invitee-present') raised=true iconButton=true onClick=(action "setPresent")}}
+      {{paper-icon "check"}}
+    {{/controls.button}}
+    {{#controls.button class=(if isAbsent 'btn-invitee-absent') raised=true iconButton=true onClick=(action "setAbsent")}}
+      {{paper-icon "close"}}
+    {{/controls.button}}
+  </div>
+{{/paper-item}}

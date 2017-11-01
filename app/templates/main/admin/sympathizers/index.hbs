@@ -1,0 +1,10 @@
+<div class="content-container">
+  <h1>Sympathizanten & sponsors</h1>
+
+  {{sympathizers-table content=model isLoading=isLoadingModel
+      filter=filter sort=sort page=page size=size
+      onClickRow=(action "clickRow")
+  }}
+</div>
+
+{{liquid-outlet}}

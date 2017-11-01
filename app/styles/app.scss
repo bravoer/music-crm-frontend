@@ -1,0 +1,332 @@
+/* Ember paper configuration */
+
+$primary: "teal";
+$accent: "orange";
+
+@import "color-palette";
+$color-teal: map-merge($color-teal, ('contrastDefaultColor':  $light-contrast-color));
+$color-orange: map-merge($color-orange, ('contrastDefaultColor':  $light-contrast-color));
+
+@import 'ember-paper';
+@import 'ember-data-table';
+@import 'ember-paper-link';
+
+
+/* Default style overwrites */
+
+td md-input-container {
+
+  margin: 0;
+
+  .md-errors-spacer {
+    min-height: 0;
+  }
+}
+
+td md-icon {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+md-tabs md-ink-bar, md-tabs.md-default-theme md-ink-bar {
+  background-color: color($primary);
+}
+
+blockquote {
+  border-left: 4px solid color($accent);
+  padding: 10px;
+}
+
+dl {
+  margin: 2em 0;
+  dt {
+    margin-top: 15px;
+    font-weight: 500;
+  }
+}
+
+.badge {
+  background-color: color($accent);
+  margin: 0 10px;
+  padding: 5px;
+  color: #FFF;
+  font-size: 1em;
+}
+
+table {
+  margin-bottom: 8px;
+  max-width: 100%;
+  width: 100%;
+  border-spacing: 0;
+  border-radius: 2px;
+  overflow: hidden;
+
+  td, th {
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: lighten(color($primary, '50'), 4);
+  }
+}
+
+.liquid-container,
+.liquid-child {
+  overflow-x: auto;
+}
+
+
+/* Custom tweaks */
+
+.helpers-panel .autocomplete-input md-icon {
+  position: relative;
+  top: -10px;
+}
+
+
+/* Custom helpers classes */
+
+.main-outlet {
+  margin: 20px;
+}
+
+.content-container {
+  margin-left: 20px;
+}
+
+.left-panel {
+  min-width: 250px;
+}
+
+.margin-top-25 {
+  margin-top: 25px;
+}
+
+p.note {
+  color: color('grey');
+
+  &.info-note {
+    font-style: italic;
+  }
+
+  .note-item {
+	  padding: 0 8px;
+  }
+
+  .note-item:first-child {
+	  padding-left: 0;
+  }
+}
+
+
+/* Login screen */
+
+.login-screen {
+  min-height: 100vh;
+  background-color: color($primary);
+
+  form {
+    background-color: #FFF;
+    padding: 50px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    width: 350px;
+  }
+
+  .error {
+    color: color($warn);
+    text-align: center;
+  }
+}
+
+
+/* Main side menu */
+
+.main-side-nav-container {
+  min-height: 100vh;
+
+  .main-side-nav {
+    text-transform: uppercase;
+    background-color: color($primary);
+
+    md-content {
+      background-color: color($primary);
+    }
+
+    a.paper-link, md-list-item .md-button {
+      text-transform: uppercase;
+    }
+
+    .md-subheader {
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    md-list {
+      background-color: color($primary);
+
+      md-list-item {
+        color: color($primary, 'contrastDefaultColor');
+      }
+    }
+  }
+}
+
+
+/* Main top level bar */
+
+.main-toolbar {
+  text-transform: uppercase;
+  h1 {
+    font-weight: 600;
+  }
+}
+
+/* Dashboard */
+.dashboard-container {
+  .dashboard {
+    min-height: 75vh;
+
+    .dashboard-card {
+      background-color: color($primary);
+      color: #FFF;
+      width: 250px;
+      height: 250px;
+      margin: 25px;
+      text-transform: uppercase;
+      font-size: 1.25em;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+
+      transition: all .2s ease-in-out;
+      &:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
+      md-icon.md-default-theme, md-icon {
+        color: #FFF;
+      }
+    }
+  }
+}
+
+/* Score file upload page */
+
+.parts-upload-grid {
+  .part-upload-grid-header {
+    width: 100px;
+  }
+
+  .file-dropzone {
+    width: 175px;
+    height: 125px;
+    margin: 10px;
+    text-align: center;
+    color: color('grey');
+    background-color: color('grey', '300');
+    border: 2px dashed color('grey');
+
+    &.active, &.active.uploaded {
+      color: color($primary);
+      background-color: color($primary, '100');
+      border: 2px dashed color($primary);
+    }
+
+    &.uploaded {
+      background-color: color('light-green', '100');
+    }
+  }
+}
+
+
+/* Score download page */
+$part-download-card-width: 250px;
+.parts-download-grid {
+  md-card {
+    min-width: $part-download-card-width;
+    background-color: color('grey', '100');
+
+    p.info-note {
+      margin-right: 1em;
+    }
+
+    .parts-download-btns {
+      width: $part-download-card-width;
+
+      .part-download-btn {
+        font-size: 1em;
+        color: color($accent);
+        border: 1px solid color($accent);
+        border-radius: 25px;
+        margin: 10px;
+        padding: 5px 15px;
+
+        md-icon {
+          color: color($accent);
+          margin-right: 4px;
+        }
+
+        &:hover {
+          color: #FFF;
+          background-color: color($accent);
+          cursor: pointer;
+
+          md-icon {
+            color: #FFF;
+            -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+            -webkit-transform: scale(1.7) rotate(30deg);;
+            -ms-transform: scale(1.7) rotate(30deg);;
+            transform: scale(1.7) rotate(30deg);;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/** Attendee tracking */
+.attendees-panel {
+  .md-button.md-default-theme.btn-invitee-present,
+  .md-button.md-default-theme.md-focused.btn-invitee-present {
+    background-color: color('light-green');
+
+    md-icon {
+      color: #FFF;
+    }
+
+    &:hover {
+      background-color: color('light-green');
+    }
+  }
+
+  .md-button.md-default-theme.btn-invitee-absent,
+  .md-button.md-default-theme.md-focused.btn-invitee-absent {
+    background-color: color('red');
+
+    md-icon {
+      color: #FFF;
+    }
+
+    &:hover {
+      background-color: color('red');
+    }
+  }
+
+  md-list-item:nth-child(odd) {
+    background-color: lighten(color($primary, '50'), 4);
+  }
+
+
+  p.note {
+    margin-top: 75px;
+  }
+
+}

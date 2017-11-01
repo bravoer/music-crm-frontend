@@ -1,0 +1,19 @@
+{{#if selectedItem}}
+  {{#paper-dialog fullscreen=true onClose=(action "closeDialog")}}
+    {{#paper-toolbar}}
+      {{#paper-toolbar-tools}}
+        <h2>Opgelet</h2>
+        <span class="flex"></span>
+        {{#paper-button iconButton=true onClick=(action "closeDialog")}}{{paper-icon icon="close"}}{{/paper-button}}
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+    {{#paper-dialog-content}}
+      {{yield selectedItem}}
+    {{/paper-dialog-content}}
+    {{#paper-dialog-actions class="layout-row"}}
+      <span class="flex"></span>
+      {{#paper-button primary=true onClick=(action "closeDialog")}}Annuleer{{/paper-button}}
+      {{#paper-button primary=true onClick=(action delete selectedItem)}}Ja, zeker{{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}

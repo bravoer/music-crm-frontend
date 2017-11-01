@@ -1,0 +1,17 @@
+{{#paper-autocomplete
+     options=(await options)
+     allowClear=true
+     searchText=(readonly searchText)
+     onSearchTextChange=(action (mut searchText))
+     search=(action "search")
+     selected=selected
+     labelPath="name"
+     label=label
+     loadingMessage="Zoeken..."
+     noMatchesMessage="Niets gevonden"
+     onSelectionChange=(queue (action onSelectionChange) (action (mut searchText) null)) as |option autocomplete|}}
+  {{paper-autocomplete-highlight
+      label=option.name
+      searchText=autocomplete.searchText
+      flags="i"}}
+{{/paper-autocomplete}}

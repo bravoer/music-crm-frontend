@@ -1,0 +1,65 @@
+<h1>Statistieken</h1>
+
+{{paper-input label="Van" value=fromDateStr onChange=(action (mut fromDateStr)) type="date"}}
+{{paper-input label="Tot" value=toDateStr onChange=(action (mut toDateStr)) type="date"}}
+
+{{#paper-tabs selected=selectedTab onChange=(action (mut selectedTab)) as |tabs|}}
+  {{#tabs.tab}}Aanwezigheden per repetitie{{/tabs.tab}}
+  {{#tabs.tab}}Aanwezigheden per muzikant{{/tabs.tab}}
+{{/paper-tabs}}
+
+{{#liquid-if (eq selectedTab 0) class="statistics-tab"}}
+  {{#if (is-pending attendancesPerRehearsal)}}
+    {{paper-progress-circular}}
+  {{/if}}
+  <table>
+    <thead>
+      <th>Datum</th>
+      <th>Aanwezig</th>
+      <th>Afwezig</th>
+      <th></th>
+    </thead>
+    <tbody>
+      {{#each (await attendancesPerRehearsal) as |stat|}}
+        <tr>
+          <td>{{moment-format stat.startDate 'L'}}</td>
+          <td>{{stat.attendeeCount}}</td>
+          <td>{{stat.absenteeCount}}</td>
+          <td>
+            {{#paper-link 'main.admin.attendee-tracking.event' stat.eventId iconButton=true}}
+              {{paper-icon "open in new" size=18}}
+            {{/paper-link}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  {{#if (is-pending attendancesPerMusician)}}
+    {{paper-progress-circular}}
+  {{/if}}
+  <table>
+    <thead>
+      <th>Naam</th>
+      <th>Aanwezig</th>
+      <th>Afwezig</th>
+      <th></th>
+    </thead>
+    <tbody>
+      {{#each (await attendancesPerMusician) as |stat|}}
+        <tr>
+          <td>{{stat.name}}</td>
+          <td>{{stat.attendancesCount}}</td>
+          <td>{{stat.absencesCount}}</td>
+          <td>
+            {{#paper-link 'main.admin.musicians.edit' stat.musicianId iconButton=true}}
+              {{paper-icon "open in new" size=18}}
+            {{/paper-link}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/liquid-if}}
+
+{{liquid-outlet}}

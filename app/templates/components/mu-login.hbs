@@ -1,0 +1,13 @@
+<div class="layout-row login-screen">
+  <div class="layout-column flex layout-align-center-center">
+    {{#paper-form onSubmit=(action "login") class="layout-column layout-align-center-center" as |form|}}
+      <img src="assets/logo.jpg">
+      <p class="error">{{errorMessage}}</p>
+      <div class="layout-column flex">
+        {{form.input label="Gebruikersnaam" value=nickname onChange=(action (mut nickname))}}
+        {{form.input label="Wachtwoord" type="password" value=password onChange=(action (mut password))}}
+        {{#form.submit-button raised=true primary=true}}Login{{/form.submit-button}}
+      </div>
+    {{/paper-form}}
+  </div>
+</div>

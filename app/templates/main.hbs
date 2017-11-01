@@ -1,0 +1,88 @@
+{{paper-toaster}}
+
+{{#paper-toolbar class="main-toolbar" as |toolbar|}}
+  {{#toolbar.tools}}
+    {{#paper-button iconButton=true onClick=(action (mut isMainMenuOpen))}}
+      {{paper-icon "menu"}}
+    {{/paper-button}}
+    <h1>Bravoer Backstage</h1>
+    <span class="flex"></span>
+    {{#paper-button onClick=(action "openMail") iconButton=true}}
+      {{paper-icon "help"}}
+    {{/paper-button}}
+    {{#paper-link 'main.profile' iconButton=true}}
+      {{paper-icon "account circle"}}
+    {{/paper-link}}
+    {{mu-logout type="icon"}}
+  {{/toolbar.tools}}
+{{/paper-toolbar}}
+
+{{#paper-sidenav-container class="main-side-nav-container"}}
+  {{#paper-sidenav class="md-whiteframe-z2 main-side-nav" name="main-side-nav" open=isMainMenuOpen
+       lockedOpen=false onToggle=(action (mut isMainMenuOpen))}}
+    {{#paper-toolbar as |toolbar|}}
+      {{#toolbar.tools}}
+        Menu
+        <span class="flex"></span>
+        {{#paper-button iconButton=true}}{{paper-icon "close"}}{{/paper-button}}
+      {{/toolbar.tools}}
+    {{/paper-toolbar}}
+
+    {{#paper-content}}
+
+      {{#if session.data.isMusician}}
+        {{#paper-list}}
+          {{#paper-link-item 'main.index'}}Home{{/paper-link-item}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.scores.index'}}Partituren{{/paper-link-item}}
+        {{/paper-list}}
+      {{/if}}
+
+      {{#if session.data.isBoard}}
+        {{#paper-list}}
+          {{#paper-subheader}}Beheer{{/paper-subheader}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.admin.musicians.index'}}Muzikanten{{/paper-link-item}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.admin.sympathizers.index'}}Sympathizanten{{/paper-link-item}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.admin.helpers.current'}}Helpers{{/paper-link-item}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.admin.scores.index'}}Bibliotheek{{/paper-link-item}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.admin.attendee-tracking.index'}}Aanwezigheden{{/paper-link-item}}
+        {{/paper-list}}
+      {{/if}}
+
+      {{#if session.data.isAdmin}}
+        {{#paper-list}}
+          {{#paper-subheader}}Systeem{{/paper-subheader}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.system.users'}}Gebruikers{{/paper-link-item}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.system.authorization'}}Rechten{{/paper-link-item}}
+        {{/paper-list}}
+      {{/if}}
+
+      {{#unless session.data.isGuest}}
+        {{#paper-list}}
+          {{#paper-subheader}}Gebruiker{{/paper-subheader}}
+          {{paper-divider}}
+          {{#paper-link-item 'main.profile'}}Profiel{{/paper-link-item}}
+          {{paper-divider}}
+          {{#paper-item onClick=(action "goToGuidelines")}}Huishoudelijk reglement{{/paper-item}}
+          {{paper-divider}}
+          {{mu-logout type="item"}}
+        {{/paper-list}}
+      {{/unless}}
+
+    {{/paper-content}}
+  {{/paper-sidenav}}
+
+  <div class="layout-row flex">
+    <div class="main-outlet layout-fill">
+      {{liquid-outlet}}
+    </div>
+  </div>
+
+{{/paper-sidenav-container}}
