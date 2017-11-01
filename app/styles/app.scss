@@ -294,7 +294,8 @@ $part-download-card-width: 250px;
 
 /** Attendee tracking */
 .attendees-panel {
-  .md-button.md-default-theme.btn-invitee-present {
+  .md-button.md-default-theme.btn-invitee-present,
+  .md-button.md-default-theme.md-focused.btn-invitee-present {
     background-color: color('light-green');
 
     md-icon {
@@ -306,7 +307,8 @@ $part-download-card-width: 250px;
     }
   }
 
-  .md-button.md-default-theme.btn-invitee-absent {
+  .md-button.md-default-theme.btn-invitee-absent,
+  .md-button.md-default-theme.md-focused.btn-invitee-absent {
     background-color: color('red');
 
     md-icon {
