@@ -27,7 +27,7 @@ Router.map ->
         @route 'index'
         @route 'current'
         @route 'event', path: '/event/:id'
-      @route 'attendeeTracking', ->
+      @route 'attendee-tracking', ->
         @route 'index'
         @route 'statistics'
         @route 'event', path: '/event/:id'

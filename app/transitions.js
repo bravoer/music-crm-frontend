@@ -36,9 +36,23 @@ const transitions = function() {
   );
 
   this.transition(
-    this.fromRoute('main.admin.attendeeTracking.index'),
-    this.toRoute('main.admin.attendeeTracking.event'),
-    // transitions in main.admin.attendeeTracking.event are handled with liquid-bind in template
+    this.fromRoute('main.admin.attendee-tracking.index'),
+    this.toRoute('main.admin.attendee-tracking.event'),
+    // transitions in main.admin.attendee-tracking.event are handled with liquid-bind in template
+    this.use('toRight'),
+    this.reverse('toRight')
+  );
+
+  this.transition(
+    this.fromRoute('main.admin.attendee-tracking.index'),
+    this.toRoute('main.admin.attendee-tracking.statistics'),
+    this.use('toRight'),
+    this.reverse('toRight')
+  );
+
+  this.transition(
+    this.fromRoute('main.admin.attendee-tracking.event'),
+    this.toRoute('main.admin.attendee-tracking.statistics'),
     this.use('toRight'),
     this.reverse('toRight')
   );

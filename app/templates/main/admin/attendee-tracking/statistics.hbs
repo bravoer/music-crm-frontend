@@ -17,6 +17,7 @@
       <th>Datum</th>
       <th>Aanwezig</th>
       <th>Afwezig</th>
+      <th></th>
     </thead>
     <tbody>
       {{#each (await attendancesPerRehearsal) as |stat|}}
@@ -24,6 +25,11 @@
           <td>{{moment-format stat.startDate 'L'}}</td>
           <td>{{stat.attendeeCount}}</td>
           <td>{{stat.absenteeCount}}</td>
+          <td>
+            {{#paper-link 'main.admin.attendee-tracking.event' stat.eventId iconButton=true}}
+              {{paper-icon "open in new" size=18}}
+            {{/paper-link}}
+          </td>
         </tr>
       {{/each}}
     </tbody>
@@ -37,6 +43,7 @@
       <th>Naam</th>
       <th>Aanwezig</th>
       <th>Afwezig</th>
+      <th></th>
     </thead>
     <tbody>
       {{#each (await attendancesPerMusician) as |stat|}}
@@ -44,6 +51,11 @@
           <td>{{stat.name}}</td>
           <td>{{stat.attendancesCount}}</td>
           <td>{{stat.absencesCount}}</td>
+          <td>
+            {{#paper-link 'main.admin.musicians.edit' stat.musicianId iconButton=true}}
+              {{paper-icon "open in new" size=18}}
+            {{/paper-link}}
+          </td>
         </tr>
       {{/each}}
     </tbody>

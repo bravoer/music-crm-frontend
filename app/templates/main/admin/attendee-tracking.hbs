@@ -4,7 +4,7 @@
     <div class="layout-row layout-align-space-between-center">
       <h1>Repetities</h1>
       <div>
-        {{#paper-link 'main.admin.attendeeTracking.statistics' iconButton=true accent=true fab=true mini=true}}{{paper-icon "poll"}}{{/paper-link}}
+        {{#paper-link 'main.admin.attendee-tracking.statistics' iconButton=true accent=true fab=true mini=true}}{{paper-icon "poll"}}{{/paper-link}}
         {{#paper-button iconButton=true accent=true fab=true mini=true onClick=(action "createEvent") disabled=createIsEnabled}}{{paper-icon "add"}}{{/paper-button}}
       </div>
     </div>
@@ -18,7 +18,7 @@
     {{/liquid-if}}
     {{#paper-list}}
       {{#each (await model) as |event|}}
-        {{#paper-link-item 'main.admin.attendeeTracking.event' event}}
+        {{#paper-link-item 'main.admin.attendee-tracking.event' event}}
           <p>Repetitie {{moment-format event.startDate 'L'}}</p>
           <div class="md-secondary-container">{{paper-icon "chevron right"}}</div>
         {{/paper-link-item}}
