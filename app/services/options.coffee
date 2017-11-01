@@ -2,22 +2,22 @@ import Ember from 'ember'
 import DS from 'ember-data'
 
 _prefixes = ['Mr.', 'Mevr.', 'Fam.']
-_genres = ['classic', 'light']
-_instruments = ['soprano', 'cornet', 'flugelhorn', 'althorn', 'bariton', 'trombone', 'euphonium', 'bass_eb', 'bass_bb', 'percussion', 'conductor']
-_instrumentParts = ['solo', '1st', '2nd', '3th', 'repiano', 'bas']
+_genres = ['klassiek', 'licht']
+_instruments = ['soprano', 'cornet', 'flugel', 'alto', 'bariton', 'trombone', 'euphonium', 'bas Eb', 'bas Bb', 'slagwerk', 'dirigent']
+_instrumentParts = ['solo', '1e', '2e', '3e', 'repiano', 'bas']
 _eventTypes = ['repetitie', 'concert', 'andere']
 _partsPerInstrument =
   'soprano': []
-  'cornet': ['solo', 'repiano', '2nd', '3th']
-  'flugelhorn': []
-  'althorn': ['solo', '1st', '2nd']
-  'bariton': ['1st', '2nd']
-  'trombone': ['1st', '2nd', 'bas']
-  'euphonium': ['solo', '2nd']
-  'bass_eb': []
-  'bass_bb': []
-  'percussion': []
-  'conductor': []
+  'cornet': ['solo', 'repiano', '2e', '3e']
+  'flugel': []
+  'alto': ['solo', '1e', '2e']
+  'bariton': ['1e', '2e']
+  'trombone': ['1e', '2e', 'bas']
+  'euphonium': ['solo', '2e']
+  'bas Eb': []
+  'bas Bb': []
+  'slagwerk': []
+  'dirigent': []
 musicianGroups = null
 
 export default Ember.Service.extend
