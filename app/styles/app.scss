@@ -185,6 +185,36 @@ p.note {
   }
 }
 
+/* Dashboard */
+.dashboard-container {
+  .dashboard {
+    min-height: 75vh;
+
+    .dashboard-card {
+      background-color: color($primary);
+      color: #FFF;
+      width: 250px;
+      height: 250px;
+      margin: 25px;
+      text-transform: uppercase;
+      font-size: 1.25em;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+
+      transition: all .2s ease-in-out;
+      &:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+
+      md-icon.md-default-theme, md-icon {
+        color: #FFF;
+      }
+    }
+  }
+}
 
 /* Score file upload page */
 
@@ -251,9 +281,9 @@ $part-download-card-width: 250px;
             color: #FFF;
             -webkit-transition-duration: 0.5s;
             transition-duration: 0.5s;
-            transform:rotate(360deg);
-            -ms-transform:rotate(360deg);
-            -webkit-transform:rotate(360deg);
+            -webkit-transform: scale(1.7) rotate(30deg);;
+            -ms-transform: scale(1.7) rotate(30deg);;
+            transform: scale(1.7) rotate(30deg);;
           }
         }
       }

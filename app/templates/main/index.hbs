@@ -1,2 +1,24 @@
-<h1>Welkom in de backstage!</h1>
+<div class="layout-column dashboard">
+  <div class="layout-row layout-xs-column flex layout-align-center-center">
+    {{#if session.data.isMusician}}
+      <div {{action "goTo" 'main.scores'}} class="dashboard-card flex-none layout-column layout-align-space-between-center">
+        {{paper-icon "music video" size=132}}
+        <p>Partituren</p>
+      </div>
+    {{/if}}
+    {{#if session.data.isBoard}}
+      <div {{action "goTo" 'main.admin.scores'}} class="dashboard-card flex-none layout-column layout-align-center-center">
+        {{paper-icon "cloud upload" size=132}}
+        <p>Bibliotheek</p>
+      </div>
+    {{/if}}
+    {{#if session.data.isMusician}}
+      <div {{action "goTo" 'main.profile'}} class="dashboard-card flex-none layout-column layout-align-center-center">
+        {{paper-icon "account circle" size=132}}
+        <p>Profiel</p>
+      </div>
+    {{/if}}
+  </div>
+</div>
+
 {{liquid-outlet}}
