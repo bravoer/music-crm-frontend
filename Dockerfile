@@ -11,7 +11,7 @@ RUN ember build -prod
 
 FROM semtech/ember-proxy-service:1.1.0
 
-COPY file-upload.conf /config
+RUN mkdir -p /config && echo "client_max_body_size 100m;" > /config/file-upload.conf
 ENV STATIC_FOLDERS_REGEX "^/(assets|font|files|export|label-printer)/"
 
 COPY --from=builder /app/dist /app
