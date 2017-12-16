@@ -77,6 +77,9 @@ table {
   overflow-x: auto;
 }
 
+[data-ember-action]:not(:disabled) {
+  cursor: pointer;
+}
 
 /* Custom tweaks */
 
