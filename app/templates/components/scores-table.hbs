@@ -9,7 +9,7 @@
           {{#paper-button}}Toon: {{if (eq status 'active') "Actief" "Alle"}}{{/paper-button}}
         {{/menu.trigger}}
         {{#menu.content width=4 as |content|}}
-          {{#content.menu-item onClick=(action "updateStatusFilter" undefined)}}<span>Alle</span>{{/content.menu-item}}
+          {{#content.menu-item onClick=(action "updateStatusFilter" "all")}}<span>Alle</span>{{/content.menu-item}}
           {{#content.menu-item onClick=(action "updateStatusFilter" "active")}}<span>Enkel actief</span>{{/content.menu-item}}
         {{/menu.content}}
       {{/paper-menu}}
