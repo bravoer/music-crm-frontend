@@ -9,7 +9,7 @@ COPY . .
 RUN ember build -prod
 
 
-FROM semtech/ember-proxy-service:1.3.0
+FROM semtech/ember-proxy-service:1.4.0
 
 RUN mkdir -p /config && echo "client_max_body_size 100m;" > /config/file-upload.conf
 ENV STATIC_FOLDERS_REGEX "^/(assets|font|files|export|label-printer)/"
