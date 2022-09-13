@@ -11,6 +11,9 @@ You will need the following things properly installed on your computer.
 * [Node.js](https://nodejs.org/) (with NPM)
 * [Ember CLI](https://ember-cli.com/)
 * [PhantomJS](http://phantomjs.org/)
+* [Python](https://www.python.org/)
+* [make](https://www.gnu.org/software/make/)
+* [gcc](https://gcc.gnu.org/)
 
 ## Installation
 
